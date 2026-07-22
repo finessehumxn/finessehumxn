@@ -410,3 +410,58 @@ nav{padding:1rem;}
 
 </body>
 </html>
+<script>
+// Remove old hero bitmoji if exists, inject character
+document.addEventListener('DOMContentLoaded', function() {
+  var heroInner = document.querySelector('.hero-inner');
+  if (!heroInner) return;
+  
+  // Replace right column with character
+  var rightCol = heroInner.children[1];
+  if (rightCol) {
+    rightCol.innerHTML = `
+      <div style="position:relative;display:flex;flex-direction:column;align-items:center;gap:1.5rem;">
+        <div style="position:relative;cursor:pointer;" onclick="this.querySelector('video').play()">
+          <video 
+            src="finesse.mp4" 
+            autoplay 
+            muted 
+            loop 
+            playsinline
+            style="width:280px;height:280px;object-fit:cover;border-radius:24px;border:2px solid rgba(74,222,128,0.3);box-shadow:0 20px 60px rgba(0,0,0,0.4);"
+          ></video>
+          <div style="
+            position:absolute;
+            top:-50px;
+            left:50%;
+            transform:translateX(-50%);
+            background:#0D4855;
+            color:#fff;
+            font-size:13px;
+            font-weight:500;
+            padding:10px 16px;
+            border-radius:16px;
+            white-space:nowrap;
+            box-shadow:0 4px 20px rgba(13,72,85,0.5);
+            border:1px solid rgba(74,222,128,0.3);
+            animation:bob 3s ease-in-out infinite;
+            font-family:'Inter',sans-serif;
+            line-height:1.5;
+            text-align:center;
+            max-width:260px;
+            white-space:normal;
+          ">
+            Hey — I'm Finesse, I build AI that helps everyday humans. Thanks for stopping by my world. 💚
+            <div style="position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);border:8px solid transparent;border-top-color:#0D4855;border-bottom:none;"></div>
+          </div>
+        </div>
+      </div>`;
+  }
+});
+</script>
+<style>
+@keyframes bob {
+  0%,100%{transform:translateX(-50%) translateY(0)}
+  50%{transform:translateX(-50%) translateY(-6px)}
+}
+</style>
