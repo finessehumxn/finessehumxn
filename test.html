@@ -395,3 +395,19 @@ function renderBriefing(b) {
 </script>
 </body>
 </html>
+<style>
+.char-float{position:fixed;bottom:1.5rem;right:1.5rem;z-index:500;display:flex;flex-direction:column;align-items:center;gap:.75rem;}
+.char-bubble-float{background:#0D4855;color:#F5EFE6;font-size:12px;line-height:1.55;padding:11px 15px;border:1px solid rgba(196,168,130,0.3);box-shadow:0 8px 32px rgba(0,0,0,.5);animation:bob 3s ease-in-out infinite;max-width:220px;text-align:center;position:relative;font-family:'Inter',sans-serif;font-weight:300;}
+.char-bubble-float::after{content:'';position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);border:8px solid transparent;border-top-color:#0D4855;border-bottom:none;}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.char-vid-float{width:90px;height:90px;object-fit:cover;border-radius:50%;border:2px solid rgba(196,168,130,0.3);box-shadow:0 8px 32px rgba(0,0,0,.5);cursor:pointer;}
+.char-close{position:absolute;top:-8px;right:-8px;width:22px;height:22px;background:#0A0A08;border:1px solid rgba(196,168,130,0.3);color:rgba(245,239,230,0.6);font-size:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;border-radius:50%;}
+@media(max-width:600px){.char-float{bottom:1rem;right:1rem;}.char-bubble-float{max-width:180px;font-size:11px;}.char-vid-float{width:70px;height:70px;}}
+</style>
+<div class="char-float" id="charFloat">
+  <div style="position:relative;">
+    <div class="char-bubble-float">Hey &#8212; I&#8217;m Finesse. I build AI that helps everyday humans. &#128154;</div>
+    <span class="char-close" onclick="document.getElementById('charFloat').style.display='none'">&#215;</span>
+  </div>
+  <video class="char-vid-float" autoplay muted loop playsinline src="finesse.mp4" onclick="window.location.href='about.html'" onerror="this.style.display='none'"></video>
+</div>
