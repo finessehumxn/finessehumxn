@@ -3,678 +3,618 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>L.Finesse Humxn — AI Engineer, Global Speaker & Mental Health Advocate</title>
-<meta name="description" content="Mental Health in Tech Global Speaker. AI Engineer. Founder of 4 live apps. South Africa, Japan, Vietnam, Facebook HQ. Book me to speak, train, or build." />
+<title>L.Finesse Humxn — AI Engineer · Global Speaker · Mental Health Advocate</title>
+<meta name="description" content="Mental Health in Tech Global Speaker. AI Engineer. Founder of 4 live apps. Helping everyday humans understand AI — one conversation at a time." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
 <style>
 :root{
-  --black:#080807;
-  --dark:#101010;
-  --card:#181816;
-  --nude:#C4A882;
-  --nude-light:#DFC9A8;
-  --nude-dim:rgba(196,168,130,0.08);
-  --nude-border:rgba(196,168,130,0.2);
-  --cream:#F5EFE6;
-  --white:#FDFAF6;
+  --bg:#0C0C0A;
+  --dark:#121210;
+  --card:#1C1C1A;
+  --nude:#C9AE88;
+  --nude2:#B89970;
+  --nude-dim:rgba(201,174,136,0.07);
+  --nude-border:rgba(201,174,136,0.18);
+  --cream:#F2EBE0;
+  --white:#FAF7F2;
   --border:rgba(255,255,255,0.06);
-  --muted:rgba(245,239,230,0.4);
-  --body:rgba(245,239,230,0.68);
+  --muted:rgba(242,235,224,0.38);
+  --body:rgba(242,235,224,0.65);
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:'Inter',sans-serif;background:var(--black);color:var(--cream);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
-h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.1;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--cream);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+img,video{display:block;max-width:100%;}
 a{color:inherit;text-decoration:none;}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:300;padding:.9rem 1.75rem;display:flex;align-items:center;justify-content:space-between;background:rgba(8,8,7,0.95);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
-.logo{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;}
+/* ─── ANNOUNCEMENT BAR ─── */
+.announce{background:var(--nude);color:var(--bg);text-align:center;padding:.55rem 1rem;font-size:12px;font-weight:600;letter-spacing:.03em;}
+.announce a{text-decoration:underline;color:var(--bg);}
+
+/* ─── NAV ─── */
+nav{position:sticky;top:0;z-index:200;background:rgba(12,12,10,0.97);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
+.nav-inner{max-width:1280px;margin:0 auto;padding:.85rem 1.5rem;display:flex;align-items:center;justify-content:space-between;}
+.logo{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;letter-spacing:.01em;color:var(--white);}
 .logo em{color:var(--nude);font-style:italic;}
-.nav-links{display:flex;gap:1.75rem;font-size:13px;color:var(--muted);}
+.nav-links{display:flex;gap:2rem;font-size:13px;color:var(--muted);letter-spacing:.01em;}
 .nav-links a:hover{color:var(--cream);}
-.nav-ctas{display:flex;gap:.5rem;}
-.ncta{font-size:11px;font-weight:700;padding:8px 18px;letter-spacing:.07em;text-transform:uppercase;transition:all .2s;cursor:pointer;}
-.ncta-n{background:var(--nude);color:var(--black);}
-.ncta-n:hover{background:var(--nude-light);}
-.ncta-g{border:1px solid var(--nude-border);color:var(--cream);background:transparent;}
-.ncta-g:hover{border-color:var(--nude);color:var(--nude);}
+.nav-end{display:flex;align-items:center;gap:.75rem;}
+.btn-sm{font-size:11px;font-weight:700;padding:8px 18px;letter-spacing:.07em;text-transform:uppercase;transition:all .2s;}
+.btn-sm-n{background:var(--nude);color:var(--bg);}
+.btn-sm-n:hover{background:var(--nude2);}
+.btn-sm-g{border:1px solid var(--nude-border);color:var(--cream);}
+.btn-sm-g:hover{border-color:var(--nude);color:var(--nude);}
 .ham{display:none;flex-direction:column;gap:5px;cursor:pointer;}
-.ham span{width:22px;height:2px;background:var(--cream);}
-.mob-nav{display:none;position:fixed;inset:0;top:57px;background:rgba(8,8,7,.98);z-index:299;flex-direction:column;padding:2rem 1.75rem;}
-.mob-nav.open{display:flex;}
-.mn-a{padding:1rem 0;border-bottom:1px solid var(--border);font-size:1.1rem;font-family:'Cormorant Garamond',serif;font-weight:600;}
-.mn-a:hover{color:var(--nude);}
-.mn-btns{display:flex;flex-direction:column;gap:.5rem;margin-top:1.5rem;}
-.mn-btn{padding:14px;text-align:center;font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;}
-.mn-btn-n{background:var(--nude);color:var(--black);}
-.mn-btn-o{border:1px solid var(--nude-border);color:var(--cream);}
+.ham span{width:22px;height:1.5px;background:var(--cream);}
+.mob-menu{display:none;position:fixed;inset:0;top:48px;background:rgba(12,12,10,.98);z-index:199;flex-direction:column;padding:2.5rem 1.5rem;}
+.mob-menu.open{display:flex;}
+.mm-link{padding:1.1rem 0;border-bottom:1px solid var(--border);font-size:1.15rem;font-family:'Cormorant Garamond',serif;font-weight:600;}
+.mm-link:hover{color:var(--nude);}
+.mm-actions{display:flex;flex-direction:column;gap:.6rem;margin-top:2rem;}
+.mm-btn{padding:14px;text-align:center;font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;}
+.mm-btn-n{background:var(--nude);color:var(--bg);}
+.mm-btn-o{border:1px solid var(--nude-border);color:var(--cream);}
 
-/* HERO — full screen with clean overlay */
+/* ─── HERO ─── */
 .hero{position:relative;height:100svh;min-height:640px;overflow:hidden;}
-.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;}
-/* Strong gradient overlay so text is always readable */
-.hero-overlay{
-  position:absolute;inset:0;z-index:1;
-  background:linear-gradient(
-    135deg,
-    rgba(8,8,7,0.92) 0%,
-    rgba(8,8,7,0.75) 40%,
-    rgba(8,8,7,0.45) 70%,
-    rgba(8,8,7,0.3) 100%
-  );
-}
-.hero-content{
-  position:absolute;inset:0;z-index:2;
-  display:flex;flex-direction:column;justify-content:flex-end;
-  padding:0 1.75rem 2.5rem;
-}
-.htags{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.1rem;}
-.htag{font-size:10px;font-weight:700;padding:4px 12px;letter-spacing:.1em;text-transform:uppercase;backdrop-filter:blur(10px);}
-.ht-n{background:rgba(196,168,130,0.15);border:1px solid var(--nude-border);color:var(--nude);}
-.ht-w{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.6);}
-h1{font-size:clamp(2.75rem,9vw,6.5rem);font-weight:700;color:var(--white);line-height:.93;letter-spacing:-.03em;margin-bottom:1.1rem;text-shadow:0 2px 40px rgba(0,0,0,.5);}
-h1 em{font-style:italic;color:var(--nude);font-weight:400;}
-.hero-desc{font-size:15px;color:rgba(255,255,255,.75);line-height:1.75;margin-bottom:1.75rem;max-width:520px;font-weight:300;text-shadow:0 1px 20px rgba(0,0,0,.5);}
-.hero-desc strong{color:#fff;font-weight:500;}
-.hero-btns{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.5rem;max-width:400px;}
-.hbtn{display:flex;align-items:center;justify-content:center;gap:7px;padding:14px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;transition:all .2s;backdrop-filter:blur(10px);}
-.hbtn-n{background:var(--nude);color:var(--black);}
-.hbtn-n:hover{background:var(--nude-light);}
-.hbtn-o{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff;}
-.hbtn-o:hover{background:rgba(255,255,255,.18);}
-.hbtn-row{display:flex;gap:.5rem;}
-.hbtn-half{flex:1;}
-.hero-soc{display:flex;gap:.4rem;flex-wrap:wrap;}
-.hsoc{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:rgba(255,255,255,.5);padding:5px 11px;border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(10px);}
-.hsoc:hover{color:#fff;border-color:rgba(255,255,255,.3);}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;}
+.hero-grad{position:absolute;inset:0;background:linear-gradient(160deg,rgba(12,12,10,.88) 0%,rgba(12,12,10,.6) 45%,rgba(12,12,10,.25) 100%);}
+.hero-body{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:2rem 1.5rem 3.5rem;}
+.hero-kicker{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--nude);margin-bottom:1rem;}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,10vw,7rem);font-weight:300;line-height:.9;letter-spacing:-.03em;color:var(--white);margin-bottom:1.25rem;}
+h1 strong{font-weight:600;}
+h1 em{font-style:italic;color:var(--nude);}
+.hero-tagline{font-size:15px;color:var(--body);line-height:1.75;max-width:480px;margin-bottom:2rem;font-weight:300;}
+.hero-tagline strong{color:var(--cream);font-weight:500;}
+.hero-actions{display:flex;flex-direction:column;gap:.5rem;max-width:380px;}
+.btn-lg{display:flex;align-items:center;justify-content:center;gap:8px;padding:15px 24px;font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;transition:all .2s;}
+.btn-lg-n{background:var(--nude);color:var(--bg);}
+.btn-lg-n:hover{background:var(--nude2);}
+.btn-lg-o{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:var(--white);}
+.btn-lg-o:hover{background:rgba(255,255,255,.14);}
+.btn-row{display:flex;gap:.5rem;}
+.btn-half{flex:1;}
+.hero-soc{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:1.5rem;}
+.hs{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:rgba(255,255,255,.4);padding:5px 10px;border:1px solid rgba(255,255,255,.1);}
+.hs:hover{color:var(--cream);border-color:rgba(255,255,255,.2);}
 
-/* SCROLL INDICATOR */
-.scroll-ind{position:absolute;bottom:1.5rem;right:1.75rem;z-index:2;display:flex;align-items:center;gap:.5rem;font-size:10px;color:rgba(255,255,255,.4);letter-spacing:.08em;text-transform:uppercase;}
-.scroll-line{width:40px;height:1px;background:rgba(255,255,255,.3);}
+/* ─── TICKER ─── */
+.ticker{background:var(--nude-dim);border-top:1px solid var(--nude-border);border-bottom:1px solid var(--nude-border);padding:0;overflow:hidden;white-space:nowrap;}
+.ticker-inner{display:inline-flex;animation:ticker 30s linear infinite;}
+.ticker-inner:hover{animation-play-state:paused;}
+.tick-item{padding:.7rem 2rem;font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--nude);border-right:1px solid var(--nude-border);}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* PROOF STRIP */
-.proof{background:rgba(196,168,130,.05);border-top:1px solid var(--nude-border);border-bottom:1px solid var(--nude-border);overflow-x:auto;scrollbar-width:none;}
-.proof::-webkit-scrollbar{display:none;}
-.proof-inner{display:flex;min-width:max-content;}
-.pi{padding:.8rem 1.25rem;text-align:center;border-right:1px solid var(--border);white-space:nowrap;}
-.pi:last-child{border-right:none;}
-.pi-n{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:var(--nude);line-height:1;}
-.pi-l{font-size:9px;color:var(--muted);margin-top:2px;letter-spacing:.05em;text-transform:uppercase;}
+/* ─── STATEMENT ─── */
+.statement{padding:5rem 1.5rem;text-align:center;}
+.s-inner{max-width:800px;margin:0 auto;}
+.s-label{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--nude);margin-bottom:1.25rem;}
+.s-text{font-family:'Cormorant Garamond',serif;font-size:clamp(1.85rem,5vw,3rem);font-weight:300;color:var(--white);line-height:1.25;margin-bottom:1.75rem;}
+.s-text em{font-style:italic;color:var(--nude);}
+.s-text strong{font-weight:600;}
+.s-sub{font-size:15px;color:var(--body);line-height:1.85;font-weight:300;max-width:560px;margin:0 auto 2rem;}
+.s-sub strong{color:var(--cream);font-weight:500;}
+.btn-nude{display:inline-flex;align-items:center;gap:7px;padding:12px 26px;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;background:var(--nude);color:var(--bg);transition:background .2s;}
+.btn-nude:hover{background:var(--nude2);}
+.btn-ghost{display:inline-flex;align-items:center;gap:7px;padding:12px 22px;font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;border:1px solid var(--nude-border);color:var(--cream);transition:all .2s;}
+.btn-ghost:hover{border-color:var(--nude);color:var(--nude);}
 
-/* IDENTITY STATEMENT */
-.identity{padding:4.5rem 1.75rem;text-align:center;max-width:860px;margin:0 auto;}
-.ey{font-size:10px;color:var(--nude);text-transform:uppercase;letter-spacing:.14em;font-weight:700;margin-bottom:.75rem;}
-.sh{font-size:clamp(2rem,6vw,3rem);font-weight:600;color:var(--white);margin-bottom:.85rem;}
-.sh em{color:var(--nude);font-style:italic;font-weight:400;}
-.id-p{font-size:15px;color:var(--body);line-height:1.9;margin-bottom:1.75rem;font-weight:300;}
-.id-p strong{color:var(--cream);font-weight:500;}
-.btn-c{display:inline-flex;align-items:center;gap:7px;padding:13px 26px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--nude);color:var(--black);transition:all .2s;}
-.btn-c:hover{background:var(--nude-light);}
+/* ─── STAGES GRID ─── */
+.stages{padding:0 1.5rem 5rem;}
+.stages-label{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--nude);margin-bottom:1.5rem;padding-top:1rem;border-top:1px solid var(--border);}
 
-/* PRESS */
-.press{padding:1.5rem 1.75rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
-.press-lbl{font-size:9px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;text-align:center;margin-bottom:.85rem;}
-.press-scroll{display:flex;gap:.5rem;overflow-x:auto;scrollbar-width:none;flex-wrap:nowrap;}
-.press-scroll::-webkit-scrollbar{display:none;}
-.pl{font-size:12px;font-weight:600;color:rgba(245,239,230,.28);padding:.4rem 1rem;border:1px solid var(--border);white-space:nowrap;flex-shrink:0;transition:all .2s;}
-.pl:hover{color:var(--nude);border-color:var(--nude-border);}
-
-/* STAGES */
-.stages-section{padding:4rem 1.75rem;}
-.section-header{margin-bottom:1.75rem;}
-.divider{border:none;border-top:1px solid var(--border);}
-
-/* MOBILE: masonry-style grid */
-.stages-mob{display:grid;grid-template-columns:1fr 1fr;gap:3px;}
+/* Mobile — 2col masonry */
+.stages-mob{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
 .sc{position:relative;overflow:hidden;background:var(--card);}
-.sc.r2{grid-row:span 2;}
-.sc.c2{grid-column:span 2;}
-/* Aspect ratios that look good with real footage */
-.sc:not(.r2):not(.c2){aspect-ratio:1/1;}
-.sc.r2{aspect-ratio:9/18;}
-.sc.c2{aspect-ratio:16/8;}
-.sm{width:100%;height:100%;object-fit:cover;object-position:center;display:block;position:absolute;inset:0;}
-/* Face-up positioning for portrait shots */
-.sm.top{object-position:center 20%;}
-.sm.mid{object-position:center 40%;}
-.s-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,7,.88) 0%,rgba(8,8,7,.1) 50%,transparent 100%);}
-.s-info{position:absolute;bottom:0;left:0;right:0;padding:.85rem .9rem;}
-.s-loc{font-size:9px;color:var(--nude);font-weight:700;letter-spacing:.09em;text-transform:uppercase;margin-bottom:.2rem;}
-.s-cap{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--white);line-height:1.25;}
+.sc.tall{grid-row:span 2;}
+.sc.wide{grid-column:span 2;}
+.sc:not(.tall):not(.wide){aspect-ratio:1;}
+.sc.tall{aspect-ratio:1/2;}
+.sc.wide{aspect-ratio:2/1;}
+.sc-m{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;}
+.sc-m.top{object-position:center 15%;}
+.sc-m.mid{object-position:center 35%;}
+.sc-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(12,12,10,.9) 0%,rgba(12,12,10,.05) 50%,transparent 100%);}
+.sc-info{position:absolute;bottom:0;left:0;right:0;padding:.75rem .85rem;}
+.sc-loc{font-size:9px;color:var(--nude);font-weight:700;letter-spacing:.09em;text-transform:uppercase;margin-bottom:.2rem;}
+.sc-cap{font-family:'Cormorant Garamond',serif;font-size:.95rem;font-weight:600;color:var(--white);line-height:1.2;}
 
-/* DESKTOP stages */
-.stages-desk{display:none;grid-template-columns:repeat(12,1fr);grid-auto-rows:180px;gap:3px;}
+/* Desktop stages */
+.stages-desk{display:none;grid-template-columns:repeat(12,1fr);grid-auto-rows:200px;gap:2px;}
 .sd{position:relative;overflow:hidden;background:var(--card);}
-.sd.col3{grid-column:span 3;}
-.sd.col4{grid-column:span 4;}
-.sd.col5{grid-column:span 5;}
-.sd.col6{grid-column:span 6;}
-.sd.col7{grid-column:span 7;}
-.sd.row2{grid-row:span 2;}
-.sd .sm{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;}
-.sd .sm.top{object-position:center 20%;}
-.sd .s-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,7,.88) 0%,rgba(8,8,7,.05) 50%,transparent 100%);}
-.sd .s-info{position:absolute;bottom:0;left:0;right:0;padding:1.1rem;}
-.sd .s-loc{font-size:9px;color:var(--nude);font-weight:700;letter-spacing:.09em;text-transform:uppercase;margin-bottom:.25rem;}
-.sd .s-cap{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--white);line-height:1.25;}
-.sd:hover .sm{transform:scale(1.03);transition:transform .5s;}
+.sd:hover .sc-m{transform:scale(1.04);transition:transform .5s;}
+.c4{grid-column:span 4;}
+.c5{grid-column:span 5;}
+.c6{grid-column:span 6;}
+.c7{grid-column:span 7;}
+.c8{grid-column:span 8;}
+.r2{grid-row:span 2;}
 
-/* LIFE IN MOTION */
-.life-section{padding:4rem 1.75rem;}
-.life-mob{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-bottom:1.5rem;}
-.lc{position:relative;overflow:hidden;background:var(--card);aspect-ratio:9/16;}
-.lc.wide{grid-column:span 3;aspect-ratio:16/7;}
-.lm{width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
-.lm.top{object-position:center top;}
-.l-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,7,.8),transparent 60%);}
-.l-lbl{position:absolute;bottom:.6rem;left:.6rem;font-size:9px;color:var(--nude);font-weight:700;letter-spacing:.09em;text-transform:uppercase;}
-.life-text{font-size:14px;color:var(--body);line-height:1.85;font-weight:300;}
-.life-text strong{color:var(--cream);font-weight:500;}
-.life-desk{display:none;}
+/* ─── WORKSHOP CTA ─── */
+.ws-cta{background:var(--card);border-top:1px solid var(--nude-border);border-bottom:1px solid var(--nude-border);}
+.ws-inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;align-items:center;padding:4rem 1.5rem;text-align:center;}
+.ws-tag{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--nude);margin-bottom:1.25rem;}
+.ws-h{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,6vw,3.5rem);font-weight:300;color:var(--white);margin-bottom:.75rem;}
+.ws-h em{font-style:italic;color:var(--nude);}
+.ws-p{font-size:15px;color:var(--body);line-height:1.8;max-width:560px;margin-bottom:2rem;}
+.ws-form{display:flex;flex-direction:column;gap:.5rem;width:100%;max-width:440px;}
+.wf-in{width:100%;padding:13px 16px;background:var(--dark);border:1px solid var(--border);color:var(--cream);font-family:'Inter',sans-serif;font-size:14px;outline:none;border-radius:0;-webkit-appearance:none;}
+.wf-in:focus{border-color:var(--nude);}
+.wf-in::placeholder{color:var(--muted);}
+.wf-btn{background:var(--nude);color:var(--bg);padding:14px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border:none;cursor:pointer;font-family:'Inter',sans-serif;border-radius:0;transition:background .2s;}
+.wf-btn:hover{background:var(--nude2);}
+.wf-note{font-size:11px;color:var(--muted);}
 
-/* WORKSHOP */
-.ws-section{background:var(--card);border-top:1px solid var(--nude-border);border-bottom:1px solid var(--nude-border);padding:4rem 1.75rem;}
-.ws-learns{display:flex;flex-direction:column;gap:.6rem;margin:1.25rem 0 1.75rem;}
-.wl{display:flex;align-items:flex-start;gap:.6rem;font-size:14px;color:var(--body);}
-.wl i{color:var(--nude);flex-shrink:0;margin-top:1px;}
-.ws-form{background:var(--dark);border:1px solid var(--nude-border);padding:1.75rem;margin-top:2rem;}
-.wft{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--white);margin-bottom:.35rem;}
-.wfs{font-size:13px;color:var(--muted);margin-bottom:1.5rem;line-height:1.6;}
-.fi{width:100%;padding:13px 15px;background:var(--black);border:1px solid var(--border);color:var(--cream);font-family:'Inter',sans-serif;font-size:14px;outline:none;margin-bottom:.65rem;border-radius:0;-webkit-appearance:none;}
-.fi:focus{border-color:var(--nude);}
-.fi::placeholder{color:var(--muted);}
-.ws-sub{width:100%;background:var(--nude);color:var(--black);padding:14px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border:none;cursor:pointer;font-family:'Inter',sans-serif;border-radius:0;transition:background .2s;}
-.ws-sub:hover{background:var(--nude-light);}
-.ws-note{font-size:11px;color:var(--muted);text-align:center;margin-top:.6rem;}
+/* ─── LIFE STRIP ─── */
+.life{padding:5rem 0;}
+.life-label{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--nude);padding:0 1.5rem;margin-bottom:1.5rem;}
+.life-scroll{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+.life-scroll::-webkit-scrollbar{display:none;}
+.lc{position:relative;flex-shrink:0;overflow:hidden;background:var(--card);}
+.lc-v{width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
+.lc-v.top{object-position:center top;}
+.lc-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(12,12,10,.8),transparent 55%);}
+.lc-lbl{position:absolute;bottom:.65rem;left:.65rem;font-size:9px;color:var(--nude);font-weight:700;letter-spacing:.09em;text-transform:uppercase;}
 
-/* TESTIMONIALS */
-.testi-mob{display:flex;gap:3px;overflow-x:auto;scrollbar-width:none;scroll-snap-type:x mandatory;}
+/* ─── TESTIMONIALS ─── */
+.testis{padding:5rem 1.5rem;}
+.testis-inner{max-width:1100px;margin:0 auto;}
+.testis-label{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--nude);margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);}
+.testi-mob{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;}
 .testi-mob::-webkit-scrollbar{display:none;}
-.ts{background:var(--dark);padding:2rem 1.5rem;flex-shrink:0;width:82vw;max-width:320px;scroll-snap-align:start;}
-.tq{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;color:var(--body);line-height:1.75;margin-bottom:1.1rem;}
-.tq::before{content:'\201C';font-size:2rem;color:var(--nude);line-height:0;vertical-align:-.35rem;margin-right:3px;}
+.tcard{background:var(--card);padding:2rem 1.75rem;flex-shrink:0;width:82vw;max-width:340px;}
+.tq{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;color:var(--body);line-height:1.8;margin-bottom:1.25rem;}
+.tq::before{content:'\201C';font-size:2rem;color:var(--nude);line-height:0;vertical-align:-.35rem;margin-right:2px;}
 .ta{font-size:13px;font-weight:600;color:var(--cream);}
 .tr{font-size:11px;color:var(--muted);margin-top:2px;}
-.testi-desk{display:none;}
-.swipe-hint{font-size:11px;color:var(--muted);margin-top:.6rem;display:flex;align-items:center;gap:.35rem;}
+.testi-desk{display:none;grid-template-columns:repeat(3,1fr);gap:2px;}
 
-/* YOUTUBE */
-.yt-section{background:var(--dark);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:4rem 1.75rem;}
-.yt-num{font-family:'Cormorant Garamond',serif;font-size:4.5rem;font-weight:600;color:var(--nude);line-height:1;}
-.yt-sub{font-size:10px;color:var(--muted);letter-spacing:.09em;text-transform:uppercase;margin-bottom:1rem;}
-.yt-h{font-size:clamp(1.75rem,5vw,2.25rem);font-weight:600;color:var(--white);margin-bottom:.6rem;}
-.yt-p{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:1.5rem;}
-.yt-btn{display:inline-flex;align-items:center;gap:7px;background:#FF0000;color:#fff;padding:12px 22px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:1.75rem;}
+/* ─── YOUTUBE ─── */
+.yt-section{background:var(--dark);border-top:1px solid var(--border);padding:5rem 1.5rem;}
+.yt-inner{max-width:1100px;margin:0 auto;}
+.yt-top{margin-bottom:2rem;}
+.yt-kicker{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--nude);margin-bottom:.85rem;}
+.yt-h{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3rem);font-weight:300;color:var(--white);margin-bottom:.5rem;}
+.yt-h em{font-style:italic;color:var(--nude);}
+.yt-p{font-size:14px;color:var(--body);line-height:1.8;max-width:480px;margin-bottom:1.25rem;}
+.yt-btn{display:inline-flex;align-items:center;gap:6px;background:#FF0000;color:#fff;padding:11px 20px;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;}
 .yt-frame{aspect-ratio:16/9;border:1px solid var(--border);}
-.yt-frame iframe{width:100%;height:100%;border:none;display:block;}
-.yt-inner{display:block;}
+.yt-frame iframe{width:100%;height:100%;border:none;}
 
-/* PRODUCTS */
-.prod-mob{display:flex;gap:3px;overflow-x:auto;scrollbar-width:none;scroll-snap-type:x mandatory;}
-.prod-mob::-webkit-scrollbar{display:none;}
-.pc{background:var(--dark);padding:1.5rem;flex-shrink:0;width:70vw;max-width:250px;scroll-snap-align:start;}
-.pst{font-size:10px;font-weight:700;padding:3px 9px;display:inline-block;letter-spacing:.05em;text-transform:uppercase;margin-bottom:.5rem;}
-.ps-l{background:rgba(196,168,130,.08);color:var(--nude);border:1px solid var(--nude-border);}
+/* ─── PRODUCTS ─── */
+.products{padding:5rem 0;}
+.products-label{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--nude);padding:0 1.5rem;margin-bottom:1.5rem;}
+.prod-scroll{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;}
+.prod-scroll::-webkit-scrollbar{display:none;}
+.pc{background:var(--card);padding:1.75rem;flex-shrink:0;width:72vw;max-width:260px;border-top:2px solid var(--nude-border);}
+.pc:hover{border-top-color:var(--nude);}
+.pst{font-size:9px;font-weight:700;padding:3px 9px;letter-spacing:.07em;text-transform:uppercase;margin-bottom:.6rem;display:inline-block;}
+.ps-l{background:rgba(201,174,136,.08);color:var(--nude);border:1px solid var(--nude-border);}
 .ps-d{background:rgba(255,255,255,.04);color:var(--muted);border:1px solid var(--border);}
-.pn{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;margin-bottom:.3rem;color:var(--cream);}
-.pd{font-size:12px;color:var(--muted);line-height:1.65;margin-bottom:.75rem;}
-.pb{font-size:10px;font-weight:600;padding:3px 8px;display:inline-flex;align-items:center;gap:3px;margin-right:.3rem;margin-bottom:.3rem;}
-.pb-i{background:rgba(255,255,255,.05);color:rgba(245,239,230,.55);border:1px solid var(--border);}
-.pb-a{background:rgba(196,168,130,.07);color:var(--nude);border:1px solid var(--nude-border);}
-.plink{font-size:11px;color:var(--nude);display:inline-flex;align-items:center;gap:3px;margin-top:.4rem;}
+.pn{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;margin-bottom:.3rem;color:var(--white);}
+.pd{font-size:12px;color:var(--muted);line-height:1.65;margin-bottom:.85rem;}
+.pb{font-size:10px;font-weight:600;padding:3px 8px;display:inline-flex;align-items:center;gap:3px;margin-right:.25rem;margin-bottom:.25rem;}
+.pb-i{background:rgba(255,255,255,.05);color:rgba(242,235,224,.5);border:1px solid var(--border);}
+.pb-a{background:var(--nude-dim);color:var(--nude);border:1px solid var(--nude-border);}
+.plink{font-size:11px;color:var(--nude);display:inline-flex;align-items:center;gap:3px;margin-top:.4rem;font-weight:500;}
 .prod-desk{display:none;}
 
-/* EMAIL */
-.email-section{background:var(--card);border-top:1px solid var(--nude-border);border-bottom:1px solid var(--nude-border);padding:4rem 1.75rem;text-align:center;}
-.email-inner{max-width:480px;margin:0 auto;}
-.email-h{font-size:clamp(2rem,6vw,2.75rem);font-weight:600;color:var(--white);margin-bottom:.65rem;}
-.email-h em{color:var(--nude);font-style:italic;font-weight:400;}
-.email-p{font-size:14px;color:var(--muted);margin-bottom:1.75rem;line-height:1.8;}
-.email-form{display:flex;flex-direction:column;gap:.5rem;}
-.ei{width:100%;padding:14px 18px;background:var(--dark);border:1px solid rgba(196,168,130,.2);color:var(--cream);font-family:'Inter',sans-serif;font-size:14px;outline:none;border-radius:0;-webkit-appearance:none;}
-.ei::placeholder{color:var(--muted);}
-.ei:focus{border-color:var(--nude);}
-.esub{width:100%;background:var(--nude);color:var(--black);padding:15px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border:none;cursor:pointer;font-family:'Inter',sans-serif;border-radius:0;transition:background .2s;}
-.esub:hover{background:var(--nude-light);}
-.soc-r{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;}
-.sf{display:inline-flex;align-items:center;gap:5px;font-size:12px;color:var(--muted);padding:6px 12px;border:1px solid var(--border);}
-.sf:hover{color:var(--cream);border-color:rgba(196,168,130,.2);}
+/* ─── EMAIL ─── */
+.email-section{background:var(--card);border-top:1px solid var(--nude-border);border-bottom:1px solid var(--nude-border);padding:5rem 1.5rem;text-align:center;}
+.em-inner{max-width:480px;margin:0 auto;}
+.em-kicker{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--nude);margin-bottom:1rem;}
+.em-h{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,2.75rem);font-weight:300;color:var(--white);margin-bottom:.65rem;}
+.em-h em{font-style:italic;color:var(--nude);}
+.em-p{font-size:14px;color:var(--muted);margin-bottom:1.75rem;line-height:1.8;}
+.em-form{display:flex;flex-direction:column;gap:.5rem;}
+.em-in{width:100%;padding:13px 16px;background:var(--dark);border:1px solid var(--border);color:var(--cream);font-family:'Inter',sans-serif;font-size:14px;outline:none;border-radius:0;-webkit-appearance:none;}
+.em-in::placeholder{color:var(--muted);}
+.em-in:focus{border-color:var(--nude);}
+.em-btn{background:var(--nude);color:var(--bg);padding:14px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border:none;cursor:pointer;font-family:'Inter',sans-serif;border-radius:0;transition:background .2s;}
+.em-btn:hover{background:var(--nude2);}
+.soc-row{display:flex;gap:.4rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;}
+.sf{display:inline-flex;align-items:center;gap:4px;font-size:12px;color:var(--muted);padding:6px 12px;border:1px solid var(--border);}
+.sf:hover{color:var(--cream);border-color:var(--nude-border);}
 
-/* FINAL CTA */
-.final-cta{padding:5rem 1.75rem;text-align:center;}
-.fc-h{font-size:clamp(2.5rem,8vw,4.5rem);font-weight:600;color:var(--white);margin-bottom:.85rem;line-height:.95;}
-.fc-h em{color:var(--nude);font-style:italic;font-weight:400;}
-.fc-p{font-size:15px;color:var(--muted);margin-bottom:2rem;line-height:1.85;}
+/* ─── HOW TO WORK ─── */
+.work-section{padding:5rem 1.5rem;}
+.work-inner{max-width:1100px;margin:0 auto;}
+.work-kicker{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--nude);margin-bottom:1.25rem;}
+.work-h{font-family:'Cormorant Garamond',serif;font-size:clamp(1.85rem,5vw,2.75rem);font-weight:300;color:var(--white);margin-bottom:2.5rem;}
+.work-h em{font-style:italic;color:var(--nude);}
+.work-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--border);}
+.wc{background:var(--dark);padding:1.75rem;display:flex;align-items:flex-start;gap:1.25rem;}
+.wc-num{font-family:'Cormorant Garamond',serif;font-size:2.25rem;font-weight:300;color:var(--nude-border);flex-shrink:0;line-height:1;width:44px;}
+.wc-title{font-size:14px;font-weight:600;color:var(--cream);margin-bottom:.3rem;}
+.wc-desc{font-size:13px;color:var(--muted);line-height:1.7;}
+.wc-price{font-size:11px;color:var(--nude);font-weight:600;margin-top:.5rem;letter-spacing:.04em;}
+
+/* ─── CTA ─── */
+.final-cta{padding:6rem 1.5rem;text-align:center;}
+.fc-inner{max-width:600px;margin:0 auto;}
+.fc-kicker{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--nude);margin-bottom:1.25rem;}
+.fc-h{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,8vw,5rem);font-weight:300;color:var(--white);line-height:.95;margin-bottom:1.25rem;}
+.fc-h em{font-style:italic;color:var(--nude);}
+.fc-h strong{font-weight:600;}
+.fc-p{font-size:15px;color:var(--body);line-height:1.85;margin-bottom:2.25rem;}
 .fc-btns{display:flex;flex-direction:column;gap:.5rem;}
-.fcb{display:flex;align-items:center;justify-content:center;gap:7px;padding:14px;font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;transition:all .2s;}
-.fcb-n{background:var(--nude);color:var(--black);}
-.fcb-n:hover{background:var(--nude-light);}
-.fcb-o{border:1px solid var(--nude-border);color:var(--cream);}
-.fcb-o:hover{border-color:var(--nude);color:var(--nude);}
 
-/* FOOTER */
-footer{padding:1.75rem 1.75rem;border-top:1px solid var(--border);}
-.ft{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;margin-bottom:.85rem;}
-.fl{font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--muted);}
-.flinks{display:flex;gap:1.25rem;font-size:12px;color:var(--muted);flex-wrap:wrap;}
-.flinks a:hover{color:var(--cream);}
-.fcopy{font-size:11px;color:var(--muted);}
+/* ─── FOOTER ─── */
+footer{padding:2rem 1.5rem;border-top:1px solid var(--border);}
+.ft-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem;margin-bottom:1.25rem;}
+.ft-logo{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:var(--muted);}
+.ft-logo em{color:var(--nude);font-style:italic;}
+.ft-links{display:flex;gap:1.25rem;font-size:12px;color:var(--muted);flex-wrap:wrap;}
+.ft-links a:hover{color:var(--cream);}
+.ft-copy{font-size:11px;color:var(--muted);}
 
-/* CHARACTER */
-.char-wrap{position:fixed;bottom:1.25rem;right:1.25rem;z-index:500;display:flex;flex-direction:column;align-items:center;gap:.6rem;}
-.char-bub{background:#0D3D4A;color:var(--cream);font-size:12px;line-height:1.55;padding:10px 14px;border:1px solid var(--nude-border);box-shadow:0 8px 32px rgba(0,0,0,.6);animation:bob 3.5s ease-in-out infinite;max-width:200px;text-align:center;position:relative;font-weight:300;}
+/* ─── CHARACTER ─── */
+.char{position:fixed;bottom:1.25rem;right:1.25rem;z-index:500;display:flex;flex-direction:column;align-items:center;gap:.6rem;}
+.char-bub{background:#0D3D4A;color:var(--cream);font-size:12px;line-height:1.55;padding:10px 14px;border:1px solid var(--nude-border);box-shadow:0 8px 32px rgba(0,0,0,.6);animation:bob 3.5s ease-in-out infinite;max-width:190px;text-align:center;position:relative;font-weight:300;}
 .char-bub::after{content:'';position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);border:8px solid transparent;border-top-color:#0D3D4A;border-bottom:none;}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-.char-v{width:80px;height:80px;object-fit:cover;object-position:center top;border-radius:50%;border:2px solid var(--nude-border);box-shadow:0 8px 32px rgba(0,0,0,.5);cursor:pointer;display:block;}
-.char-x{position:absolute;top:-7px;right:-7px;width:20px;height:20px;background:var(--black);border:1px solid var(--nude-border);color:var(--muted);font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center;border-radius:50%;}
+.char-vid{width:78px;height:78px;object-fit:cover;object-position:center top;border-radius:50%;border:2px solid var(--nude-border);box-shadow:0 8px 32px rgba(0,0,0,.5);cursor:pointer;}
+.char-x{position:absolute;top:-7px;right:-7px;width:20px;height:20px;background:var(--bg);border:1px solid var(--nude-border);color:var(--muted);font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center;border-radius:50%;}
 
-/* DESKTOP */
+/* ─── DESKTOP ─── */
 @media(min-width:768px){
-  nav{padding:1rem 2.5rem;}
-  .ham,.mob-nav{display:none !important;}
-  .nav-links,.nav-ctas{display:flex;}
-  .hero-content{padding:0 2.5rem 4rem;max-width:920px;}
-  .hero-btns{flex-direction:row;flex-wrap:wrap;max-width:none;}
-  .hbtn{width:auto;flex:none;}
-  .hbtn-row{flex:none;}
-  .hbtn-half{flex:none;padding:14px 22px;}
-  .proof{overflow-x:visible;}
-  .proof-inner{min-width:auto;max-width:1300px;margin:0 auto;}
-  .identity{padding:6rem 2.5rem;}
-  .press{padding:2rem 2.5rem;}
-  .press-scroll{flex-wrap:wrap;justify-content:center;overflow-x:visible;}
-  .stages-section,.life-section{padding:6rem 2.5rem;max-width:1300px;margin:0 auto;}
+  .ham,.mob-menu{display:none !important;}
+  .nav-links,.nav-end{display:flex;}
+  .nav-inner{padding:.85rem 2.5rem;}
+  .hero-body{padding:0 2.5rem 5rem;max-width:900px;}
+  .hero-actions{flex-direction:row;flex-wrap:wrap;max-width:none;}
+  .btn-lg{width:auto;}
+  .btn-row{flex:none;}
+  .btn-half{padding:15px 22px;flex:none;}
+  .statement{padding:7rem 2.5rem;}
+  .stages{padding:0 2.5rem 7rem;}
   .stages-mob{display:none;}
   .stages-desk{display:grid;}
-  .life-mob{display:none;}
-  .life-desk{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;}
-  .life-vids{display:grid;grid-template-columns:1fr 1fr;gap:3px;}
-  .lvc{position:relative;overflow:hidden;background:var(--card);}
-  .lvc:not(.tall){aspect-ratio:4/3;}
-  .lvc.tall{grid-row:span 2;aspect-ratio:9/16;}
-  .lvc .lm{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;}
-  .lvc.top .lm{object-position:center top;}
-  .lvc .l-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,7,.75),transparent 60%);}
-  .lvc .l-lbl{position:absolute;bottom:.75rem;left:.75rem;font-size:9px;color:var(--nude);font-weight:700;letter-spacing:.09em;text-transform:uppercase;}
-  .ws-section{padding:5rem 2.5rem;}
-  .ws-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
-  .ws-form{margin-top:0;}
+  .life{padding:7rem 0;}
+  .life-label{padding:0 2.5rem;}
+  .products{padding:7rem 0;}
+  .products-label{padding:0 2.5rem;}
+  .prod-scroll{display:none;}
+  .prod-desk{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:2px;background:var(--border);padding:0 0;}
+  .prod-desk .pc{width:auto;max-width:none;}
+  .testis{padding:7rem 2.5rem;}
   .testi-mob{display:none;}
-  .testi-desk{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
-  .ts-d{background:var(--dark);padding:2.5rem 2rem;}
-  .prod-mob{display:none;}
-  .prod-desk{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1px;background:var(--border);}
-  .prod-desk .pc{width:auto;max-width:none;scroll-snap-align:none;}
-  .email-form{flex-direction:row;}
-  .ei{flex:1;}
-  .esub{width:auto;}
-  .yt-section{padding:6rem 2.5rem;}
-  .yt-inner{display:grid;grid-template-columns:1fr 1.2fr;gap:4rem;align-items:center;}
-  .final-cta{padding:7rem 2.5rem;}
+  .testi-desk{display:grid;}
+  .yt-section{padding:7rem 2.5rem;}
+  .yt-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:3.5rem;align-items:center;}
+  .work-section{padding:7rem 2.5rem;}
+  .work-grid{grid-template-columns:1fr 1fr;}
+  .ws-inner{padding:5rem 2.5rem;}
+  .ws-form{flex-direction:row;max-width:520px;}
+  .wf-in{flex:1;}
+  .wf-btn{width:auto;}
+  .email-section{padding:7rem 2.5rem;}
+  .em-form{flex-direction:row;}
+  .em-in{flex:1;}
+  .em-btn{width:auto;}
+  .final-cta{padding:8rem 2.5rem;}
   .fc-btns{flex-direction:row;justify-content:center;}
-  .fcb{padding:14px 26px;}
-  footer{padding:2rem 2.5rem;}
-  .char-v{width:88px;height:88px;}
+  footer{padding:2.5rem 2.5rem;}
+  .char-vid{width:86px;height:86px;}
 }
 @media(max-width:767px){
-  .nav-links,.nav-ctas{display:none;}
+  .nav-links,.nav-end{display:none;}
   .ham{display:flex;}
 }
 </style>
 </head>
 <body>
 
+<!-- ANNOUNCE -->
+<div class="announce">&#127775; Free live workshop — <a href="workshop.html">How to Use AI to Build, Speak & Get Paid. Save your seat.</a></div>
+
 <!-- NAV -->
 <nav>
-  <a href="index.html" class="logo">L.<em>Finesse</em> Humxn</a>
-  <div class="nav-links">
-    <a href="workshop.html">Free Workshop</a>
-    <a href="learn.html">Learn</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">L.<em>Finesse</em> Humxn</a>
+    <div class="nav-links">
+      <a href="workshop.html">Free Workshop</a>
+      <a href="learn.html">Learn</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-end">
+      <a href="workshop.html" class="btn-sm btn-sm-n">Free Workshop</a>
+      <a href="contact.html" class="btn-sm btn-sm-g">Book Me</a>
+    </div>
+    <div class="ham" onclick="toggleNav()"><span></span><span></span><span></span></div>
   </div>
-  <div class="nav-ctas">
-    <a href="workshop.html" class="ncta ncta-n">Free Workshop</a>
-    <a href="contact.html" class="ncta ncta-g">Book Me</a>
-  </div>
-  <div class="ham" onclick="toggleNav()"><span></span><span></span><span></span></div>
 </nav>
 
-<!-- MOBILE NAV -->
-<div class="mob-nav" id="mobNav">
-  <a href="workshop.html" class="mn-a">Free Workshop</a>
-  <a href="learn.html" class="mn-a">Learn</a>
-  <a href="about.html" class="mn-a">About</a>
-  <a href="contact.html" class="mn-a">Contact</a>
-  <div class="mn-btns">
-    <a href="workshop.html" class="mn-btn mn-btn-n">Join Free Workshop</a>
-    <a href="contact.html" class="mn-btn mn-btn-o">Book Me to Speak</a>
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu">
+  <a href="workshop.html" class="mm-link">Free Workshop</a>
+  <a href="learn.html" class="mm-link">Learn</a>
+  <a href="about.html" class="mm-link">About</a>
+  <a href="contact.html" class="mm-link">Contact</a>
+  <div class="mm-actions">
+    <a href="workshop.html" class="mm-btn mm-btn-n">Join Free Workshop</a>
+    <a href="contact.html" class="mm-btn mm-btn-o">Book Me to Speak</a>
   </div>
 </div>
 
-<!-- HERO — header training video as background -->
+<!-- HERO -->
 <div class="hero">
-  <video class="hero-video" autoplay muted loop playsinline
-    src="header_training.mp4"
-    onerror="this.src='southafrica.mp4'"></video>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="htags">
-      <span class="htag ht-n">Global Speaker</span>
-      <span class="htag ht-n">AI Engineer</span>
-      <span class="htag ht-w">South Africa &#183; Japan &#183; Vietnam &#183; Facebook HQ</span>
-    </div>
+  <video class="hero-video" autoplay muted loop playsinline src="header_training.mp4" onerror="this.src='southafrica.mp4'"></video>
+  <div class="hero-grad"></div>
+  <div class="hero-body">
+    <div class="hero-kicker">Mental Health in Tech Global Speaker &nbsp;&#183;&nbsp; AI Engineer &nbsp;&#183;&nbsp; Founder</div>
     <h1>Building AI<br>for the humans<br><em>it was meant<br>to serve.</em></h1>
-    <p class="hero-desc"><strong>Mental Health in Tech Global Speaker.</strong> AI Engineer and solo founder of 4 apps live on iOS and Android. Suicide Prevention Advocate. Executive Director serving 8+ countries.</p>
-    <div class="hero-btns">
-      <a href="workshop.html" class="hbtn hbtn-n"><i class="ti ti-calendar"></i> Join Free Workshop</a>
-      <div class="hbtn-row">
-        <a href="contact.html" class="hbtn hbtn-o hbtn-half"><i class="ti ti-microphone"></i> Book Me</a>
-        <a href="learn.html" class="hbtn hbtn-o hbtn-half"><i class="ti ti-book"></i> Learn</a>
+    <p class="hero-tagline"><strong>L.Finesse Humxn</strong> — solo founder of 4 live apps, global speaker, and Executive Director of a mental health nonprofit in 8+ countries. Helping everyday humans understand AI, one conversation at a time.</p>
+    <div class="hero-actions">
+      <a href="workshop.html" class="btn-lg btn-lg-n"><i class="ti ti-calendar"></i> Join Free Workshop</a>
+      <div class="btn-row">
+        <a href="contact.html" class="btn-lg btn-lg-o btn-half"><i class="ti ti-microphone"></i> Book Me</a>
+        <a href="learn.html" class="btn-lg btn-lg-o btn-half"><i class="ti ti-book"></i> Learn</a>
       </div>
     </div>
     <div class="hero-soc">
-      <a href="https://instagram.com/finessehumxn" target="_blank" class="hsoc"><i class="ti ti-brand-instagram"></i> 5.3K</a>
-      <a href="https://tiktok.com/@finessehumxn" target="_blank" class="hsoc"><i class="ti ti-brand-tiktok"></i> 1.6K</a>
-      <a href="https://www.youtube.com/@FinesseHumxn" target="_blank" class="hsoc"><i class="ti ti-brand-youtube"></i> 281 Videos</a>
-      <a href="https://linkedin.com/in/lfinesseskills" target="_blank" class="hsoc"><i class="ti ti-brand-linkedin"></i> LinkedIn</a>
+      <a href="https://instagram.com/finessehumxn" target="_blank" class="hs"><i class="ti ti-brand-instagram"></i> 5.3K</a>
+      <a href="https://tiktok.com/@finessehumxn" target="_blank" class="hs"><i class="ti ti-brand-tiktok"></i> 1.6K</a>
+      <a href="https://www.youtube.com/@FinesseHumxn" target="_blank" class="hs"><i class="ti ti-brand-youtube"></i> 281 Videos</a>
+      <a href="https://linkedin.com/in/lfinesseskills" target="_blank" class="hs"><i class="ti ti-brand-linkedin"></i> LinkedIn</a>
     </div>
   </div>
-  <div class="scroll-ind"><div class="scroll-line"></div> Scroll</div>
 </div>
 
-<!-- PROOF -->
-<div class="proof">
-  <div class="proof-inner">
-    <div class="pi"><div class="pi-n">4</div><div class="pi-l">Apps Live<br>iOS+Android</div></div>
-    <div class="pi"><div class="pi-n">281</div><div class="pi-l">YouTube<br>Videos</div></div>
-    <div class="pi"><div class="pi-n">5.3K</div><div class="pi-l">Instagram<br>Followers</div></div>
-    <div class="pi"><div class="pi-n">32</div><div class="pi-l">Gov Bids<br>Submitted</div></div>
-    <div class="pi"><div class="pi-n">5+</div><div class="pi-l">Countries<br>Spoken In</div></div>
-    <div class="pi"><div class="pi-n">8+</div><div class="pi-l">Countries<br>Reached</div></div>
-    <div class="pi"><div class="pi-n">60+</div><div class="pi-l">Certs<br>AI/ML</div></div>
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="tick-item">Global Speaker</span>
+    <span class="tick-item">AI Engineer</span>
+    <span class="tick-item">4 Apps Live</span>
+    <span class="tick-item">South Africa</span>
+    <span class="tick-item">Japan</span>
+    <span class="tick-item">Facebook HQ</span>
+    <span class="tick-item">Vietnam</span>
+    <span class="tick-item">60+ Certifications</span>
+    <span class="tick-item">Mental Health Advocate</span>
+    <span class="tick-item">32 Gov Bids</span>
+    <span class="tick-item">8+ Countries</span>
+    <span class="tick-item">WOSB · MBE · DBE</span>
+    <span class="tick-item">Global Speaker</span>
+    <span class="tick-item">AI Engineer</span>
+    <span class="tick-item">4 Apps Live</span>
+    <span class="tick-item">South Africa</span>
+    <span class="tick-item">Japan</span>
+    <span class="tick-item">Facebook HQ</span>
+    <span class="tick-item">Vietnam</span>
+    <span class="tick-item">60+ Certifications</span>
+    <span class="tick-item">Mental Health Advocate</span>
+    <span class="tick-item">32 Gov Bids</span>
+    <span class="tick-item">8+ Countries</span>
+    <span class="tick-item">WOSB · MBE · DBE</span>
   </div>
 </div>
 
-<!-- IDENTITY -->
-<div class="identity">
-  <div class="ey">Who I Am</div>
-  <h2 class="sh">Helping everyday humans<br>understand AI,<br><em>one conversation at a time.</em></h2>
-  <p class="id-p">I started in survival. Mental health brought me to advocacy. Advocacy brought me to speaking. Speaking brought me to training. Training brought me to tech. And tech brought me back to everything that mattered from the beginning &#8212; <strong>making sure people have access to the things that can save their lives.</strong></p>
-  <a href="about.html" class="btn-c"><i class="ti ti-arrow-right"></i> Read My Full Story</a>
-</div>
-
-<!-- PRESS -->
-<div class="press">
-  <div class="press-lbl">As Seen At</div>
-  <div class="press-scroll">
-    <span class="pl">Hard Rock Cafe South Africa</span>
-    <span class="pl">Japan</span>
-    <span class="pl">Facebook HQ</span>
-    <span class="pl">Saigon Intl University</span>
-    <span class="pl">Vietnam</span>
-    <span class="pl">South Korea</span>
-    <span class="pl">Performance w/ Dwayne Wade</span>
-    <span class="pl">LA County</span>
-    <span class="pl">GoDaddy</span>
-    <span class="pl">Google</span>
-    <span class="pl">Tesla</span>
+<!-- STATEMENT -->
+<div class="statement">
+  <div class="s-inner">
+    <div class="s-label">The work</div>
+    <p class="s-text">
+      Helping everyday humans understand AI,<br>
+      <em>one conversation at a time.</em>
+    </p>
+    <p class="s-sub">I started in survival. Mental health brought me to advocacy. Advocacy brought me to speaking. Speaking brought me to training. Training brought me to tech. And tech brought me back to everything that mattered from the beginning — <strong>making sure people have access to the things that can save their lives.</strong></p>
+    <div style="display:flex;gap:.65rem;justify-content:center;flex-wrap:wrap;">
+      <a href="about.html" class="btn-nude"><i class="ti ti-arrow-right"></i> Read My Story</a>
+      <a href="workshop.html" class="btn-ghost">Join Free Workshop</a>
+    </div>
   </div>
 </div>
 
-<hr class="divider">
-
-<!-- GLOBAL STAGES -->
-<section class="stages-section">
-  <div class="section-header">
-    <div class="ey">Global Stages</div>
-    <h2 class="sh">I have been in the room.<br><em>Watch.</em></h2>
-    <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-top:.5rem;font-weight:300;">From the Hard Rock Cafe in South Africa to Japan to Facebook HQ &#8212; real footage, real stages, around the world.</p>
-  </div>
+<!-- STAGES LABEL -->
+<div class="stages">
+  <div class="stages-label">Global Stages — Real footage, real rooms</div>
 
   <!-- MOBILE -->
   <div class="stages-mob">
-    <div class="sc r2">
-      <video class="sm" autoplay muted loop playsinline src="southafrica.mp4" onerror="this.parentElement.style.background='#222';this.style.display='none'"></video>
-      <div class="s-grad"></div>
-      <div class="s-info"><div class="s-loc">&#127462;&#127467; South Africa</div><div class="s-cap">Hard Rock Cafe &#8212; Live Keynote</div></div>
+    <div class="sc tall">
+      <video class="sc-m" autoplay muted loop playsinline src="southafrica.mp4" onerror="this.parentElement.style.background='#1C1C1A';this.style.display='none'"></video>
+      <div class="sc-grad"></div>
+      <div class="sc-info"><div class="sc-loc">&#127462;&#127467; South Africa</div><div class="sc-cap">Hard Rock Cafe Keynote</div></div>
     </div>
     <div class="sc">
-      <video class="sm" autoplay muted loop playsinline src="japan.mp4" onerror="this.parentElement.style.background='#222';this.style.display='none'"></video>
-      <div class="s-grad"></div>
-      <div class="s-info"><div class="s-loc">&#127471;&#127477; Japan</div><div class="s-cap">International Speaking</div></div>
+      <video class="sc-m" autoplay muted loop playsinline src="japan.mp4" onerror="this.parentElement.style.background='#1C1C1A';this.style.display='none'"></video>
+      <div class="sc-grad"></div>
+      <div class="sc-info"><div class="sc-loc">&#127471;&#127477; Japan</div><div class="sc-cap">International Speaking</div></div>
     </div>
     <div class="sc">
-      <img class="sm top" src="facebook.jpg" alt="Facebook HQ" onerror="this.parentElement.style.background='#222';this.style.display='none'">
-      <div class="s-grad"></div>
-      <div class="s-info"><div class="s-loc">&#127981; Facebook HQ</div><div class="s-cap">Boost with Facebook</div></div>
+      <img class="sc-m top" src="facebook.jpg" alt="Facebook HQ" onerror="this.parentElement.style.background='#1C1C1A';this.style.display='none'">
+      <div class="sc-grad"></div>
+      <div class="sc-info"><div class="sc-loc">&#127981; Facebook HQ</div><div class="sc-cap">Boost with Facebook</div></div>
     </div>
-    <div class="sc c2">
-      <img class="sm mid" src="saigon.jpg" alt="Saigon International University" onerror="this.src='vietnam.jpg';this.onerror=function(){this.parentElement.style.background='#222';this.style.display='none'}">
-      <div class="s-grad"></div>
-      <div class="s-info"><div class="s-loc">&#127758; Vietnam</div><div class="s-cap">Saigon International University</div></div>
-    </div>
-    <div class="sc">
-      <img class="sm" src="vietnam_training.jpg" alt="Vietnam training" onerror="this.parentElement.style.background='#222';this.style.display='none'">
-      <div class="s-grad"></div>
-      <div class="s-info"><div class="s-loc">&#127758; Vietnam</div><div class="s-cap">International Training</div></div>
+    <div class="sc wide">
+      <img class="sc-m mid" src="saigon.jpg" alt="Saigon University" onerror="this.src='vietnam.jpg'">
+      <div class="sc-grad"></div>
+      <div class="sc-info"><div class="sc-loc">&#127758; Vietnam</div><div class="sc-cap">Saigon International University</div></div>
     </div>
     <div class="sc">
-      <img class="sm top" src="wade_performance.jpg" alt="Performance with Dwayne Wade" onerror="this.parentElement.style.background='#222';this.style.display='none'">
-      <div class="s-grad"></div>
-      <div class="s-info"><div class="s-loc">&#127775; Performance Night</div><div class="s-cap">Backstage with Dwayne Wade</div></div>
+      <img class="sc-m" src="vietnam_training.jpg" alt="Vietnam training" onerror="this.parentElement.style.background='#1C1C1A';this.style.display='none'">
+      <div class="sc-grad"></div>
+      <div class="sc-info"><div class="sc-loc">&#127758; Vietnam</div><div class="sc-cap">International Training</div></div>
+    </div>
+    <div class="sc">
+      <img class="sc-m top" src="wade_performance.jpg" alt="Performance Night" onerror="this.parentElement.style.background='#1C1C1A';this.style.display='none'">
+      <div class="sc-grad"></div>
+      <div class="sc-info"><div class="sc-loc">&#127775; Performance Night</div><div class="sc-cap">Backstage with Dwayne Wade</div></div>
     </div>
   </div>
 
   <!-- DESKTOP -->
   <div class="stages-desk">
-    <div class="sd col7 row2">
-      <video class="sm" autoplay muted loop playsinline src="southafrica.mp4" onerror="this.style.display='none'"></video>
-      <div class="s-grad"></div>
-      <div class="s-info"><div class="s-loc">&#127462;&#127467; South Africa</div><div class="s-cap">Hard Rock Cafe &#8212; Live Keynote</div></div>
+    <div class="sd c7 r2">
+      <video class="sc-m" autoplay muted loop playsinline src="southafrica.mp4" onerror="this.style.display='none'"></video>
+      <div class="sc-grad"></div>
+      <div class="sc-info"><div class="sc-loc">&#127462;&#127467; South Africa</div><div class="sc-cap">Hard Rock Cafe &#8212; Live Keynote</div></div>
     </div>
-    <div class="sd col5">
-      <video class="sm" autoplay muted loop playsinline src="japan.mp4" onerror="this.style.display='none'"></video>
-      <div class="s-grad"></div>
-      <div class="s-info"><div class="s-loc">&#127471;&#127477; Japan</div><div class="s-cap">International Speaking Engagement</div></div>
+    <div class="sd c5">
+      <video class="sc-m" autoplay muted loop playsinline src="japan.mp4" onerror="this.style.display='none'"></video>
+      <div class="sc-grad"></div>
+      <div class="sc-info"><div class="sc-loc">&#127471;&#127477; Japan</div><div class="sc-cap">International Speaking Engagement</div></div>
     </div>
-    <div class="sd col3">
-      <img class="sm top" src="facebook.jpg" alt="Facebook HQ" onerror="this.style.display='none'">
-      <div class="s-grad"></div>
-      <div class="s-info"><div class="s-loc">&#127981; Facebook HQ</div><div class="s-cap">Boost with Facebook</div></div>
+    <div class="sd c3" style="grid-column:span 3;">
+      <img class="sc-m top" src="facebook.jpg" alt="Facebook HQ" onerror="this.style.display='none'">
+      <div class="sc-grad"></div>
+      <div class="sc-info"><div class="sc-loc">&#127981; Facebook HQ</div><div class="sc-cap">Boost with Facebook</div></div>
     </div>
-    <div class="sd col2" style="grid-column:span 2;">
-      <img class="sm top" src="wade_performance.jpg" alt="Dwayne Wade" onerror="this.style.display='none'">
-      <div class="s-grad"></div>
-      <div class="s-info"><div class="s-loc">&#127775; Performance Night</div><div class="s-cap">Backstage with Dwayne Wade</div></div>
+    <div class="sd c2" style="grid-column:span 2;">
+      <img class="sc-m top" src="wade_performance.jpg" alt="Wade" onerror="this.style.display='none'">
+      <div class="sc-grad"></div>
+      <div class="sc-info"><div class="sc-loc">&#127775; Performance Night</div><div class="sc-cap">Backstage with Dwayne Wade</div></div>
     </div>
-    <div class="sd col4">
-      <img class="sm mid" src="saigon.jpg" alt="Saigon" onerror="this.src='vietnam.jpg';this.onerror=null">
-      <div class="s-grad"></div>
-      <div class="s-info"><div class="s-loc">&#127758; Vietnam</div><div class="s-cap">Saigon International University</div></div>
+    <div class="sd c4" style="grid-column:span 4;">
+      <img class="sc-m mid" src="saigon.jpg" alt="Saigon" onerror="this.src='vietnam.jpg'">
+      <div class="sc-grad"></div>
+      <div class="sc-info"><div class="sc-loc">&#127758; Vietnam</div><div class="sc-cap">Saigon International University</div></div>
     </div>
-    <div class="sd col3">
-      <img class="sm" src="vietnam.jpg" alt="Vietnam" onerror="this.style.display='none'">
-      <div class="s-grad"></div>
-      <div class="s-info"><div class="s-loc">&#127758; Vietnam</div><div class="s-cap">International Training</div></div>
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<!-- LIFE IN MOTION -->
-<section class="life-section">
-  <div class="section-header">
-    <div class="ey">Life in Motion</div>
-    <h2 class="sh">This is what the work<br><em>actually looks like.</em></h2>
-  </div>
-
-  <!-- MOBILE -->
-  <div class="life-mob">
-    <div class="lc wide">
-      <video class="lm" autoplay muted loop playsinline src="delta.mp4" onerror="this.parentElement.style.background='#222';this.style.display='none'"></video>
-      <div class="l-grad"></div>
-      <div class="l-lbl">&#9992; Delta One</div>
-    </div>
-    <div class="lc">
-      <video class="lm top" autoplay muted loop playsinline src="motorcycle.mp4" onerror="this.parentElement.style.background='#222';this.style.display='none'"></video>
-      <div class="l-grad"></div>
-      <div class="l-lbl">En Route</div>
-    </div>
-    <div class="lc">
-      <video class="lm top" autoplay muted loop playsinline src="prepping.mp4" onerror="this.parentElement.style.background='#222';this.style.display='none'"></video>
-      <div class="l-grad"></div>
-      <div class="l-lbl">Prepping</div>
-    </div>
-    <div class="lc">
-      <img class="lm top" src="vietnam.jpg" alt="The vibe" onerror="this.parentElement.style.background='#222';this.style.display='none'">
-      <div class="l-grad"></div>
-      <div class="l-lbl">The Vibe</div>
+    <div class="sd c3" style="grid-column:span 3;">
+      <img class="sc-m" src="vietnam_training.jpg" alt="Vietnam" onerror="this.style.display='none'">
+      <div class="sc-grad"></div>
+      <div class="sc-info"><div class="sc-loc">&#127758; Vietnam</div><div class="sc-cap">International Training</div></div>
     </div>
   </div>
-
-  <div class="life-text" style="margin-bottom:1.5rem;">
-    <p style="margin-bottom:.85rem;">I do not just talk about building a life around work that matters. I live it. Every speaking engagement, every international training, every flight in Delta One to get to the next stage &#8212; this is what happens when you bet on yourself.</p>
-    <p><strong>Mental health advocacy took me around the world. AI engineering is taking me further.</strong></p>
-    <a href="about.html" class="btn-c" style="margin-top:1.25rem;display:inline-flex;"><i class="ti ti-arrow-right"></i> Read the Full Story</a>
-  </div>
-
-  <!-- DESKTOP -->
-  <div class="life-desk">
-    <div>
-      <p style="font-size:15px;color:var(--body);line-height:1.9;margin-bottom:1.25rem;font-weight:300;">I do not just talk about building a life around work that matters. I live it. Every speaking engagement, every international training, every flight in Delta One to get to the next stage &#8212; this is what happens when you bet on yourself and your craft.</p>
-      <p style="font-size:15px;color:var(--body);line-height:1.9;margin-bottom:1.75rem;font-weight:300;"><strong style="color:var(--cream);font-weight:500;">Mental health advocacy took me around the world. AI engineering is taking me further.</strong></p>
-      <a href="about.html" class="btn-c"><i class="ti ti-arrow-right"></i> Read the Full Story</a>
-    </div>
-    <div class="life-vids">
-      <div class="lvc tall">
-        <video class="lm" autoplay muted loop playsinline src="delta.mp4" onerror="this.parentElement.style.background='#222';this.style.display='none'"></video>
-        <div class="l-grad"></div>
-        <div class="l-lbl">&#9992; Delta One</div>
-      </div>
-      <div class="lvc top">
-        <video class="lm top" autoplay muted loop playsinline src="motorcycle.mp4" onerror="this.parentElement.style.background='#222';this.style.display='none'"></video>
-        <div class="l-grad"></div>
-        <div class="l-lbl">En Route</div>
-      </div>
-      <div class="lvc top">
-        <video class="lm top" autoplay muted loop playsinline src="prepping.mp4" onerror="this.parentElement.style.background='#222';this.style.display='none'"></video>
-        <div class="l-grad"></div>
-        <div class="l-lbl">Prepping</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
+</div>
 
 <!-- FREE WORKSHOP -->
-<div class="ws-section">
+<div class="ws-cta">
   <div class="ws-inner">
-    <div>
-      <div class="ey">Free Workshop</div>
-      <h2 class="sh">How to Use AI to Build,<br>Speak, and <em>Get Paid</em></h2>
-      <p style="font-size:14px;color:var(--muted);line-height:1.85;font-weight:300;">Join me live for a free workshop breaking down exactly how AI is changing careers in tech, healthcare, and government.</p>
-      <div class="ws-learns">
-        <div class="wl"><i class="ti ti-check"></i> How AI is changing every industry right now</div>
-        <div class="wl"><i class="ti ti-check"></i> AI tools you can use today without being technical</div>
-        <div class="wl"><i class="ti ti-check"></i> How to position yourself as AI-fluent in any field</div>
-        <div class="wl"><i class="ti ti-check"></i> Live Q&amp;A + free resource kit for every attendee</div>
-      </div>
-    </div>
+    <div class="ws-tag">Free Live Workshop</div>
+    <h2 class="ws-h">How to Use AI to Build,<br>Speak, and <em>Get Paid</em></h2>
+    <p class="ws-p">No code. No experience. Just 90 minutes with someone who has actually done it — and built 4 live apps to prove it.</p>
     <div class="ws-form">
-      <div class="wft">Save Your Free Seat</div>
-      <div class="wfs">Next live session announced via email. Register now and be first to know.</div>
-      <form onsubmit="handleReg(event)">
-        <input type="text" class="fi" placeholder="First name" required>
-        <input type="email" class="fi" placeholder="Email address" required>
-        <button type="submit" class="ws-sub">Save My Free Seat &#8594;</button>
-        <p class="ws-note">Free. No credit card. Unsubscribe anytime.</p>
-      </form>
+      <input type="email" class="wf-in" placeholder="your@email.com">
+      <button class="wf-btn" onclick="alert('Thank you! Workshop details coming to your inbox.')">Save My Seat</button>
+    </div>
+    <p class="wf-note" style="margin-top:.75rem;font-size:11px;color:var(--muted);">Free. No credit card. <a href="workshop.html" style="color:var(--nude);text-decoration:underline;">See full workshop details &#8594;</a></p>
+  </div>
+</div>
+
+<!-- LIFE IN MOTION -->
+<div class="life">
+  <div class="life-label">Life in Motion</div>
+  <div class="life-scroll">
+    <div class="lc" style="width:280px;height:380px;">
+      <video class="lc-v" autoplay muted loop playsinline src="delta.mp4" onerror="this.parentElement.style.background='#1C1C1A';this.style.display='none'"></video>
+      <div class="lc-grad"></div>
+      <div class="lc-lbl">&#9992; Delta One</div>
+    </div>
+    <div class="lc" style="width:200px;height:380px;">
+      <video class="lc-v top" autoplay muted loop playsinline src="motorcycle.mp4" onerror="this.parentElement.style.background='#1C1C1A';this.style.display='none'"></video>
+      <div class="lc-grad"></div>
+      <div class="lc-lbl">En Route</div>
+    </div>
+    <div class="lc" style="width:200px;height:380px;">
+      <video class="lc-v top" autoplay muted loop playsinline src="prepping.mp4" onerror="this.parentElement.style.background='#1C1C1A';this.style.display='none'"></video>
+      <div class="lc-grad"></div>
+      <div class="lc-lbl">Prepping</div>
+    </div>
+    <div class="lc" style="width:200px;height:380px;">
+      <img class="lc-v top" src="matcha.jpg" alt="The vibe" onerror="this.parentElement.style.background='#1C1C1A';this.style.display='none'">
+      <div class="lc-grad"></div>
+      <div class="lc-lbl">The Vibe</div>
+    </div>
+    <div class="lc" style="width:280px;height:380px;">
+      <video class="lc-v" autoplay muted loop playsinline src="travel.mp4" onerror="this.parentElement.style.background='#1C1C1A';this.style.display='none'"></video>
+      <div class="lc-grad"></div>
+      <div class="lc-lbl">Always Moving</div>
     </div>
   </div>
 </div>
 
 <!-- TESTIMONIALS -->
-<section style="padding:4rem 1.75rem;">
-  <div class="ey">What People Say</div>
-  <h2 class="sh" style="margin-bottom:2rem;">Real words.<br><em>Real people.</em></h2>
-
-  <div class="testi-mob">
-    <div class="ts"><p class="tq">The accuracy of the preliminary diagnosis based on symptoms was impressive. The dual-mode approach for medical professionals vs everyday users is genuinely smart product thinking.</p><div class="ta">Nicole Vaughn, APRN, PMH-NP</div><div class="tr">Psychiatric Nurse Practitioner</div></div>
-    <div class="ts"><p class="tq">L.Finesse is one of the most driven, creative, and technically capable builders I have worked with. She brings clinical perspective and engineering execution together in a way that is genuinely rare.</p><div class="ta">Jeanie Vatelia, BSN, RN</div><div class="tr">Legal Nurse Consultant &#183; Co-Founder</div></div>
-    <div class="ts"><p class="tq">Most patients never look at an After Visit Summary because they are overwhelmed. The AVS copy feature in the clinical mode solves a real problem we face every single day.</p><div class="ta">Naquita, RN</div><div class="tr">Registered Nurse &#183; Clinical Feedback</div></div>
-    <div class="ts"><p class="tq">A combination of high-level tech experience and deep human understanding. She builds things that actually matter to the people they are meant to serve.</p><div class="ta">Violet Kagiri</div><div class="tr">Board Member &#183; SDG Systems</div></div>
+<div class="testis">
+  <div class="testis-inner">
+    <div class="testis-label">What people say</div>
+    <div class="testi-mob">
+      <div class="tcard"><p class="tq">The accuracy of the preliminary diagnosis based on symptoms was impressive. The dual-mode approach for medical professionals vs everyday users is genuinely smart product thinking.</p><div class="ta">Nicole Vaughn, APRN, PMH-NP</div><div class="tr">Psychiatric Nurse Practitioner</div></div>
+      <div class="tcard"><p class="tq">L.Finesse is one of the most driven, creative, and technically capable builders I have worked with. She brings clinical perspective and engineering together in a way that is genuinely rare.</p><div class="ta">Jeanie Vatelia, BSN, RN</div><div class="tr">Legal Nurse Consultant &#183; Co-Founder</div></div>
+      <div class="tcard"><p class="tq">Most patients never look at an After Visit Summary because they are overwhelmed. The AVS copy feature in the clinical mode solves a real problem we face every single day.</p><div class="ta">Naquita, RN</div><div class="tr">Registered Nurse &#183; Clinical Feedback</div></div>
+      <div class="tcard"><p class="tq">A combination of high-level tech experience and deep human understanding. She builds things that actually matter to the people they are meant to serve.</p><div class="ta">Violet Kagiri</div><div class="tr">Board Member &#183; SDG Systems</div></div>
+    </div>
+    <div class="testi-desk">
+      <div class="tcard"><p class="tq">The accuracy of the preliminary diagnosis based on symptoms was impressive. The dual-mode approach for medical professionals vs everyday users is genuinely smart product thinking.</p><div class="ta">Nicole Vaughn, APRN, PMH-NP</div><div class="tr">Psychiatric Nurse Practitioner</div></div>
+      <div class="tcard"><p class="tq">L.Finesse is one of the most driven, creative, and technically capable builders I have worked with. She brings clinical perspective and engineering together in a way that is genuinely rare.</p><div class="ta">Jeanie Vatelia, BSN, RN</div><div class="tr">Legal Nurse Consultant &#183; Co-Founder</div></div>
+      <div class="tcard"><p class="tq">Most patients never look at an After Visit Summary because they are overwhelmed. The AVS copy feature in the clinical mode solves a real problem we face every single day.</p><div class="ta">Naquita, RN</div><div class="tr">Registered Nurse &#183; Clinical Feedback</div></div>
+    </div>
   </div>
-  <p class="swipe-hint"><i class="ti ti-arrow-right" style="color:var(--nude)"></i> Swipe to read more</p>
-
-  <div class="testi-desk">
-    <div class="ts-d ts"><p class="tq">The accuracy of the preliminary diagnosis based on symptoms was impressive. The dual-mode approach for medical professionals vs everyday users is genuinely smart product thinking.</p><div class="ta">Nicole Vaughn, APRN, PMH-NP</div><div class="tr">Psychiatric Nurse Practitioner</div></div>
-    <div class="ts-d ts"><p class="tq">L.Finesse is one of the most driven, creative, and technically capable builders I have worked with. She brings clinical perspective and engineering together in a way that is genuinely rare.</p><div class="ta">Jeanie Vatelia, BSN, RN</div><div class="tr">Legal Nurse Consultant &#183; Co-Founder</div></div>
-    <div class="ts-d ts"><p class="tq">Most patients never look at an After Visit Summary because they are overwhelmed. The AVS copy feature solves a real problem we face every single day.</p><div class="ta">Naquita, RN</div><div class="tr">Registered Nurse &#183; Clinical Feedback</div></div>
-  </div>
-</section>
-
-<hr class="divider">
+</div>
 
 <!-- YOUTUBE -->
 <div class="yt-section">
   <div class="yt-inner">
-    <div>
-      <div class="ey">Finding Finesse on YouTube</div>
-      <div class="yt-num">281</div>
-      <div class="yt-sub">Free Videos</div>
-      <h2 class="yt-h">Real talk.<br>No filter.<br><em>Free forever.</em></h2>
-      <p class="yt-p">AI, mental health, tech careers, government contracting, and building as a solo founder. DJ. Speaker. Engineer. I show up as all of me.</p>
-      <a href="https://www.youtube.com/@FinesseHumxn" target="_blank" class="yt-btn"><i class="ti ti-brand-youtube"></i> Subscribe Free</a>
-    </div>
-    <div class="yt-frame">
-      <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=FinesseHumxn" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Finding Finesse YouTube"></iframe>
+    <div class="yt-grid">
+      <div class="yt-top">
+        <div class="yt-kicker">Finding Finesse on YouTube</div>
+        <h2 class="yt-h">281 videos.<br>Real talk.<br><em>Free forever.</em></h2>
+        <p class="yt-p">AI, mental health, tech careers, government contracting, and building as a solo founder. DJ. Speaker. Engineer. I show up as all of me.</p>
+        <a href="https://www.youtube.com/@FinesseHumxn" target="_blank" class="yt-btn"><i class="ti ti-brand-youtube"></i> Subscribe Free</a>
+      </div>
+      <div class="yt-frame">
+        <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=FinesseHumxn" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Finding Finesse"></iframe>
+      </div>
     </div>
   </div>
 </div>
 
 <!-- PRODUCTS -->
-<section style="padding:4rem 1.75rem;">
-  <div class="ey">Live Products</div>
-  <h2 class="sh" style="margin-bottom:.5rem;">4 apps. iOS and Android.<br><em>Built solo.</em></h2>
-  <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:1.75rem;font-weight:300;">Production software with real users and real stakes. Not demos.</p>
-
-  <div class="prod-mob">
-    <div class="pc"><span class="pst ps-l">Live &#183; iOS + Android</span><div class="pn">MedCompanion AI</div><div class="pd">Health literacy in plain language. LangGraph pipeline.</div><a href="https://apps.apple.com/app/id6785335934" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.medcompanionai.app" target="_blank" class="pb pb-a"><i class="ti ti-brand-google-play"></i> Play</a></div>
-    <div class="pc"><span class="pst ps-l">Live &#183; iOS + Android</span><div class="pn">FinesseKey</div><div class="pd">Credit access and dispute tools for underserved communities.</div><a href="https://apps.apple.com/app/id6786938952" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.finessekey.app" target="_blank" class="pb pb-a"><i class="ti ti-brand-google-play"></i> Play</a></div>
-    <div class="pc"><span class="pst ps-l">Live &#183; iOS + Android</span><div class="pn">FinesseEdge</div><div class="pd">Know Your Edge. Personal strategy and intelligence.</div><a href="https://apps.apple.com/app/id6790193060" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.finesseedge.app" target="_blank" class="pb pb-a"><i class="ti ti-brand-google-play"></i> Play</a></div>
-    <div class="pc"><span class="pst ps-l">Live &#183; iOS + Android</span><div class="pn">BarterThat</div><div class="pd">Community barter platform. Trade skills.</div><a href="https://apps.apple.com/app/id6784909030" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.barterthat.app" target="_blank" class="pb pb-a"><i class="ti ti-brand-google-play"></i> Play</a></div>
+<div class="products">
+  <div class="products-label">Live Products — Built solo. Solving real problems.</div>
+  <div class="prod-scroll">
+    <div class="pc"><span class="pst ps-l">Live &#183; iOS+Android</span><div class="pn">MedCompanion AI</div><div class="pd">Health literacy in plain language. LangGraph pipeline.</div><a href="https://apps.apple.com/app/id6785335934" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.medcompanionai.app" target="_blank" class="pb pb-a"><i class="ti ti-brand-google-play"></i> Play</a><a href="https://medcompanionai.com" target="_blank" class="plink"><i class="ti ti-external-link"></i> medcompanionai.com</a></div>
+    <div class="pc"><span class="pst ps-l">Live &#183; iOS+Android</span><div class="pn">FinesseKey</div><div class="pd">Credit access and dispute tools for underserved communities.</div><a href="https://apps.apple.com/app/id6786938952" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.finessekey.app" target="_blank" class="pb pb-a"><i class="ti ti-brand-google-play"></i> Play</a></div>
+    <div class="pc"><span class="pst ps-l">Live &#183; iOS+Android</span><div class="pn">FinesseEdge</div><div class="pd">Know Your Edge. Personal strategy and competitive intelligence.</div><a href="https://apps.apple.com/app/id6790193060" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.finesseedge.app" target="_blank" class="pb pb-a"><i class="ti ti-brand-google-play"></i> Play</a></div>
+    <div class="pc"><span class="pst ps-l">Live &#183; iOS+Android</span><div class="pn">BarterThat</div><div class="pd">Community barter. Trade skills without traditional payment.</div><a href="https://apps.apple.com/app/id6784909030" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.barterthat.app" target="_blank" class="pb pb-a"><i class="ti ti-brand-google-play"></i> Play</a></div>
     <div class="pc"><span class="pst ps-d">In Dev</span><div class="pn">FinesseShield</div><div class="pd">AI cybersecurity for SOC automation. Federal procurement.</div><a href="contact.html" class="plink"><i class="ti ti-arrow-right"></i> Early Access</a></div>
     <div class="pc"><span class="pst ps-d">In Dev</span><div class="pn">FinesseWins</div><div class="pd">AI gov contracting for WOSB, MBE, DBE firms.</div><a href="contact.html" class="plink"><i class="ti ti-arrow-right"></i> Early Access</a></div>
   </div>
-  <p class="swipe-hint"><i class="ti ti-arrow-right" style="color:var(--nude)"></i> Swipe to see all products</p>
-
-  <div class="prod-desk">
-    <div class="pc"><span class="pst ps-l">Live &#183; iOS + Android</span><div class="pn">MedCompanion AI</div><div class="pd">Health literacy in plain language. LangGraph pipeline. NIH, Mayo, FDA sourced.</div><a href="https://apps.apple.com/app/id6785335934" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.medcompanionai.app" target="_blank" class="pb pb-a"><i class="ti ti-brand-google-play"></i> Play</a><a href="https://medcompanionai.com" target="_blank" class="plink"><i class="ti ti-external-link"></i> medcompanionai.com</a></div>
-    <div class="pc"><span class="pst ps-l">Live &#183; iOS + Android</span><div class="pn">FinesseKey</div><div class="pd">Credit access and dispute tools for underserved communities.</div><a href="https://apps.apple.com/app/id6786938952" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.finessekey.app" target="_blank" class="pb pb-a"><i class="ti ti-brand-google-play"></i> Play</a></div>
-    <div class="pc"><span class="pst ps-l">Live &#183; iOS + Android</span><div class="pn">FinesseEdge</div><div class="pd">Know Your Edge. Personal strategy and competitive intelligence.</div><a href="https://apps.apple.com/app/id6790193060" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.finesseedge.app" target="_blank" class="pb pb-a"><i class="ti ti-brand-google-play"></i> Play</a></div>
-    <div class="pc"><span class="pst ps-l">Live &#183; iOS + Android</span><div class="pn">BarterThat</div><div class="pd">Community barter platform. Trade skills without traditional payment.</div><a href="https://apps.apple.com/app/id6784909030" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.barterthat.app" target="_blank" class="pb pb-a"><i class="ti ti-brand-google-play"></i> Play</a></div>
+  <div class="prod-desk" style="margin:0 2.5rem;">
+    <div class="pc"><span class="pst ps-l">Live &#183; iOS+Android</span><div class="pn">MedCompanion AI</div><div class="pd">Health literacy in plain language. LangGraph pipeline. NIH, Mayo, FDA sourced.</div><a href="https://apps.apple.com/app/id6785335934" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.medcompanionai.app" target="_blank" class="pb pb-a"><i class="ti ti-brand-google-play"></i> Play</a><a href="https://medcompanionai.com" target="_blank" class="plink"><i class="ti ti-external-link"></i> medcompanionai.com</a></div>
+    <div class="pc"><span class="pst ps-l">Live &#183; iOS+Android</span><div class="pn">FinesseKey</div><div class="pd">Credit access and dispute tools for underserved communities.</div><a href="https://apps.apple.com/app/id6786938952" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.finessekey.app" target="_blank" class="pb pb-a"><i class="ti ti-brand-google-play"></i> Play</a></div>
+    <div class="pc"><span class="pst ps-l">Live &#183; iOS+Android</span><div class="pn">FinesseEdge</div><div class="pd">Know Your Edge. Personal strategy and competitive intelligence.</div><a href="https://apps.apple.com/app/id6790193060" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.finesseedge.app" target="_blank" class="pb pb-a"><i class="ti ti-brand-google-play"></i> Play</a></div>
+    <div class="pc"><span class="pst ps-l">Live &#183; iOS+Android</span><div class="pn">BarterThat</div><div class="pd">Community barter platform. Trade skills without traditional payment.</div><a href="https://apps.apple.com/app/id6784909030" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.barterthat.app" target="_blank" class="pb pb-a"><i class="ti ti-brand-google-play"></i> Play</a></div>
     <div class="pc"><span class="pst ps-d">In Development</span><div class="pn">FinesseShield</div><div class="pd">AI cybersecurity for SOC automation. Federal procurement target.</div><a href="contact.html" class="plink"><i class="ti ti-arrow-right"></i> Get Early Access</a></div>
     <div class="pc"><span class="pst ps-d">In Development</span><div class="pn">FinesseWins</div><div class="pd">AI government contracting for WOSB, MBE, DBE firms. 32 real bids.</div><a href="contact.html" class="plink"><i class="ti ti-arrow-right"></i> Get Early Access</a></div>
   </div>
-</section>
+</div>
+
+<!-- HOW TO WORK WITH ME -->
+<div class="work-section">
+  <div class="work-inner">
+    <div class="work-kicker">Work with me</div>
+    <h2 class="work-h">One person.<br><em>Many ways to engage.</em></h2>
+    <div class="work-grid">
+      <div class="wc"><div class="wc-num">01</div><div><div class="wc-title">Keynote Speaking</div><div class="wc-desc">Mental health in tech, AI safety, women in STEM, suicide prevention, building solo. Conferences, panels, corporate events.</div><div class="wc-price">Inquire for rates</div></div></div>
+      <div class="wc"><div class="wc-num">02</div><div><div class="wc-title">Corporate Training</div><div class="wc-desc">AI integration, mental health at work, GovTech, LangGraph workshops. Virtual or in-person. Teams 5 to 500.</div><div class="wc-price">From $2,500/session</div></div></div>
+      <div class="wc"><div class="wc-num">03</div><div><div class="wc-title">Webinars & Virtual Events</div><div class="wc-desc">Live and recorded webinars on AI tools, government contracting, health equity. Audiences from 50 to 5,000.</div><div class="wc-price">From $1,500</div></div></div>
+      <div class="wc"><div class="wc-num">04</div><div><div class="wc-title">Contract Engineering</div><div class="wc-desc">AI pipelines, LangGraph agents, mobile apps, FastAPI backends. Production systems built right the first time.</div><div class="wc-price">From $150/hr</div></div></div>
+      <div class="wc"><div class="wc-num">05</div><div><div class="wc-title">AI Consulting</div><div class="wc-desc">AI strategy, systems audits, LLM selection, safety architecture, government AI readiness assessments.</div><div class="wc-price">From $200/hr</div></div></div>
+      <div class="wc"><div class="wc-num">06</div><div><div class="wc-title">Fractional CTO</div><div class="wc-desc">Technical leadership for startups and small businesses. AI roadmap, architecture decisions, team direction.</div><div class="wc-price">From $5,000/mo</div></div></div>
+    </div>
+    <div style="margin-top:2rem;text-align:center;">
+      <a href="contact.html" class="btn-nude">Book or Hire Me <i class="ti ti-arrow-right"></i></a>
+    </div>
+  </div>
+</div>
 
 <!-- EMAIL -->
 <div class="email-section">
-  <div class="email-inner">
-    <div class="ey">Join the Community</div>
-    <h2 class="email-h">Get the<br><em>Finesse Newsletter</em></h2>
-    <p class="email-p">AI insights, mental health advocacy, GovTech updates, and behind the scenes of building 4 apps solo. Real talk. No fluff.</p>
-    <div class="email-form">
-      <input type="email" class="ei" placeholder="your@email.com">
-      <button class="esub" onclick="alert('Thank you! Newsletter coming soon.')">Subscribe</button>
+  <div class="em-inner">
+    <div class="em-kicker">Join the community</div>
+    <h2 class="em-h">Get the<br><em>Finesse Letter</em></h2>
+    <p class="em-p">AI insights, mental health advocacy, GovTech updates, and behind the scenes of building 4 apps solo. Real talk. No fluff.</p>
+    <div class="em-form">
+      <input type="email" class="em-in" placeholder="your@email.com">
+      <button class="em-btn" onclick="alert('Thank you! Newsletter coming soon.')">Subscribe</button>
     </div>
-    <div class="soc-r">
+    <div class="soc-row">
       <a href="https://instagram.com/finessehumxn" target="_blank" class="sf"><i class="ti ti-brand-instagram"></i> @finessehumxn</a>
       <a href="https://tiktok.com/@finessehumxn" target="_blank" class="sf"><i class="ti ti-brand-tiktok"></i> @finessehumxn</a>
       <a href="https://www.youtube.com/@FinesseHumxn" target="_blank" class="sf"><i class="ti ti-brand-youtube"></i> Finding Finesse</a>
@@ -685,45 +625,45 @@ footer{padding:1.75rem 1.75rem;border-top:1px solid var(--border);}
 
 <!-- FINAL CTA -->
 <div class="final-cta">
-  <div style="max-width:600px;margin:0 auto;">
-    <div class="ey">Ready?</div>
-    <h2 class="fc-h">The conversation<br><em>starts here.</em></h2>
-    <p class="fc-p">Join the free workshop. Explore resources. Book me to speak. Or hire me to build the AI system your organization needs.</p>
+  <div class="fc-inner">
+    <div class="fc-kicker">Ready?</div>
+    <h2 class="fc-h">The conversation<br><em>starts</em><br><strong>here.</strong></h2>
+    <p class="fc-p">Join the free workshop. Explore resources. Book me to speak. Or hire me to build the AI system your organization actually needs.</p>
     <div class="fc-btns">
-      <a href="workshop.html" class="fcb fcb-n"><i class="ti ti-calendar"></i> Join Free Workshop</a>
-      <a href="contact.html" class="fcb fcb-o"><i class="ti ti-microphone"></i> Book Me to Speak</a>
-      <a href="learn.html" class="fcb fcb-o"><i class="ti ti-book"></i> Explore Resources</a>
+      <a href="workshop.html" class="btn-nude"><i class="ti ti-calendar"></i> Join Free Workshop</a>
+      <a href="contact.html" class="btn-ghost"><i class="ti ti-microphone"></i> Book Me to Speak</a>
+      <a href="learn.html" class="btn-ghost"><i class="ti ti-book"></i> Explore Resources</a>
     </div>
   </div>
 </div>
 
 <footer>
-  <div class="ft">
-    <div class="fl">L.Finesse Humxn &#169; 2026</div>
-    <div class="flinks">
+  <div class="ft-top">
+    <div class="ft-logo">L.<em>Finesse</em> Humxn</div>
+    <div class="ft-links">
       <a href="workshop.html">Free Workshop</a>
       <a href="learn.html">Learn</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
       <a href="https://millennialscreatives.com" target="_blank">Millennials Creatives</a>
+      <a href="https://medcompanionai.com" target="_blank">MedCompanion AI</a>
     </div>
   </div>
-  <div class="fcopy">California &#183; HQ: Phoenix, AZ &#183; contact@millennialscreatives.com</div>
+  <p class="ft-copy">&#169; 2026 L.Finesse Humxn &#183; Millennials Creatives LLC &#183; California &#183; HQ: Phoenix, AZ &#183; contact@millennialscreatives.com</p>
 </footer>
 
-<!-- FLOATING CHARACTER -->
-<div class="char-wrap" id="charWrap">
+<!-- CHARACTER -->
+<div class="char" id="charWrap">
   <div style="position:relative;">
     <div class="char-bub">Hey &#8212; I&#8217;m Finesse. I build AI that helps everyday humans. &#128154;</div>
     <span class="char-x" onclick="document.getElementById('charWrap').style.display='none'">&#215;</span>
   </div>
-  <video class="char-v" autoplay muted loop playsinline src="finesse.mp4" onclick="window.location.href='about.html'" onerror="this.style.display='none'"></video>
+  <video class="char-vid" autoplay muted loop playsinline src="finesse.mp4" onclick="window.location.href='about.html'" onerror="this.style.display='none'"></video>
 </div>
 
 <script>
-function toggleNav(){document.getElementById('mobNav').classList.toggle('open');}
-document.querySelectorAll('.mn-a,.mn-btn').forEach(function(e){e.addEventListener('click',function(){document.getElementById('mobNav').classList.remove('open');});});
-function handleReg(e){e.preventDefault();alert('You are registered! Check your email for confirmation.');}
+function toggleNav(){document.getElementById('mobMenu').classList.toggle('open');}
+document.querySelectorAll('.mm-link,.mm-btn').forEach(function(e){e.addEventListener('click',function(){document.getElementById('mobMenu').classList.remove('open');});});
 </script>
 </body>
 </html>
