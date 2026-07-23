@@ -10,17 +10,18 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
 <style>
 :root{
-  --bg:#0A0A08;
-  --card:#161614;
-  --nude:#C9AE88;
-  --nude2:#B89970;
-  --nude-dim:rgba(201,174,136,0.06);
-  --nude-border:rgba(201,174,136,0.16);
-  --cream:#F0E8DA;
+  --bg:#09090A;
+  --card:#141414;
+  --card2:#1E1E1E;
+  --nude:#C8AB87;
+  --nude2:#B8976F;
+  --nude-dim:rgba(200,171,135,0.07);
+  --nude-border:rgba(200,171,135,0.18);
+  --cream:#EFE8DC;
   --white:#FAF7F2;
-  --border:rgba(255,255,255,0.06);
-  --muted:rgba(240,232,218,0.38);
-  --body:rgba(240,232,218,0.65);
+  --border:rgba(255,255,255,0.07);
+  --muted:rgba(239,232,220,0.38);
+  --body:rgba(239,232,220,0.65);
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
@@ -28,130 +29,124 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--cream);-web
 img,video{display:block;}
 a{color:inherit;text-decoration:none;}
 
-/* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(10,10,8,0.96);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
-.nav-i{max-width:1400px;margin:0 auto;padding:.9rem 2rem;display:flex;align-items:center;justify-content:space-between;}
-.logo{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;letter-spacing:.02em;color:var(--white);}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(9,9,10,0.97);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
+.nav-inner{max-width:1400px;margin:0 auto;padding:.9rem 2rem;display:flex;align-items:center;justify-content:space-between;}
+.logo{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:var(--white);}
 .logo em{color:var(--nude);font-style:italic;}
-.nl{display:flex;gap:2rem;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);}
-.nl a:hover{color:var(--cream);}
-.nb-book{background:var(--nude);color:var(--bg);font-size:11px;font-weight:700;padding:9px 22px;letter-spacing:.08em;text-transform:uppercase;transition:background .2s;}
-.nb-book:hover{background:var(--nude2);}
+.nav-links{display:flex;gap:2rem;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);}
+.nav-links a:hover{color:var(--cream);}
+.btn-book{background:var(--nude);color:var(--bg);font-size:11px;font-weight:700;padding:9px 22px;letter-spacing:.08em;text-transform:uppercase;transition:background .2s;}
+.btn-book:hover{background:var(--nude2);}
 .ham{display:none;flex-direction:column;gap:5px;cursor:pointer;}
 .ham span{width:22px;height:1.5px;background:var(--cream);}
-.mob-menu{display:none;position:fixed;inset:0;top:52px;background:rgba(10,10,8,.99);z-index:199;flex-direction:column;padding:2.5rem 2rem;}
+.mob-menu{display:none;position:fixed;inset:0;top:52px;background:rgba(9,9,10,.99);z-index:199;flex-direction:column;padding:2.5rem 2rem;}
 .mob-menu.open{display:flex;}
 .mm-a{padding:1.1rem 0;border-bottom:1px solid var(--border);font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;}
 .mm-a:hover{color:var(--nude);}
-.mm-cta{margin-top:2rem;background:var(--nude);color:var(--bg);padding:16px;text-align:center;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;}
+.mm-book{margin-top:2rem;background:var(--nude);color:var(--bg);padding:16px;text-align:center;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;}
 
-/* ── HERO SPLIT ── */
+/* HERO — split 55/45 */
 .hero{display:grid;grid-template-columns:1fr;min-height:100svh;padding-top:52px;}
-.hero-left{position:relative;height:60svh;overflow:hidden;}
-.hero-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;}
-.hero-grad{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,10,8,.1) 0%,rgba(10,10,8,.6) 80%,rgba(10,10,8,1) 100%);}
-.hero-right{padding:2.5rem 2rem 4rem;display:flex;flex-direction:column;justify-content:center;}
-.h-kicker{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--nude);margin-bottom:1.25rem;display:flex;align-items:center;gap:.75rem;}
-.h-kicker::after{content:'';flex:1;height:1px;background:var(--nude-border);}
-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,10vw,6.5rem);font-weight:300;line-height:.9;letter-spacing:-.03em;color:var(--white);margin-bottom:1.5rem;}
+.hero-media{position:relative;height:65svh;overflow:hidden;}
+.hero-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;}
+.hero-grad{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,10,0) 30%,rgba(9,9,10,1) 100%);}
+.hero-content{padding:2.5rem 2rem 4rem;display:flex;flex-direction:column;justify-content:center;}
+.h-eyebrow{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--nude);margin-bottom:1.25rem;display:flex;align-items:center;gap:.75rem;}
+.h-eyebrow::after{content:'';flex:1;height:1px;background:var(--nude-border);}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3.5rem,11vw,7rem);font-weight:300;line-height:.88;letter-spacing:-.03em;color:var(--white);margin-bottom:1.5rem;}
 h1 strong{font-weight:600;display:block;}
 h1 em{font-style:italic;color:var(--nude);}
 .h-desc{font-size:15px;color:var(--body);line-height:1.8;font-weight:300;max-width:480px;margin-bottom:2.5rem;}
 .h-desc strong{color:var(--cream);font-weight:500;}
-.h-ctas{display:flex;flex-direction:column;gap:.5rem;margin-bottom:2rem;}
-.btn-main{display:flex;align-items:center;justify-content:center;gap:8px;padding:16px 28px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:all .2s;}
+.h-btns{display:flex;flex-direction:column;gap:.5rem;margin-bottom:2rem;}
+.btn-lg{display:flex;align-items:center;justify-content:center;gap:8px;padding:15px 24px;font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;transition:all .2s;}
 .btn-n{background:var(--nude);color:var(--bg);}
 .btn-n:hover{background:var(--nude2);}
-.btn-o{border:1px solid rgba(255,255,255,.2);color:var(--white);background:rgba(255,255,255,.06);}
-.btn-o:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.35);}
+.btn-o{border:1px solid rgba(255,255,255,.18);color:var(--white);background:rgba(255,255,255,.05);}
+.btn-o:hover{background:rgba(255,255,255,.1);}
+.btn-row{display:flex;gap:.5rem;}
+.btn-half{flex:1;}
 .h-soc{display:flex;gap:.35rem;flex-wrap:wrap;}
 .hs{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--muted);padding:5px 10px;border:1px solid var(--border);}
 .hs:hover{color:var(--cream);border-color:var(--nude-border);}
 
-/* ── DIVIDER ── */
-.divider{height:1px;background:var(--border);}
-
-/* ── TICKER ── */
+/* TICKER */
 .ticker{overflow:hidden;background:var(--nude-dim);border-top:1px solid var(--nude-border);border-bottom:1px solid var(--nude-border);}
-.ticker-track{display:inline-flex;animation:tick 35s linear infinite;white-space:nowrap;}
-.ticker-track:hover{animation-play-state:paused;}
-.tick{padding:.7rem 2.5rem;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--nude);border-right:1px solid var(--nude-border);}
+.ticker-t{display:inline-flex;animation:tick 32s linear infinite;white-space:nowrap;}
+.tick{padding:.65rem 2rem;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--nude);border-right:1px solid var(--nude-border);}
 @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* ── PROOF NUMBERS ── */
+/* PROOF */
 .proof{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border);}
-.pn{padding:1.75rem 1rem;text-align:center;border-right:1px solid var(--border);}
-.pn:last-child{border-right:none;}
-.pn-n{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3rem);font-weight:300;color:var(--nude);line-height:1;}
-.pn-l{font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:.35rem;line-height:1.4;}
+.pi{padding:1.5rem 1rem;text-align:center;border-right:1px solid var(--border);}
+.pi:last-child{border-right:none;}
+.pin{font-family:'Cormorant Garamond',serif;font-size:clamp(1.75rem,4vw,2.75rem);font-weight:300;color:var(--nude);line-height:1;}
+.pil{font-size:9px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-top:.3rem;line-height:1.4;}
 
-/* ── IDENTITY ── */
-.identity{max-width:1000px;margin:0 auto;padding:5rem 2rem;text-align:center;}
-.id-label{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--nude);margin-bottom:1.5rem;}
-.id-h{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.25rem);font-weight:300;color:var(--white);line-height:1.2;margin-bottom:1.25rem;}
-.id-h em{font-style:italic;color:var(--nude);}
-.id-p{font-size:15px;color:var(--body);line-height:1.9;font-weight:300;max-width:600px;margin:0 auto 2.5rem;}
-.id-p strong{color:var(--cream);font-weight:500;}
-.id-btns{display:flex;gap:.65rem;justify-content:center;flex-wrap:wrap;}
+/* IDENTITY */
+.identity{max-width:900px;margin:0 auto;padding:5rem 2rem;text-align:center;}
+.sec-eye{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--nude);margin-bottom:1.25rem;}
+.sec-h{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.25rem);font-weight:300;color:var(--white);line-height:1.2;margin-bottom:1.25rem;}
+.sec-h em{font-style:italic;color:var(--nude);}
+.sec-p{font-size:15px;color:var(--body);line-height:1.9;font-weight:300;max-width:580px;margin:0 auto 2.5rem;}
+.sec-p strong{color:var(--cream);font-weight:500;}
+.btn-pair{display:flex;gap:.65rem;justify-content:center;flex-wrap:wrap;}
 .btn-s{display:inline-flex;align-items:center;gap:7px;padding:12px 24px;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;transition:all .2s;}
 .btn-sn{background:var(--nude);color:var(--bg);}
 .btn-sn:hover{background:var(--nude2);}
 .btn-so{border:1px solid var(--nude-border);color:var(--cream);}
 .btn-so:hover{border-color:var(--nude);color:var(--nude);}
 
-/* ── STAGES — EDITORIAL GRID ── */
-.stages{padding:0 2rem 5rem;}
-.sec-label{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--nude);padding:.85rem 0;border-top:1px solid var(--border);margin-bottom:.25rem;}
+/* ── STAGES — KEY FIX: all cards 4/5 aspect ratio ── */
+.stages-wrap{padding:0 2rem 5rem;}
+.stages-eye{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--nude);padding:.85rem 0;border-top:1px solid var(--border);margin-bottom:.5rem;}
 
-/* Mobile */
-.sg-mob{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
-.sc{position:relative;overflow:hidden;background:var(--card);}
-.sc.r2{grid-row:span 2;}
-.sc.c2{grid-column:span 2;}
-.sc:not(.r2):not(.c2){aspect-ratio:1/1;}
-.sc.r2{aspect-ratio:9/18;}
-.sc.c2{aspect-ratio:16/7;}
-.sm{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .5s;}
-.sm.top{object-position:center 12%;}
-.sm.mid{object-position:center 35%;}
-.sc:hover .sm{transform:scale(1.04);}
-.sg{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,8,.9) 0%,rgba(10,10,8,.05) 50%,transparent 100%);}
-.si{position:absolute;bottom:0;left:0;right:0;padding:.75rem .85rem;}
-.sl{font-size:9px;color:var(--nude);font-weight:700;letter-spacing:.09em;text-transform:uppercase;margin-bottom:.15rem;}
-.sc-cap{font-family:'Cormorant Garamond',serif;font-size:.95rem;font-weight:600;color:var(--white);line-height:1.2;}
+/* Mobile: 2 col, all 4/5 */
+.stages-mob{display:grid;grid-template-columns:1fr 1fr;gap:3px;}
+.s-card{position:relative;overflow:hidden;background:var(--card);aspect-ratio:4/5;}
+.s-card.wide{grid-column:span 2;aspect-ratio:16/7;}
+.s-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;}
+.s-media.mid{object-position:center 35%;}
+.s-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(9,9,10,.92) 0%,rgba(9,9,10,.1) 45%,transparent 100%);}
+.s-info{position:absolute;bottom:0;left:0;right:0;padding:.85rem;}
+.s-loc{font-size:9px;color:var(--nude);font-weight:700;letter-spacing:.09em;text-transform:uppercase;margin-bottom:.2rem;}
+.s-cap{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--white);line-height:1.2;}
 
-/* Desktop — magazine editorial */
-.sg-desk{display:none;grid-template-columns:repeat(12,1fr);grid-auto-rows:220px;gap:2px;}
-.sd{position:relative;overflow:hidden;background:var(--card);}
-.sd:hover .sm{transform:scale(1.04);}
+/* Desktop: 12-col grid, all same 4/5 cells */
+.stages-desk{display:none;}
 
-/* ── BOOKING CTA BAND ── */
+/* ── BOOKING BAND ── */
 .book-band{background:var(--nude);padding:3.5rem 2rem;text-align:center;}
-.book-band-inner{max-width:800px;margin:0 auto;}
-.bb-h{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.25rem);font-weight:600;color:var(--bg);margin-bottom:.75rem;line-height:1.1;}
-.bb-p{font-size:15px;color:rgba(10,10,8,.65);margin-bottom:2rem;line-height:1.75;}
+.bb-inner{max-width:800px;margin:0 auto;}
+.bb-h{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3rem);font-weight:600;color:var(--bg);margin-bottom:.65rem;line-height:1.1;}
+.bb-p{font-size:15px;color:rgba(9,9,10,.6);margin-bottom:2rem;line-height:1.75;}
 .bb-btns{display:flex;gap:.65rem;justify-content:center;flex-wrap:wrap;}
-.bb-btn{display:inline-flex;align-items:center;gap:7px;padding:14px 28px;font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;transition:all .2s;}
+.bb-btn{display:inline-flex;align-items:center;gap:7px;padding:14px 26px;font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;transition:all .2s;}
 .bb-dark{background:var(--bg);color:var(--nude);}
-.bb-dark:hover{background:#1a1a18;}
-.bb-ghost{border:2px solid rgba(10,10,8,.3);color:var(--bg);}
-.bb-ghost:hover{background:rgba(10,10,8,.08);}
+.bb-dark:hover{background:#1a1a1a;}
+.bb-ghost{border:2px solid rgba(9,9,10,.25);color:var(--bg);}
+.bb-ghost:hover{background:rgba(9,9,10,.07);}
 
-/* ── LIFE STRIP ── */
-.life{padding:5rem 0;}
-.life-label{padding:0 2rem;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--nude);margin-bottom:1.25rem;}
-.life-scroll{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
-.life-scroll::-webkit-scrollbar{display:none;}
-.lc{position:relative;flex-shrink:0;overflow:hidden;background:var(--card);}
-.lv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
-.lv.top{object-position:center top;}
-.lg{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,8,.82),transparent 55%);}
-.ll{position:absolute;bottom:.65rem;left:.75rem;font-size:9px;color:var(--nude);font-weight:700;letter-spacing:.1em;text-transform:uppercase;}
+/* ── LIFE IN MOTION — KEY FIX: all same height 360px ── */
+.life-wrap{padding:5rem 0;}
+.life-eye{padding:0 2rem;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--nude);margin-bottom:1.25rem;}
+.life-strip{display:flex;gap:3px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+.life-strip::-webkit-scrollbar{display:none;}
+/* All life cards same height — width is natural from aspect ratio */
+.lc{position:relative;flex-shrink:0;overflow:hidden;background:var(--card);height:360px;}
+.lc-wide{width:270px;} /* 16:9 landscape clips */
+.lc-port{width:202px;} /* 9:16 portrait clips */
+.lc-sq{width:270px;}   /* square-ish */
+.lv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;}
+.lv.top{object-position:center 15%;}
+.l-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(9,9,10,.85),transparent 55%);}
+.l-lbl{position:absolute;bottom:.65rem;left:.75rem;font-size:9px;color:var(--nude);font-weight:700;letter-spacing:.1em;text-transform:uppercase;}
 
-/* ── WORKSHOP ── */
-.ws{padding:5rem 2rem;background:var(--card);border-top:1px solid var(--nude-border);border-bottom:1px solid var(--nude-border);}
-.ws-in{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:3rem;}
-.ws-l .ws-label{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--nude);margin-bottom:1.25rem;}
+/* WORKSHOP */
+.ws-wrap{background:var(--card);border-top:1px solid var(--nude-border);border-bottom:1px solid var(--nude-border);padding:5rem 2rem;}
+.ws-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:3rem;}
+.ws-label{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--nude);margin-bottom:1.25rem;}
 .ws-h{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3rem);font-weight:300;color:var(--white);margin-bottom:.75rem;}
 .ws-h em{font-style:italic;color:var(--nude);}
 .ws-p{font-size:14px;color:var(--body);line-height:1.85;margin-bottom:1.75rem;}
@@ -159,74 +154,74 @@ h1 em{font-style:italic;color:var(--nude);}
 .wl{display:flex;align-items:flex-start;gap:.75rem;font-size:13.5px;color:var(--body);}
 .wl i{color:var(--nude);flex-shrink:0;margin-top:1px;}
 .ws-form{background:var(--bg);border:1px solid var(--nude-border);padding:2rem;}
-.wf-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:var(--white);margin-bottom:.35rem;}
-.wf-sub{font-size:13px;color:var(--muted);margin-bottom:1.5rem;line-height:1.6;}
-.fi{width:100%;padding:13px 16px;background:var(--card);border:1px solid var(--border);color:var(--cream);font-family:'Inter',sans-serif;font-size:14px;outline:none;margin-bottom:.65rem;border-radius:0;-webkit-appearance:none;}
+.wft{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:var(--white);margin-bottom:.35rem;}
+.wfs{font-size:13px;color:var(--muted);margin-bottom:1.5rem;line-height:1.6;}
+.fi{width:100%;padding:13px 16px;background:var(--card2);border:1px solid var(--border);color:var(--cream);font-family:'Inter',sans-serif;font-size:14px;outline:none;margin-bottom:.65rem;border-radius:0;-webkit-appearance:none;}
 .fi:focus{border-color:var(--nude);}
 .fi::placeholder{color:var(--muted);}
-.wf-btn{width:100%;background:var(--nude);color:var(--bg);padding:15px;font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;border:none;cursor:pointer;font-family:'Inter',sans-serif;border-radius:0;transition:background .2s;}
-.wf-btn:hover{background:var(--nude2);}
-.wf-note{font-size:11px;color:var(--muted);text-align:center;margin-top:.75rem;}
+.ws-btn{width:100%;background:var(--nude);color:var(--bg);padding:15px;font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;border:none;cursor:pointer;font-family:'Inter',sans-serif;border-radius:0;transition:background .2s;}
+.ws-btn:hover{background:var(--nude2);}
+.ws-note{font-size:11px;color:var(--muted);text-align:center;margin-top:.75rem;}
 
-/* ── TESTIMONIALS ── */
-.testis{padding:5rem 2rem;}
-.testis-in{max-width:1200px;margin:0 auto;}
+/* TESTIMONIALS */
+.testis-wrap{padding:5rem 2rem;}
+.testis-inner{max-width:1200px;margin:0 auto;}
 .t-label{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--nude);padding-bottom:1.5rem;border-bottom:1px solid var(--border);margin-bottom:2rem;}
-.tm{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;}
-.tm::-webkit-scrollbar{display:none;}
+.t-mob{display:flex;gap:3px;overflow-x:auto;scrollbar-width:none;}
+.t-mob::-webkit-scrollbar{display:none;}
 .tc{background:var(--card);padding:2rem 1.75rem;flex-shrink:0;width:80vw;max-width:320px;}
 .tq{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;color:var(--body);line-height:1.8;margin-bottom:1.25rem;}
 .tq::before{content:'\201C';font-size:2rem;color:var(--nude);line-height:0;vertical-align:-.35rem;margin-right:2px;}
 .ta{font-size:13px;font-weight:600;color:var(--cream);}
 .tr{font-size:11px;color:var(--muted);margin-top:2px;}
-.td{display:none;grid-template-columns:repeat(3,1fr);gap:2px;}
+.t-desk{display:none;grid-template-columns:repeat(3,1fr);gap:3px;}
 
-/* ── YOUTUBE ── */
-.yt{padding:5rem 2rem;background:var(--card);border-top:1px solid var(--border);}
-.yt-in{max-width:1200px;margin:0 auto;}
+/* YOUTUBE */
+.yt-wrap{background:var(--card);border-top:1px solid var(--border);padding:5rem 2rem;}
+.yt-inner{max-width:1200px;margin:0 auto;}
 .yt-label{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--nude);margin-bottom:1.25rem;}
 .yt-h{font-family:'Cormorant Garamond',serif;font-size:clamp(1.85rem,4vw,2.75rem);font-weight:300;color:var(--white);margin-bottom:.5rem;}
 .yt-h em{font-style:italic;color:var(--nude);}
 .yt-p{font-size:14px;color:var(--body);line-height:1.8;margin-bottom:1.25rem;}
-.yt-link{display:inline-flex;align-items:center;gap:6px;background:#FF0000;color:#fff;padding:11px 20px;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-bottom:2rem;}
+.yt-btn{display:inline-flex;align-items:center;gap:6px;background:#FF0000;color:#fff;padding:11px 20px;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-bottom:2rem;}
 .yt-frame{aspect-ratio:16/9;border:1px solid var(--border);}
 .yt-frame iframe{width:100%;height:100%;border:none;}
 
-/* ── PRODUCTS ── */
-.prods{padding:5rem 0;}
+/* PRODUCTS */
+.prods-wrap{padding:5rem 0;}
 .prods-label{padding:0 2rem;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--nude);margin-bottom:1.25rem;}
-.ps{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;}
-.ps::-webkit-scrollbar{display:none;}
+.prods-scroll{display:flex;gap:3px;overflow-x:auto;scrollbar-width:none;}
+.prods-scroll::-webkit-scrollbar{display:none;}
 .pc{background:var(--card);padding:1.75rem;flex-shrink:0;width:70vw;max-width:240px;border-top:2px solid transparent;transition:border-color .2s;}
 .pc:hover{border-top-color:var(--nude);}
 .pst{font-size:9px;font-weight:700;padding:3px 9px;letter-spacing:.07em;text-transform:uppercase;margin-bottom:.6rem;display:inline-block;}
 .psl{background:var(--nude-dim);color:var(--nude);border:1px solid var(--nude-border);}
-.psd{background:rgba(255,255,255,.04);color:var(--muted);border:1px solid var(--border);}
+.psd{background:rgba(255,255,255,.03);color:var(--muted);border:1px solid var(--border);}
 .pn{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;margin-bottom:.3rem;color:var(--white);}
 .pd{font-size:12px;color:var(--muted);line-height:1.65;margin-bottom:.8rem;}
 .pb{font-size:10px;font-weight:600;padding:3px 8px;display:inline-flex;align-items:center;gap:3px;margin-right:.25rem;margin-bottom:.25rem;}
-.pb-i{background:rgba(255,255,255,.05);color:rgba(240,232,218,.5);border:1px solid var(--border);}
+.pb-i{background:rgba(255,255,255,.04);color:rgba(239,232,220,.45);border:1px solid var(--border);}
 .pb-a{background:var(--nude-dim);color:var(--nude);border:1px solid var(--nude-border);}
 .plnk{font-size:11px;color:var(--nude);display:inline-flex;align-items:center;gap:3px;margin-top:.4rem;}
-.pd-desk{display:none;}
+.prods-desk{display:none;}
 
-/* ── WORK WITH ME ── */
-.work{padding:5rem 2rem;}
-.work-in{max-width:1200px;margin:0 auto;}
-.work-label{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--nude);margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);}
+/* WORK */
+.work-wrap{padding:5rem 2rem;}
+.work-inner{max-width:1200px;margin:0 auto;}
+.work-label{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--nude);padding-bottom:1.5rem;border-bottom:1px solid var(--border);margin-bottom:2rem;}
 .work-h{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3rem);font-weight:300;color:var(--white);margin-bottom:2.5rem;}
 .work-h em{font-style:italic;color:var(--nude);}
-.wg{display:grid;grid-template-columns:1fr;gap:1px;background:var(--border);}
+.work-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--border);}
 .wc{background:var(--bg);padding:1.75rem;display:flex;align-items:flex-start;gap:1.25rem;}
-.wc-n{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--nude-border);flex-shrink:0;width:40px;line-height:1;}
+.wc-n{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:rgba(200,171,135,.2);flex-shrink:0;width:40px;line-height:1;}
 .wc-t{font-size:14px;font-weight:600;color:var(--cream);margin-bottom:.25rem;}
 .wc-d{font-size:13px;color:var(--muted);line-height:1.7;}
-.wc-p{font-size:11px;color:var(--nude);font-weight:600;margin-top:.5rem;letter-spacing:.03em;}
+.wc-p{font-size:11px;color:var(--nude);font-weight:600;margin-top:.5rem;}
 
-/* ── EMAIL ── */
-.email{background:var(--card);border-top:1px solid var(--nude-border);padding:5rem 2rem;text-align:center;}
-.em-in{max-width:440px;margin:0 auto;}
-.em-label{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--nude);margin-bottom:1.25rem;}
+/* EMAIL */
+.email-wrap{background:var(--card);border-top:1px solid var(--nude-border);padding:5rem 2rem;text-align:center;}
+.em-inner{max-width:440px;margin:0 auto;}
+.em-eye{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--nude);margin-bottom:1.25rem;}
 .em-h{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,2.75rem);font-weight:300;color:var(--white);margin-bottom:.65rem;}
 .em-h em{font-style:italic;color:var(--nude);}
 .em-p{font-size:14px;color:var(--muted);margin-bottom:1.75rem;line-height:1.8;}
@@ -236,11 +231,11 @@ h1 em{font-style:italic;color:var(--nude);}
 .em-i::placeholder{color:var(--muted);}
 .em-b{background:var(--nude);color:var(--bg);padding:14px;font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;border:none;cursor:pointer;font-family:'Inter',sans-serif;border-radius:0;transition:background .2s;}
 .em-b:hover{background:var(--nude2);}
-.em-soc{display:flex;gap:.4rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;}
+.soc-row{display:flex;gap:.4rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;}
 .sf{display:inline-flex;align-items:center;gap:4px;font-size:12px;color:var(--muted);padding:6px 12px;border:1px solid var(--border);}
 .sf:hover{color:var(--cream);border-color:var(--nude-border);}
 
-/* ── FOOTER ── */
+/* FOOTER */
 footer{padding:2rem;border-top:1px solid var(--border);}
 .ft{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem;margin-bottom:1rem;}
 .fl{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:var(--muted);}
@@ -249,7 +244,7 @@ footer{padding:2rem;border-top:1px solid var(--border);}
 .flinks a:hover{color:var(--cream);}
 .fcopy{font-size:11px;color:var(--muted);}
 
-/* ── CHARACTER ── */
+/* CHARACTER */
 .char{position:fixed;bottom:1.25rem;right:1.25rem;z-index:500;display:flex;flex-direction:column;align-items:center;gap:.6rem;}
 .char-bub{background:#0D3D4A;color:var(--cream);font-size:12px;line-height:1.55;padding:10px 14px;border:1px solid var(--nude-border);animation:bob 3.5s ease-in-out infinite;max-width:185px;text-align:center;position:relative;font-weight:300;}
 .char-bub::after{content:'';position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);border:8px solid transparent;border-top-color:#0D3D4A;border-bottom:none;}
@@ -257,63 +252,74 @@ footer{padding:2rem;border-top:1px solid var(--border);}
 .char-vid{width:76px;height:76px;object-fit:cover;object-position:center top;border-radius:50%;border:2px solid var(--nude-border);cursor:pointer;}
 .char-x{position:absolute;top:-7px;right:-7px;width:20px;height:20px;background:var(--bg);border:1px solid var(--nude-border);color:var(--muted);font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center;border-radius:50%;}
 
-/* ── DESKTOP ── */
+/* DESKTOP */
 @media(min-width:768px){
   .ham,.mob-menu{display:none !important;}
-  .nl,.nb-book{display:flex;}
-  nav .nb-book{display:inline-block;}
-  .nav-i{padding:.9rem 2.5rem;}
+  .nav-links,.btn-book{display:flex;}
+  .nav-inner{padding:.9rem 2.5rem;}
 
   /* Hero split */
   .hero{grid-template-columns:55% 45%;min-height:100svh;}
-  .hero-left{height:100%;}
-  .hero-right{padding:6rem 3rem 4rem 3.5rem;}
-  .h-ctas{flex-direction:row;flex-wrap:wrap;}
-  .btn-main{width:auto;}
+  .hero-media{height:100%;}
+  .hero-content{padding:6rem 3.5rem 4rem;}
+  .h-btns{flex-direction:row;flex-wrap:wrap;}
+  .btn-lg{width:auto;}
+  .btn-row{flex:none;}
+  .btn-half{flex:none;padding:15px 22px;}
 
-  /* Stages */
-  .sg-mob{display:none;}
-  .sg-desk{display:grid;}
+  /* Stages desktop — all cards same 4/5, 3 col */
+  .stages-mob{display:none;}
+  .stages-desk{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
+  .sd{position:relative;overflow:hidden;background:var(--card);aspect-ratio:4/5;}
+  .sd.wide{grid-column:span 3;aspect-ratio:21/9;}
+  .sd .s-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;}
+  .sd .s-media.mid{object-position:center 35%;}
+  .sd:hover .s-media{transform:scale(1.04);transition:transform .5s;}
+  .sd .s-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(9,9,10,.92) 0%,rgba(9,9,10,.05) 50%,transparent 100%);}
+  .sd .s-info{position:absolute;bottom:0;left:0;right:0;padding:1.25rem;}
+  .sd .s-loc{font-size:9px;color:var(--nude);font-weight:700;letter-spacing:.09em;text-transform:uppercase;margin-bottom:.25rem;}
+  .sd .s-cap{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--white);line-height:1.25;}
 
   /* Life */
-  .life{padding:7rem 0;}
-  .life-label{padding:0 2.5rem;}
+  .life-wrap{padding:7rem 0;}
+  .lc{height:420px;}
+  .lc-wide{width:320px;}
+  .lc-port{width:236px;}
 
-  /* Workshop */
-  .ws{padding:7rem 2.5rem;}
-  .ws-in{grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+  /* Workshop 2 col */
+  .ws-wrap{padding:7rem 2.5rem;}
+  .ws-inner{grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
 
   /* Testis */
-  .tm{display:none;}
-  .td{display:grid;}
+  .t-mob{display:none;}
+  .t-desk{display:grid;}
 
-  /* YT */
-  .yt{padding:7rem 2.5rem;}
+  /* YT 2 col */
+  .yt-wrap{padding:7rem 2.5rem;}
   .yt-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:4rem;align-items:center;}
 
   /* Products */
-  .prods{padding:7rem 0;}
-  .prods-label{padding:0 2.5rem;}
-  .ps{display:none;}
-  .pd-desk{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin:0 2.5px;}
+  .prods-scroll{display:none;}
+  .prods-desk{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin:0 2.5rem;}
 
   /* Work */
-  .work{padding:7rem 2.5rem;}
-  .wg{grid-template-columns:1fr 1fr;}
+  .work-wrap{padding:7rem 2.5rem;}
+  .work-grid{grid-template-columns:1fr 1fr;}
 
   /* Email */
-  .email{padding:7rem 2.5rem;}
+  .email-wrap{padding:7rem 2.5rem;}
   .em-form{flex-direction:row;}
   .em-i{flex:1;}
   .em-b{width:auto;}
 
+  .identity{padding:7rem 2.5rem;}
+  .stages-wrap{padding:0 2.5rem 7rem;}
+  .testis-wrap{padding:7rem 2.5rem;}
+  .prods-wrap{padding:7rem 0;}
   footer{padding:2.5rem;}
-  .stages{padding:0 2.5rem 7rem;}
-  .testis{padding:7rem 2.5rem;}
-  .prods{padding:7rem 0;}
 }
 @media(max-width:767px){
-  .nl,.nb-book{display:none;}
+  .nav-links,.btn-book{display:none;}
   .ham{display:flex;}
 }
 </style>
@@ -321,15 +327,15 @@ footer{padding:2rem;border-top:1px solid var(--border);}
 <body>
 
 <nav>
-  <div class="nav-i">
+  <div class="nav-inner">
     <a href="index.html" class="logo">L.<em>Finesse</em> Humxn</a>
-    <div class="nl">
+    <div class="nav-links">
       <a href="workshop.html">Workshop</a>
       <a href="learn.html">Learn</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </div>
-    <a href="contact.html" class="nb-book">Book Me</a>
+    <a href="contact.html" class="btn-book">Book Me</a>
     <div class="ham" onclick="toggleNav()"><span></span><span></span><span></span></div>
   </div>
 </nav>
@@ -339,29 +345,25 @@ footer{padding:2rem;border-top:1px solid var(--border);}
   <a href="learn.html" class="mm-a">Learn</a>
   <a href="about.html" class="mm-a">About</a>
   <a href="contact.html" class="mm-a">Contact</a>
-  <a href="contact.html" class="mm-cta">Book or Hire Me</a>
+  <a href="contact.html" class="mm-book">Book or Hire Me</a>
 </div>
 
-<!-- HERO SPLIT -->
+<!-- HERO -->
 <div class="hero">
-  <div class="hero-left">
-    <video class="hero-vid" autoplay muted loop playsinline src="header_training.mp4" onerror="this.src='southafrica.mp4'"></video>
+  <div class="hero-media">
+    <video class="hero-vid" autoplay muted loop playsinline src="header_training.mp4" onerror="this.src='onstage1.jpg';this.style.objectPosition='center 20%'"></video>
     <div class="hero-grad"></div>
   </div>
-  <div class="hero-right">
-    <div class="h-kicker">Available to book</div>
-    <h1>
-      <em>Global</em><br>
-      <strong>Speaker.</strong><br>
-      <em>AI</em><br>
-      <strong>Engineer.</strong>
-    </h1>
-    <p class="h-desc">
-      <strong>Mental Health in Tech.</strong> Artificial Intelligence. Government Technology. I bridge all three — on stages around the world and in 4 apps now live on iOS and Android.
-    </p>
-    <div class="h-ctas">
-      <a href="contact.html" class="btn-main btn-n"><i class="ti ti-microphone"></i> Book Me to Speak</a>
-      <a href="workshop.html" class="btn-main btn-o"><i class="ti ti-calendar"></i> Free Workshop</a>
+  <div class="hero-content">
+    <div class="h-eyebrow">Available to book worldwide</div>
+    <h1><em>Global</em><br><strong>Speaker.</strong><br><em>AI</em><br><strong>Engineer.</strong></h1>
+    <p class="h-desc"><strong>Mental Health in Tech.</strong> Artificial Intelligence. Government Technology. I bridge all three — on stages around the world and in 4 apps now live on iOS and Android.</p>
+    <div class="h-btns">
+      <a href="contact.html" class="btn-lg btn-n"><i class="ti ti-microphone"></i> Book Me to Speak</a>
+      <div class="btn-row">
+        <a href="workshop.html" class="btn-lg btn-o btn-half"><i class="ti ti-calendar"></i> Free Workshop</a>
+        <a href="learn.html" class="btn-lg btn-o btn-half"><i class="ti ti-book"></i> Learn</a>
+      </div>
     </div>
     <div class="h-soc">
       <a href="https://instagram.com/finessehumxn" target="_blank" class="hs"><i class="ti ti-brand-instagram"></i> 5.3K</a>
@@ -374,7 +376,7 @@ footer{padding:2rem;border-top:1px solid var(--border);}
 
 <!-- TICKER -->
 <div class="ticker">
-  <div class="ticker-track">
+  <div class="ticker-t">
     <span class="tick">Global Speaker</span><span class="tick">AI Engineer</span><span class="tick">South Africa</span><span class="tick">Japan</span><span class="tick">Facebook HQ</span><span class="tick">Vietnam</span><span class="tick">Mental Health Advocate</span><span class="tick">4 Apps Live</span><span class="tick">60+ Certifications</span><span class="tick">32 Gov Bids</span><span class="tick">8+ Countries</span><span class="tick">WOSB · MBE · DBE</span><span class="tick">Suicide Prevention</span><span class="tick">LangGraph Engineer</span>
     <span class="tick">Global Speaker</span><span class="tick">AI Engineer</span><span class="tick">South Africa</span><span class="tick">Japan</span><span class="tick">Facebook HQ</span><span class="tick">Vietnam</span><span class="tick">Mental Health Advocate</span><span class="tick">4 Apps Live</span><span class="tick">60+ Certifications</span><span class="tick">32 Gov Bids</span><span class="tick">8+ Countries</span><span class="tick">WOSB · MBE · DBE</span><span class="tick">Suicide Prevention</span><span class="tick">LangGraph Engineer</span>
   </div>
@@ -382,88 +384,125 @@ footer{padding:2rem;border-top:1px solid var(--border);}
 
 <!-- PROOF -->
 <div class="proof">
-  <div class="pn"><div class="pn-n">4</div><div class="pn-l">Apps Live<br>iOS+Android</div></div>
-  <div class="pn"><div class="pn-n">5+</div><div class="pn-l">Countries<br>Spoken In</div></div>
-  <div class="pn"><div class="pn-n">281</div><div class="pn-l">YouTube<br>Videos</div></div>
-  <div class="pn"><div class="pn-n">60+</div><div class="pn-l">AI/ML<br>Certs</div></div>
+  <div class="pi"><div class="pin">4</div><div class="pil">Apps Live<br>iOS+Android</div></div>
+  <div class="pi"><div class="pin">5+</div><div class="pil">Countries<br>Spoken In</div></div>
+  <div class="pi"><div class="pin">281</div><div class="pil">YouTube<br>Videos</div></div>
+  <div class="pi"><div class="pin">60+</div><div class="pil">AI/ML<br>Certs</div></div>
 </div>
 
 <!-- IDENTITY -->
 <div class="identity">
-  <div class="id-label">The work</div>
-  <h2 class="id-h">Helping everyday humans<br>understand AI,<br><em>one conversation at a time.</em></h2>
-  <p class="id-p">I started in survival. Mental health brought me to advocacy. Advocacy brought me to speaking. Speaking brought me to training. Training brought me to tech. And tech brought me back to everything that mattered from the beginning — <strong>making sure people have access to the things that can save their lives.</strong></p>
-  <div class="id-btns">
+  <div class="sec-eye">The work</div>
+  <h2 class="sec-h">Helping everyday humans<br>understand AI,<br><em>one conversation at a time.</em></h2>
+  <p class="sec-p">I started in survival. Mental health brought me to advocacy. Advocacy brought me to speaking. Speaking brought me to training. Training brought me to tech. And tech brought me back to everything that mattered from the beginning — <strong>making sure people have access to the things that can save their lives.</strong></p>
+  <div class="btn-pair">
     <a href="about.html" class="btn-s btn-sn">Read My Story</a>
     <a href="contact.html" class="btn-s btn-so">Book or Hire Me</a>
   </div>
 </div>
 
-<!-- STAGES -->
-<div class="stages">
-  <div class="sec-label">Global Stages — Real footage. Real rooms.</div>
+<!-- STAGES — consistent 4/5 cards -->
+<div class="stages-wrap">
+  <div class="stages-eye">Global Stages — Real rooms. Real footage.</div>
 
-  <!-- Mobile -->
-  <div class="sg-mob">
-    <div class="sc r2">
-      <video class="sm" autoplay muted loop playsinline src="southafrica.mp4" onerror="this.parentElement.style.background='#161614';this.style.display='none'"></video>
-      <div class="sg"></div><div class="si"><div class="sl">&#127462;&#127467; South Africa</div><div class="sc-cap">Hard Rock Cafe Keynote</div></div>
+  <!-- MOBILE: 2 col, all 4/5 -->
+  <div class="stages-mob">
+    <div class="s-card wide">
+      <img class="s-media" src="onstage1.jpg" alt="On stage packed audience" onerror="this.parentElement.style.background='#141414';this.style.display='none'">
+      <div class="s-grad"></div>
+      <div class="s-info"><div class="s-loc">&#127775; Live Performance</div><div class="s-cap">Full house. Spotlight. Mic in hand.</div></div>
     </div>
-    <div class="sc">
-      <video class="sm" autoplay muted loop playsinline src="japan.mp4" onerror="this.parentElement.style.background='#161614';this.style.display='none'"></video>
-      <div class="sg"></div><div class="si"><div class="sl">&#127471;&#127477; Japan</div><div class="sc-cap">International Speaking</div></div>
+    <div class="s-card">
+      <video class="s-media" autoplay muted loop playsinline src="southafrica.mp4" onerror="this.parentElement.style.background='#141414';this.style.display='none'"></video>
+      <div class="s-grad"></div>
+      <div class="s-info"><div class="s-loc">&#127462;&#127467; South Africa</div><div class="s-cap">Hard Rock Cafe Keynote</div></div>
     </div>
-    <div class="sc">
-      <img class="sm top" src="facebook.jpg" alt="Facebook HQ" onerror="this.parentElement.style.background='#161614';this.style.display='none'">
-      <div class="sg"></div><div class="si"><div class="sl">&#127981; Facebook HQ</div><div class="sc-cap">Boost with Facebook</div></div>
+    <div class="s-card">
+      <video class="s-media" autoplay muted loop playsinline src="japan.mp4" onerror="this.parentElement.style.background='#141414';this.style.display='none'"></video>
+      <div class="s-grad"></div>
+      <div class="s-info"><div class="s-loc">&#127471;&#127477; Japan</div><div class="s-cap">International Speaking</div></div>
     </div>
-    <div class="sc c2">
-      <img class="sm mid" src="saigon.jpg" alt="Saigon University" onerror="this.src='vietnam.jpg'">
-      <div class="sg"></div><div class="si"><div class="sl">&#127758; Vietnam</div><div class="sc-cap">Saigon International University</div></div>
+    <div class="s-card">
+      <img class="s-media" src="facebook.jpg" alt="Facebook HQ" onerror="this.parentElement.style.background='#141414';this.style.display='none'">
+      <div class="s-grad"></div>
+      <div class="s-info"><div class="s-loc">&#127981; Facebook HQ</div><div class="s-cap">Boost with Facebook</div></div>
     </div>
-    <div class="sc">
-      <img class="sm" src="vietnam_training.jpg" alt="Vietnam" onerror="this.parentElement.style.background='#161614';this.style.display='none'">
-      <div class="sg"></div><div class="si"><div class="sl">&#127758; Vietnam</div><div class="sc-cap">International Training</div></div>
+    <div class="s-card">
+      <img class="s-media mid" src="saigon.jpg" alt="Saigon University" onerror="this.src='vietnam.jpg'">
+      <div class="s-grad"></div>
+      <div class="s-info"><div class="s-loc">&#127758; Vietnam</div><div class="s-cap">Saigon Intl University</div></div>
     </div>
-    <div class="sc">
-      <img class="sm top" src="wade_performance.jpg" alt="Performance Night" onerror="this.parentElement.style.background='#161614';this.style.display='none'">
-      <div class="sg"></div><div class="si"><div class="sl">&#127775; Performance</div><div class="sc-cap">Backstage with Dwayne Wade</div></div>
+    <div class="s-card">
+      <img class="s-media" src="onstage2.jpg" alt="On stage podium" onerror="this.parentElement.style.background='#141414';this.style.display='none'">
+      <div class="s-grad"></div>
+      <div class="s-info"><div class="s-loc">&#127775; On Stage</div><div class="s-cap">Keynote Address</div></div>
+    </div>
+    <div class="s-card">
+      <img class="s-media" src="vietnam_training.jpg" alt="Vietnam training" onerror="this.parentElement.style.background='#141414';this.style.display='none'">
+      <div class="s-grad"></div>
+      <div class="s-info"><div class="s-loc">&#127758; Vietnam</div><div class="s-cap">International Training</div></div>
+    </div>
+    <div class="s-card">
+      <img class="s-media top" src="wade_performance.jpg" alt="Dwayne Wade" onerror="this.parentElement.style.background='#141414';this.style.display='none'">
+      <div class="s-grad"></div>
+      <div class="s-info"><div class="s-loc">&#127775; Performance Night</div><div class="s-cap">Backstage with Dwayne Wade</div></div>
     </div>
   </div>
 
-  <!-- Desktop editorial -->
-  <div class="sg-desk">
-    <div class="sd" style="grid-column:span 7;grid-row:span 2;">
-      <video class="sm" autoplay muted loop playsinline src="southafrica.mp4" onerror="this.style.display='none'"></video>
-      <div class="sg"></div><div class="si"><div class="sl">&#127462;&#127467; South Africa</div><div class="sc-cap">Hard Rock Cafe &#8212; Live Keynote</div></div>
+  <!-- DESKTOP: 3 col, all 4/5 -->
+  <div class="stages-desk">
+    <div class="sd wide">
+      <img class="s-media" src="onstage1.jpg" alt="On stage packed audience" onerror="this.parentElement.style.background='#141414';this.style.display='none'">
+      <div class="s-grad"></div>
+      <div class="s-info"><div class="s-loc">&#127775; Live Performance</div><div class="s-cap">Full house. Spotlight. Mic in hand.</div></div>
     </div>
-    <div class="sd" style="grid-column:span 5;">
-      <video class="sm" autoplay muted loop playsinline src="japan.mp4" onerror="this.style.display='none'"></video>
-      <div class="sg"></div><div class="si"><div class="sl">&#127471;&#127477; Japan</div><div class="sc-cap">International Speaking</div></div>
+    <div class="sd">
+      <video class="s-media" autoplay muted loop playsinline src="southafrica.mp4" onerror="this.style.display='none'"></video>
+      <div class="s-grad"></div>
+      <div class="s-info"><div class="s-loc">&#127462;&#127467; South Africa</div><div class="s-cap">Hard Rock Cafe &#8212; Live Keynote</div></div>
     </div>
-    <div class="sd" style="grid-column:span 3;">
-      <img class="sm top" src="facebook.jpg" alt="Facebook HQ" onerror="this.style.display='none'">
-      <div class="sg"></div><div class="si"><div class="sl">&#127981; Facebook HQ</div><div class="sc-cap">Boost with Facebook</div></div>
+    <div class="sd">
+      <video class="s-media" autoplay muted loop playsinline src="japan.mp4" onerror="this.style.display='none'"></video>
+      <div class="s-grad"></div>
+      <div class="s-info"><div class="s-loc">&#127471;&#127477; Japan</div><div class="s-cap">International Speaking</div></div>
     </div>
-    <div class="sd" style="grid-column:span 2;">
-      <img class="sm top" src="wade_performance.jpg" alt="Performance" onerror="this.style.display='none'">
-      <div class="sg"></div><div class="si"><div class="sl">&#127775; Performance</div><div class="sc-cap">Dwayne Wade Night</div></div>
+    <div class="sd">
+      <img class="s-media" src="onstage2.jpg" alt="On stage podium" onerror="this.style.display='none'">
+      <div class="s-grad"></div>
+      <div class="s-info"><div class="s-loc">&#127775; On Stage</div><div class="s-cap">Keynote Address</div></div>
     </div>
-    <div class="sd" style="grid-column:span 4;">
-      <img class="sm mid" src="saigon.jpg" alt="Saigon" onerror="this.src='vietnam.jpg'">
-      <div class="sg"></div><div class="si"><div class="sl">&#127758; Vietnam</div><div class="sc-cap">Saigon International University</div></div>
+    <div class="sd">
+      <img class="s-media" src="facebook.jpg" alt="Facebook HQ" onerror="this.style.display='none'">
+      <div class="s-grad"></div>
+      <div class="s-info"><div class="s-loc">&#127981; Facebook HQ</div><div class="s-cap">Boost with Facebook</div></div>
     </div>
-    <div class="sd" style="grid-column:span 3;">
-      <img class="sm" src="vietnam_training.jpg" alt="Vietnam Training" onerror="this.style.display='none'">
-      <div class="sg"></div><div class="si"><div class="sl">&#127758; Vietnam</div><div class="sc-cap">International Training</div></div>
+    <div class="sd">
+      <img class="s-media mid" src="saigon.jpg" alt="Saigon" onerror="this.src='vietnam.jpg'">
+      <div class="s-grad"></div>
+      <div class="s-info"><div class="s-loc">&#127758; Vietnam</div><div class="s-cap">Saigon Intl University</div></div>
+    </div>
+    <div class="sd">
+      <img class="s-media" src="vietnam_training.jpg" alt="Vietnam" onerror="this.style.display='none'">
+      <div class="s-grad"></div>
+      <div class="s-info"><div class="s-loc">&#127758; Vietnam</div><div class="s-cap">International Training</div></div>
+    </div>
+    <div class="sd">
+      <img class="s-media top" src="wade_performance.jpg" alt="Wade" onerror="this.style.display='none'">
+      <div class="s-grad"></div>
+      <div class="s-info"><div class="s-loc">&#127775; Performance Night</div><div class="s-cap">Backstage with Dwayne Wade</div></div>
+    </div>
+    <div class="sd">
+      <img class="s-media" src="matcha.jpg" alt="On the way" onerror="this.parentElement.style.background='#141414';this.style.display='none'">
+      <div class="s-grad"></div>
+      <div class="s-info"><div class="s-loc">&#9992; In Transit</div><div class="s-cap">Always en route to the next stage</div></div>
     </div>
   </div>
 </div>
 
 <!-- BOOKING BAND -->
 <div class="book-band">
-  <div class="book-band-inner">
-    <h2 class="bb-h">Ready to book L.Finesse<br>for your next event?</h2>
+  <div class="bb-inner">
+    <h2 class="bb-h">Book L.Finesse for your next event</h2>
     <p class="bb-p">Speaker. Trainer. Consultant. Keynote. Workshop. Webinar. I show up fully — and I deliver every time.</p>
     <div class="bb-btns">
       <a href="contact.html" class="bb-btn bb-dark"><i class="ti ti-microphone"></i> Book Me to Speak</a>
@@ -473,37 +512,41 @@ footer{padding:2rem;border-top:1px solid var(--border);}
   </div>
 </div>
 
-<!-- LIFE IN MOTION -->
-<div class="life">
-  <div class="life-label">Life in Motion</div>
-  <div class="life-scroll">
-    <div class="lc" style="width:280px;height:400px;">
-      <video class="lv" autoplay muted loop playsinline src="delta.mp4" onerror="this.parentElement.style.background='#161614';this.style.display='none'"></video>
-      <div class="lg"></div><div class="ll">&#9992; Delta One</div>
+<!-- LIFE IN MOTION — all cards same 360px height -->
+<div class="life-wrap">
+  <div class="life-eye">Life in Motion</div>
+  <div class="life-strip">
+    <div class="lc lc-wide">
+      <video class="lv" autoplay muted loop playsinline src="delta.mp4" onerror="this.parentElement.style.background='#141414';this.style.display='none'"></video>
+      <div class="l-grad"></div><div class="l-lbl">&#9992; Delta One</div>
     </div>
-    <div class="lc" style="width:200px;height:400px;">
-      <video class="lv top" autoplay muted loop playsinline src="motorcycle.mp4" onerror="this.parentElement.style.background='#161614';this.style.display='none'"></video>
-      <div class="lg"></div><div class="ll">En Route</div>
+    <div class="lc lc-port">
+      <video class="lv top" autoplay muted loop playsinline src="motorcycle.mp4" onerror="this.parentElement.style.background='#141414';this.style.display='none'"></video>
+      <div class="l-grad"></div><div class="l-lbl">En Route</div>
     </div>
-    <div class="lc" style="width:200px;height:400px;">
-      <video class="lv top" autoplay muted loop playsinline src="prepping.mp4" onerror="this.parentElement.style.background='#161614';this.style.display='none'"></video>
-      <div class="lg"></div><div class="ll">Prepping</div>
+    <div class="lc lc-port">
+      <video class="lv top" autoplay muted loop playsinline src="prepping.mp4" onerror="this.parentElement.style.background='#141414';this.style.display='none'"></video>
+      <div class="l-grad"></div><div class="l-lbl">Prepping</div>
     </div>
-    <div class="lc" style="width:200px;height:400px;">
-      <img class="lv top" src="matcha.jpg" alt="The vibe" onerror="this.parentElement.style.background='#161614';this.style.display='none'">
-      <div class="lg"></div><div class="ll">The Vibe</div>
+    <div class="lc lc-port">
+      <img class="lv top" src="matcha.jpg" alt="The vibe" onerror="this.parentElement.style.background='#141414';this.style.display='none'">
+      <div class="l-grad"></div><div class="l-lbl">The Vibe</div>
     </div>
-    <div class="lc" style="width:280px;height:400px;">
-      <video class="lv" autoplay muted loop playsinline src="travel.mp4" onerror="this.parentElement.style.background='#161614';this.style.display='none'"></video>
-      <div class="lg"></div><div class="ll">Always Moving</div>
+    <div class="lc lc-wide">
+      <video class="lv" autoplay muted loop playsinline src="travel.mp4" onerror="this.parentElement.style.background='#141414';this.style.display='none'"></video>
+      <div class="l-grad"></div><div class="l-lbl">Always Moving</div>
+    </div>
+    <div class="lc lc-wide">
+      <video class="lv" autoplay muted loop playsinline src="southafrica.mp4" onerror="this.parentElement.style.background='#141414';this.style.display='none'"></video>
+      <div class="l-grad"></div><div class="l-lbl">Hard Rock South Africa</div>
     </div>
   </div>
 </div>
 
 <!-- WORKSHOP -->
-<div class="ws">
-  <div class="ws-in">
-    <div class="ws-l">
+<div class="ws-wrap">
+  <div class="ws-inner">
+    <div>
       <div class="ws-label">Free Live Workshop</div>
       <h2 class="ws-h">How to Use AI to Build,<br>Speak, and <em>Get Paid</em></h2>
       <p class="ws-p">No code required. No experience necessary. Just 90 minutes with someone who has actually built it — and shipped 4 apps to prove it.</p>
@@ -516,45 +559,47 @@ footer{padding:2rem;border-top:1px solid var(--border);}
       </div>
     </div>
     <div class="ws-form">
-      <div class="wf-title">Save Your Free Seat</div>
-      <div class="wf-sub">Next live session announced via email. Register and be first to know.</div>
+      <div class="wft">Save Your Free Seat</div>
+      <div class="wfs">Next live session announced via email. Register and be first to know.</div>
       <form onsubmit="handleReg(event)">
         <input type="text" class="fi" placeholder="First name" required>
         <input type="email" class="fi" placeholder="Email address" required>
-        <button type="submit" class="wf-btn">Save My Free Seat &#8594;</button>
-        <p class="wf-note">Free. No credit card. Unsubscribe anytime.</p>
+        <button type="submit" class="ws-btn">Save My Free Seat &#8594;</button>
+        <p class="ws-note">Free. No credit card. Unsubscribe anytime.</p>
       </form>
     </div>
   </div>
 </div>
 
 <!-- TESTIMONIALS -->
-<div class="testis">
-  <div class="testis-in">
-    <div class="t-label">What people say</div>
-    <div class="tm">
-      <div class="tc"><p class="tq">The accuracy of the preliminary diagnosis based on symptoms was impressive. The dual-mode approach for medical professionals vs everyday users is genuinely smart product thinking.</p><div class="ta">Nicole Vaughn, APRN, PMH-NP</div><div class="tr">Psychiatric Nurse Practitioner</div></div>
-      <div class="tc"><p class="tq">L.Finesse is one of the most driven, creative, and technically capable builders I have worked with. She brings clinical perspective and engineering together in a way that is genuinely rare.</p><div class="ta">Jeanie Vatelia, BSN, RN</div><div class="tr">Legal Nurse Consultant &#183; Co-Founder</div></div>
-      <div class="tc"><p class="tq">Most patients never look at an After Visit Summary because they are overwhelmed. The AVS copy feature in the clinical mode solves a real problem we face every single day.</p><div class="ta">Naquita, RN</div><div class="tr">Registered Nurse &#183; Clinical Feedback</div></div>
-      <div class="tc"><p class="tq">A combination of high-level tech experience and deep human understanding. She builds things that actually matter to the people they are meant to serve.</p><div class="ta">Violet Kagiri</div><div class="tr">Board Member &#183; SDG Systems</div></div>
+<div class="testis-wrap">
+  <div class="testis-inner">
+    <div class="t-label">What people say &#8212; LinkedIn recommendations</div>
+    <div class="t-mob">
+      <div class="tc"><p class="tq">What makes Finesse unique is the combination of high-level tech experience and deep human understanding. She bridges the gap between fast-paced environments and the very real mental health challenges that come with them.</p><div class="ta">Jeanie Vatelia, BSN, RN</div><div class="tr">Legal Nurse Consultant &#183; Co-Founder</div></div>
+      <div class="tc"><p class="tq">L.Finesse is a visionary who knows exactly what she wants and pushes herself constantly. She leads with both strategy and heart, which is rare. Any organization that partners with Finesse gains someone deeply committed to making a lasting difference.</p><div class="ta">Jeanie Vatelia, BSN, RN</div><div class="tr">Legal Nurse Consultant &#183; LinkedIn</div></div>
+      <div class="tc"><p class="tq">She is a rockstar, truly. She makes you feel heard and seen and that is the greatest gift any supervisor can lead with. She brings value to anything she is a part of. I could not recommend her enough.</p><div class="ta">Violet Kagiri</div><div class="tr">Board Member &#183; SDG Systems</div></div>
+      <div class="tc"><p class="tq">Her resilience in the face of monumental challenges is a critical factor in her success. She drives toward results and propels progress, truly making a difference and changing the world one life at a time.</p><div class="ta">Kiera Nguyen</div><div class="tr">I/O Psychology Graduate &#183; FOM Volunteer</div></div>
+      <div class="tc"><p class="tq">Finesse doesn't let voices go unheard or feelings go unnoticed. She goes the extra mile to make others feel welcomed and has the charisma to lead and connect with others. It is rare to find people as genuine as Finesse.</p><div class="ta">Roman Bailey</div><div class="tr">Neuroscience Student, SDSU</div></div>
+      <div class="tc"><p class="tq">L.Finesse has created a space where young people are able to share their experiences about their mental health struggles. She has brought together so many from across the country and the globe to change the way society talks about suicide prevention.</p><div class="ta">Keronhica Desir</div><div class="tr">MS Psychology &#183; FOM Volunteer</div></div>
     </div>
-    <div class="td">
-      <div class="tc"><p class="tq">The accuracy of the preliminary diagnosis based on symptoms was impressive. The dual-mode approach for medical professionals vs everyday users is genuinely smart product thinking.</p><div class="ta">Nicole Vaughn, APRN, PMH-NP</div><div class="tr">Psychiatric Nurse Practitioner</div></div>
-      <div class="tc"><p class="tq">L.Finesse is one of the most driven, creative, and technically capable builders I have worked with. She brings clinical perspective and engineering together in a way that is genuinely rare.</p><div class="ta">Jeanie Vatelia, BSN, RN</div><div class="tr">Legal Nurse Consultant &#183; Co-Founder</div></div>
-      <div class="tc"><p class="tq">Most patients never look at an After Visit Summary because they are overwhelmed. The AVS copy feature in the clinical mode solves a real problem we face every single day.</p><div class="ta">Naquita, RN</div><div class="tr">Registered Nurse &#183; Clinical Feedback</div></div>
+    <div class="t-desk">
+      <div class="tc"><p class="tq">What makes Finesse unique is the combination of high-level tech experience and deep human understanding. She bridges the gap between fast-paced environments and the very real mental health challenges that come with them. Any organization that partners with Finesse gains someone deeply committed to making a lasting difference.</p><div class="ta">Jeanie Vatelia, BSN, RN</div><div class="tr">Legal Nurse Consultant &#183; Co-Founder &#183; LinkedIn</div></div>
+      <div class="tc"><p class="tq">L.Finesse is a visionary who knows exactly what she wants and pushes herself constantly. She leads with both strategy and heart, which is rare. She makes you feel heard and seen and that is the greatest gift any supervisor can lead with.</p><div class="ta">Violet Kagiri</div><div class="tr">Board Member &#183; SDG Systems &#183; LinkedIn</div></div>
+      <div class="tc"><p class="tq">Her resilience in the face of monumental challenges is a critical factor in her success. She drives toward results and propels progress, truly making a difference and changing the world one life at a time.</p><div class="ta">Kiera Nguyen</div><div class="tr">I/O Psychology Graduate &#183; FOM Volunteer &#183; LinkedIn</div></div>
     </div>
   </div>
 </div>
 
 <!-- YOUTUBE -->
-<div class="yt">
-  <div class="yt-in">
+<div class="yt-wrap">
+  <div class="yt-inner">
     <div class="yt-grid">
       <div>
         <div class="yt-label">Finding Finesse on YouTube</div>
         <h2 class="yt-h">281 videos.<br>Real talk.<br><em>Free.</em></h2>
         <p class="yt-p">AI, mental health, tech careers, government contracting, and building solo. DJ. Speaker. Engineer. I show up as all of me.</p>
-        <a href="https://www.youtube.com/@FinesseHumxn" target="_blank" class="yt-link"><i class="ti ti-brand-youtube"></i> Subscribe Free</a>
+        <a href="https://www.youtube.com/@FinesseHumxn" target="_blank" class="yt-btn"><i class="ti ti-brand-youtube"></i> Subscribe Free</a>
       </div>
       <div class="yt-frame">
         <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=FinesseHumxn" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Finding Finesse"></iframe>
@@ -564,17 +609,17 @@ footer{padding:2rem;border-top:1px solid var(--border);}
 </div>
 
 <!-- PRODUCTS -->
-<div class="prods">
-  <div class="prods-label">Live Products — Built solo.</div>
-  <div class="ps">
-    <div class="pc"><span class="pst psl">Live &#183; iOS+Android</span><div class="pn">MedCompanion AI</div><div class="pd">Health literacy in plain language. LangGraph pipeline.</div><a href="https://apps.apple.com/app/id6785335934" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.medcompanionai.app" target="_blank" class="pb pb-a">Play</a></div>
+<div class="prods-wrap">
+  <div class="prods-label">Live Products — Built solo. Not demos.</div>
+  <div class="prods-scroll">
+    <div class="pc"><span class="pst psl">Live &#183; iOS+Android</span><div class="pn">MedCompanion AI</div><div class="pd">Health literacy in plain language. LangGraph pipeline.</div><a href="https://apps.apple.com/app/id6785335934" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.medcompanionai.app" target="_blank" class="pb pb-a">Play</a><a href="https://medcompanionai.com" target="_blank" class="plnk"><i class="ti ti-external-link"></i> medcompanionai.com</a></div>
     <div class="pc"><span class="pst psl">Live &#183; iOS+Android</span><div class="pn">FinesseKey</div><div class="pd">Credit access for underserved communities.</div><a href="https://apps.apple.com/app/id6786938952" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.finessekey.app" target="_blank" class="pb pb-a">Play</a></div>
     <div class="pc"><span class="pst psl">Live &#183; iOS+Android</span><div class="pn">FinesseEdge</div><div class="pd">Know Your Edge. Personal strategy and intelligence.</div><a href="https://apps.apple.com/app/id6790193060" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.finesseedge.app" target="_blank" class="pb pb-a">Play</a></div>
-    <div class="pc"><span class="pst psl">Live &#183; iOS+Android</span><div class="pn">BarterThat</div><div class="pd">Community barter platform. Trade skills.</div><a href="https://apps.apple.com/app/id6784909030" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.barterthat.app" target="_blank" class="pb pb-a">Play</a></div>
+    <div class="pc"><span class="pst psl">Live &#183; iOS+Android</span><div class="pn">BarterThat</div><div class="pd">Community barter. Trade skills.</div><a href="https://apps.apple.com/app/id6784909030" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.barterthat.app" target="_blank" class="pb pb-a">Play</a></div>
     <div class="pc"><span class="pst psd">In Dev</span><div class="pn">FinesseShield</div><div class="pd">AI cybersecurity for SOC automation.</div><a href="contact.html" class="plnk"><i class="ti ti-arrow-right"></i> Early Access</a></div>
     <div class="pc"><span class="pst psd">In Dev</span><div class="pn">FinesseWins</div><div class="pd">AI gov contracting for certified firms.</div><a href="contact.html" class="plnk"><i class="ti ti-arrow-right"></i> Early Access</a></div>
   </div>
-  <div class="pd-desk" style="margin:0 2.5rem;">
+  <div class="prods-desk">
     <div class="pc"><span class="pst psl">Live &#183; iOS+Android</span><div class="pn">MedCompanion AI</div><div class="pd">Health literacy in plain language. LangGraph pipeline. NIH, Mayo, FDA sourced.</div><a href="https://apps.apple.com/app/id6785335934" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.medcompanionai.app" target="_blank" class="pb pb-a"><i class="ti ti-brand-google-play"></i> Play</a><a href="https://medcompanionai.com" target="_blank" class="plnk"><i class="ti ti-external-link"></i> medcompanionai.com</a></div>
     <div class="pc"><span class="pst psl">Live &#183; iOS+Android</span><div class="pn">FinesseKey</div><div class="pd">Credit access and dispute tools for underserved communities.</div><a href="https://apps.apple.com/app/id6786938952" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.finessekey.app" target="_blank" class="pb pb-a"><i class="ti ti-brand-google-play"></i> Play</a></div>
     <div class="pc"><span class="pst psl">Live &#183; iOS+Android</span><div class="pn">FinesseEdge</div><div class="pd">Know Your Edge. Personal strategy and competitive intelligence.</div><a href="https://apps.apple.com/app/id6790193060" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.finesseedge.app" target="_blank" class="pb pb-a"><i class="ti ti-brand-google-play"></i> Play</a></div>
@@ -585,17 +630,17 @@ footer{padding:2rem;border-top:1px solid var(--border);}
 </div>
 
 <!-- WORK WITH ME -->
-<div class="work">
-  <div class="work-in">
+<div class="work-wrap">
+  <div class="work-inner">
     <div class="work-label">How to work with me</div>
     <h2 class="work-h">One person.<br><em>Many ways to engage.</em></h2>
-    <div class="wg">
+    <div class="work-grid">
       <div class="wc"><div class="wc-n">01</div><div><div class="wc-t">Keynote Speaking</div><div class="wc-d">Mental health in tech, AI safety, women in STEM, suicide prevention, building solo.</div><div class="wc-p">Inquire for rates</div></div></div>
-      <div class="wc"><div class="wc-n">02</div><div><div class="wc-t">Corporate Training</div><div class="wc-d">AI integration, mental health at work, GovTech, LangGraph workshops. Virtual or in-person.</div><div class="wc-p">From $2,500/session</div></div></div>
+      <div class="wc"><div class="wc-n">02</div><div><div class="wc-t">Corporate Training</div><div class="wc-d">AI integration, mental health at work, GovTech, LangGraph. Virtual or in-person.</div><div class="wc-p">From $2,500/session</div></div></div>
       <div class="wc"><div class="wc-n">03</div><div><div class="wc-t">Webinars & Virtual Events</div><div class="wc-d">Live and recorded webinars. Audiences from 50 to 5,000.</div><div class="wc-p">From $1,500</div></div></div>
       <div class="wc"><div class="wc-n">04</div><div><div class="wc-t">Contract Engineering</div><div class="wc-d">AI pipelines, LangGraph agents, mobile apps, FastAPI backends.</div><div class="wc-p">From $150/hr</div></div></div>
       <div class="wc"><div class="wc-n">05</div><div><div class="wc-t">AI Consulting</div><div class="wc-d">AI strategy, systems audits, LLM selection, safety architecture.</div><div class="wc-p">From $200/hr</div></div></div>
-      <div class="wc"><div class="wc-n">06</div><div><div class="wc-t">Fractional CTO</div><div class="wc-d">Technical leadership for startups. AI roadmap, architecture, team direction.</div><div class="wc-p">From $5,000/mo</div></div></div>
+      <div class="wc"><div class="wc-n">06</div><div><div class="wc-t">Fractional CTO</div><div class="wc-d">Technical leadership for startups and small businesses.</div><div class="wc-p">From $5,000/mo</div></div></div>
     </div>
     <div style="text-align:center;margin-top:2rem;">
       <a href="contact.html" class="btn-s btn-sn">Book or Hire Me <i class="ti ti-arrow-right"></i></a>
@@ -604,16 +649,16 @@ footer{padding:2rem;border-top:1px solid var(--border);}
 </div>
 
 <!-- EMAIL -->
-<div class="email">
-  <div class="em-in">
-    <div class="em-label">Join the community</div>
+<div class="email-wrap">
+  <div class="em-inner">
+    <div class="em-eye">Join the community</div>
     <h2 class="em-h">The<br><em>Finesse Letter</em></h2>
     <p class="em-p">AI insights, mental health advocacy, GovTech updates, and behind the scenes of building 4 apps solo. Real talk. No fluff.</p>
     <div class="em-form">
       <input type="email" class="em-i" placeholder="your@email.com">
       <button class="em-b" onclick="alert('Thank you! Newsletter coming soon.')">Subscribe</button>
     </div>
-    <div class="em-soc">
+    <div class="soc-row">
       <a href="https://instagram.com/finessehumxn" target="_blank" class="sf"><i class="ti ti-brand-instagram"></i> @finessehumxn</a>
       <a href="https://tiktok.com/@finessehumxn" target="_blank" class="sf"><i class="ti ti-brand-tiktok"></i> @finessehumxn</a>
       <a href="https://www.youtube.com/@FinesseHumxn" target="_blank" class="sf"><i class="ti ti-brand-youtube"></i> Finding Finesse</a>
@@ -647,8 +692,8 @@ footer{padding:2rem;border-top:1px solid var(--border);}
 
 <script>
 function toggleNav(){document.getElementById('mobMenu').classList.toggle('open');}
-document.querySelectorAll('.mm-a,.mm-cta').forEach(function(e){e.addEventListener('click',function(){document.getElementById('mobMenu').classList.remove('open');});});
-function handleReg(e){e.preventDefault();var f=e.target.closest('.ws-form');f.innerHTML='<div style="text-align:center;padding:2rem 0;"><div style="font-family:Cormorant Garamond,serif;font-size:2rem;color:#C9AE88;margin-bottom:.75rem;">You\'re in &#127775;</div><p style="font-size:14px;color:rgba(240,232,218,.65);line-height:1.8;">Check your email for confirmation and the next workshop date.</p></div>';}
+document.querySelectorAll('.mm-a,.mm-book').forEach(function(e){e.addEventListener('click',function(){document.getElementById('mobMenu').classList.remove('open');});});
+function handleReg(e){e.preventDefault();var f=e.target.closest('.ws-form');f.innerHTML='<div style="text-align:center;padding:2rem 0;"><div style="font-family:Cormorant Garamond,serif;font-size:2rem;color:#C8AB87;margin-bottom:.75rem;">You\'re in &#127775;</div><p style="font-size:14px;color:rgba(239,232,220,.65);line-height:1.8;">Check your email for confirmation and the next session date.</p></div>';}
 </script>
 </body>
 </html>
