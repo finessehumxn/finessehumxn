@@ -1,1 +1,274 @@
-404: Not Found
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact & Book — L.Finesse Humxn</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<style>
+:root{--black:#0A0A08;--dark:#111110;--card:#1A1A18;--nude:#C4A882;--nude-light:#E8D5BC;--nude-dim:rgba(196,168,130,0.1);--nude-border:rgba(196,168,130,0.25);--cream:#F5EFE6;--white:#FDFAF6;--border:rgba(255,255,255,0.07);--muted:rgba(245,239,230,0.45);--body:rgba(245,239,230,0.72);}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:var(--black);color:var(--cream);-webkit-font-smoothing:antialiased;}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.15;}
+a{color:inherit;text-decoration:none;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:1.1rem 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,8,0.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--cream);}
+.nav-logo em{color:var(--nude);font-style:italic;}
+.nav-links{display:flex;gap:2rem;font-size:13px;color:var(--muted);}
+.nav-links a:hover{color:var(--cream);}
+.nb{font-size:12px;font-weight:600;padding:8px 18px;font-family:'Inter',sans-serif;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border:none;background:var(--nude);color:var(--black);}
+
+.page-hero{padding:8rem 2.5rem 4rem;text-align:center;max-width:700px;margin:0 auto;}
+.ey{font-size:10px;color:var(--nude);text-transform:uppercase;letter-spacing:.12em;font-weight:600;margin-bottom:.85rem;}
+h1{font-size:3.5rem;font-weight:600;color:var(--white);margin-bottom:1rem;}
+h1 em{color:var(--nude);font-style:italic;font-weight:400;}
+.hero-sub{font-size:16px;color:var(--muted);line-height:1.85;font-weight:300;}
+.divider{border:none;border-top:1px solid var(--border);}
+
+/* WAYS TO WORK */
+.ways-section{padding:5rem 2.5rem;max-width:1100px;margin:0 auto;}
+.sh{font-family:'Cormorant Garamond',serif;font-size:2.25rem;font-weight:600;color:var(--white);margin-bottom:2.5rem;}
+.ways-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1px;background:var(--border);}
+.wcard{background:var(--dark);padding:2rem 1.75rem;transition:background .2s;cursor:pointer;}
+.wcard:hover{background:var(--card);}
+.wcard.active{background:var(--card);border:1px solid var(--nude-border);}
+.wc-i{font-size:28px;color:var(--nude);margin-bottom:.85rem;}
+.wc-t{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;margin-bottom:.35rem;color:var(--cream);}
+.wc-d{font-size:12.5px;color:var(--muted);line-height:1.65;margin-bottom:.5rem;}
+.wc-p{font-size:11px;color:var(--nude);font-weight:600;letter-spacing:.05em;text-transform:uppercase;}
+
+/* BOOKING FORM */
+.form-section{padding:5rem 2.5rem;max-width:700px;margin:0 auto;}
+.form-title{font-size:2rem;font-weight:600;color:var(--white);margin-bottom:.5rem;}
+.form-sub{font-size:14px;color:var(--muted);margin-bottom:2.5rem;line-height:1.7;}
+.form-group{margin-bottom:1.25rem;}
+.form-label{font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:.45rem;}
+.form-input{width:100%;padding:13px 16px;background:var(--dark);border:1px solid var(--border);color:var(--cream);font-family:'Inter',sans-serif;font-size:14px;outline:none;transition:border-color .2s;}
+.form-input:focus{border-color:var(--nude);}
+.form-input::placeholder{color:var(--muted);}
+.form-textarea{resize:vertical;min-height:120px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.form-btn{width:100%;background:var(--nude);color:var(--black);padding:15px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:none;cursor:pointer;font-family:'Inter',sans-serif;transition:background .2s;margin-top:.5rem;}
+.form-btn:hover{background:var(--nude-light);}
+
+/* DIRECT CONTACT */
+.direct-section{background:var(--card);border-top:1px solid var(--nude-border);border-bottom:1px solid var(--nude-border);padding:5rem 2.5rem;}
+.direct-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+.direct-left h2{font-size:2rem;font-weight:600;color:var(--white);margin-bottom:1rem;}
+.direct-left p{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:2rem;}
+.contact-links{display:flex;flex-direction:column;gap:.75rem;}
+.clink{display:flex;align-items:center;gap.75rem;padding:1rem 1.25rem;background:var(--dark);border:1px solid var(--border);transition:border-color .2s;gap:.75rem;}
+.clink:hover{border-color:var(--nude-border);}
+.clink-icon{font-size:20px;color:var(--nude);width:24px;}
+.clink-text{flex:1;}
+.clink-label{font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:2px;}
+.clink-val{font-size:14px;color:var(--cream);}
+.soc-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;}
+.scard{background:var(--dark);border:1px solid var(--border);padding:1rem;text-align:center;transition:border-color .2s;}
+.scard:hover{border-color:var(--nude-border);}
+.scard-icon{font-size:22px;color:var(--nude);margin-bottom:.4rem;}
+.scard-name{font-size:12px;color:var(--cream);font-weight:600;margin-bottom:.2rem;}
+.scard-handle{font-size:11px;color:var(--muted);}
+
+footer{padding:2rem 2.5rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--muted);}
+.footer-links{display:flex;gap:1.5rem;font-size:12px;color:var(--muted);}
+.footer-links a:hover{color:var(--cream);}
+@media(max-width:768px){.nav-links{display:none;}.direct-inner{grid-template-columns:1fr;}.form-row{grid-template-columns:1fr;}.page-hero{padding:6rem 1.5rem 3rem;}h1{font-size:2.5rem;}.ways-section,.form-section,.direct-section{padding:4rem 1.5rem;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">L.<em>Finesse</em> Humxn</a>
+  <div class="nav-links">
+    <a href="workshop.html">Free Workshop</a>
+    <a href="learn.html">Learn</a>
+    <a href="about.html">About</a>
+    <a href="contact.html" style="color:var(--nude)">Contact</a>
+  </div>
+  <a href="#book" class="nb">Book Me</a>
+</nav>
+
+<div class="page-hero">
+  <div class="ey">Book & Contact</div>
+  <h1>Let&#8217;s work<br><em>together.</em></h1>
+  <p class="hero-sub">Whether you want to book me to speak, hire me to build, start a training engagement, or just say hello &#8212; the conversation starts right here.</p>
+</div>
+
+<hr class="divider">
+
+<div class="ways-section">
+  <div class="ey">Ways to Work Together</div>
+  <h2 class="sh">Choose what fits your need</h2>
+  <div class="ways-grid">
+    <div class="wcard">
+      <div class="wc-i"><i class="ti ti-microphone"></i></div>
+      <div class="wc-t">Keynote Speaking</div>
+      <div class="wc-d">Mental health in tech, AI, women in STEM, suicide prevention, building solo. Conferences, panels, corporate events.</div>
+      <div class="wc-p">Inquire for rates</div>
+    </div>
+    <div class="wcard">
+      <div class="wc-i"><i class="ti ti-school"></i></div>
+      <div class="wc-t">Corporate Training</div>
+      <div class="wc-d">AI integration, mental health at work, GovTech, LangGraph workshops. Virtual or in-person. Teams 5 to 500.</div>
+      <div class="wc-p">From $2,500/session</div>
+    </div>
+    <div class="wcard">
+      <div class="wc-i"><i class="ti ti-video"></i></div>
+      <div class="wc-t">Webinar or Virtual Event</div>
+      <div class="wc-d">Live and recorded webinars. AI tools, government contracting, health equity. Audiences from 50 to 5,000.</div>
+      <div class="wc-p">From $1,500</div>
+    </div>
+    <div class="wcard">
+      <div class="wc-i"><i class="ti ti-code"></i></div>
+      <div class="wc-t">Contract Engineering</div>
+      <div class="wc-d">AI pipelines, LangGraph agents, mobile apps, FastAPI backends. Production systems built right the first time.</div>
+      <div class="wc-p">From $150/hr</div>
+    </div>
+    <div class="wcard">
+      <div class="wc-i"><i class="ti ti-brain"></i></div>
+      <div class="wc-t">AI Consulting</div>
+      <div class="wc-d">AI strategy, systems audits, LLM selection, safety architecture, government AI readiness assessments.</div>
+      <div class="wc-p">From $200/hr</div>
+    </div>
+    <div class="wcard">
+      <div class="wc-i"><i class="ti ti-building"></i></div>
+      <div class="wc-t">Fractional CTO</div>
+      <div class="wc-d">Technical leadership for startups and small businesses. AI roadmap, architecture decisions, team direction.</div>
+      <div class="wc-p">From $5,000/mo</div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<div class="form-section" id="book">
+  <h2 class="form-title">Send a booking inquiry</h2>
+  <p class="form-sub">Fill out the form below and I will get back to you within 48 hours. For urgent inquiries email contact@millennialscreatives.com directly.</p>
+  <form onsubmit="handleSubmit(event)">
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">First Name</label>
+        <input type="text" class="form-input" placeholder="First name" required />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Last Name</label>
+        <input type="text" class="form-input" placeholder="Last name" required />
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Email Address</label>
+      <input type="email" class="form-input" placeholder="your@email.com" required />
+    </div>
+    <div class="form-group">
+      <label class="form-label">Organization</label>
+      <input type="text" class="form-input" placeholder="Your company or organization" />
+    </div>
+    <div class="form-group">
+      <label class="form-label">What are you inquiring about?</label>
+      <select class="form-input" required>
+        <option value="">Select one</option>
+        <option>Keynote Speaking</option>
+        <option>Corporate Training or Workshop</option>
+        <option>Webinar or Virtual Event</option>
+        <option>Contract Engineering</option>
+        <option>AI Consulting</option>
+        <option>Fractional CTO</option>
+        <option>Something else</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Event or Project Date (if known)</label>
+      <input type="text" class="form-input" placeholder="e.g. September 2026 or flexible" />
+    </div>
+    <div class="form-group">
+      <label class="form-label">Tell me about your project or event</label>
+      <textarea class="form-input form-textarea" placeholder="What do you need? Who is the audience? What are you hoping to achieve?"></textarea>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Budget Range</label>
+      <select class="form-input">
+        <option value="">Select one</option>
+        <option>Under $1,000</option>
+        <option>$1,000 - $5,000</option>
+        <option>$5,000 - $15,000</option>
+        <option>$15,000+</option>
+        <option>Let's discuss</option>
+      </select>
+    </div>
+    <button type="submit" class="form-btn">Submit Inquiry &#8594;</button>
+  </form>
+</div>
+
+<div class="direct-section">
+  <div class="direct-inner">
+    <div class="direct-left">
+      <h2>Prefer to reach out directly?</h2>
+      <p>No forms, no funnels. Just a real conversation with someone who will actually read your message.</p>
+      <div class="contact-links">
+        <a href="mailto:contact@millennialscreatives.com" class="clink">
+          <span class="clink-icon"><i class="ti ti-mail"></i></span>
+          <div class="clink-text"><div class="clink-label">Email</div><div class="clink-val">contact@millennialscreatives.com</div></div>
+        </a>
+        <a href="https://millennialscreatives.com" target="_blank" class="clink">
+          <span class="clink-icon"><i class="ti ti-world"></i></span>
+          <div class="clink-text"><div class="clink-label">Business Website</div><div class="clink-val">millennialscreatives.com</div></div>
+        </a>
+        <a href="https://medcompanionai.com" target="_blank" class="clink">
+          <span class="clink-icon"><i class="ti ti-heart-rate-monitor"></i></span>
+          <div class="clink-text"><div class="clink-label">Flagship Product</div><div class="clink-val">medcompanionai.com</div></div>
+        </a>
+        <a href="https://linkedin.com/in/lfinesseskills" target="_blank" class="clink">
+          <span class="clink-icon"><i class="ti ti-brand-linkedin"></i></span>
+          <div class="clink-text"><div class="clink-label">LinkedIn</div><div class="clink-val">linkedin.com/in/lfinesseskills</div></div>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="ey" style="margin-bottom:1.25rem;">Follow the Journey</div>
+      <div class="soc-grid">
+        <a href="https://instagram.com/finessehumxn" target="_blank" class="scard">
+          <div class="scard-icon"><i class="ti ti-brand-instagram"></i></div>
+          <div class="scard-name">Instagram</div>
+          <div class="scard-handle">@finessehumxn &#183; 5.3K</div>
+        </a>
+        <a href="https://tiktok.com/@finessehumxn" target="_blank" class="scard">
+          <div class="scard-icon"><i class="ti ti-brand-tiktok"></i></div>
+          <div class="scard-name">TikTok</div>
+          <div class="scard-handle">@finessehumxn &#183; 1.6K</div>
+        </a>
+        <a href="https://www.youtube.com/@FinesseHumxn" target="_blank" class="scard">
+          <div class="scard-icon"><i class="ti ti-brand-youtube"></i></div>
+          <div class="scard-name">YouTube</div>
+          <div class="scard-handle">Finding Finesse &#183; 281 videos</div>
+        </a>
+        <a href="https://github.com/finessehumxn" target="_blank" class="scard">
+          <div class="scard-icon"><i class="ti ti-brand-github"></i></div>
+          <div class="scard-name">GitHub</div>
+          <div class="scard-handle">finessehumxn &#183; 16 repos</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">L.Finesse Humxn &#169; 2026</div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="workshop.html">Free Workshop</a>
+    <a href="learn.html">Learn</a>
+    <a href="about.html">About</a>
+  </div>
+</footer>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  alert('Thank you for your inquiry! I will get back to you within 48 hours.');
+}
+</script>
+</body>
+</html>

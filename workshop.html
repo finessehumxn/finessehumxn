@@ -1,1 +1,311 @@
-404: Not Found
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Workshop — L.Finesse Humxn</title>
+<meta name="description" content="Join L.Finesse Humxn's free live workshop on AI, mental health in tech, and government contracting." />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<style>
+:root{--black:#0A0A08;--dark:#111110;--card:#1A1A18;--nude:#C4A882;--nude-light:#E8D5BC;--nude-dim:rgba(196,168,130,0.1);--nude-border:rgba(196,168,130,0.25);--cream:#F5EFE6;--white:#FDFAF6;--border:rgba(255,255,255,0.07);--muted:rgba(245,239,230,0.45);--body:rgba(245,239,230,0.72);}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--black);color:var(--cream);-webkit-font-smoothing:antialiased;}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.1;}
+a{color:inherit;text-decoration:none;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:1.1rem 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,8,0.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--cream);}
+.nav-logo em{color:var(--nude);font-style:italic;}
+.nav-links{display:flex;gap:2rem;font-size:13px;color:var(--muted);}
+.nav-links a:hover{color:var(--cream);}
+.nb{font-size:12px;font-weight:600;padding:8px 18px;font-family:'Inter',sans-serif;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border:none;}
+.nb-n{background:var(--nude);color:var(--black);}
+
+/* WORKSHOP HERO */
+.ws-hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:7rem 2rem 4rem;text-align:center;position:relative;overflow:hidden;}
+.ws-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(196,168,130,.06) 0%,transparent 70%);}
+.ws-inner{max-width:720px;position:relative;z-index:1;}
+.ws-tag{display:inline-block;font-size:10px;font-weight:600;padding:6px 18px;letter-spacing:.12em;text-transform:uppercase;background:var(--nude-dim);border:1px solid var(--nude-border);color:var(--nude);margin-bottom:1.5rem;}
+.ws-hero h1{font-size:4rem;font-weight:700;color:var(--white);margin-bottom:1rem;line-height:1.05;}
+.ws-hero h1 em{color:var(--nude);font-style:italic;font-weight:400;}
+.ws-sub{font-size:17px;color:var(--body);line-height:1.85;margin-bottom:2rem;font-weight:300;}
+.ws-sub strong{color:var(--cream);font-weight:500;}
+
+/* COUNTDOWN */
+.countdown{display:flex;gap:1.5rem;justify-content:center;margin-bottom:2.5rem;flex-wrap:wrap;}
+.cd-item{text-align:center;background:var(--card);border:1px solid var(--nude-border);padding:1.25rem 1.75rem;}
+.cd-n{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:600;color:var(--nude);line-height:1;}
+.cd-l{font-size:10px;color:var(--muted);margin-top:4px;letter-spacing:.1em;text-transform:uppercase;}
+
+/* FORM */
+.reg-form{background:var(--card);border:1px solid var(--nude-border);padding:3rem;max-width:500px;margin:0 auto 3rem;}
+.form-title{font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:600;margin-bottom:.5rem;color:var(--white);}
+.form-sub{font-size:13px;color:var(--muted);margin-bottom:2rem;line-height:1.6;}
+.form-group{margin-bottom:1rem;}
+.form-label{font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:.4rem;}
+.form-input{width:100%;padding:13px 16px;background:var(--dark);border:1px solid var(--border);color:var(--cream);font-family:'Inter',sans-serif;font-size:14px;outline:none;transition:border-color .2s;}
+.form-input:focus{border-color:var(--nude);}
+.form-input::placeholder{color:var(--muted);}
+.form-btn{width:100%;background:var(--nude);color:var(--black);padding:15px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border:none;cursor:pointer;margin-top:.5rem;transition:background .2s;font-family:'Inter',sans-serif;}
+.form-btn:hover{background:var(--nude-light);}
+.form-note{font-size:11px;color:var(--muted);margin-top:.85rem;text-align:center;}
+
+/* WHAT YOU LEARN */
+.learn-section{padding:6rem 2rem;max-width:900px;margin:0 auto;}
+.ey{font-size:10px;color:var(--nude);text-transform:uppercase;letter-spacing:.12em;font-weight:600;margin-bottom:.85rem;}
+.sh{font-family:'Cormorant Garamond',serif;font-size:2.75rem;font-weight:600;letter-spacing:-.01em;margin-bottom:2.5rem;color:var(--white);}
+.learn-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1px;background:var(--border);}
+.lcard{background:var(--dark);padding:2rem 1.75rem;}
+.lcard-num{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:400;color:var(--nude-border);margin-bottom:.75rem;}
+.lcard-title{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;margin-bottom:.5rem;color:var(--cream);}
+.lcard-desc{font-size:13px;color:var(--muted);line-height:1.75;}
+
+/* WHO THIS IS FOR */
+.who-section{padding:5rem 2rem;max-width:900px;margin:0 auto;}
+.who-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;}
+.wcard{background:var(--card);border:1px solid var(--nude-border);padding:1.5rem;text-align:center;}
+.wcard-icon{font-size:2rem;margin-bottom:.65rem;}
+.wcard-title{font-size:14px;font-weight:600;color:var(--cream);}
+
+/* HOST */
+.host-section{background:var(--card);border-top:1px solid var(--nude-border);border-bottom:1px solid var(--nude-border);padding:5rem 2rem;}
+.host-inner{max-width:800px;margin:0 auto;display:grid;grid-template-columns:240px 1fr;gap:3rem;align-items:center;}
+.host-img{width:240px;height:240px;object-fit:cover;border:1px solid var(--nude-border);}
+.host-tag{font-size:10px;color:var(--nude);font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem;}
+.host-name{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;margin-bottom:.85rem;color:var(--white);}
+.host-bio{font-size:14px;color:var(--body);line-height:1.85;font-weight:300;}
+
+/* FREE RESOURCES */
+.free-section{padding:5rem 2rem;max-width:900px;margin:0 auto;text-align:center;}
+.free-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem;margin-top:2rem;}
+.fcard{background:var(--card);border:1px solid var(--nude-border);padding:1.75rem;text-align:left;transition:background .2s;}
+.fcard:hover{background:var(--dark);}
+.fcard-tag{font-size:10px;color:var(--nude);font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.4rem;}
+.fcard-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;margin-bottom:.4rem;color:var(--cream);}
+.fcard-desc{font-size:12.5px;color:var(--muted);line-height:1.65;margin-bottom:1rem;}
+.fcard-btn{font-size:11px;font-weight:600;color:var(--nude);letter-spacing:.06em;text-transform:uppercase;display:inline-flex;align-items:center;gap:5px;}
+
+/* SOCIAL PROOF */
+.proof-section{padding:5rem 2rem;max-width:900px;margin:0 auto;}
+.proof-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1px;background:var(--border);}
+.pcard{background:var(--dark);padding:2rem;}
+.pquote{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;color:var(--body);line-height:1.75;margin-bottom:1rem;}
+.pauthor{font-size:12px;font-weight:600;color:var(--cream);}
+
+footer{padding:2rem 2.5rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--muted);}
+.footer-links{display:flex;gap:1.5rem;font-size:12px;color:var(--muted);}
+.footer-links a:hover{color:var(--cream);}
+
+@media(max-width:768px){
+  .ws-hero h1{font-size:2.75rem;}
+  .host-inner{grid-template-columns:1fr;}
+  .host-img{width:100%;height:260px;}
+  nav{padding:.85rem 1.5rem;}
+  .nav-links{display:none;}
+  .reg-form{padding:2rem 1.5rem;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">L.<em>Finesse</em> Humxn</a>
+  <div class="nav-links">
+    <a href="workshop.html" style="color:var(--nude)">Free Workshop</a>
+    <a href="learn.html">Learn</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <a href="#register" class="nb nb-n">Save My Seat</a>
+</nav>
+
+<div class="ws-hero">
+  <div class="ws-inner">
+    <span class="ws-tag">Free Live Workshop</span>
+    <h1>How to Use AI to<br>Build, Speak, and <em>Get Paid</em></h1>
+    <p class="ws-sub">Join <strong>L.Finesse Humxn</strong> &#8212; AI Engineer, Global Speaker, and Mental Health Advocate &#8212; for a free live workshop on how AI is changing careers in tech, healthcare, government, and beyond. No code required. No experience necessary.</p>
+
+    <div class="countdown" id="countdown">
+      <div class="cd-item"><div class="cd-n" id="cd-d">00</div><div class="cd-l">Days</div></div>
+      <div class="cd-item"><div class="cd-n" id="cd-h">00</div><div class="cd-l">Hours</div></div>
+      <div class="cd-item"><div class="cd-n" id="cd-m">00</div><div class="cd-l">Minutes</div></div>
+      <div class="cd-item"><div class="cd-n" id="cd-s">00</div><div class="cd-l">Seconds</div></div>
+    </div>
+
+    <div class="reg-form" id="register">
+      <div class="form-title">Save Your Free Seat</div>
+      <div class="form-sub">Next live session announced via email. Register now and you will be the first to know.</div>
+      <form onsubmit="handleReg(event)">
+        <div class="form-group">
+          <label class="form-label">First Name</label>
+          <input type="text" class="form-input" placeholder="Your first name" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" class="form-input" placeholder="your@email.com" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">I am a...</label>
+          <select class="form-input">
+            <option value="">Select one</option>
+            <option>Tech professional looking to level up</option>
+            <option>Non-tech person curious about AI</option>
+            <option>Government contractor or small business owner</option>
+            <option>Healthcare professional</option>
+            <option>Mental health professional or advocate</option>
+            <option>Student or career changer</option>
+            <option>Founder or entrepreneur</option>
+          </select>
+        </div>
+        <button type="submit" class="form-btn">Save My Free Seat &#8594;</button>
+        <p class="form-note">Free. No credit card. Unsubscribe anytime.</p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="learn-section">
+  <div class="ey">What You Will Learn</div>
+  <h2 class="sh">In this free workshop</h2>
+  <div class="learn-grid">
+    <div class="lcard">
+      <div class="lcard-num">01</div>
+      <div class="lcard-title">How AI is changing every industry &#8212; and what that means for your career</div>
+      <div class="lcard-desc">Not the hype. The reality. What AI can and cannot do, and where human judgment still wins.</div>
+    </div>
+    <div class="lcard">
+      <div class="lcard-num">02</div>
+      <div class="lcard-title">How to use AI tools right now &#8212; even if you are not technical</div>
+      <div class="lcard-desc">Practical, hands-on tools you can start using today to do your job better, faster, and more confidently.</div>
+    </div>
+    <div class="lcard">
+      <div class="lcard-num">03</div>
+      <div class="lcard-title">How AI is transforming healthcare, government, and mental health</div>
+      <div class="lcard-desc">Real examples from real systems I have built. What is working, what is not, and what is coming next.</div>
+    </div>
+    <div class="lcard">
+      <div class="lcard-num">04</div>
+      <div class="lcard-title">How to position yourself as an AI-fluent professional &#8212; in any field</div>
+      <div class="lcard-desc">The exact positioning strategy that helped me go from trainer to AI engineer, speaker, and founder.</div>
+    </div>
+    <div class="lcard">
+      <div class="lcard-num">05</div>
+      <div class="lcard-title">Live Q&amp;A with L.Finesse</div>
+      <div class="lcard-desc">Bring your questions. Get real answers from someone who has built it, shipped it, and spoken about it globally.</div>
+    </div>
+    <div class="lcard">
+      <div class="lcard-num">06</div>
+      <div class="lcard-title">Free resource kit for every attendee</div>
+      <div class="lcard-desc">AI tools guide, prompt starter pack, and a roadmap for your next 90 days. Delivered immediately after the workshop.</div>
+    </div>
+  </div>
+</div>
+
+<div class="who-section">
+  <div class="ey">Who This Is For</div>
+  <h2 class="sh">This workshop is for you if...</h2>
+  <div class="who-grid">
+    <div class="wcard"><div class="wcard-icon">&#129504;</div><div class="wcard-title">You are curious about AI but do not know where to start</div></div>
+    <div class="wcard"><div class="wcard-icon">&#127970;</div><div class="wcard-title">You work in healthcare, government, or nonprofits</div></div>
+    <div class="wcard"><div class="wcard-icon">&#127963;</div><div class="wcard-title">You are a small business owner or certified contractor</div></div>
+    <div class="wcard"><div class="wcard-icon">&#128197;</div><div class="wcard-title">You want to speak, train, or consult in tech</div></div>
+    <div class="wcard"><div class="wcard-icon">&#129309;</div><div class="wcard-title">You care about mental health and want tech to serve it better</div></div>
+    <div class="wcard"><div class="wcard-icon">&#127775;</div><div class="wcard-title">You are ready to stop watching and start building</div></div>
+  </div>
+</div>
+
+<div class="host-section">
+  <div class="host-inner">
+    <video src="finesse.mp4" autoplay muted loop playsinline class="host-img" onerror="this.style.display='none'"></video>
+    <div>
+      <div class="host-tag">Your Instructor</div>
+      <div class="host-name">L.Finesse Humxn</div>
+      <p class="host-bio">I am a Mental Health in Tech Global Speaker, AI Engineer, and Suicide Prevention Advocate who has built 4 apps now live on iOS and Android, submitted 32 government bids, and run a mental health nonprofit across 8+ countries &#8212; all as a solo founder.<br><br>I have spoken at Facebook HQ, trained teams internationally in Vietnam and South Korea, presented alongside Dwayne Wade, and held technical roles at GoDaddy, Gusto, Google, Tesla, and LA County.<br><br>I teach what I have actually lived. Not theory. Not templates. Real experience, real results, real talk.</p>
+    </div>
+  </div>
+</div>
+
+<div class="free-section">
+  <div class="ey">Free Resources</div>
+  <h2 class="sh">Take something with you right now</h2>
+  <div class="free-grid">
+    <div class="fcard">
+      <div class="fcard-tag">Free Guide</div>
+      <div class="fcard-title">AI Tools Starter Kit</div>
+      <div class="fcard-desc">The exact AI tools I use daily to build, write, research, and ship. Categorized by use case. Zero technical experience required.</div>
+      <a href="contact.html" class="fcard-btn">Get Free Guide <i class="ti ti-arrow-right"></i></a>
+    </div>
+    <div class="fcard">
+      <div class="fcard-tag">Free Training</div>
+      <div class="fcard-title">Finding Finesse on YouTube</div>
+      <div class="fcard-desc">281 free videos on AI, mental health, tech careers, government contracting, and building as a solo founder. Real talk, no filter.</div>
+      <a href="https://www.youtube.com/@FinesseHumxn" target="_blank" class="fcard-btn">Watch Free <i class="ti ti-arrow-right"></i></a>
+    </div>
+    <div class="fcard">
+      <div class="fcard-tag">Free Community</div>
+      <div class="fcard-title">Finesse Our Minds</div>
+      <div class="fcard-desc">Free mental health peer support platform serving 8+ countries. Because mental health and tech are not separate conversations.</div>
+      <a href="https://finesseourminds.com" target="_blank" class="fcard-btn">Join Free <i class="ti ti-arrow-right"></i></a>
+    </div>
+  </div>
+</div>
+
+<div class="proof-section">
+  <div class="ey">What Attendees Say</div>
+  <h2 class="sh">The feedback speaks for itself</h2>
+  <div class="proof-grid">
+    <div class="pcard">
+      <p class="pquote">The accuracy of the preliminary diagnosis based on symptoms was impressive. This is genuinely smart product thinking.</p>
+      <div class="pauthor">Nicole Vaughn, APRN, PMH-NP</div>
+    </div>
+    <div class="pcard">
+      <p class="pquote">L.Finesse brings clinical perspective and engineering execution together in a way that is genuinely rare and powerful.</p>
+      <div class="pauthor">Jeanie Vatelia, BSN, RN</div>
+    </div>
+    <div class="pcard">
+      <p class="pquote">The accuracy is there. The intelligence behind it is real. I learned more in this session than I expected.</p>
+      <div class="pauthor">Errol &#183; Medical Assistant &#183; Beta Tester</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">L.Finesse Humxn &#169; 2026</div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="learn.html">Learn</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</footer>
+
+<script>
+function handleReg(e) {
+  e.preventDefault();
+  alert('You are registered! Check your email for confirmation. See you at the workshop!');
+}
+
+// Countdown to next Sunday 7PM EST
+function updateCountdown() {
+  var now = new Date();
+  var next = new Date();
+  next.setDate(now.getDate() + ((7 - now.getDay()) % 7 || 7));
+  next.setHours(19, 0, 0, 0);
+  var diff = next - now;
+  if (diff < 0) diff += 7 * 24 * 60 * 60 * 1000;
+  var d = Math.floor(diff / 86400000);
+  var h = Math.floor((diff % 86400000) / 3600000);
+  var m = Math.floor((diff % 3600000) / 60000);
+  var s = Math.floor((diff % 60000) / 1000);
+  document.getElementById('cd-d').textContent = String(d).padStart(2,'0');
+  document.getElementById('cd-h').textContent = String(h).padStart(2,'0');
+  document.getElementById('cd-m').textContent = String(m).padStart(2,'0');
+  document.getElementById('cd-s').textContent = String(s).padStart(2,'0');
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
+</script>
+</body>
+</html>

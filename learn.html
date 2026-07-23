@@ -1,1 +1,300 @@
-404: Not Found
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learn — L.Finesse Humxn</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<style>
+:root{--black:#0A0A08;--dark:#111110;--card:#1A1A18;--nude:#C4A882;--nude-light:#E8D5BC;--nude-dim:rgba(196,168,130,0.1);--nude-border:rgba(196,168,130,0.25);--cream:#F5EFE6;--white:#FDFAF6;--border:rgba(255,255,255,0.07);--muted:rgba(245,239,230,0.45);--body:rgba(245,239,230,0.72);}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:var(--black);color:var(--cream);-webkit-font-smoothing:antialiased;}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.15;}
+a{color:inherit;text-decoration:none;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:1.1rem 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,8,0.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--cream);}
+.nav-logo em{color:var(--nude);font-style:italic;}
+.nav-links{display:flex;gap:2rem;font-size:13px;color:var(--muted);}
+.nav-links a:hover{color:var(--cream);}
+.nb{font-size:12px;font-weight:600;padding:8px 18px;font-family:'Inter',sans-serif;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border:none;background:var(--nude);color:var(--black);}
+
+.page-hero{padding:8rem 2.5rem 4rem;text-align:center;max-width:700px;margin:0 auto;}
+.ey{font-size:10px;color:var(--nude);text-transform:uppercase;letter-spacing:.12em;font-weight:600;margin-bottom:.85rem;}
+h1{font-size:3.5rem;font-weight:600;color:var(--white);margin-bottom:1rem;}
+h1 em{color:var(--nude);font-style:italic;font-weight:400;}
+.hero-sub{font-size:16px;color:var(--muted);line-height:1.85;font-weight:300;}
+
+/* FILTER */
+.filter-bar{padding:1.5rem 2.5rem;border-bottom:1px solid var(--border);display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;}
+.filter-btn{font-size:12px;font-weight:500;padding:7px 18px;border:1px solid var(--border);color:var(--muted);cursor:pointer;background:transparent;font-family:'Inter',sans-serif;letter-spacing:.04em;transition:all .2s;}
+.filter-btn.active,.filter-btn:hover{border-color:var(--nude);color:var(--nude);}
+.filter-btn.active{background:var(--nude-dim);}
+
+/* SECTIONS */
+.section{padding:5rem 2.5rem;max-width:1200px;margin:0 auto;}
+.sh{font-size:2rem;font-weight:600;color:var(--white);margin-bottom:.5rem;}
+.ss{font-size:14px;color:var(--muted);margin-bottom:2.5rem;line-height:1.75;}
+.divider{border:none;border-top:1px solid var(--border);}
+
+/* FREE RESOURCES */
+.free-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--border);}
+.fcard{background:var(--dark);padding:2.5rem 2rem;transition:background .2s;}
+.fcard:hover{background:var(--card);}
+.fc-badge{font-size:10px;font-weight:700;padding:4px 12px;letter-spacing:.08em;text-transform:uppercase;display:inline-block;margin-bottom:.85rem;}
+.fc-free{background:rgba(74,222,128,.08);color:#4ADE80;border:1px solid rgba(74,222,128,.2);}
+.fc-paid{background:var(--nude-dim);color:var(--nude);border:1px solid var(--nude-border);}
+.fc-soon{background:rgba(255,255,255,.04);color:var(--muted);border:1px solid var(--border);}
+.fc-title{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;margin-bottom:.5rem;color:var(--cream);}
+.fc-desc{font-size:13px;color:var(--muted);line-height:1.75;margin-bottom:1.25rem;}
+.fc-meta{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.25rem;}
+.fcm{font-size:10px;padding:3px 9px;letter-spacing:.05em;text-transform:uppercase;font-weight:500;}
+.fcm-n{background:var(--nude-dim);color:var(--nude);border:1px solid var(--nude-border);}
+.fcm-w{background:rgba(255,255,255,.04);color:var(--muted);border:1px solid var(--border);}
+.fc-price{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--white);margin-bottom:1rem;}
+.fc-price span{font-family:'Inter',sans-serif;font-size:.9rem;color:var(--muted);font-weight:300;}
+.fc-btn{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:var(--black);background:var(--nude);padding:10px 20px;letter-spacing:.06em;text-transform:uppercase;transition:background .2s;cursor:pointer;}
+.fc-btn:hover{background:var(--nude-light);}
+.fc-btn-ghost{background:transparent;color:var(--nude);border:1px solid var(--nude-border);}
+.fc-btn-ghost:hover{background:var(--nude);color:var(--black);}
+
+/* YOUTUBE */
+.yt-section{background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:5rem 2.5rem;}
+.yt-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;}
+.yt-count{font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:600;color:var(--nude);line-height:1;margin-bottom:.25rem;}
+.yt-sub{font-size:14px;color:var(--muted);margin-bottom:1.5rem;line-height:1.75;}
+.yt-btn{display:inline-flex;align-items:center;gap:8px;background:#FF0000;color:#fff;padding:13px 24px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;transition:opacity .2s;}
+.yt-btn:hover{opacity:.85;}
+.yt-embed{border:1px solid var(--border);aspect-ratio:16/9;}
+.yt-embed iframe{width:100%;height:100%;border:none;display:block;}
+
+/* APPS */
+.apps-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1px;background:var(--border);}
+.acard{background:var(--dark);padding:2rem;transition:background .2s;}
+.acard:hover{background:var(--card);}
+.aname{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;margin-bottom:.35rem;color:var(--cream);}
+.adesc{font-size:12.5px;color:var(--muted);line-height:1.7;margin-bottom:.85rem;}
+.ast{font-size:10px;font-weight:600;padding:3px 10px;display:inline-block;letter-spacing:.05em;text-transform:uppercase;margin-bottom:.5rem;}
+.as-l{background:rgba(196,168,130,.1);color:var(--nude);border:1px solid var(--nude-border);}
+.as-d{background:rgba(255,255,255,.04);color:var(--muted);border:1px solid var(--border);}
+.sbadges{display:flex;gap:.35rem;flex-wrap:wrap;}
+.sb{font-size:10px;font-weight:600;padding:3px 9px;display:inline-flex;align-items:center;gap:3px;letter-spacing:.03em;}
+.sb-i{background:rgba(255,255,255,.05);color:rgba(245,239,230,.6);border:1px solid var(--border);}
+.sb-a{background:rgba(196,168,130,.08);color:var(--nude);border:1px solid var(--nude-border);}
+.alink{font-size:11px;color:var(--nude);display:inline-flex;align-items:center;gap:3px;margin-top:.5rem;}
+
+footer{padding:2rem 2.5rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--muted);}
+.footer-links{display:flex;gap:1.5rem;font-size:12px;color:var(--muted);}
+.footer-links a:hover{color:var(--cream);}
+@media(max-width:768px){nav{padding:.85rem 1.5rem;}.nav-links{display:none;}.yt-inner{grid-template-columns:1fr;}.section{padding:3.5rem 1.5rem;}h1{font-size:2.5rem;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">L.<em>Finesse</em> Humxn</a>
+  <div class="nav-links">
+    <a href="workshop.html">Free Workshop</a>
+    <a href="learn.html" style="color:var(--nude)">Learn</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <a href="workshop.html" class="nb">Free Workshop</a>
+</nav>
+
+<div class="page-hero">
+  <div class="ey">Resources & Training</div>
+  <h1>Learn from someone<br>who has <em>actually done it</em></h1>
+  <p class="hero-sub">Free trainings, paid courses, live apps, YouTube videos, and a book in the works. Everything I create comes from building, shipping, and living in the spaces I teach about.</p>
+</div>
+
+<div class="filter-bar">
+  <button class="filter-btn active">All</button>
+  <button class="filter-btn">Free</button>
+  <button class="filter-btn">Workshops</button>
+  <button class="filter-btn">AI & Tech</button>
+  <button class="filter-btn">Government</button>
+  <button class="filter-btn">Mental Health</button>
+  <button class="filter-btn">Apps</button>
+</div>
+
+<section class="section">
+  <div class="ey">Free Resources</div>
+  <h2 class="sh">Start here. No cost.</h2>
+  <p class="ss">Everything below is free. Because access to knowledge should not be gated.</p>
+  <div class="free-grid">
+    <div class="fcard">
+      <span class="fc-badge fc-free">Free</span>
+      <div class="fc-title">Free Live Workshop</div>
+      <div class="fc-desc">How to Use AI to Build, Speak, and Get Paid. A live workshop covering AI tools, career positioning, and how to leverage AI in healthcare, government, and beyond.</div>
+      <div class="fc-meta"><span class="fcm fcm-n">Live</span><span class="fcm fcm-w">All Levels</span><span class="fcm fcm-w">90 Min</span></div>
+      <a href="workshop.html" class="fc-btn"><i class="ti ti-calendar"></i> Save Your Free Seat</a>
+    </div>
+    <div class="fcard">
+      <span class="fc-badge fc-free">Free</span>
+      <div class="fc-title">Finding Finesse on YouTube</div>
+      <div class="fc-desc">281 free videos on AI, mental health, tech careers, government contracting, and building as a solo founder. New content weekly. Real talk, no filter.</div>
+      <div class="fc-meta"><span class="fcm fcm-n">Video</span><span class="fcm fcm-w">281 Episodes</span></div>
+      <a href="https://www.youtube.com/@FinesseHumxn" target="_blank" class="fc-btn"><i class="ti ti-brand-youtube"></i> Watch Free on YouTube</a>
+    </div>
+    <div class="fcard">
+      <span class="fc-badge fc-free">Free</span>
+      <div class="fc-title">MedCompanion AI &#8212; Health Literacy Tool</div>
+      <div class="fc-desc">Understand your health in plain language. Free tier available. Built on LangGraph and Claude API. NIH, Mayo Clinic, and FDA sourced briefings.</div>
+      <div class="fc-meta"><span class="fcm fcm-n">App</span><span class="fcm fcm-w">iOS + Android</span></div>
+      <a href="https://medcompanionai.com" target="_blank" class="fc-btn"><i class="ti ti-external-link"></i> Use Free Now</a>
+    </div>
+    <div class="fcard">
+      <span class="fc-badge fc-free">Free</span>
+      <div class="fc-title">Finesse Our Minds Community</div>
+      <div class="fc-desc">Free mental health peer support platform serving 8+ countries. Because mental health and tech are not separate conversations.</div>
+      <div class="fc-meta"><span class="fcm fcm-n">Community</span><span class="fcm fcm-w">Global</span><span class="fcm fcm-w">8+ Countries</span></div>
+      <a href="https://finesseourminds.com" target="_blank" class="fc-btn"><i class="ti ti-heart"></i> Join Free Community</a>
+    </div>
+    <div class="fcard">
+      <span class="fc-badge fc-free">Free</span>
+      <div class="fc-title">AI Tools Starter Guide</div>
+      <div class="fc-desc">The exact AI tools L.Finesse uses daily to build, write, research, and ship &#8212; categorized by use case. Zero technical experience required.</div>
+      <div class="fc-meta"><span class="fcm fcm-n">Guide</span><span class="fcm fcm-w">Instant Download</span></div>
+      <a href="contact.html" class="fc-btn"><i class="ti ti-download"></i> Get Free Guide</a>
+    </div>
+    <div class="fcard">
+      <span class="fc-badge fc-free">Free</span>
+      <div class="fc-title">FinesseKey &#8212; Credit Access App</div>
+      <div class="fc-desc">AI-powered credit dispute tools and financial education for underserved communities. Free to download on iOS and Android.</div>
+      <div class="fc-meta"><span class="fcm fcm-n">App</span><span class="fcm fcm-w">iOS + Android</span></div>
+      <a href="https://apps.apple.com/app/id6786938952" target="_blank" class="fc-btn"><i class="ti ti-download"></i> Download Free</a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section class="section">
+  <div class="ey">Paid Training & Services</div>
+  <h2 class="sh">Go deeper. Get results.</h2>
+  <p class="ss">For organizations and individuals ready to invest in real transformation.</p>
+  <div class="free-grid">
+    <div class="fcard">
+      <span class="fc-badge fc-paid">Paid</span>
+      <div class="fc-title">AI Integration Corporate Workshop</div>
+      <div class="fc-desc">Full-day or half-day workshop for teams. AI tools, workflow integration, prompt engineering, and building AI-assisted processes. Delivered virtually or in-person.</div>
+      <div class="fc-meta"><span class="fcm fcm-n">Workshop</span><span class="fcm fcm-w">Virtual or In-Person</span><span class="fcm fcm-w">Teams 5-500</span></div>
+      <div class="fc-price">From $2,500</div>
+      <a href="contact.html" class="fc-btn">Book This Workshop</a>
+    </div>
+    <div class="fcard">
+      <span class="fc-badge fc-paid">Paid</span>
+      <div class="fc-title">Building with LangGraph & Claude API</div>
+      <div class="fc-desc">Technical full-day workshop for developers. Production multi-agent AI pipelines, Claude API integration, safety guardrails, and deployment. For engineers ready to ship real systems.</div>
+      <div class="fc-meta"><span class="fcm fcm-n">Technical</span><span class="fcm fcm-w">Full Day</span><span class="fcm fcm-w">Intermediate+</span></div>
+      <div class="fc-price">From $3,500</div>
+      <a href="contact.html" class="fc-btn">Book This Workshop</a>
+    </div>
+    <div class="fcard">
+      <span class="fc-badge fc-paid">Paid</span>
+      <div class="fc-title">Keynote Speaking</div>
+      <div class="fc-desc">Mental health in tech, AI safety, women in STEM, suicide prevention advocacy, and building as a solo founder with lived experience. Available for conferences, panels, and corporate events.</div>
+      <div class="fc-meta"><span class="fcm fcm-n">Keynote</span><span class="fcm fcm-w">60-90 Min</span><span class="fcm fcm-w">All Audiences</span></div>
+      <div class="fc-price">Inquire</div>
+      <a href="contact.html" class="fc-btn">Book Speaking</a>
+    </div>
+    <div class="fcard">
+      <span class="fc-badge fc-paid">Paid</span>
+      <div class="fc-title">AI Consulting & Systems Audit</div>
+      <div class="fc-desc">AI strategy, LLM selection, safety architecture, government AI readiness, and systems audit. For organizations building AI or trying to understand what they already have.</div>
+      <div class="fc-meta"><span class="fcm fcm-n">Consulting</span><span class="fcm fcm-w">Virtual</span><span class="fcm fcm-w">Custom Scope</span></div>
+      <div class="fc-price">From $200/hr</div>
+      <a href="contact.html" class="fc-btn">Start Consulting</a>
+    </div>
+    <div class="fcard">
+      <span class="fc-badge fc-paid">Paid</span>
+      <div class="fc-title">Millennials Creatives Services</div>
+      <div class="fc-desc">Done-for-you AI systems, government contract readiness, brand identity, website builds, and capability statements. WOSB/MBE/DBE certified firm.</div>
+      <div class="fc-meta"><span class="fcm fcm-n">Done For You</span><span class="fcm fcm-w">WOSB Certified</span></div>
+      <div class="fc-price">From $197</div>
+      <a href="https://millennialscreatives.com" target="_blank" class="fc-btn">Shop Services</a>
+    </div>
+    <div class="fcard">
+      <span class="fc-badge fc-soon">Coming Soon</span>
+      <div class="fc-title">The Book by L.Finesse Humxn</div>
+      <div class="fc-desc">A book in the works. Mental health, technology, advocacy, and what it actually takes to build at the intersection of all three. Be the first to know when it drops.</div>
+      <div class="fc-meta"><span class="fcm fcm-n">Book</span><span class="fcm fcm-w">In Progress</span></div>
+      <div class="fc-price">TBA</div>
+      <a href="contact.html" class="fc-btn-ghost fc-btn">Join the Waitlist</a>
+    </div>
+  </div>
+</section>
+
+<div class="yt-section">
+  <div class="yt-inner">
+    <div>
+      <div class="ey">Finding Finesse on YouTube</div>
+      <div class="yt-count">281</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:1.85rem;font-weight:600;color:var(--white);margin-bottom:.65rem;">Videos. Real talk.<br>No filter.</h2>
+      <p class="yt-sub">Mental health, tech, AI, life, advocacy, and building as a solo founder. DJ. Speaker. Engineer. I show up as all of me and I have been doing it on camera for years.</p>
+      <a href="https://www.youtube.com/@FinesseHumxn" target="_blank" class="yt-btn"><i class="ti ti-brand-youtube"></i> Subscribe Free</a>
+    </div>
+    <div class="yt-embed">
+      <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=FinesseHumxn" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Finding Finesse"></iframe>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="ey">Live Apps</div>
+  <h2 class="sh">Tools I built. Free to use.</h2>
+  <p class="ss">4 apps live on iOS and Android. Try them.</p>
+  <div class="apps-row">
+    <div class="acard">
+      <span class="ast as-l">Live &#183; iOS + Android</span>
+      <div class="aname">MedCompanion AI</div>
+      <div class="adesc">Health literacy in plain language. Sourced from NIH, Mayo Clinic, FDA. Free tier available.</div>
+      <div class="sbadges">
+        <a href="https://apps.apple.com/app/id6785335934" target="_blank" class="sb sb-i"><i class="ti ti-brand-apple"></i> App Store</a>
+        <a href="https://play.google.com/store/apps/details?id=com.medcompanionai.app" target="_blank" class="sb sb-a"><i class="ti ti-brand-google-play"></i> Play</a>
+      </div>
+    </div>
+    <div class="acard">
+      <span class="ast as-l">Live &#183; iOS + Android</span>
+      <div class="aname">FinesseKey</div>
+      <div class="adesc">Credit access and dispute tools for underserved communities. Free to download.</div>
+      <div class="sbadges">
+        <a href="https://apps.apple.com/app/id6786938952" target="_blank" class="sb sb-i"><i class="ti ti-brand-apple"></i> App Store</a>
+        <a href="https://play.google.com/store/apps/details?id=com.finessekey.app" target="_blank" class="sb sb-a"><i class="ti ti-brand-google-play"></i> Play</a>
+      </div>
+    </div>
+    <div class="acard">
+      <span class="ast as-l">Live &#183; iOS + Android</span>
+      <div class="aname">FinesseEdge</div>
+      <div class="adesc">Know Your Edge. Personal strategy and competitive intelligence platform.</div>
+      <div class="sbadges">
+        <a href="https://apps.apple.com/app/id6790193060" target="_blank" class="sb sb-i"><i class="ti ti-brand-apple"></i> App Store</a>
+        <a href="https://play.google.com/store/apps/details?id=com.finesseedge.app" target="_blank" class="sb sb-a"><i class="ti ti-brand-google-play"></i> Play</a>
+      </div>
+    </div>
+    <div class="acard">
+      <span class="ast as-l">Live &#183; iOS + Android</span>
+      <div class="aname">BarterThat</div>
+      <div class="adesc">Community barter platform. Trade skills without traditional payment.</div>
+      <div class="sbadges">
+        <a href="https://apps.apple.com/app/id6784909030" target="_blank" class="sb sb-i"><i class="ti ti-brand-apple"></i> App Store</a>
+        <a href="https://play.google.com/store/apps/details?id=com.barterthat.app" target="_blank" class="sb sb-a"><i class="ti ti-brand-google-play"></i> Play</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">L.Finesse Humxn &#169; 2026</div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="workshop.html">Free Workshop</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>
