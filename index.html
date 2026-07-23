@@ -4,358 +4,366 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>L.Finesse Humxn — AI Engineer · Global Speaker · Mental Health Advocate</title>
-<meta name="description" content="Mental Health in Tech Global Speaker. AI Engineer. Founder of 4 live apps. Helping everyday humans understand AI — one conversation at a time." />
+<meta name="description" content="Mental Health in Tech Global Speaker. AI Engineer. Founder of 4 live apps. Book me to speak, train, or build." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
 <style>
 :root{
-  --bg:#0C0C0A;
-  --dark:#121210;
-  --card:#1C1C1A;
+  --bg:#0A0A08;
+  --card:#161614;
   --nude:#C9AE88;
   --nude2:#B89970;
-  --nude-dim:rgba(201,174,136,0.07);
-  --nude-border:rgba(201,174,136,0.18);
-  --cream:#F2EBE0;
+  --nude-dim:rgba(201,174,136,0.06);
+  --nude-border:rgba(201,174,136,0.16);
+  --cream:#F0E8DA;
   --white:#FAF7F2;
   --border:rgba(255,255,255,0.06);
-  --muted:rgba(242,235,224,0.38);
-  --body:rgba(242,235,224,0.65);
+  --muted:rgba(240,232,218,0.38);
+  --body:rgba(240,232,218,0.65);
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--cream);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
-img,video{display:block;max-width:100%;}
+img,video{display:block;}
 a{color:inherit;text-decoration:none;}
 
-/* ─── ANNOUNCEMENT BAR ─── */
-.announce{background:var(--nude);color:var(--bg);text-align:center;padding:.55rem 1rem;font-size:12px;font-weight:600;letter-spacing:.03em;}
-.announce a{text-decoration:underline;color:var(--bg);}
-
-/* ─── NAV ─── */
-nav{position:sticky;top:0;z-index:200;background:rgba(12,12,10,0.97);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
-.nav-inner{max-width:1280px;margin:0 auto;padding:.85rem 1.5rem;display:flex;align-items:center;justify-content:space-between;}
-.logo{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;letter-spacing:.01em;color:var(--white);}
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(10,10,8,0.96);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
+.nav-i{max-width:1400px;margin:0 auto;padding:.9rem 2rem;display:flex;align-items:center;justify-content:space-between;}
+.logo{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;letter-spacing:.02em;color:var(--white);}
 .logo em{color:var(--nude);font-style:italic;}
-.nav-links{display:flex;gap:2rem;font-size:13px;color:var(--muted);letter-spacing:.01em;}
-.nav-links a:hover{color:var(--cream);}
-.nav-end{display:flex;align-items:center;gap:.75rem;}
-.btn-sm{font-size:11px;font-weight:700;padding:8px 18px;letter-spacing:.07em;text-transform:uppercase;transition:all .2s;}
-.btn-sm-n{background:var(--nude);color:var(--bg);}
-.btn-sm-n:hover{background:var(--nude2);}
-.btn-sm-g{border:1px solid var(--nude-border);color:var(--cream);}
-.btn-sm-g:hover{border-color:var(--nude);color:var(--nude);}
+.nl{display:flex;gap:2rem;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);}
+.nl a:hover{color:var(--cream);}
+.nb-book{background:var(--nude);color:var(--bg);font-size:11px;font-weight:700;padding:9px 22px;letter-spacing:.08em;text-transform:uppercase;transition:background .2s;}
+.nb-book:hover{background:var(--nude2);}
 .ham{display:none;flex-direction:column;gap:5px;cursor:pointer;}
 .ham span{width:22px;height:1.5px;background:var(--cream);}
-.mob-menu{display:none;position:fixed;inset:0;top:48px;background:rgba(12,12,10,.98);z-index:199;flex-direction:column;padding:2.5rem 1.5rem;}
+.mob-menu{display:none;position:fixed;inset:0;top:52px;background:rgba(10,10,8,.99);z-index:199;flex-direction:column;padding:2.5rem 2rem;}
 .mob-menu.open{display:flex;}
-.mm-link{padding:1.1rem 0;border-bottom:1px solid var(--border);font-size:1.15rem;font-family:'Cormorant Garamond',serif;font-weight:600;}
-.mm-link:hover{color:var(--nude);}
-.mm-actions{display:flex;flex-direction:column;gap:.6rem;margin-top:2rem;}
-.mm-btn{padding:14px;text-align:center;font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;}
-.mm-btn-n{background:var(--nude);color:var(--bg);}
-.mm-btn-o{border:1px solid var(--nude-border);color:var(--cream);}
+.mm-a{padding:1.1rem 0;border-bottom:1px solid var(--border);font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;}
+.mm-a:hover{color:var(--nude);}
+.mm-cta{margin-top:2rem;background:var(--nude);color:var(--bg);padding:16px;text-align:center;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;}
 
-/* ─── HERO ─── */
-.hero{position:relative;height:100svh;min-height:640px;overflow:hidden;}
-.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;}
-.hero-grad{position:absolute;inset:0;background:linear-gradient(160deg,rgba(12,12,10,.88) 0%,rgba(12,12,10,.6) 45%,rgba(12,12,10,.25) 100%);}
-.hero-body{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:2rem 1.5rem 3.5rem;}
-.hero-kicker{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--nude);margin-bottom:1rem;}
-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,10vw,7rem);font-weight:300;line-height:.9;letter-spacing:-.03em;color:var(--white);margin-bottom:1.25rem;}
-h1 strong{font-weight:600;}
+/* ── HERO SPLIT ── */
+.hero{display:grid;grid-template-columns:1fr;min-height:100svh;padding-top:52px;}
+.hero-left{position:relative;height:60svh;overflow:hidden;}
+.hero-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;}
+.hero-grad{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,10,8,.1) 0%,rgba(10,10,8,.6) 80%,rgba(10,10,8,1) 100%);}
+.hero-right{padding:2.5rem 2rem 4rem;display:flex;flex-direction:column;justify-content:center;}
+.h-kicker{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--nude);margin-bottom:1.25rem;display:flex;align-items:center;gap:.75rem;}
+.h-kicker::after{content:'';flex:1;height:1px;background:var(--nude-border);}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,10vw,6.5rem);font-weight:300;line-height:.9;letter-spacing:-.03em;color:var(--white);margin-bottom:1.5rem;}
+h1 strong{font-weight:600;display:block;}
 h1 em{font-style:italic;color:var(--nude);}
-.hero-tagline{font-size:15px;color:var(--body);line-height:1.75;max-width:480px;margin-bottom:2rem;font-weight:300;}
-.hero-tagline strong{color:var(--cream);font-weight:500;}
-.hero-actions{display:flex;flex-direction:column;gap:.5rem;max-width:380px;}
-.btn-lg{display:flex;align-items:center;justify-content:center;gap:8px;padding:15px 24px;font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;transition:all .2s;}
-.btn-lg-n{background:var(--nude);color:var(--bg);}
-.btn-lg-n:hover{background:var(--nude2);}
-.btn-lg-o{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:var(--white);}
-.btn-lg-o:hover{background:rgba(255,255,255,.14);}
-.btn-row{display:flex;gap:.5rem;}
-.btn-half{flex:1;}
-.hero-soc{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:1.5rem;}
-.hs{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:rgba(255,255,255,.4);padding:5px 10px;border:1px solid rgba(255,255,255,.1);}
-.hs:hover{color:var(--cream);border-color:rgba(255,255,255,.2);}
+.h-desc{font-size:15px;color:var(--body);line-height:1.8;font-weight:300;max-width:480px;margin-bottom:2.5rem;}
+.h-desc strong{color:var(--cream);font-weight:500;}
+.h-ctas{display:flex;flex-direction:column;gap:.5rem;margin-bottom:2rem;}
+.btn-main{display:flex;align-items:center;justify-content:center;gap:8px;padding:16px 28px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:all .2s;}
+.btn-n{background:var(--nude);color:var(--bg);}
+.btn-n:hover{background:var(--nude2);}
+.btn-o{border:1px solid rgba(255,255,255,.2);color:var(--white);background:rgba(255,255,255,.06);}
+.btn-o:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.35);}
+.h-soc{display:flex;gap:.35rem;flex-wrap:wrap;}
+.hs{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--muted);padding:5px 10px;border:1px solid var(--border);}
+.hs:hover{color:var(--cream);border-color:var(--nude-border);}
 
-/* ─── TICKER ─── */
-.ticker{background:var(--nude-dim);border-top:1px solid var(--nude-border);border-bottom:1px solid var(--nude-border);padding:0;overflow:hidden;white-space:nowrap;}
-.ticker-inner{display:inline-flex;animation:ticker 30s linear infinite;}
-.ticker-inner:hover{animation-play-state:paused;}
-.tick-item{padding:.7rem 2rem;font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--nude);border-right:1px solid var(--nude-border);}
-@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* ── DIVIDER ── */
+.divider{height:1px;background:var(--border);}
 
-/* ─── STATEMENT ─── */
-.statement{padding:5rem 1.5rem;text-align:center;}
-.s-inner{max-width:800px;margin:0 auto;}
-.s-label{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--nude);margin-bottom:1.25rem;}
-.s-text{font-family:'Cormorant Garamond',serif;font-size:clamp(1.85rem,5vw,3rem);font-weight:300;color:var(--white);line-height:1.25;margin-bottom:1.75rem;}
-.s-text em{font-style:italic;color:var(--nude);}
-.s-text strong{font-weight:600;}
-.s-sub{font-size:15px;color:var(--body);line-height:1.85;font-weight:300;max-width:560px;margin:0 auto 2rem;}
-.s-sub strong{color:var(--cream);font-weight:500;}
-.btn-nude{display:inline-flex;align-items:center;gap:7px;padding:12px 26px;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;background:var(--nude);color:var(--bg);transition:background .2s;}
-.btn-nude:hover{background:var(--nude2);}
-.btn-ghost{display:inline-flex;align-items:center;gap:7px;padding:12px 22px;font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;border:1px solid var(--nude-border);color:var(--cream);transition:all .2s;}
-.btn-ghost:hover{border-color:var(--nude);color:var(--nude);}
+/* ── TICKER ── */
+.ticker{overflow:hidden;background:var(--nude-dim);border-top:1px solid var(--nude-border);border-bottom:1px solid var(--nude-border);}
+.ticker-track{display:inline-flex;animation:tick 35s linear infinite;white-space:nowrap;}
+.ticker-track:hover{animation-play-state:paused;}
+.tick{padding:.7rem 2.5rem;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--nude);border-right:1px solid var(--nude-border);}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* ─── STAGES GRID ─── */
-.stages{padding:0 1.5rem 5rem;}
-.stages-label{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--nude);margin-bottom:1.5rem;padding-top:1rem;border-top:1px solid var(--border);}
+/* ── PROOF NUMBERS ── */
+.proof{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border);}
+.pn{padding:1.75rem 1rem;text-align:center;border-right:1px solid var(--border);}
+.pn:last-child{border-right:none;}
+.pn-n{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3rem);font-weight:300;color:var(--nude);line-height:1;}
+.pn-l{font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:.35rem;line-height:1.4;}
 
-/* Mobile — 2col masonry */
-.stages-mob{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
+/* ── IDENTITY ── */
+.identity{max-width:1000px;margin:0 auto;padding:5rem 2rem;text-align:center;}
+.id-label{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--nude);margin-bottom:1.5rem;}
+.id-h{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.25rem);font-weight:300;color:var(--white);line-height:1.2;margin-bottom:1.25rem;}
+.id-h em{font-style:italic;color:var(--nude);}
+.id-p{font-size:15px;color:var(--body);line-height:1.9;font-weight:300;max-width:600px;margin:0 auto 2.5rem;}
+.id-p strong{color:var(--cream);font-weight:500;}
+.id-btns{display:flex;gap:.65rem;justify-content:center;flex-wrap:wrap;}
+.btn-s{display:inline-flex;align-items:center;gap:7px;padding:12px 24px;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;transition:all .2s;}
+.btn-sn{background:var(--nude);color:var(--bg);}
+.btn-sn:hover{background:var(--nude2);}
+.btn-so{border:1px solid var(--nude-border);color:var(--cream);}
+.btn-so:hover{border-color:var(--nude);color:var(--nude);}
+
+/* ── STAGES — EDITORIAL GRID ── */
+.stages{padding:0 2rem 5rem;}
+.sec-label{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--nude);padding:.85rem 0;border-top:1px solid var(--border);margin-bottom:.25rem;}
+
+/* Mobile */
+.sg-mob{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
 .sc{position:relative;overflow:hidden;background:var(--card);}
-.sc.tall{grid-row:span 2;}
-.sc.wide{grid-column:span 2;}
-.sc:not(.tall):not(.wide){aspect-ratio:1;}
-.sc.tall{aspect-ratio:1/2;}
-.sc.wide{aspect-ratio:2/1;}
-.sc-m{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;}
-.sc-m.top{object-position:center 15%;}
-.sc-m.mid{object-position:center 35%;}
-.sc-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(12,12,10,.9) 0%,rgba(12,12,10,.05) 50%,transparent 100%);}
-.sc-info{position:absolute;bottom:0;left:0;right:0;padding:.75rem .85rem;}
-.sc-loc{font-size:9px;color:var(--nude);font-weight:700;letter-spacing:.09em;text-transform:uppercase;margin-bottom:.2rem;}
+.sc.r2{grid-row:span 2;}
+.sc.c2{grid-column:span 2;}
+.sc:not(.r2):not(.c2){aspect-ratio:1/1;}
+.sc.r2{aspect-ratio:9/18;}
+.sc.c2{aspect-ratio:16/7;}
+.sm{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .5s;}
+.sm.top{object-position:center 12%;}
+.sm.mid{object-position:center 35%;}
+.sc:hover .sm{transform:scale(1.04);}
+.sg{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,8,.9) 0%,rgba(10,10,8,.05) 50%,transparent 100%);}
+.si{position:absolute;bottom:0;left:0;right:0;padding:.75rem .85rem;}
+.sl{font-size:9px;color:var(--nude);font-weight:700;letter-spacing:.09em;text-transform:uppercase;margin-bottom:.15rem;}
 .sc-cap{font-family:'Cormorant Garamond',serif;font-size:.95rem;font-weight:600;color:var(--white);line-height:1.2;}
 
-/* Desktop stages */
-.stages-desk{display:none;grid-template-columns:repeat(12,1fr);grid-auto-rows:200px;gap:2px;}
+/* Desktop — magazine editorial */
+.sg-desk{display:none;grid-template-columns:repeat(12,1fr);grid-auto-rows:220px;gap:2px;}
 .sd{position:relative;overflow:hidden;background:var(--card);}
-.sd:hover .sc-m{transform:scale(1.04);transition:transform .5s;}
-.c4{grid-column:span 4;}
-.c5{grid-column:span 5;}
-.c6{grid-column:span 6;}
-.c7{grid-column:span 7;}
-.c8{grid-column:span 8;}
-.r2{grid-row:span 2;}
+.sd:hover .sm{transform:scale(1.04);}
 
-/* ─── WORKSHOP CTA ─── */
-.ws-cta{background:var(--card);border-top:1px solid var(--nude-border);border-bottom:1px solid var(--nude-border);}
-.ws-inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;align-items:center;padding:4rem 1.5rem;text-align:center;}
-.ws-tag{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--nude);margin-bottom:1.25rem;}
-.ws-h{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,6vw,3.5rem);font-weight:300;color:var(--white);margin-bottom:.75rem;}
-.ws-h em{font-style:italic;color:var(--nude);}
-.ws-p{font-size:15px;color:var(--body);line-height:1.8;max-width:560px;margin-bottom:2rem;}
-.ws-form{display:flex;flex-direction:column;gap:.5rem;width:100%;max-width:440px;}
-.wf-in{width:100%;padding:13px 16px;background:var(--dark);border:1px solid var(--border);color:var(--cream);font-family:'Inter',sans-serif;font-size:14px;outline:none;border-radius:0;-webkit-appearance:none;}
-.wf-in:focus{border-color:var(--nude);}
-.wf-in::placeholder{color:var(--muted);}
-.wf-btn{background:var(--nude);color:var(--bg);padding:14px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border:none;cursor:pointer;font-family:'Inter',sans-serif;border-radius:0;transition:background .2s;}
-.wf-btn:hover{background:var(--nude2);}
-.wf-note{font-size:11px;color:var(--muted);}
+/* ── BOOKING CTA BAND ── */
+.book-band{background:var(--nude);padding:3.5rem 2rem;text-align:center;}
+.book-band-inner{max-width:800px;margin:0 auto;}
+.bb-h{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.25rem);font-weight:600;color:var(--bg);margin-bottom:.75rem;line-height:1.1;}
+.bb-p{font-size:15px;color:rgba(10,10,8,.65);margin-bottom:2rem;line-height:1.75;}
+.bb-btns{display:flex;gap:.65rem;justify-content:center;flex-wrap:wrap;}
+.bb-btn{display:inline-flex;align-items:center;gap:7px;padding:14px 28px;font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;transition:all .2s;}
+.bb-dark{background:var(--bg);color:var(--nude);}
+.bb-dark:hover{background:#1a1a18;}
+.bb-ghost{border:2px solid rgba(10,10,8,.3);color:var(--bg);}
+.bb-ghost:hover{background:rgba(10,10,8,.08);}
 
-/* ─── LIFE STRIP ─── */
+/* ── LIFE STRIP ── */
 .life{padding:5rem 0;}
-.life-label{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--nude);padding:0 1.5rem;margin-bottom:1.5rem;}
+.life-label{padding:0 2rem;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--nude);margin-bottom:1.25rem;}
 .life-scroll{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
 .life-scroll::-webkit-scrollbar{display:none;}
 .lc{position:relative;flex-shrink:0;overflow:hidden;background:var(--card);}
-.lc-v{width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
-.lc-v.top{object-position:center top;}
-.lc-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(12,12,10,.8),transparent 55%);}
-.lc-lbl{position:absolute;bottom:.65rem;left:.65rem;font-size:9px;color:var(--nude);font-weight:700;letter-spacing:.09em;text-transform:uppercase;}
+.lv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
+.lv.top{object-position:center top;}
+.lg{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,8,.82),transparent 55%);}
+.ll{position:absolute;bottom:.65rem;left:.75rem;font-size:9px;color:var(--nude);font-weight:700;letter-spacing:.1em;text-transform:uppercase;}
 
-/* ─── TESTIMONIALS ─── */
-.testis{padding:5rem 1.5rem;}
-.testis-inner{max-width:1100px;margin:0 auto;}
-.testis-label{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--nude);margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);}
-.testi-mob{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;}
-.testi-mob::-webkit-scrollbar{display:none;}
-.tcard{background:var(--card);padding:2rem 1.75rem;flex-shrink:0;width:82vw;max-width:340px;}
+/* ── WORKSHOP ── */
+.ws{padding:5rem 2rem;background:var(--card);border-top:1px solid var(--nude-border);border-bottom:1px solid var(--nude-border);}
+.ws-in{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:3rem;}
+.ws-l .ws-label{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--nude);margin-bottom:1.25rem;}
+.ws-h{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3rem);font-weight:300;color:var(--white);margin-bottom:.75rem;}
+.ws-h em{font-style:italic;color:var(--nude);}
+.ws-p{font-size:14px;color:var(--body);line-height:1.85;margin-bottom:1.75rem;}
+.ws-list{display:flex;flex-direction:column;gap:.5rem;}
+.wl{display:flex;align-items:flex-start;gap:.75rem;font-size:13.5px;color:var(--body);}
+.wl i{color:var(--nude);flex-shrink:0;margin-top:1px;}
+.ws-form{background:var(--bg);border:1px solid var(--nude-border);padding:2rem;}
+.wf-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:var(--white);margin-bottom:.35rem;}
+.wf-sub{font-size:13px;color:var(--muted);margin-bottom:1.5rem;line-height:1.6;}
+.fi{width:100%;padding:13px 16px;background:var(--card);border:1px solid var(--border);color:var(--cream);font-family:'Inter',sans-serif;font-size:14px;outline:none;margin-bottom:.65rem;border-radius:0;-webkit-appearance:none;}
+.fi:focus{border-color:var(--nude);}
+.fi::placeholder{color:var(--muted);}
+.wf-btn{width:100%;background:var(--nude);color:var(--bg);padding:15px;font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;border:none;cursor:pointer;font-family:'Inter',sans-serif;border-radius:0;transition:background .2s;}
+.wf-btn:hover{background:var(--nude2);}
+.wf-note{font-size:11px;color:var(--muted);text-align:center;margin-top:.75rem;}
+
+/* ── TESTIMONIALS ── */
+.testis{padding:5rem 2rem;}
+.testis-in{max-width:1200px;margin:0 auto;}
+.t-label{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--nude);padding-bottom:1.5rem;border-bottom:1px solid var(--border);margin-bottom:2rem;}
+.tm{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;}
+.tm::-webkit-scrollbar{display:none;}
+.tc{background:var(--card);padding:2rem 1.75rem;flex-shrink:0;width:80vw;max-width:320px;}
 .tq{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;color:var(--body);line-height:1.8;margin-bottom:1.25rem;}
 .tq::before{content:'\201C';font-size:2rem;color:var(--nude);line-height:0;vertical-align:-.35rem;margin-right:2px;}
 .ta{font-size:13px;font-weight:600;color:var(--cream);}
 .tr{font-size:11px;color:var(--muted);margin-top:2px;}
-.testi-desk{display:none;grid-template-columns:repeat(3,1fr);gap:2px;}
+.td{display:none;grid-template-columns:repeat(3,1fr);gap:2px;}
 
-/* ─── YOUTUBE ─── */
-.yt-section{background:var(--dark);border-top:1px solid var(--border);padding:5rem 1.5rem;}
-.yt-inner{max-width:1100px;margin:0 auto;}
-.yt-top{margin-bottom:2rem;}
-.yt-kicker{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--nude);margin-bottom:.85rem;}
-.yt-h{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3rem);font-weight:300;color:var(--white);margin-bottom:.5rem;}
+/* ── YOUTUBE ── */
+.yt{padding:5rem 2rem;background:var(--card);border-top:1px solid var(--border);}
+.yt-in{max-width:1200px;margin:0 auto;}
+.yt-label{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--nude);margin-bottom:1.25rem;}
+.yt-h{font-family:'Cormorant Garamond',serif;font-size:clamp(1.85rem,4vw,2.75rem);font-weight:300;color:var(--white);margin-bottom:.5rem;}
 .yt-h em{font-style:italic;color:var(--nude);}
-.yt-p{font-size:14px;color:var(--body);line-height:1.8;max-width:480px;margin-bottom:1.25rem;}
-.yt-btn{display:inline-flex;align-items:center;gap:6px;background:#FF0000;color:#fff;padding:11px 20px;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;}
+.yt-p{font-size:14px;color:var(--body);line-height:1.8;margin-bottom:1.25rem;}
+.yt-link{display:inline-flex;align-items:center;gap:6px;background:#FF0000;color:#fff;padding:11px 20px;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-bottom:2rem;}
 .yt-frame{aspect-ratio:16/9;border:1px solid var(--border);}
 .yt-frame iframe{width:100%;height:100%;border:none;}
 
-/* ─── PRODUCTS ─── */
-.products{padding:5rem 0;}
-.products-label{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--nude);padding:0 1.5rem;margin-bottom:1.5rem;}
-.prod-scroll{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;}
-.prod-scroll::-webkit-scrollbar{display:none;}
-.pc{background:var(--card);padding:1.75rem;flex-shrink:0;width:72vw;max-width:260px;border-top:2px solid var(--nude-border);}
+/* ── PRODUCTS ── */
+.prods{padding:5rem 0;}
+.prods-label{padding:0 2rem;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--nude);margin-bottom:1.25rem;}
+.ps{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;}
+.ps::-webkit-scrollbar{display:none;}
+.pc{background:var(--card);padding:1.75rem;flex-shrink:0;width:70vw;max-width:240px;border-top:2px solid transparent;transition:border-color .2s;}
 .pc:hover{border-top-color:var(--nude);}
 .pst{font-size:9px;font-weight:700;padding:3px 9px;letter-spacing:.07em;text-transform:uppercase;margin-bottom:.6rem;display:inline-block;}
-.ps-l{background:rgba(201,174,136,.08);color:var(--nude);border:1px solid var(--nude-border);}
-.ps-d{background:rgba(255,255,255,.04);color:var(--muted);border:1px solid var(--border);}
+.psl{background:var(--nude-dim);color:var(--nude);border:1px solid var(--nude-border);}
+.psd{background:rgba(255,255,255,.04);color:var(--muted);border:1px solid var(--border);}
 .pn{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;margin-bottom:.3rem;color:var(--white);}
-.pd{font-size:12px;color:var(--muted);line-height:1.65;margin-bottom:.85rem;}
+.pd{font-size:12px;color:var(--muted);line-height:1.65;margin-bottom:.8rem;}
 .pb{font-size:10px;font-weight:600;padding:3px 8px;display:inline-flex;align-items:center;gap:3px;margin-right:.25rem;margin-bottom:.25rem;}
-.pb-i{background:rgba(255,255,255,.05);color:rgba(242,235,224,.5);border:1px solid var(--border);}
+.pb-i{background:rgba(255,255,255,.05);color:rgba(240,232,218,.5);border:1px solid var(--border);}
 .pb-a{background:var(--nude-dim);color:var(--nude);border:1px solid var(--nude-border);}
-.plink{font-size:11px;color:var(--nude);display:inline-flex;align-items:center;gap:3px;margin-top:.4rem;font-weight:500;}
-.prod-desk{display:none;}
+.plnk{font-size:11px;color:var(--nude);display:inline-flex;align-items:center;gap:3px;margin-top:.4rem;}
+.pd-desk{display:none;}
 
-/* ─── EMAIL ─── */
-.email-section{background:var(--card);border-top:1px solid var(--nude-border);border-bottom:1px solid var(--nude-border);padding:5rem 1.5rem;text-align:center;}
-.em-inner{max-width:480px;margin:0 auto;}
-.em-kicker{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--nude);margin-bottom:1rem;}
+/* ── WORK WITH ME ── */
+.work{padding:5rem 2rem;}
+.work-in{max-width:1200px;margin:0 auto;}
+.work-label{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--nude);margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);}
+.work-h{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3rem);font-weight:300;color:var(--white);margin-bottom:2.5rem;}
+.work-h em{font-style:italic;color:var(--nude);}
+.wg{display:grid;grid-template-columns:1fr;gap:1px;background:var(--border);}
+.wc{background:var(--bg);padding:1.75rem;display:flex;align-items:flex-start;gap:1.25rem;}
+.wc-n{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--nude-border);flex-shrink:0;width:40px;line-height:1;}
+.wc-t{font-size:14px;font-weight:600;color:var(--cream);margin-bottom:.25rem;}
+.wc-d{font-size:13px;color:var(--muted);line-height:1.7;}
+.wc-p{font-size:11px;color:var(--nude);font-weight:600;margin-top:.5rem;letter-spacing:.03em;}
+
+/* ── EMAIL ── */
+.email{background:var(--card);border-top:1px solid var(--nude-border);padding:5rem 2rem;text-align:center;}
+.em-in{max-width:440px;margin:0 auto;}
+.em-label{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--nude);margin-bottom:1.25rem;}
 .em-h{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,2.75rem);font-weight:300;color:var(--white);margin-bottom:.65rem;}
 .em-h em{font-style:italic;color:var(--nude);}
 .em-p{font-size:14px;color:var(--muted);margin-bottom:1.75rem;line-height:1.8;}
 .em-form{display:flex;flex-direction:column;gap:.5rem;}
-.em-in{width:100%;padding:13px 16px;background:var(--dark);border:1px solid var(--border);color:var(--cream);font-family:'Inter',sans-serif;font-size:14px;outline:none;border-radius:0;-webkit-appearance:none;}
-.em-in::placeholder{color:var(--muted);}
-.em-in:focus{border-color:var(--nude);}
-.em-btn{background:var(--nude);color:var(--bg);padding:14px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border:none;cursor:pointer;font-family:'Inter',sans-serif;border-radius:0;transition:background .2s;}
-.em-btn:hover{background:var(--nude2);}
-.soc-row{display:flex;gap:.4rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;}
+.em-i{width:100%;padding:13px 16px;background:var(--bg);border:1px solid var(--border);color:var(--cream);font-family:'Inter',sans-serif;font-size:14px;outline:none;border-radius:0;-webkit-appearance:none;}
+.em-i:focus{border-color:var(--nude);}
+.em-i::placeholder{color:var(--muted);}
+.em-b{background:var(--nude);color:var(--bg);padding:14px;font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;border:none;cursor:pointer;font-family:'Inter',sans-serif;border-radius:0;transition:background .2s;}
+.em-b:hover{background:var(--nude2);}
+.em-soc{display:flex;gap:.4rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;}
 .sf{display:inline-flex;align-items:center;gap:4px;font-size:12px;color:var(--muted);padding:6px 12px;border:1px solid var(--border);}
 .sf:hover{color:var(--cream);border-color:var(--nude-border);}
 
-/* ─── HOW TO WORK ─── */
-.work-section{padding:5rem 1.5rem;}
-.work-inner{max-width:1100px;margin:0 auto;}
-.work-kicker{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--nude);margin-bottom:1.25rem;}
-.work-h{font-family:'Cormorant Garamond',serif;font-size:clamp(1.85rem,5vw,2.75rem);font-weight:300;color:var(--white);margin-bottom:2.5rem;}
-.work-h em{font-style:italic;color:var(--nude);}
-.work-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--border);}
-.wc{background:var(--dark);padding:1.75rem;display:flex;align-items:flex-start;gap:1.25rem;}
-.wc-num{font-family:'Cormorant Garamond',serif;font-size:2.25rem;font-weight:300;color:var(--nude-border);flex-shrink:0;line-height:1;width:44px;}
-.wc-title{font-size:14px;font-weight:600;color:var(--cream);margin-bottom:.3rem;}
-.wc-desc{font-size:13px;color:var(--muted);line-height:1.7;}
-.wc-price{font-size:11px;color:var(--nude);font-weight:600;margin-top:.5rem;letter-spacing:.04em;}
+/* ── FOOTER ── */
+footer{padding:2rem;border-top:1px solid var(--border);}
+.ft{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem;margin-bottom:1rem;}
+.fl{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:var(--muted);}
+.fl em{color:var(--nude);font-style:italic;}
+.flinks{display:flex;gap:1.25rem;font-size:12px;color:var(--muted);flex-wrap:wrap;}
+.flinks a:hover{color:var(--cream);}
+.fcopy{font-size:11px;color:var(--muted);}
 
-/* ─── CTA ─── */
-.final-cta{padding:6rem 1.5rem;text-align:center;}
-.fc-inner{max-width:600px;margin:0 auto;}
-.fc-kicker{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--nude);margin-bottom:1.25rem;}
-.fc-h{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,8vw,5rem);font-weight:300;color:var(--white);line-height:.95;margin-bottom:1.25rem;}
-.fc-h em{font-style:italic;color:var(--nude);}
-.fc-h strong{font-weight:600;}
-.fc-p{font-size:15px;color:var(--body);line-height:1.85;margin-bottom:2.25rem;}
-.fc-btns{display:flex;flex-direction:column;gap:.5rem;}
-
-/* ─── FOOTER ─── */
-footer{padding:2rem 1.5rem;border-top:1px solid var(--border);}
-.ft-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem;margin-bottom:1.25rem;}
-.ft-logo{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:var(--muted);}
-.ft-logo em{color:var(--nude);font-style:italic;}
-.ft-links{display:flex;gap:1.25rem;font-size:12px;color:var(--muted);flex-wrap:wrap;}
-.ft-links a:hover{color:var(--cream);}
-.ft-copy{font-size:11px;color:var(--muted);}
-
-/* ─── CHARACTER ─── */
+/* ── CHARACTER ── */
 .char{position:fixed;bottom:1.25rem;right:1.25rem;z-index:500;display:flex;flex-direction:column;align-items:center;gap:.6rem;}
-.char-bub{background:#0D3D4A;color:var(--cream);font-size:12px;line-height:1.55;padding:10px 14px;border:1px solid var(--nude-border);box-shadow:0 8px 32px rgba(0,0,0,.6);animation:bob 3.5s ease-in-out infinite;max-width:190px;text-align:center;position:relative;font-weight:300;}
+.char-bub{background:#0D3D4A;color:var(--cream);font-size:12px;line-height:1.55;padding:10px 14px;border:1px solid var(--nude-border);animation:bob 3.5s ease-in-out infinite;max-width:185px;text-align:center;position:relative;font-weight:300;}
 .char-bub::after{content:'';position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);border:8px solid transparent;border-top-color:#0D3D4A;border-bottom:none;}
-@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-.char-vid{width:78px;height:78px;object-fit:cover;object-position:center top;border-radius:50%;border:2px solid var(--nude-border);box-shadow:0 8px 32px rgba(0,0,0,.5);cursor:pointer;}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.char-vid{width:76px;height:76px;object-fit:cover;object-position:center top;border-radius:50%;border:2px solid var(--nude-border);cursor:pointer;}
 .char-x{position:absolute;top:-7px;right:-7px;width:20px;height:20px;background:var(--bg);border:1px solid var(--nude-border);color:var(--muted);font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center;border-radius:50%;}
 
-/* ─── DESKTOP ─── */
+/* ── DESKTOP ── */
 @media(min-width:768px){
   .ham,.mob-menu{display:none !important;}
-  .nav-links,.nav-end{display:flex;}
-  .nav-inner{padding:.85rem 2.5rem;}
-  .hero-body{padding:0 2.5rem 5rem;max-width:900px;}
-  .hero-actions{flex-direction:row;flex-wrap:wrap;max-width:none;}
-  .btn-lg{width:auto;}
-  .btn-row{flex:none;}
-  .btn-half{padding:15px 22px;flex:none;}
-  .statement{padding:7rem 2.5rem;}
-  .stages{padding:0 2.5rem 7rem;}
-  .stages-mob{display:none;}
-  .stages-desk{display:grid;}
+  .nl,.nb-book{display:flex;}
+  nav .nb-book{display:inline-block;}
+  .nav-i{padding:.9rem 2.5rem;}
+
+  /* Hero split */
+  .hero{grid-template-columns:55% 45%;min-height:100svh;}
+  .hero-left{height:100%;}
+  .hero-right{padding:6rem 3rem 4rem 3.5rem;}
+  .h-ctas{flex-direction:row;flex-wrap:wrap;}
+  .btn-main{width:auto;}
+
+  /* Stages */
+  .sg-mob{display:none;}
+  .sg-desk{display:grid;}
+
+  /* Life */
   .life{padding:7rem 0;}
   .life-label{padding:0 2.5rem;}
-  .products{padding:7rem 0;}
-  .products-label{padding:0 2.5rem;}
-  .prod-scroll{display:none;}
-  .prod-desk{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:2px;background:var(--border);padding:0 0;}
-  .prod-desk .pc{width:auto;max-width:none;}
-  .testis{padding:7rem 2.5rem;}
-  .testi-mob{display:none;}
-  .testi-desk{display:grid;}
-  .yt-section{padding:7rem 2.5rem;}
-  .yt-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:3.5rem;align-items:center;}
-  .work-section{padding:7rem 2.5rem;}
-  .work-grid{grid-template-columns:1fr 1fr;}
-  .ws-inner{padding:5rem 2.5rem;}
-  .ws-form{flex-direction:row;max-width:520px;}
-  .wf-in{flex:1;}
-  .wf-btn{width:auto;}
-  .email-section{padding:7rem 2.5rem;}
+
+  /* Workshop */
+  .ws{padding:7rem 2.5rem;}
+  .ws-in{grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+
+  /* Testis */
+  .tm{display:none;}
+  .td{display:grid;}
+
+  /* YT */
+  .yt{padding:7rem 2.5rem;}
+  .yt-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:4rem;align-items:center;}
+
+  /* Products */
+  .prods{padding:7rem 0;}
+  .prods-label{padding:0 2.5rem;}
+  .ps{display:none;}
+  .pd-desk{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin:0 2.5px;}
+
+  /* Work */
+  .work{padding:7rem 2.5rem;}
+  .wg{grid-template-columns:1fr 1fr;}
+
+  /* Email */
+  .email{padding:7rem 2.5rem;}
   .em-form{flex-direction:row;}
-  .em-in{flex:1;}
-  .em-btn{width:auto;}
-  .final-cta{padding:8rem 2.5rem;}
-  .fc-btns{flex-direction:row;justify-content:center;}
-  footer{padding:2.5rem 2.5rem;}
-  .char-vid{width:86px;height:86px;}
+  .em-i{flex:1;}
+  .em-b{width:auto;}
+
+  footer{padding:2.5rem;}
+  .stages{padding:0 2.5rem 7rem;}
+  .testis{padding:7rem 2.5rem;}
+  .prods{padding:7rem 0;}
 }
 @media(max-width:767px){
-  .nav-links,.nav-end{display:none;}
+  .nl,.nb-book{display:none;}
   .ham{display:flex;}
 }
 </style>
 </head>
 <body>
 
-<!-- ANNOUNCE -->
-<div class="announce">&#127775; Free live workshop — <a href="workshop.html">How to Use AI to Build, Speak & Get Paid. Save your seat.</a></div>
-
-<!-- NAV -->
 <nav>
-  <div class="nav-inner">
+  <div class="nav-i">
     <a href="index.html" class="logo">L.<em>Finesse</em> Humxn</a>
-    <div class="nav-links">
-      <a href="workshop.html">Free Workshop</a>
+    <div class="nl">
+      <a href="workshop.html">Workshop</a>
       <a href="learn.html">Learn</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </div>
-    <div class="nav-end">
-      <a href="workshop.html" class="btn-sm btn-sm-n">Free Workshop</a>
-      <a href="contact.html" class="btn-sm btn-sm-g">Book Me</a>
-    </div>
+    <a href="contact.html" class="nb-book">Book Me</a>
     <div class="ham" onclick="toggleNav()"><span></span><span></span><span></span></div>
   </div>
 </nav>
 
-<!-- MOBILE MENU -->
 <div class="mob-menu" id="mobMenu">
-  <a href="workshop.html" class="mm-link">Free Workshop</a>
-  <a href="learn.html" class="mm-link">Learn</a>
-  <a href="about.html" class="mm-link">About</a>
-  <a href="contact.html" class="mm-link">Contact</a>
-  <div class="mm-actions">
-    <a href="workshop.html" class="mm-btn mm-btn-n">Join Free Workshop</a>
-    <a href="contact.html" class="mm-btn mm-btn-o">Book Me to Speak</a>
-  </div>
+  <a href="workshop.html" class="mm-a">Free Workshop</a>
+  <a href="learn.html" class="mm-a">Learn</a>
+  <a href="about.html" class="mm-a">About</a>
+  <a href="contact.html" class="mm-a">Contact</a>
+  <a href="contact.html" class="mm-cta">Book or Hire Me</a>
 </div>
 
-<!-- HERO -->
+<!-- HERO SPLIT -->
 <div class="hero">
-  <video class="hero-video" autoplay muted loop playsinline src="header_training.mp4" onerror="this.src='southafrica.mp4'"></video>
-  <div class="hero-grad"></div>
-  <div class="hero-body">
-    <div class="hero-kicker">Mental Health in Tech Global Speaker &nbsp;&#183;&nbsp; AI Engineer &nbsp;&#183;&nbsp; Founder</div>
-    <h1>Building AI<br>for the humans<br><em>it was meant<br>to serve.</em></h1>
-    <p class="hero-tagline"><strong>L.Finesse Humxn</strong> — solo founder of 4 live apps, global speaker, and Executive Director of a mental health nonprofit in 8+ countries. Helping everyday humans understand AI, one conversation at a time.</p>
-    <div class="hero-actions">
-      <a href="workshop.html" class="btn-lg btn-lg-n"><i class="ti ti-calendar"></i> Join Free Workshop</a>
-      <div class="btn-row">
-        <a href="contact.html" class="btn-lg btn-lg-o btn-half"><i class="ti ti-microphone"></i> Book Me</a>
-        <a href="learn.html" class="btn-lg btn-lg-o btn-half"><i class="ti ti-book"></i> Learn</a>
-      </div>
+  <div class="hero-left">
+    <video class="hero-vid" autoplay muted loop playsinline src="header_training.mp4" onerror="this.src='southafrica.mp4'"></video>
+    <div class="hero-grad"></div>
+  </div>
+  <div class="hero-right">
+    <div class="h-kicker">Available to book</div>
+    <h1>
+      <em>Global</em><br>
+      <strong>Speaker.</strong><br>
+      <em>AI</em><br>
+      <strong>Engineer.</strong>
+    </h1>
+    <p class="h-desc">
+      <strong>Mental Health in Tech.</strong> Artificial Intelligence. Government Technology. I bridge all three — on stages around the world and in 4 apps now live on iOS and Android.
+    </p>
+    <div class="h-ctas">
+      <a href="contact.html" class="btn-main btn-n"><i class="ti ti-microphone"></i> Book Me to Speak</a>
+      <a href="workshop.html" class="btn-main btn-o"><i class="ti ti-calendar"></i> Free Workshop</a>
     </div>
-    <div class="hero-soc">
+    <div class="h-soc">
       <a href="https://instagram.com/finessehumxn" target="_blank" class="hs"><i class="ti ti-brand-instagram"></i> 5.3K</a>
       <a href="https://tiktok.com/@finessehumxn" target="_blank" class="hs"><i class="ti ti-brand-tiktok"></i> 1.6K</a>
       <a href="https://www.youtube.com/@FinesseHumxn" target="_blank" class="hs"><i class="ti ti-brand-youtube"></i> 281 Videos</a>
@@ -366,134 +374,102 @@ footer{padding:2rem 1.5rem;border-top:1px solid var(--border);}
 
 <!-- TICKER -->
 <div class="ticker">
-  <div class="ticker-inner">
-    <span class="tick-item">Global Speaker</span>
-    <span class="tick-item">AI Engineer</span>
-    <span class="tick-item">4 Apps Live</span>
-    <span class="tick-item">South Africa</span>
-    <span class="tick-item">Japan</span>
-    <span class="tick-item">Facebook HQ</span>
-    <span class="tick-item">Vietnam</span>
-    <span class="tick-item">60+ Certifications</span>
-    <span class="tick-item">Mental Health Advocate</span>
-    <span class="tick-item">32 Gov Bids</span>
-    <span class="tick-item">8+ Countries</span>
-    <span class="tick-item">WOSB · MBE · DBE</span>
-    <span class="tick-item">Global Speaker</span>
-    <span class="tick-item">AI Engineer</span>
-    <span class="tick-item">4 Apps Live</span>
-    <span class="tick-item">South Africa</span>
-    <span class="tick-item">Japan</span>
-    <span class="tick-item">Facebook HQ</span>
-    <span class="tick-item">Vietnam</span>
-    <span class="tick-item">60+ Certifications</span>
-    <span class="tick-item">Mental Health Advocate</span>
-    <span class="tick-item">32 Gov Bids</span>
-    <span class="tick-item">8+ Countries</span>
-    <span class="tick-item">WOSB · MBE · DBE</span>
+  <div class="ticker-track">
+    <span class="tick">Global Speaker</span><span class="tick">AI Engineer</span><span class="tick">South Africa</span><span class="tick">Japan</span><span class="tick">Facebook HQ</span><span class="tick">Vietnam</span><span class="tick">Mental Health Advocate</span><span class="tick">4 Apps Live</span><span class="tick">60+ Certifications</span><span class="tick">32 Gov Bids</span><span class="tick">8+ Countries</span><span class="tick">WOSB · MBE · DBE</span><span class="tick">Suicide Prevention</span><span class="tick">LangGraph Engineer</span>
+    <span class="tick">Global Speaker</span><span class="tick">AI Engineer</span><span class="tick">South Africa</span><span class="tick">Japan</span><span class="tick">Facebook HQ</span><span class="tick">Vietnam</span><span class="tick">Mental Health Advocate</span><span class="tick">4 Apps Live</span><span class="tick">60+ Certifications</span><span class="tick">32 Gov Bids</span><span class="tick">8+ Countries</span><span class="tick">WOSB · MBE · DBE</span><span class="tick">Suicide Prevention</span><span class="tick">LangGraph Engineer</span>
   </div>
 </div>
 
-<!-- STATEMENT -->
-<div class="statement">
-  <div class="s-inner">
-    <div class="s-label">The work</div>
-    <p class="s-text">
-      Helping everyday humans understand AI,<br>
-      <em>one conversation at a time.</em>
-    </p>
-    <p class="s-sub">I started in survival. Mental health brought me to advocacy. Advocacy brought me to speaking. Speaking brought me to training. Training brought me to tech. And tech brought me back to everything that mattered from the beginning — <strong>making sure people have access to the things that can save their lives.</strong></p>
-    <div style="display:flex;gap:.65rem;justify-content:center;flex-wrap:wrap;">
-      <a href="about.html" class="btn-nude"><i class="ti ti-arrow-right"></i> Read My Story</a>
-      <a href="workshop.html" class="btn-ghost">Join Free Workshop</a>
-    </div>
+<!-- PROOF -->
+<div class="proof">
+  <div class="pn"><div class="pn-n">4</div><div class="pn-l">Apps Live<br>iOS+Android</div></div>
+  <div class="pn"><div class="pn-n">5+</div><div class="pn-l">Countries<br>Spoken In</div></div>
+  <div class="pn"><div class="pn-n">281</div><div class="pn-l">YouTube<br>Videos</div></div>
+  <div class="pn"><div class="pn-n">60+</div><div class="pn-l">AI/ML<br>Certs</div></div>
+</div>
+
+<!-- IDENTITY -->
+<div class="identity">
+  <div class="id-label">The work</div>
+  <h2 class="id-h">Helping everyday humans<br>understand AI,<br><em>one conversation at a time.</em></h2>
+  <p class="id-p">I started in survival. Mental health brought me to advocacy. Advocacy brought me to speaking. Speaking brought me to training. Training brought me to tech. And tech brought me back to everything that mattered from the beginning — <strong>making sure people have access to the things that can save their lives.</strong></p>
+  <div class="id-btns">
+    <a href="about.html" class="btn-s btn-sn">Read My Story</a>
+    <a href="contact.html" class="btn-s btn-so">Book or Hire Me</a>
   </div>
 </div>
 
-<!-- STAGES LABEL -->
+<!-- STAGES -->
 <div class="stages">
-  <div class="stages-label">Global Stages — Real footage, real rooms</div>
+  <div class="sec-label">Global Stages — Real footage. Real rooms.</div>
 
-  <!-- MOBILE -->
-  <div class="stages-mob">
-    <div class="sc tall">
-      <video class="sc-m" autoplay muted loop playsinline src="southafrica.mp4" onerror="this.parentElement.style.background='#1C1C1A';this.style.display='none'"></video>
-      <div class="sc-grad"></div>
-      <div class="sc-info"><div class="sc-loc">&#127462;&#127467; South Africa</div><div class="sc-cap">Hard Rock Cafe Keynote</div></div>
+  <!-- Mobile -->
+  <div class="sg-mob">
+    <div class="sc r2">
+      <video class="sm" autoplay muted loop playsinline src="southafrica.mp4" onerror="this.parentElement.style.background='#161614';this.style.display='none'"></video>
+      <div class="sg"></div><div class="si"><div class="sl">&#127462;&#127467; South Africa</div><div class="sc-cap">Hard Rock Cafe Keynote</div></div>
     </div>
     <div class="sc">
-      <video class="sc-m" autoplay muted loop playsinline src="japan.mp4" onerror="this.parentElement.style.background='#1C1C1A';this.style.display='none'"></video>
-      <div class="sc-grad"></div>
-      <div class="sc-info"><div class="sc-loc">&#127471;&#127477; Japan</div><div class="sc-cap">International Speaking</div></div>
+      <video class="sm" autoplay muted loop playsinline src="japan.mp4" onerror="this.parentElement.style.background='#161614';this.style.display='none'"></video>
+      <div class="sg"></div><div class="si"><div class="sl">&#127471;&#127477; Japan</div><div class="sc-cap">International Speaking</div></div>
     </div>
     <div class="sc">
-      <img class="sc-m top" src="facebook.jpg" alt="Facebook HQ" onerror="this.parentElement.style.background='#1C1C1A';this.style.display='none'">
-      <div class="sc-grad"></div>
-      <div class="sc-info"><div class="sc-loc">&#127981; Facebook HQ</div><div class="sc-cap">Boost with Facebook</div></div>
+      <img class="sm top" src="facebook.jpg" alt="Facebook HQ" onerror="this.parentElement.style.background='#161614';this.style.display='none'">
+      <div class="sg"></div><div class="si"><div class="sl">&#127981; Facebook HQ</div><div class="sc-cap">Boost with Facebook</div></div>
     </div>
-    <div class="sc wide">
-      <img class="sc-m mid" src="saigon.jpg" alt="Saigon University" onerror="this.src='vietnam.jpg'">
-      <div class="sc-grad"></div>
-      <div class="sc-info"><div class="sc-loc">&#127758; Vietnam</div><div class="sc-cap">Saigon International University</div></div>
+    <div class="sc c2">
+      <img class="sm mid" src="saigon.jpg" alt="Saigon University" onerror="this.src='vietnam.jpg'">
+      <div class="sg"></div><div class="si"><div class="sl">&#127758; Vietnam</div><div class="sc-cap">Saigon International University</div></div>
     </div>
     <div class="sc">
-      <img class="sc-m" src="vietnam_training.jpg" alt="Vietnam training" onerror="this.parentElement.style.background='#1C1C1A';this.style.display='none'">
-      <div class="sc-grad"></div>
-      <div class="sc-info"><div class="sc-loc">&#127758; Vietnam</div><div class="sc-cap">International Training</div></div>
+      <img class="sm" src="vietnam_training.jpg" alt="Vietnam" onerror="this.parentElement.style.background='#161614';this.style.display='none'">
+      <div class="sg"></div><div class="si"><div class="sl">&#127758; Vietnam</div><div class="sc-cap">International Training</div></div>
     </div>
     <div class="sc">
-      <img class="sc-m top" src="wade_performance.jpg" alt="Performance Night" onerror="this.parentElement.style.background='#1C1C1A';this.style.display='none'">
-      <div class="sc-grad"></div>
-      <div class="sc-info"><div class="sc-loc">&#127775; Performance Night</div><div class="sc-cap">Backstage with Dwayne Wade</div></div>
+      <img class="sm top" src="wade_performance.jpg" alt="Performance Night" onerror="this.parentElement.style.background='#161614';this.style.display='none'">
+      <div class="sg"></div><div class="si"><div class="sl">&#127775; Performance</div><div class="sc-cap">Backstage with Dwayne Wade</div></div>
     </div>
   </div>
 
-  <!-- DESKTOP -->
-  <div class="stages-desk">
-    <div class="sd c7 r2">
-      <video class="sc-m" autoplay muted loop playsinline src="southafrica.mp4" onerror="this.style.display='none'"></video>
-      <div class="sc-grad"></div>
-      <div class="sc-info"><div class="sc-loc">&#127462;&#127467; South Africa</div><div class="sc-cap">Hard Rock Cafe &#8212; Live Keynote</div></div>
+  <!-- Desktop editorial -->
+  <div class="sg-desk">
+    <div class="sd" style="grid-column:span 7;grid-row:span 2;">
+      <video class="sm" autoplay muted loop playsinline src="southafrica.mp4" onerror="this.style.display='none'"></video>
+      <div class="sg"></div><div class="si"><div class="sl">&#127462;&#127467; South Africa</div><div class="sc-cap">Hard Rock Cafe &#8212; Live Keynote</div></div>
     </div>
-    <div class="sd c5">
-      <video class="sc-m" autoplay muted loop playsinline src="japan.mp4" onerror="this.style.display='none'"></video>
-      <div class="sc-grad"></div>
-      <div class="sc-info"><div class="sc-loc">&#127471;&#127477; Japan</div><div class="sc-cap">International Speaking Engagement</div></div>
+    <div class="sd" style="grid-column:span 5;">
+      <video class="sm" autoplay muted loop playsinline src="japan.mp4" onerror="this.style.display='none'"></video>
+      <div class="sg"></div><div class="si"><div class="sl">&#127471;&#127477; Japan</div><div class="sc-cap">International Speaking</div></div>
     </div>
-    <div class="sd c3" style="grid-column:span 3;">
-      <img class="sc-m top" src="facebook.jpg" alt="Facebook HQ" onerror="this.style.display='none'">
-      <div class="sc-grad"></div>
-      <div class="sc-info"><div class="sc-loc">&#127981; Facebook HQ</div><div class="sc-cap">Boost with Facebook</div></div>
+    <div class="sd" style="grid-column:span 3;">
+      <img class="sm top" src="facebook.jpg" alt="Facebook HQ" onerror="this.style.display='none'">
+      <div class="sg"></div><div class="si"><div class="sl">&#127981; Facebook HQ</div><div class="sc-cap">Boost with Facebook</div></div>
     </div>
-    <div class="sd c2" style="grid-column:span 2;">
-      <img class="sc-m top" src="wade_performance.jpg" alt="Wade" onerror="this.style.display='none'">
-      <div class="sc-grad"></div>
-      <div class="sc-info"><div class="sc-loc">&#127775; Performance Night</div><div class="sc-cap">Backstage with Dwayne Wade</div></div>
+    <div class="sd" style="grid-column:span 2;">
+      <img class="sm top" src="wade_performance.jpg" alt="Performance" onerror="this.style.display='none'">
+      <div class="sg"></div><div class="si"><div class="sl">&#127775; Performance</div><div class="sc-cap">Dwayne Wade Night</div></div>
     </div>
-    <div class="sd c4" style="grid-column:span 4;">
-      <img class="sc-m mid" src="saigon.jpg" alt="Saigon" onerror="this.src='vietnam.jpg'">
-      <div class="sc-grad"></div>
-      <div class="sc-info"><div class="sc-loc">&#127758; Vietnam</div><div class="sc-cap">Saigon International University</div></div>
+    <div class="sd" style="grid-column:span 4;">
+      <img class="sm mid" src="saigon.jpg" alt="Saigon" onerror="this.src='vietnam.jpg'">
+      <div class="sg"></div><div class="si"><div class="sl">&#127758; Vietnam</div><div class="sc-cap">Saigon International University</div></div>
     </div>
-    <div class="sd c3" style="grid-column:span 3;">
-      <img class="sc-m" src="vietnam_training.jpg" alt="Vietnam" onerror="this.style.display='none'">
-      <div class="sc-grad"></div>
-      <div class="sc-info"><div class="sc-loc">&#127758; Vietnam</div><div class="sc-cap">International Training</div></div>
+    <div class="sd" style="grid-column:span 3;">
+      <img class="sm" src="vietnam_training.jpg" alt="Vietnam Training" onerror="this.style.display='none'">
+      <div class="sg"></div><div class="si"><div class="sl">&#127758; Vietnam</div><div class="sc-cap">International Training</div></div>
     </div>
   </div>
 </div>
 
-<!-- FREE WORKSHOP -->
-<div class="ws-cta">
-  <div class="ws-inner">
-    <div class="ws-tag">Free Live Workshop</div>
-    <h2 class="ws-h">How to Use AI to Build,<br>Speak, and <em>Get Paid</em></h2>
-    <p class="ws-p">No code. No experience. Just 90 minutes with someone who has actually done it — and built 4 live apps to prove it.</p>
-    <div class="ws-form">
-      <input type="email" class="wf-in" placeholder="your@email.com">
-      <button class="wf-btn" onclick="alert('Thank you! Workshop details coming to your inbox.')">Save My Seat</button>
+<!-- BOOKING BAND -->
+<div class="book-band">
+  <div class="book-band-inner">
+    <h2 class="bb-h">Ready to book L.Finesse<br>for your next event?</h2>
+    <p class="bb-p">Speaker. Trainer. Consultant. Keynote. Workshop. Webinar. I show up fully — and I deliver every time.</p>
+    <div class="bb-btns">
+      <a href="contact.html" class="bb-btn bb-dark"><i class="ti ti-microphone"></i> Book Me to Speak</a>
+      <a href="contact.html" class="bb-btn bb-ghost"><i class="ti ti-code"></i> Hire Me to Build</a>
+      <a href="workshop.html" class="bb-btn bb-ghost"><i class="ti ti-calendar"></i> Free Workshop</a>
     </div>
-    <p class="wf-note" style="margin-top:.75rem;font-size:11px;color:var(--muted);">Free. No credit card. <a href="workshop.html" style="color:var(--nude);text-decoration:underline;">See full workshop details &#8594;</a></p>
   </div>
 </div>
 
@@ -501,61 +477,84 @@ footer{padding:2rem 1.5rem;border-top:1px solid var(--border);}
 <div class="life">
   <div class="life-label">Life in Motion</div>
   <div class="life-scroll">
-    <div class="lc" style="width:280px;height:380px;">
-      <video class="lc-v" autoplay muted loop playsinline src="delta.mp4" onerror="this.parentElement.style.background='#1C1C1A';this.style.display='none'"></video>
-      <div class="lc-grad"></div>
-      <div class="lc-lbl">&#9992; Delta One</div>
+    <div class="lc" style="width:280px;height:400px;">
+      <video class="lv" autoplay muted loop playsinline src="delta.mp4" onerror="this.parentElement.style.background='#161614';this.style.display='none'"></video>
+      <div class="lg"></div><div class="ll">&#9992; Delta One</div>
     </div>
-    <div class="lc" style="width:200px;height:380px;">
-      <video class="lc-v top" autoplay muted loop playsinline src="motorcycle.mp4" onerror="this.parentElement.style.background='#1C1C1A';this.style.display='none'"></video>
-      <div class="lc-grad"></div>
-      <div class="lc-lbl">En Route</div>
+    <div class="lc" style="width:200px;height:400px;">
+      <video class="lv top" autoplay muted loop playsinline src="motorcycle.mp4" onerror="this.parentElement.style.background='#161614';this.style.display='none'"></video>
+      <div class="lg"></div><div class="ll">En Route</div>
     </div>
-    <div class="lc" style="width:200px;height:380px;">
-      <video class="lc-v top" autoplay muted loop playsinline src="prepping.mp4" onerror="this.parentElement.style.background='#1C1C1A';this.style.display='none'"></video>
-      <div class="lc-grad"></div>
-      <div class="lc-lbl">Prepping</div>
+    <div class="lc" style="width:200px;height:400px;">
+      <video class="lv top" autoplay muted loop playsinline src="prepping.mp4" onerror="this.parentElement.style.background='#161614';this.style.display='none'"></video>
+      <div class="lg"></div><div class="ll">Prepping</div>
     </div>
-    <div class="lc" style="width:200px;height:380px;">
-      <img class="lc-v top" src="matcha.jpg" alt="The vibe" onerror="this.parentElement.style.background='#1C1C1A';this.style.display='none'">
-      <div class="lc-grad"></div>
-      <div class="lc-lbl">The Vibe</div>
+    <div class="lc" style="width:200px;height:400px;">
+      <img class="lv top" src="matcha.jpg" alt="The vibe" onerror="this.parentElement.style.background='#161614';this.style.display='none'">
+      <div class="lg"></div><div class="ll">The Vibe</div>
     </div>
-    <div class="lc" style="width:280px;height:380px;">
-      <video class="lc-v" autoplay muted loop playsinline src="travel.mp4" onerror="this.parentElement.style.background='#1C1C1A';this.style.display='none'"></video>
-      <div class="lc-grad"></div>
-      <div class="lc-lbl">Always Moving</div>
+    <div class="lc" style="width:280px;height:400px;">
+      <video class="lv" autoplay muted loop playsinline src="travel.mp4" onerror="this.parentElement.style.background='#161614';this.style.display='none'"></video>
+      <div class="lg"></div><div class="ll">Always Moving</div>
+    </div>
+  </div>
+</div>
+
+<!-- WORKSHOP -->
+<div class="ws">
+  <div class="ws-in">
+    <div class="ws-l">
+      <div class="ws-label">Free Live Workshop</div>
+      <h2 class="ws-h">How to Use AI to Build,<br>Speak, and <em>Get Paid</em></h2>
+      <p class="ws-p">No code required. No experience necessary. Just 90 minutes with someone who has actually built it — and shipped 4 apps to prove it.</p>
+      <div class="ws-list">
+        <div class="wl"><i class="ti ti-check"></i> How AI is changing every industry right now</div>
+        <div class="wl"><i class="ti ti-check"></i> AI tools you can use today without being technical</div>
+        <div class="wl"><i class="ti ti-check"></i> How to position yourself as AI-fluent in any field</div>
+        <div class="wl"><i class="ti ti-check"></i> Healthcare, government, and mental health AI in action</div>
+        <div class="wl"><i class="ti ti-check"></i> Live Q&amp;A + free resource kit for every attendee</div>
+      </div>
+    </div>
+    <div class="ws-form">
+      <div class="wf-title">Save Your Free Seat</div>
+      <div class="wf-sub">Next live session announced via email. Register and be first to know.</div>
+      <form onsubmit="handleReg(event)">
+        <input type="text" class="fi" placeholder="First name" required>
+        <input type="email" class="fi" placeholder="Email address" required>
+        <button type="submit" class="wf-btn">Save My Free Seat &#8594;</button>
+        <p class="wf-note">Free. No credit card. Unsubscribe anytime.</p>
+      </form>
     </div>
   </div>
 </div>
 
 <!-- TESTIMONIALS -->
 <div class="testis">
-  <div class="testis-inner">
-    <div class="testis-label">What people say</div>
-    <div class="testi-mob">
-      <div class="tcard"><p class="tq">The accuracy of the preliminary diagnosis based on symptoms was impressive. The dual-mode approach for medical professionals vs everyday users is genuinely smart product thinking.</p><div class="ta">Nicole Vaughn, APRN, PMH-NP</div><div class="tr">Psychiatric Nurse Practitioner</div></div>
-      <div class="tcard"><p class="tq">L.Finesse is one of the most driven, creative, and technically capable builders I have worked with. She brings clinical perspective and engineering together in a way that is genuinely rare.</p><div class="ta">Jeanie Vatelia, BSN, RN</div><div class="tr">Legal Nurse Consultant &#183; Co-Founder</div></div>
-      <div class="tcard"><p class="tq">Most patients never look at an After Visit Summary because they are overwhelmed. The AVS copy feature in the clinical mode solves a real problem we face every single day.</p><div class="ta">Naquita, RN</div><div class="tr">Registered Nurse &#183; Clinical Feedback</div></div>
-      <div class="tcard"><p class="tq">A combination of high-level tech experience and deep human understanding. She builds things that actually matter to the people they are meant to serve.</p><div class="ta">Violet Kagiri</div><div class="tr">Board Member &#183; SDG Systems</div></div>
+  <div class="testis-in">
+    <div class="t-label">What people say</div>
+    <div class="tm">
+      <div class="tc"><p class="tq">The accuracy of the preliminary diagnosis based on symptoms was impressive. The dual-mode approach for medical professionals vs everyday users is genuinely smart product thinking.</p><div class="ta">Nicole Vaughn, APRN, PMH-NP</div><div class="tr">Psychiatric Nurse Practitioner</div></div>
+      <div class="tc"><p class="tq">L.Finesse is one of the most driven, creative, and technically capable builders I have worked with. She brings clinical perspective and engineering together in a way that is genuinely rare.</p><div class="ta">Jeanie Vatelia, BSN, RN</div><div class="tr">Legal Nurse Consultant &#183; Co-Founder</div></div>
+      <div class="tc"><p class="tq">Most patients never look at an After Visit Summary because they are overwhelmed. The AVS copy feature in the clinical mode solves a real problem we face every single day.</p><div class="ta">Naquita, RN</div><div class="tr">Registered Nurse &#183; Clinical Feedback</div></div>
+      <div class="tc"><p class="tq">A combination of high-level tech experience and deep human understanding. She builds things that actually matter to the people they are meant to serve.</p><div class="ta">Violet Kagiri</div><div class="tr">Board Member &#183; SDG Systems</div></div>
     </div>
-    <div class="testi-desk">
-      <div class="tcard"><p class="tq">The accuracy of the preliminary diagnosis based on symptoms was impressive. The dual-mode approach for medical professionals vs everyday users is genuinely smart product thinking.</p><div class="ta">Nicole Vaughn, APRN, PMH-NP</div><div class="tr">Psychiatric Nurse Practitioner</div></div>
-      <div class="tcard"><p class="tq">L.Finesse is one of the most driven, creative, and technically capable builders I have worked with. She brings clinical perspective and engineering together in a way that is genuinely rare.</p><div class="ta">Jeanie Vatelia, BSN, RN</div><div class="tr">Legal Nurse Consultant &#183; Co-Founder</div></div>
-      <div class="tcard"><p class="tq">Most patients never look at an After Visit Summary because they are overwhelmed. The AVS copy feature in the clinical mode solves a real problem we face every single day.</p><div class="ta">Naquita, RN</div><div class="tr">Registered Nurse &#183; Clinical Feedback</div></div>
+    <div class="td">
+      <div class="tc"><p class="tq">The accuracy of the preliminary diagnosis based on symptoms was impressive. The dual-mode approach for medical professionals vs everyday users is genuinely smart product thinking.</p><div class="ta">Nicole Vaughn, APRN, PMH-NP</div><div class="tr">Psychiatric Nurse Practitioner</div></div>
+      <div class="tc"><p class="tq">L.Finesse is one of the most driven, creative, and technically capable builders I have worked with. She brings clinical perspective and engineering together in a way that is genuinely rare.</p><div class="ta">Jeanie Vatelia, BSN, RN</div><div class="tr">Legal Nurse Consultant &#183; Co-Founder</div></div>
+      <div class="tc"><p class="tq">Most patients never look at an After Visit Summary because they are overwhelmed. The AVS copy feature in the clinical mode solves a real problem we face every single day.</p><div class="ta">Naquita, RN</div><div class="tr">Registered Nurse &#183; Clinical Feedback</div></div>
     </div>
   </div>
 </div>
 
 <!-- YOUTUBE -->
-<div class="yt-section">
-  <div class="yt-inner">
+<div class="yt">
+  <div class="yt-in">
     <div class="yt-grid">
-      <div class="yt-top">
-        <div class="yt-kicker">Finding Finesse on YouTube</div>
-        <h2 class="yt-h">281 videos.<br>Real talk.<br><em>Free forever.</em></h2>
-        <p class="yt-p">AI, mental health, tech careers, government contracting, and building as a solo founder. DJ. Speaker. Engineer. I show up as all of me.</p>
-        <a href="https://www.youtube.com/@FinesseHumxn" target="_blank" class="yt-btn"><i class="ti ti-brand-youtube"></i> Subscribe Free</a>
+      <div>
+        <div class="yt-label">Finding Finesse on YouTube</div>
+        <h2 class="yt-h">281 videos.<br>Real talk.<br><em>Free.</em></h2>
+        <p class="yt-p">AI, mental health, tech careers, government contracting, and building solo. DJ. Speaker. Engineer. I show up as all of me.</p>
+        <a href="https://www.youtube.com/@FinesseHumxn" target="_blank" class="yt-link"><i class="ti ti-brand-youtube"></i> Subscribe Free</a>
       </div>
       <div class="yt-frame">
         <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=FinesseHumxn" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Finding Finesse"></iframe>
@@ -565,56 +564,56 @@ footer{padding:2rem 1.5rem;border-top:1px solid var(--border);}
 </div>
 
 <!-- PRODUCTS -->
-<div class="products">
-  <div class="products-label">Live Products — Built solo. Solving real problems.</div>
-  <div class="prod-scroll">
-    <div class="pc"><span class="pst ps-l">Live &#183; iOS+Android</span><div class="pn">MedCompanion AI</div><div class="pd">Health literacy in plain language. LangGraph pipeline.</div><a href="https://apps.apple.com/app/id6785335934" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.medcompanionai.app" target="_blank" class="pb pb-a"><i class="ti ti-brand-google-play"></i> Play</a><a href="https://medcompanionai.com" target="_blank" class="plink"><i class="ti ti-external-link"></i> medcompanionai.com</a></div>
-    <div class="pc"><span class="pst ps-l">Live &#183; iOS+Android</span><div class="pn">FinesseKey</div><div class="pd">Credit access and dispute tools for underserved communities.</div><a href="https://apps.apple.com/app/id6786938952" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.finessekey.app" target="_blank" class="pb pb-a"><i class="ti ti-brand-google-play"></i> Play</a></div>
-    <div class="pc"><span class="pst ps-l">Live &#183; iOS+Android</span><div class="pn">FinesseEdge</div><div class="pd">Know Your Edge. Personal strategy and competitive intelligence.</div><a href="https://apps.apple.com/app/id6790193060" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.finesseedge.app" target="_blank" class="pb pb-a"><i class="ti ti-brand-google-play"></i> Play</a></div>
-    <div class="pc"><span class="pst ps-l">Live &#183; iOS+Android</span><div class="pn">BarterThat</div><div class="pd">Community barter. Trade skills without traditional payment.</div><a href="https://apps.apple.com/app/id6784909030" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.barterthat.app" target="_blank" class="pb pb-a"><i class="ti ti-brand-google-play"></i> Play</a></div>
-    <div class="pc"><span class="pst ps-d">In Dev</span><div class="pn">FinesseShield</div><div class="pd">AI cybersecurity for SOC automation. Federal procurement.</div><a href="contact.html" class="plink"><i class="ti ti-arrow-right"></i> Early Access</a></div>
-    <div class="pc"><span class="pst ps-d">In Dev</span><div class="pn">FinesseWins</div><div class="pd">AI gov contracting for WOSB, MBE, DBE firms.</div><a href="contact.html" class="plink"><i class="ti ti-arrow-right"></i> Early Access</a></div>
+<div class="prods">
+  <div class="prods-label">Live Products — Built solo.</div>
+  <div class="ps">
+    <div class="pc"><span class="pst psl">Live &#183; iOS+Android</span><div class="pn">MedCompanion AI</div><div class="pd">Health literacy in plain language. LangGraph pipeline.</div><a href="https://apps.apple.com/app/id6785335934" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.medcompanionai.app" target="_blank" class="pb pb-a">Play</a></div>
+    <div class="pc"><span class="pst psl">Live &#183; iOS+Android</span><div class="pn">FinesseKey</div><div class="pd">Credit access for underserved communities.</div><a href="https://apps.apple.com/app/id6786938952" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.finessekey.app" target="_blank" class="pb pb-a">Play</a></div>
+    <div class="pc"><span class="pst psl">Live &#183; iOS+Android</span><div class="pn">FinesseEdge</div><div class="pd">Know Your Edge. Personal strategy and intelligence.</div><a href="https://apps.apple.com/app/id6790193060" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.finesseedge.app" target="_blank" class="pb pb-a">Play</a></div>
+    <div class="pc"><span class="pst psl">Live &#183; iOS+Android</span><div class="pn">BarterThat</div><div class="pd">Community barter platform. Trade skills.</div><a href="https://apps.apple.com/app/id6784909030" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.barterthat.app" target="_blank" class="pb pb-a">Play</a></div>
+    <div class="pc"><span class="pst psd">In Dev</span><div class="pn">FinesseShield</div><div class="pd">AI cybersecurity for SOC automation.</div><a href="contact.html" class="plnk"><i class="ti ti-arrow-right"></i> Early Access</a></div>
+    <div class="pc"><span class="pst psd">In Dev</span><div class="pn">FinesseWins</div><div class="pd">AI gov contracting for certified firms.</div><a href="contact.html" class="plnk"><i class="ti ti-arrow-right"></i> Early Access</a></div>
   </div>
-  <div class="prod-desk" style="margin:0 2.5rem;">
-    <div class="pc"><span class="pst ps-l">Live &#183; iOS+Android</span><div class="pn">MedCompanion AI</div><div class="pd">Health literacy in plain language. LangGraph pipeline. NIH, Mayo, FDA sourced.</div><a href="https://apps.apple.com/app/id6785335934" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.medcompanionai.app" target="_blank" class="pb pb-a"><i class="ti ti-brand-google-play"></i> Play</a><a href="https://medcompanionai.com" target="_blank" class="plink"><i class="ti ti-external-link"></i> medcompanionai.com</a></div>
-    <div class="pc"><span class="pst ps-l">Live &#183; iOS+Android</span><div class="pn">FinesseKey</div><div class="pd">Credit access and dispute tools for underserved communities.</div><a href="https://apps.apple.com/app/id6786938952" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.finessekey.app" target="_blank" class="pb pb-a"><i class="ti ti-brand-google-play"></i> Play</a></div>
-    <div class="pc"><span class="pst ps-l">Live &#183; iOS+Android</span><div class="pn">FinesseEdge</div><div class="pd">Know Your Edge. Personal strategy and competitive intelligence.</div><a href="https://apps.apple.com/app/id6790193060" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.finesseedge.app" target="_blank" class="pb pb-a"><i class="ti ti-brand-google-play"></i> Play</a></div>
-    <div class="pc"><span class="pst ps-l">Live &#183; iOS+Android</span><div class="pn">BarterThat</div><div class="pd">Community barter platform. Trade skills without traditional payment.</div><a href="https://apps.apple.com/app/id6784909030" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.barterthat.app" target="_blank" class="pb pb-a"><i class="ti ti-brand-google-play"></i> Play</a></div>
-    <div class="pc"><span class="pst ps-d">In Development</span><div class="pn">FinesseShield</div><div class="pd">AI cybersecurity for SOC automation. Federal procurement target.</div><a href="contact.html" class="plink"><i class="ti ti-arrow-right"></i> Get Early Access</a></div>
-    <div class="pc"><span class="pst ps-d">In Development</span><div class="pn">FinesseWins</div><div class="pd">AI government contracting for WOSB, MBE, DBE firms. 32 real bids.</div><a href="contact.html" class="plink"><i class="ti ti-arrow-right"></i> Get Early Access</a></div>
+  <div class="pd-desk" style="margin:0 2.5rem;">
+    <div class="pc"><span class="pst psl">Live &#183; iOS+Android</span><div class="pn">MedCompanion AI</div><div class="pd">Health literacy in plain language. LangGraph pipeline. NIH, Mayo, FDA sourced.</div><a href="https://apps.apple.com/app/id6785335934" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.medcompanionai.app" target="_blank" class="pb pb-a"><i class="ti ti-brand-google-play"></i> Play</a><a href="https://medcompanionai.com" target="_blank" class="plnk"><i class="ti ti-external-link"></i> medcompanionai.com</a></div>
+    <div class="pc"><span class="pst psl">Live &#183; iOS+Android</span><div class="pn">FinesseKey</div><div class="pd">Credit access and dispute tools for underserved communities.</div><a href="https://apps.apple.com/app/id6786938952" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.finessekey.app" target="_blank" class="pb pb-a"><i class="ti ti-brand-google-play"></i> Play</a></div>
+    <div class="pc"><span class="pst psl">Live &#183; iOS+Android</span><div class="pn">FinesseEdge</div><div class="pd">Know Your Edge. Personal strategy and competitive intelligence.</div><a href="https://apps.apple.com/app/id6790193060" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.finesseedge.app" target="_blank" class="pb pb-a"><i class="ti ti-brand-google-play"></i> Play</a></div>
+    <div class="pc"><span class="pst psl">Live &#183; iOS+Android</span><div class="pn">BarterThat</div><div class="pd">Community barter platform. Trade skills without traditional payment.</div><a href="https://apps.apple.com/app/id6784909030" target="_blank" class="pb pb-i"><i class="ti ti-brand-apple"></i> App Store</a><a href="https://play.google.com/store/apps/details?id=com.barterthat.app" target="_blank" class="pb pb-a"><i class="ti ti-brand-google-play"></i> Play</a></div>
+    <div class="pc"><span class="pst psd">In Development</span><div class="pn">FinesseShield</div><div class="pd">AI cybersecurity for SOC automation. Federal procurement.</div><a href="contact.html" class="plnk"><i class="ti ti-arrow-right"></i> Early Access</a></div>
+    <div class="pc"><span class="pst psd">In Development</span><div class="pn">FinesseWins</div><div class="pd">AI government contracting for WOSB, MBE, DBE firms.</div><a href="contact.html" class="plnk"><i class="ti ti-arrow-right"></i> Early Access</a></div>
   </div>
 </div>
 
-<!-- HOW TO WORK WITH ME -->
-<div class="work-section">
-  <div class="work-inner">
-    <div class="work-kicker">Work with me</div>
+<!-- WORK WITH ME -->
+<div class="work">
+  <div class="work-in">
+    <div class="work-label">How to work with me</div>
     <h2 class="work-h">One person.<br><em>Many ways to engage.</em></h2>
-    <div class="work-grid">
-      <div class="wc"><div class="wc-num">01</div><div><div class="wc-title">Keynote Speaking</div><div class="wc-desc">Mental health in tech, AI safety, women in STEM, suicide prevention, building solo. Conferences, panels, corporate events.</div><div class="wc-price">Inquire for rates</div></div></div>
-      <div class="wc"><div class="wc-num">02</div><div><div class="wc-title">Corporate Training</div><div class="wc-desc">AI integration, mental health at work, GovTech, LangGraph workshops. Virtual or in-person. Teams 5 to 500.</div><div class="wc-price">From $2,500/session</div></div></div>
-      <div class="wc"><div class="wc-num">03</div><div><div class="wc-title">Webinars & Virtual Events</div><div class="wc-desc">Live and recorded webinars on AI tools, government contracting, health equity. Audiences from 50 to 5,000.</div><div class="wc-price">From $1,500</div></div></div>
-      <div class="wc"><div class="wc-num">04</div><div><div class="wc-title">Contract Engineering</div><div class="wc-desc">AI pipelines, LangGraph agents, mobile apps, FastAPI backends. Production systems built right the first time.</div><div class="wc-price">From $150/hr</div></div></div>
-      <div class="wc"><div class="wc-num">05</div><div><div class="wc-title">AI Consulting</div><div class="wc-desc">AI strategy, systems audits, LLM selection, safety architecture, government AI readiness assessments.</div><div class="wc-price">From $200/hr</div></div></div>
-      <div class="wc"><div class="wc-num">06</div><div><div class="wc-title">Fractional CTO</div><div class="wc-desc">Technical leadership for startups and small businesses. AI roadmap, architecture decisions, team direction.</div><div class="wc-price">From $5,000/mo</div></div></div>
+    <div class="wg">
+      <div class="wc"><div class="wc-n">01</div><div><div class="wc-t">Keynote Speaking</div><div class="wc-d">Mental health in tech, AI safety, women in STEM, suicide prevention, building solo.</div><div class="wc-p">Inquire for rates</div></div></div>
+      <div class="wc"><div class="wc-n">02</div><div><div class="wc-t">Corporate Training</div><div class="wc-d">AI integration, mental health at work, GovTech, LangGraph workshops. Virtual or in-person.</div><div class="wc-p">From $2,500/session</div></div></div>
+      <div class="wc"><div class="wc-n">03</div><div><div class="wc-t">Webinars & Virtual Events</div><div class="wc-d">Live and recorded webinars. Audiences from 50 to 5,000.</div><div class="wc-p">From $1,500</div></div></div>
+      <div class="wc"><div class="wc-n">04</div><div><div class="wc-t">Contract Engineering</div><div class="wc-d">AI pipelines, LangGraph agents, mobile apps, FastAPI backends.</div><div class="wc-p">From $150/hr</div></div></div>
+      <div class="wc"><div class="wc-n">05</div><div><div class="wc-t">AI Consulting</div><div class="wc-d">AI strategy, systems audits, LLM selection, safety architecture.</div><div class="wc-p">From $200/hr</div></div></div>
+      <div class="wc"><div class="wc-n">06</div><div><div class="wc-t">Fractional CTO</div><div class="wc-d">Technical leadership for startups. AI roadmap, architecture, team direction.</div><div class="wc-p">From $5,000/mo</div></div></div>
     </div>
-    <div style="margin-top:2rem;text-align:center;">
-      <a href="contact.html" class="btn-nude">Book or Hire Me <i class="ti ti-arrow-right"></i></a>
+    <div style="text-align:center;margin-top:2rem;">
+      <a href="contact.html" class="btn-s btn-sn">Book or Hire Me <i class="ti ti-arrow-right"></i></a>
     </div>
   </div>
 </div>
 
 <!-- EMAIL -->
-<div class="email-section">
-  <div class="em-inner">
-    <div class="em-kicker">Join the community</div>
-    <h2 class="em-h">Get the<br><em>Finesse Letter</em></h2>
+<div class="email">
+  <div class="em-in">
+    <div class="em-label">Join the community</div>
+    <h2 class="em-h">The<br><em>Finesse Letter</em></h2>
     <p class="em-p">AI insights, mental health advocacy, GovTech updates, and behind the scenes of building 4 apps solo. Real talk. No fluff.</p>
     <div class="em-form">
-      <input type="email" class="em-in" placeholder="your@email.com">
-      <button class="em-btn" onclick="alert('Thank you! Newsletter coming soon.')">Subscribe</button>
+      <input type="email" class="em-i" placeholder="your@email.com">
+      <button class="em-b" onclick="alert('Thank you! Newsletter coming soon.')">Subscribe</button>
     </div>
-    <div class="soc-row">
+    <div class="em-soc">
       <a href="https://instagram.com/finessehumxn" target="_blank" class="sf"><i class="ti ti-brand-instagram"></i> @finessehumxn</a>
       <a href="https://tiktok.com/@finessehumxn" target="_blank" class="sf"><i class="ti ti-brand-tiktok"></i> @finessehumxn</a>
       <a href="https://www.youtube.com/@FinesseHumxn" target="_blank" class="sf"><i class="ti ti-brand-youtube"></i> Finding Finesse</a>
@@ -623,33 +622,18 @@ footer{padding:2rem 1.5rem;border-top:1px solid var(--border);}
   </div>
 </div>
 
-<!-- FINAL CTA -->
-<div class="final-cta">
-  <div class="fc-inner">
-    <div class="fc-kicker">Ready?</div>
-    <h2 class="fc-h">The conversation<br><em>starts</em><br><strong>here.</strong></h2>
-    <p class="fc-p">Join the free workshop. Explore resources. Book me to speak. Or hire me to build the AI system your organization actually needs.</p>
-    <div class="fc-btns">
-      <a href="workshop.html" class="btn-nude"><i class="ti ti-calendar"></i> Join Free Workshop</a>
-      <a href="contact.html" class="btn-ghost"><i class="ti ti-microphone"></i> Book Me to Speak</a>
-      <a href="learn.html" class="btn-ghost"><i class="ti ti-book"></i> Explore Resources</a>
-    </div>
-  </div>
-</div>
-
 <footer>
-  <div class="ft-top">
-    <div class="ft-logo">L.<em>Finesse</em> Humxn</div>
-    <div class="ft-links">
+  <div class="ft">
+    <div class="fl">L.<em>Finesse</em> Humxn</div>
+    <div class="flinks">
       <a href="workshop.html">Free Workshop</a>
       <a href="learn.html">Learn</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
       <a href="https://millennialscreatives.com" target="_blank">Millennials Creatives</a>
-      <a href="https://medcompanionai.com" target="_blank">MedCompanion AI</a>
     </div>
   </div>
-  <p class="ft-copy">&#169; 2026 L.Finesse Humxn &#183; Millennials Creatives LLC &#183; California &#183; HQ: Phoenix, AZ &#183; contact@millennialscreatives.com</p>
+  <p class="fcopy">&#169; 2026 L.Finesse Humxn &#183; Millennials Creatives LLC &#183; California &#183; HQ: Phoenix, AZ &#183; contact@millennialscreatives.com</p>
 </footer>
 
 <!-- CHARACTER -->
@@ -663,7 +647,8 @@ footer{padding:2rem 1.5rem;border-top:1px solid var(--border);}
 
 <script>
 function toggleNav(){document.getElementById('mobMenu').classList.toggle('open');}
-document.querySelectorAll('.mm-link,.mm-btn').forEach(function(e){e.addEventListener('click',function(){document.getElementById('mobMenu').classList.remove('open');});});
+document.querySelectorAll('.mm-a,.mm-cta').forEach(function(e){e.addEventListener('click',function(){document.getElementById('mobMenu').classList.remove('open');});});
+function handleReg(e){e.preventDefault();var f=e.target.closest('.ws-form');f.innerHTML='<div style="text-align:center;padding:2rem 0;"><div style="font-family:Cormorant Garamond,serif;font-size:2rem;color:#C9AE88;margin-bottom:.75rem;">You\'re in &#127775;</div><p style="font-size:14px;color:rgba(240,232,218,.65);line-height:1.8;">Check your email for confirmation and the next workshop date.</p></div>';}
 </script>
 </body>
 </html>
