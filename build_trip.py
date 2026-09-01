@@ -278,11 +278,17 @@ LINKS = {
  "Larcomar and the malec&#243;n":("https://www.larcomar.com/",""),
  "Astrid y Gast&#243;n":("https://www.astridygaston.com/",""),
  "WeWork Jos&#233; Larco":("https://www.wework.com/buildings/jose-larco-1232--lima",""),
+ "Ra&#237;z Coffee":("https://www.facebook.com/RaizCoffeeoficial/","social"),
+ "Terrua Caf&#233;":("https://terruacafe.com",""),
 }
 
 
 # Every trip is three trips. This tags which one each stop belongs to.
 TYPES = {
+ "Terrua Caf&#233;":"adventure",
+ "Ursa Coffee Roasters":"leisure",
+ "Ra&#237;z Coffee":"leisure",
+ "Breakfast at the hotel":"leisure",
  "WeWork Jos&#233; Larco":"work",
  "Street interviews, Miraflores":"work",
  "Finesse Our Minds, on the road":"work",
@@ -308,6 +314,10 @@ TYPE_LABEL = {"work":"Work","leisure":"Leisure","adventure":"Adventure"}
 # name -> (cost per person in soles, tags)
 # tags: hard = physically demanding, splurge = over S/100, book = needs a reservation
 META = {
+ "Terrua Caf&#233;":(84,["book"]),
+ "Ursa Coffee Roasters":(25,[]),
+ "Ra&#237;z Coffee":(30,[]),
+ "Breakfast at the hotel":(0,[]),
  "WeWork Jos&#233; Larco":(0,[]),
  "Street interviews, Miraflores":(0,[]),
  "Finesse Our Minds, on the road":(0,[]),
@@ -380,8 +390,10 @@ def stop(s):
     return "".join(o)
 
 def day(d):
-    o = ['<section class="day" id="%s">' % d["id"]]
-    o.append('<div class="dayhead"><div class="daynum">%s</div><h2>%s</h2>' % (d["num"], d["title"]))
+    o = ['<section class="day%s" id="%s">' % (" today" if d.get("today") else "", d["id"])]
+    o.append('<div class="dayhead%s"><div class="daynum">%s</div>%s<h2>%s</h2>'
+             % (" istoday" if d.get("today") else "", d["num"],
+                '<span class="todaytag">You are here</span>' if d.get("today") else "", d["title"]))
     o.append('<p class="daywhen">%s</p>' % d["when"])
     o.append('<div class="daynote">%s</div></div>' % d["note"])
     o.append('<div class="stops">%s</div>' % "".join(stop(s) for s in d["stops"]))
@@ -399,10 +411,10 @@ LIMA = {
  "h1":'<em>Lima</em><br><strong>by the Mile.</strong>',
  "ledes":[
    'August 30 to September 4. California to Atlanta to Lima on Delta One, one hotel we walked out of, and then five days built on a single question. <strong>How far is it from the bed, and is it worth the drive.</strong>',
-   'Distance from the Aloft on Av. 28 de Julio, drive time, what it costs, what to order by name, and the one thing nobody tells you before you go. Twenty six stops. One ruined pyramid you can eat dinner next to. One food delivery app that does not work here and will catch you out on night one.',
+   'Distance from the Aloft on Av. 28 de Julio, drive time, what it costs, what to order by name, and the one thing nobody tells you before you go. Thirty stops. One ruined pyramid you can eat dinner next to. One food delivery app that does not work here and will catch you out on night one.',
  ],
- "ticker":["Lima, Peru","Aug 30 to Sep 4","6 Days","26 Stops","Delta One via ATL","Base: Aloft Miraflores","Furthest 9 mi","Closest 0.4 mi","S/3.37 to $1","Sea Level","Sunset 6:04 PM","Traveling with parents","No UberEats in Peru","Use Rappi","Garua season","Order this","Fun fact","Must know"],
- "proof":[("6","Days<br>On the Ground"),("26","Stops<br>Logged"),("9.0","Furthest<br>Miles Out"),("0.4","Closest<br>Miles Out"),("60","Longest<br>Drive, Min"),("S/4","Cheapest<br>Ticket")],
+ "ticker":["Lima, Peru","Aug 30 to Sep 4","6 Days","30 Stops","Delta One via ATL","Base: Aloft Miraflores","Furthest 9 mi","Closest 0.4 mi","S/3.37 to $1","Sea Level","Sunset 6:04 PM","Traveling with parents","No UberEats in Peru","Use Rappi","Garua season","Order this","Fun fact","Must know"],
+ "proof":[("6","Days<br>On the Ground"),("30","Stops<br>Logged"),("9.0","Furthest<br>Miles Out"),("0.4","Closest<br>Miles Out"),("60","Longest<br>Drive, Min"),("S/4","Cheapest<br>Ticket")],
  "days":[
   {"id":"d1","num":"01","title":"Landing","when":"Sunday, August 30 &#183; <strong>California to Atlanta to Lima</strong> &#183; the day you lose to travel, and the hotel mistake",
    "note":"Every trip has a day that is not really a day. This was ours. It is on here anyway, because the two things that went wrong on it are the two things I would tell anyone flying into Lima.",
@@ -430,21 +442,55 @@ LIMA = {
      "notes":[("k","Must know","<strong>UberEats does not operate in Peru.</strong> Uber for rides works perfectly, which is exactly why this catches people out. For food delivery you need <strong>Rappi</strong> or <strong>PedidosYa</strong>. Download both at the airport while you still have wifi, before you are hungry and stuck."),
               ("o","Do this","Rappi is the one that covers the most restaurants in Lima and it also delivers groceries and pharmacy items. Set it up first. PedidosYa is the backup when a place is not on Rappi.")]},
    ]},
-  {"id":"d2","num":"02","title":"Setting Up Shop","when":"Monday, August 31 &#183; <strong>the work half</strong> &#183; a desk, a microphone, and the reason the timing matters",
-   "note":"This is the day the other trip starts. I do not fly anywhere and only be on vacation. There is always a desk, always something being filmed, and always somebody I should be having coffee with. <strong>September is Suicide Prevention Month,</strong> which is not a coincidence for when this trip landed.",
+  {"id":"d2","num":"02","title":"Ice Cream and a Long Drive","when":"Monday, August 31 &#183; <strong>out of Callao, into Miraflores</strong> &#183; 0.4 miles, then 9",
+   "note":"The day we got out of the airport district and into the hotel every distance on this page is measured from. A short day with a useful lesson buried in it. The best stop was four tenths of a mile away. The longest drive was to a shopping mall.",
    "stops":[
     {"t":"Midday","ap":"","name":"Aloft Lima Miraflores","kind":"Base camp","where":"Av. 28 de Julio 894, Miraflores","mi":0.0,
      "pitch":"This is the anchor for the whole trip. Miraflores is flat, walkable, well lit, and close to almost everything worth eating. Every mile figure on this page is measured from this front door.",
      "strip":[("From airport","45 to 90 min"),("District","Miraflores"),("To the cliffs","0.9 mi"),("To Barranco","2.2 mi")],
      "notes":[("o","Do this","If you are choosing a base in Lima, choose Miraflores. Barranco is more beautiful and better at night. San Isidro is quieter and emptier. Miraflores is the one that makes every other day shorter."),
               ("k","Must know","Ask for a room away from Av. 28 de Julio if you are a light sleeper. It is a real road.")]},
-    {"t":"Morning","ap":"","name":"WeWork Jos&#233; Larco","kind":"The desk","where":"Av. Jos&#233; Larco 1232, Miraflores","mi":0.6,
+    {"t":"Afternoon","ap":"","name":"Helarte","kind":"Ice cream","where":"Calle Bol&#237;var 205, Miraflores","mi":0.4,
+     "pitch":"Artisanal ice cream, waffles and cakes in a room built to be photographed. Nine minutes from the lobby and open until ten at night, which quietly makes it the default answer to any evening that ends early.",
+     "strip":[("From Aloft","0.4 mi"),("Walk","9 min"),("Open","Daily, 8 AM to 10 PM"),("Price","Cheap")],
+     "notes":[("o","Order this","<strong>L&#250;cuma.</strong> It is a native Peruvian fruit that tastes like maple and sweet potato had a very good idea, and it does not really exist outside the Andes. Chirimoya and algarrobina are the other two to try."),
+              ("f","Fun fact","L&#250;cuma has been eaten in Peru for thousands of years and shows up painted on Moche pottery. It is on ice cream menus in Lima the way vanilla is everywhere else.")]},
+    {"t":"Afternoon","ap":"","name":"Plaza Norte","kind":"Mall","where":"Av. Alfredo Mendiola 1400, Independencia","mi":9.0,
+     "pitch":"One of the largest malls in Lima, about 200,000 square meters, up in Independencia in the north of the city. Nine miles from the hotel and close to an hour each way in traffic.",
+     "strip":[("From Aloft","9.0 mi"),("Drive","~60 min"),("Open","Daily, mall hours"),("Cost","Free entry")],
+     "notes":[("k","Must know","<strong>Two hours of driving for a mall.</strong> If you want a mall in Lima, Larcomar is on a cliff over the Pacific and it is 0.9 miles from Miraflores. Plaza Norte is bigger and more local, but the drive is the whole story and I would not do it twice."),
+              ("f","Fun fact","Plaza Norte sits next to one of Lima's biggest bus terminals, which is why it is enormous. It is built for the whole north of the city, not for visitors staying in Miraflores.")]},
+   ]},
+  {"id":"d3","num":"03","title":"Coffee and the Work Half","today":True,"when":"Tuesday, September 1 &#183; <strong>today</strong> &#183; breakfast at 7:30, then a coffee loop: a roastery, a 90 minute tasting, and one of the best coffee bars in South America",
+   "note":"Three coffee stops before anything else, all inside half a mile of the lobby and all one walking loop. Then the other trip starts. I do not fly anywhere and only be on vacation. <strong>September is Suicide Prevention Month,</strong> which is not a coincidence for when this trip landed.",
+   "stops":[
+    {"t":"7:30","ap":"AM","name":"Breakfast at the hotel","kind":"Start easy","where":"Aloft, Av. 28 de Julio 894","mi":0.0,
+     "pitch":"Eat here, then walk out for the coffee. Doing it the other way around means queuing for a table on an empty stomach with two people who did not sign up for that.",
+     "strip":[("From Aloft","0.0 mi"),("Time","7:30 AM"),("Then","Coffee, on foot"),("Cost","Included")]},
+    {"t":"9:00","ap":"AM","name":"Ursa Coffee Roasters","kind":"The technical one","where":"Alcanfores 183, Miraflores","mi":0.3,
+     "pitch":"A roastery as much as a caf&#233;, and the one Lime&#241;os send you to when they want to show off what Peruvian coffee can actually do. Complex, deliberate, and run by people who will happily talk you through the method if you ask.",
+     "strip":[("From Aloft","0.3 mi"),("Walk","6 min"),("Open","Daily, about 7 to 7"),("Price","Cheap")],
+     "notes":[("o","Order this","A <strong>pour over</strong>, not an espresso drink. That is the whole reason to come here, and ask which origin they are pouring today. If it is hot, the cold brew is the other thing they are known for."),
+              ("f","Fun fact","Peru is one of the largest exporters of organic coffee on earth, and for decades almost all the good beans left the country. Roasteries like this one keeping the best lots at home is a genuinely recent change."),
+              ("k","Must know","They run tastings and brewing workshops. Ask at the counter whether anything is on while you are in town. It is the kind of thing that turns a coffee into a morning.")]},
+    {"t":"10:00","ap":"AM","name":"Terrua Caf&#233;","kind":"The tasting","where":"Pasaje Tello 163, Miraflores","mi":0.5,
+     "pitch":"Ninety minutes with people who actually know Peruvian coffee, tucked down a passage off Larco behind Parque Kennedy. You go through the history, the farms, harvesting, and how fermentation builds flavour, then watch a V60 poured properly and taste the same coffee three ways: espresso, Americano and cold brew. This is the stop that turns the other two into something you understand.",
+     "strip":[("From Aloft","0.5 mi"),("Walk","10 min"),("Length","90 minutes"),("Price","S/84 ($25) each")],
+     "notes":[("o","Book this now","Direct: <strong>terruacafe.com</strong> or call <strong>+51 989 307 864.</strong> It caps at ten people per session and runs in English or Spanish, so say which you want when you book. Ask for English if you want your parents to follow every step."),
+              ("f","Fun fact","Tasting the same coffee as espresso, Americano and cold brew side by side is the fastest way to understand that brewing method changes flavour more than most people believe. Same beans, three genuinely different drinks."),
+              ("k","Must know","No food included, so breakfast at the hotel is doing real work here. You can buy beans at the end, and this is the one souvenir from Lima that is genuinely better than anything at the market. Private sessions are available if you would rather not share the table.")]},
+    {"t":"11:45","ap":"AM","name":"Ra&#237;z Coffee","kind":"The famous one","where":"Calle Porta 152, Miraflores","mi":0.5,
+     "pitch":"Named among the top coffee shops in South America, and somehow still a small neighbourhood room on Calle Porta with good light and cozy seating. Four minutes from Terrua, so it is the sit down at the end of the loop rather than a separate trip.",
+     "strip":[("From Aloft","0.5 mi"),("Walk","10 min"),("Open","Mon to Sat 7 to 8:30"),("Sunday","Opens 8 AM")],
+     "notes":[("o","Order this","The <strong>cortado</strong> is what it is known for, and the chai latte is the surprise. On the pastry side, the carrot cake and the cheese and jam croissant are the two people come back for."),
+              ("k","Must know","<strong>This is your third coffee of the morning.</strong> Order a chai latte or something without caffeine here if anyone has had enough, and come for the carrot cake rather than another cortado. Small room that fills up, but by noon the mid morning crowd has cleared.")]},
+    {"t":"Midday","ap":"","name":"WeWork Jos&#233; Larco","kind":"The desk","where":"Av. Jos&#233; Larco 1232, Miraflores","mi":0.6,
      "pitch":"One membership, and a desk in almost every city I land in. Lima has locations in Miraflores and two in San Isidro, and walking into a WeWork in a country you have never worked in is quietly one of the best parts of this job. Same login, completely different room.",
      "strip":[("From Aloft","0.6 mi"),("Walk","12 min"),("Also in Lima","2 in San Isidro"),("Cost","Membership")],
      "notes":[("o","Do this","The Miraflores location on Av. Jos&#233; Larco is the one to use if you are staying around here, because you can walk it. Andr&#233;s Reyes 338 and Jorge Basadre 349 in San Isidro are the other two if your meetings are in the business district."),
               ("f","Fun fact","Collecting WeWork locations the way other people collect airport lounges is a real and underrated travel game. The coffee is different, the layout is different, and the people at the next desk tell you more about a city in an hour than a guidebook does in a week."),
               ("k","Must know","Book the desk in the app before you show up. Global access depends on your plan tier, so check yours covers Peru before you land rather than standing in a lobby finding out.")]},
-    {"t":"Midday","ap":"","name":"Street interviews, Miraflores","kind":"Filming","where":"Parque Kennedy and the malec&#243;n","mi":0.8,
+    {"t":"Afternoon","ap":"","name":"Street interviews, Miraflores","kind":"Filming","where":"Parque Kennedy and the malec&#243;n","mi":0.8,
      "pitch":"Asking strangers real questions on camera in a city that is not yours is the fastest way to stop being a tourist in it. Parque Kennedy and the clifftop path are the two places in Miraflores where people are relaxed enough to actually stop and talk.",
      "strip":[("From Aloft","0.8 mi"),("Walk","15 min"),("Best time","Late morning"),("Cost","Free")],
      "notes":[("o","Do this","Lead in Spanish even if you switch to English after. <strong>Con permiso, le puedo hacer una pregunta</strong> gets a yes far more often than opening in English does. Parque Kennedy has benches, shade and the cats, so people are already stopped."),
@@ -459,20 +505,6 @@ LIMA = {
      "strip":[("Format","Coffee or dinner"),("Prep","One clear ask"),("Follow up","Within 48 hours"),("Cost","You buy")],
      "notes":[("o","Do this","Go in with one specific ask instead of a general introduction. People help with a clear request and go quiet on a vague one. Send the follow up before you fly home, while you are still a face and not an email."),
               ("f","Fun fact","This is the part that makes the whole trip make sense on paper. The flight was going to happen anyway. The desk, the filming, the coffee and the ceviche all sit inside the same set of days.")]},
-   ]},
-  {"id":"d3","num":"03","title":"Ice Cream and a Long Drive","when":"Tuesday, September 1 &#183; <strong>0.4 miles, then 9</strong> &#183; one of these was worth it",
-   "note":"A short day with a useful lesson buried in it. The best stop was four tenths of a mile away. The longest drive was to a shopping mall.",
-   "stops":[
-    {"t":"Afternoon","ap":"","name":"Helarte","kind":"Ice cream","where":"Calle Bol&#237;var 205, Miraflores","mi":0.4,
-     "pitch":"Artisanal ice cream, waffles and cakes in a room built to be photographed. Nine minutes from the lobby and open until ten at night, which quietly makes it the default answer to any evening that ends early.",
-     "strip":[("From Aloft","0.4 mi"),("Walk","9 min"),("Open","Daily, 8 AM to 10 PM"),("Price","Cheap")],
-     "notes":[("o","Order this","<strong>L&#250;cuma.</strong> It is a native Peruvian fruit that tastes like maple and sweet potato had a very good idea, and it does not really exist outside the Andes. Chirimoya and algarrobina are the other two to try."),
-              ("f","Fun fact","L&#250;cuma has been eaten in Peru for thousands of years and shows up painted on Moche pottery. It is on ice cream menus in Lima the way vanilla is everywhere else.")]},
-    {"t":"Afternoon","ap":"","name":"Plaza Norte","kind":"Mall","where":"Av. Alfredo Mendiola 1400, Independencia","mi":9.0,
-     "pitch":"One of the largest malls in Lima, about 200,000 square meters, up in Independencia in the north of the city. Nine miles from the hotel and close to an hour each way in traffic.",
-     "strip":[("From Aloft","9.0 mi"),("Drive","~60 min"),("Open","Daily, mall hours"),("Cost","Free entry")],
-     "notes":[("k","Must know","<strong>Two hours of driving for a mall.</strong> If you want a mall in Lima, Larcomar is on a cliff over the Pacific and it is 0.9 miles from Miraflores. Plaza Norte is bigger and more local, but the drive is the whole story and I would not do it twice."),
-              ("f","Fun fact","Plaza Norte sits next to one of Lima's biggest bus terminals, which is why it is enormous. It is built for the whole north of the city, not for visitors staying in Miraflores.")]},
    ]},
   {"id":"d4","num":"04","title":"Close Range","when":"Wednesday, September 2 &#183; <strong>nothing today is more than 5.5 miles out</strong> &#183; two indoor stops, one long night",
    "note":"Today exists because of one hard rule. <strong>Huaca Pucllana closes every Tuesday.</strong> Yesterday was Tuesday. So the pyramid anchors this morning, and everything else falls in around it.",
@@ -758,7 +790,7 @@ def build_index(trips):
 
 
 TRIPS = [
- {"href":"lima.html","flag":"Peru &#183; Work, leisure and adventure","name":"Lima by the Mile","days":"6","stops":"26","drive":"60 min",
+ {"href":"lima.html","flag":"Peru &#183; Work, leisure and adventure","name":"Lima by the Mile","days":"6","stops":"30","drive":"60 min",
   "blurb":"Three days with my parents out of Miraflores. A pyramid in the middle of the city, a Machu Picchu replica you reach by boat, a restaurant with no sign on the door, and the fountain park that costs one dollar."},
  {"soon":True,"flag":"South Africa &#183; Work first","name":"Johannesburg","blurb":"The Hard Rock Cafe keynote, and everything I did once the mic was off. Being written now."},
  {"soon":True,"flag":"Vietnam &#183; Work first","name":"Ho Chi Minh City","blurb":"Training at Saigon International University, then the city on my own time. Being written now."},

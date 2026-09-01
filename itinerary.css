@@ -167,6 +167,11 @@ nav.days{top:calc(52px + 49px);}
 /* ---------- DAY ---------- */
 .day{max-width:1200px;margin:0 auto;padding:4.5rem 2rem 0;}
 .dayhead{border-top:1px solid var(--nude-border);padding-top:1.5rem;}
+.dayhead.istoday{border-top:2px solid var(--nude);}
+.todaytag{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;background:var(--nude);color:var(--bg);padding:4px 11px;
+  margin-bottom:.5rem;}
+.day.today .daynum{color:var(--nude);}
 .daynum{font-family:'Cormorant Garamond',serif;font-size:clamp(3.5rem,9vw,5.5rem);font-weight:300;color:rgba(200,171,135,.17);line-height:.85;}
 .dayhead h2{font-size:clamp(2rem,5vw,3.25rem);font-weight:300;line-height:1.1;margin-top:.15rem;}
 .daywhen{margin-top:.85rem;font-size:13px;color:var(--muted);line-height:1.7;}
