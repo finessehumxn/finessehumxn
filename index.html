@@ -28,7 +28,6 @@ html{scroll-behavior:smooth;}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--cream);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
 img,video{display:block;}
 a{color:inherit;text-decoration:none;}
-
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(9,9,10,0.97);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
 .nav-inner{max-width:1400px;margin:0 auto;padding:.9rem 2rem;display:flex;align-items:center;justify-content:space-between;}
@@ -45,7 +44,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(9,9,10,0.97)
 .mm-a{padding:1.1rem 0;border-bottom:1px solid var(--border);font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;}
 .mm-a:hover{color:var(--nude);}
 .mm-book{margin-top:2rem;background:var(--nude);color:var(--bg);padding:16px;text-align:center;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;}
-
 /* HERO — split 55/45 */
 .hero{display:grid;grid-template-columns:1fr;min-height:100svh;padding-top:52px;}
 .hero-media{position:relative;height:65svh;overflow:hidden;}
@@ -70,20 +68,17 @@ h1 em{font-style:italic;color:var(--nude);}
 .h-soc{display:flex;gap:.35rem;flex-wrap:wrap;}
 .hs{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--muted);padding:5px 10px;border:1px solid var(--border);}
 .hs:hover{color:var(--cream);border-color:var(--nude-border);}
-
 /* TICKER */
 .ticker{overflow:hidden;background:var(--nude-dim);border-top:1px solid var(--nude-border);border-bottom:1px solid var(--nude-border);}
 .ticker-t{display:inline-flex;animation:tick 32s linear infinite;white-space:nowrap;}
 .tick{padding:.65rem 2rem;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--nude);border-right:1px solid var(--nude-border);}
 @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
 /* PROOF */
 .proof{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border);}
 .pi{padding:1.5rem 1rem;text-align:center;border-right:1px solid var(--border);}
 .pi:last-child{border-right:none;}
 .pin{font-family:'Cormorant Garamond',serif;font-size:clamp(1.75rem,4vw,2.75rem);font-weight:300;color:var(--nude);line-height:1;}
 .pil{font-size:9px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-top:.3rem;line-height:1.4;}
-
 /* IDENTITY */
 .identity{max-width:900px;margin:0 auto;padding:5rem 2rem;text-align:center;}
 .sec-eye{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--nude);margin-bottom:1.25rem;}
@@ -97,11 +92,9 @@ h1 em{font-style:italic;color:var(--nude);}
 .btn-sn:hover{background:var(--nude2);}
 .btn-so{border:1px solid var(--nude-border);color:var(--cream);}
 .btn-so:hover{border-color:var(--nude);color:var(--nude);}
-
 /* ── STAGES — KEY FIX: all cards 4/5 aspect ratio ── */
 .stages-wrap{padding:0 2rem 5rem;}
 .stages-eye{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--nude);padding:.85rem 0;border-top:1px solid var(--border);margin-bottom:.5rem;}
-
 /* Mobile: 2 col, all 4/5 */
 .stages-mob{display:grid;grid-template-columns:1fr 1fr;gap:3px;}
 .s-card{position:relative;overflow:hidden;background:var(--card);aspect-ratio:4/5;}
@@ -112,10 +105,8 @@ h1 em{font-style:italic;color:var(--nude);}
 .s-info{position:absolute;bottom:0;left:0;right:0;padding:.85rem;}
 .s-loc{font-size:9px;color:var(--nude);font-weight:700;letter-spacing:.09em;text-transform:uppercase;margin-bottom:.2rem;}
 .s-cap{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--white);line-height:1.2;}
-
 /* Desktop: 12-col grid, all same 4/5 cells */
 .stages-desk{display:none;}
-
 /* ── BOOKING BAND ── */
 .book-band{background:var(--nude);padding:3.5rem 2rem;text-align:center;}
 .bb-inner{max-width:800px;margin:0 auto;}
@@ -127,7 +118,6 @@ h1 em{font-style:italic;color:var(--nude);}
 .bb-dark:hover{background:#1a1a1a;}
 .bb-ghost{border:2px solid rgba(9,9,10,.25);color:var(--bg);}
 .bb-ghost:hover{background:rgba(9,9,10,.07);}
-
 /* ── LIFE IN MOTION — KEY FIX: all same height 360px ── */
 .life-wrap{padding:5rem 0;}
 .life-eye{padding:0 2rem;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--nude);margin-bottom:1.25rem;}
@@ -142,7 +132,6 @@ h1 em{font-style:italic;color:var(--nude);}
 .lv.top{object-position:center 15%;}
 .l-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(9,9,10,.85),transparent 55%);}
 .l-lbl{position:absolute;bottom:.65rem;left:.75rem;font-size:9px;color:var(--nude);font-weight:700;letter-spacing:.1em;text-transform:uppercase;}
-
 /* WORKSHOP */
 .ws-wrap{background:var(--card);border-top:1px solid var(--nude-border);border-bottom:1px solid var(--nude-border);padding:5rem 2rem;}
 .ws-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:3rem;}
@@ -162,7 +151,6 @@ h1 em{font-style:italic;color:var(--nude);}
 .ws-btn{width:100%;background:var(--nude);color:var(--bg);padding:15px;font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;border:none;cursor:pointer;font-family:'Inter',sans-serif;border-radius:0;transition:background .2s;}
 .ws-btn:hover{background:var(--nude2);}
 .ws-note{font-size:11px;color:var(--muted);text-align:center;margin-top:.75rem;}
-
 /* TESTIMONIALS */
 .testis-wrap{padding:5rem 2rem;}
 .testis-inner{max-width:1200px;margin:0 auto;}
@@ -175,7 +163,6 @@ h1 em{font-style:italic;color:var(--nude);}
 .ta{font-size:13px;font-weight:600;color:var(--cream);}
 .tr{font-size:11px;color:var(--muted);margin-top:2px;}
 .t-desk{display:none;grid-template-columns:repeat(3,1fr);gap:3px;}
-
 /* YOUTUBE */
 .yt-wrap{background:var(--card);border-top:1px solid var(--border);padding:5rem 2rem;}
 .yt-inner{max-width:1200px;margin:0 auto;}
@@ -186,7 +173,6 @@ h1 em{font-style:italic;color:var(--nude);}
 .yt-btn{display:inline-flex;align-items:center;gap:6px;background:#FF0000;color:#fff;padding:11px 20px;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-bottom:2rem;}
 .yt-frame{aspect-ratio:16/9;border:1px solid var(--border);}
 .yt-frame iframe{width:100%;height:100%;border:none;}
-
 /* PRODUCTS */
 .prods-wrap{padding:5rem 0;}
 .prods-label{padding:0 2rem;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--nude);margin-bottom:1.25rem;}
@@ -204,7 +190,6 @@ h1 em{font-style:italic;color:var(--nude);}
 .pb-a{background:var(--nude-dim);color:var(--nude);border:1px solid var(--nude-border);}
 .plnk{font-size:11px;color:var(--nude);display:inline-flex;align-items:center;gap:3px;margin-top:.4rem;}
 .prods-desk{display:none;}
-
 /* WORK */
 .work-wrap{padding:5rem 2rem;}
 .work-inner{max-width:1200px;margin:0 auto;}
@@ -217,7 +202,6 @@ h1 em{font-style:italic;color:var(--nude);}
 .wc-t{font-size:14px;font-weight:600;color:var(--cream);margin-bottom:.25rem;}
 .wc-d{font-size:13px;color:var(--muted);line-height:1.7;}
 .wc-p{font-size:11px;color:var(--nude);font-weight:600;margin-top:.5rem;}
-
 /* EMAIL */
 .email-wrap{background:var(--card);border-top:1px solid var(--nude-border);padding:5rem 2rem;text-align:center;}
 .em-inner{max-width:440px;margin:0 auto;}
@@ -234,7 +218,6 @@ h1 em{font-style:italic;color:var(--nude);}
 .soc-row{display:flex;gap:.4rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;}
 .sf{display:inline-flex;align-items:center;gap:4px;font-size:12px;color:var(--muted);padding:6px 12px;border:1px solid var(--border);}
 .sf:hover{color:var(--cream);border-color:var(--nude-border);}
-
 /* FOOTER */
 footer{padding:2rem;border-top:1px solid var(--border);}
 .ft{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem;margin-bottom:1rem;}
@@ -243,7 +226,6 @@ footer{padding:2rem;border-top:1px solid var(--border);}
 .flinks{display:flex;gap:1.25rem;font-size:12px;color:var(--muted);flex-wrap:wrap;}
 .flinks a:hover{color:var(--cream);}
 .fcopy{font-size:11px;color:var(--muted);}
-
 /* CHARACTER */
 .char{position:fixed;bottom:1.25rem;right:1.25rem;z-index:500;display:flex;flex-direction:column;align-items:center;gap:.6rem;}
 .char-bub{background:#0D3D4A;color:var(--cream);font-size:12px;line-height:1.55;padding:10px 14px;border:1px solid var(--nude-border);animation:bob 3.5s ease-in-out infinite;max-width:185px;text-align:center;position:relative;font-weight:300;}
@@ -251,13 +233,11 @@ footer{padding:2rem;border-top:1px solid var(--border);}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 .char-vid{width:76px;height:76px;object-fit:cover;object-position:center top;border-radius:50%;border:2px solid var(--nude-border);cursor:pointer;}
 .char-x{position:absolute;top:-7px;right:-7px;width:20px;height:20px;background:var(--bg);border:1px solid var(--nude-border);color:var(--muted);font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center;border-radius:50%;}
-
 /* DESKTOP */
 @media(min-width:768px){
   .ham,.mob-menu{display:none !important;}
   .nav-links,.btn-book{display:flex;}
   .nav-inner{padding:.9rem 2.5rem;}
-
   /* Hero split */
   .hero{grid-template-columns:55% 45%;min-height:100svh;}
   .hero-media{height:100%;}
@@ -266,7 +246,6 @@ footer{padding:2rem;border-top:1px solid var(--border);}
   .btn-lg{width:auto;}
   .btn-row{flex:none;}
   .btn-half{flex:none;padding:15px 22px;}
-
   /* Stages desktop — all cards same 4/5, 3 col */
   .stages-mob{display:none;}
   .stages-desk{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
@@ -279,39 +258,31 @@ footer{padding:2rem;border-top:1px solid var(--border);}
   .sd .s-info{position:absolute;bottom:0;left:0;right:0;padding:1.25rem;}
   .sd .s-loc{font-size:9px;color:var(--nude);font-weight:700;letter-spacing:.09em;text-transform:uppercase;margin-bottom:.25rem;}
   .sd .s-cap{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--white);line-height:1.25;}
-
   /* Life */
   .life-wrap{padding:7rem 0;}
   .lc{height:420px;}
   .lc-wide{width:320px;}
   .lc-port{width:236px;}
-
   /* Workshop 2 col */
   .ws-wrap{padding:7rem 2.5rem;}
   .ws-inner{grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
-
   /* Testis */
   .t-mob{display:none;}
   .t-desk{display:grid;}
-
   /* YT 2 col */
   .yt-wrap{padding:7rem 2.5rem;}
   .yt-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:4rem;align-items:center;}
-
   /* Products */
   .prods-scroll{display:none;}
   .prods-desk{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin:0 2.5rem;}
-
   /* Work */
   .work-wrap{padding:7rem 2.5rem;}
   .work-grid{grid-template-columns:1fr 1fr;}
-
   /* Email */
   .email-wrap{padding:7rem 2.5rem;}
   .em-form{flex-direction:row;}
   .em-i{flex:1;}
   .em-b{width:auto;}
-
   .identity{padding:7rem 2.5rem;}
   .stages-wrap{padding:0 2.5rem 7rem;}
   .testis-wrap{padding:7rem 2.5rem;}
@@ -325,13 +296,13 @@ footer{padding:2rem;border-top:1px solid var(--border);}
 </style>
 </head>
 <body>
-
 <nav>
   <div class="nav-inner">
     <a href="index.html" class="logo">L.<em>Finesse</em> Humxn</a>
     <div class="nav-links">
       <a href="workshop.html">Workshop</a>
       <a href="learn.html">Learn</a>
+      <a href="itinerary.html">Cities</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </div>
@@ -339,15 +310,14 @@ footer{padding:2rem;border-top:1px solid var(--border);}
     <div class="ham" onclick="toggleNav()"><span></span><span></span><span></span></div>
   </div>
 </nav>
-
 <div class="mob-menu" id="mobMenu">
   <a href="workshop.html" class="mm-a">Free Workshop</a>
   <a href="learn.html" class="mm-a">Learn</a>
+  <a href="itinerary.html" class="mm-a">Cities I Work In</a>
   <a href="about.html" class="mm-a">About</a>
   <a href="contact.html" class="mm-a">Contact</a>
   <a href="contact.html" class="mm-book">Book or Hire Me</a>
 </div>
-
 <!-- HERO -->
 <div class="hero">
   <div class="hero-media">
@@ -373,15 +343,13 @@ footer{padding:2rem;border-top:1px solid var(--border);}
     </div>
   </div>
 </div>
-
 <!-- TICKER -->
 <div class="ticker">
   <div class="ticker-t">
-    <span class="tick">Global Speaker</span><span class="tick">AI Engineer</span><span class="tick">South Africa</span><span class="tick">Japan</span><span class="tick">Facebook HQ</span><span class="tick">Vietnam</span><span class="tick">Mental Health Advocate</span><span class="tick">4 Apps Live</span><span class="tick">60+ Certifications</span><span class="tick">32 Gov Bids</span><span class="tick">8+ Countries</span><span class="tick">WOSB · MBE · DBE</span><span class="tick">Suicide Prevention</span><span class="tick">LangGraph Engineer</span>
-    <span class="tick">Global Speaker</span><span class="tick">AI Engineer</span><span class="tick">South Africa</span><span class="tick">Japan</span><span class="tick">Facebook HQ</span><span class="tick">Vietnam</span><span class="tick">Mental Health Advocate</span><span class="tick">4 Apps Live</span><span class="tick">60+ Certifications</span><span class="tick">32 Gov Bids</span><span class="tick">8+ Countries</span><span class="tick">WOSB · MBE · DBE</span><span class="tick">Suicide Prevention</span><span class="tick">LangGraph Engineer</span>
+    <span class="tick">Global Speaker</span><span class="tick">AI Engineer</span><span class="tick">South Africa</span><span class="tick">Japan</span><span class="tick">Facebook HQ</span><span class="tick">Vietnam</span><span class="tick">Mental Health Advocate</span><span class="tick">4 Apps Live</span><span class="tick">60+ Certifications</span><span class="tick">32 Gov Bids</span><span class="tick">8+ Countries</span><span class="tick">Cities I Work In</span><span class="tick">WOSB · MBE · DBE</span><span class="tick">Suicide Prevention</span><span class="tick">LangGraph Engineer</span>
+    <span class="tick">Global Speaker</span><span class="tick">AI Engineer</span><span class="tick">South Africa</span><span class="tick">Japan</span><span class="tick">Facebook HQ</span><span class="tick">Vietnam</span><span class="tick">Mental Health Advocate</span><span class="tick">4 Apps Live</span><span class="tick">60+ Certifications</span><span class="tick">32 Gov Bids</span><span class="tick">8+ Countries</span><span class="tick">Cities I Work In</span><span class="tick">WOSB · MBE · DBE</span><span class="tick">Suicide Prevention</span><span class="tick">LangGraph Engineer</span>
   </div>
 </div>
-
 <!-- PROOF -->
 <div class="proof">
   <div class="pi"><div class="pin">4</div><div class="pil">Apps Live<br>iOS+Android</div></div>
@@ -389,7 +357,6 @@ footer{padding:2rem;border-top:1px solid var(--border);}
   <div class="pi"><div class="pin">281</div><div class="pil">YouTube<br>Videos</div></div>
   <div class="pi"><div class="pin">60+</div><div class="pil">AI/ML<br>Certs</div></div>
 </div>
-
 <!-- IDENTITY -->
 <div class="identity">
   <div class="sec-eye">The work</div>
@@ -400,11 +367,9 @@ footer{padding:2rem;border-top:1px solid var(--border);}
     <a href="contact.html" class="btn-s btn-so">Book or Hire Me</a>
   </div>
 </div>
-
 <!-- STAGES — consistent 4/5 cards -->
 <div class="stages-wrap">
   <div class="stages-eye">Global Stages — Real rooms. Real footage.</div>
-
   <!-- MOBILE: 2 col, all 4/5 -->
   <div class="stages-mob">
     <div class="s-card wide">
@@ -448,7 +413,6 @@ footer{padding:2rem;border-top:1px solid var(--border);}
       <div class="s-info"><div class="s-loc">&#127775; Performance Night</div><div class="s-cap">Backstage with Dwayne Wade</div></div>
     </div>
   </div>
-
   <!-- DESKTOP: 3 col, all 4/5 -->
   <div class="stages-desk">
     <div class="sd wide">
@@ -491,10 +455,55 @@ footer{padding:2rem;border-top:1px solid var(--border);}
       <div class="s-grad"></div>
       <div class="s-info"><div class="s-loc">&#127775; Performance Night</div><div class="s-cap">Backstage with Dwayne Wade</div></div>
     </div>
-
   </div>
 </div>
-
+<!-- CITIES I WORK IN -->
+<div class="work-wrap" style="padding-top:0;">
+  <div class="work-inner">
+    <div class="work-label">After the stage</div>
+    <h2 class="work-h">The stage is one room.<br><em>Here is the rest of the city.</em></h2>
+    <p style="font-size:14px;color:rgba(239,232,220,.65);line-height:1.85;font-weight:300;max-width:62ch;margin:-1.5rem 0 2.5rem;">
+      Eight countries so far. The keynote lasts an hour. The city is everything around it, and that is the part people ask me about afterward. So I write it down: every stop ranked by how far it is from the hotel I actually slept in, real prices, what to order by name, and the thing nobody tells you before you go.
+    </p>
+    <div class="work-grid">
+      <div class="wc">
+        <div class="wc-n">01</div>
+        <div>
+          <div class="wc-t">Lima, Peru</div>
+          <div class="wc-d">Six days. A pre-Inca pyramid in the middle of the city, a Machu Picchu replica you reach by boat, a restaurant with no sign on the door, and the fountain park that costs one dollar.</div>
+          <div class="wc-p"><a href="lima.html">Read it &#8594;</a></div>
+        </div>
+      </div>
+      <div class="wc">
+        <div class="wc-n">02</div>
+        <div>
+          <div class="wc-t">Johannesburg, South Africa</div>
+          <div class="wc-d">The Hard Rock Cafe keynote trip. Being written now.</div>
+          <div class="wc-p">In progress</div>
+        </div>
+      </div>
+      <div class="wc">
+        <div class="wc-n">03</div>
+        <div>
+          <div class="wc-t">Ho Chi Minh City, Vietnam</div>
+          <div class="wc-d">Training at Saigon International University. Being written now.</div>
+          <div class="wc-p">In progress</div>
+        </div>
+      </div>
+      <div class="wc">
+        <div class="wc-n">04</div>
+        <div>
+          <div class="wc-t">Tokyo, Japan</div>
+          <div class="wc-d">The international speaking trip. Being written now.</div>
+          <div class="wc-p">In progress</div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2rem;">
+      <a href="itinerary.html" class="btn-s btn-sn">See Every City <i class="ti ti-arrow-right"></i></a>
+    </div>
+  </div>
+</div>
 <!-- BOOKING BAND -->
 <div class="book-band">
   <div class="bb-inner">
@@ -507,7 +516,6 @@ footer{padding:2rem;border-top:1px solid var(--border);}
     </div>
   </div>
 </div>
-
 <!-- LIFE IN MOTION — all cards same 360px height -->
 <div class="life-wrap">
   <div class="life-eye">Life in Motion</div>
@@ -542,7 +550,6 @@ footer{padding:2rem;border-top:1px solid var(--border);}
     </div>
   </div>
 </div>
-
 <!-- WORKSHOP -->
 <div class="ws-wrap">
   <div class="ws-inner">
@@ -570,7 +577,6 @@ footer{padding:2rem;border-top:1px solid var(--border);}
     </div>
   </div>
 </div>
-
 <!-- TESTIMONIALS -->
 <div class="testis-wrap">
   <div class="testis-inner">
@@ -590,7 +596,6 @@ footer{padding:2rem;border-top:1px solid var(--border);}
     </div>
   </div>
 </div>
-
 <!-- YOUTUBE -->
 <div class="yt-wrap">
   <div class="yt-inner">
@@ -607,7 +612,6 @@ footer{padding:2rem;border-top:1px solid var(--border);}
     </div>
   </div>
 </div>
-
 <!-- PRODUCTS -->
 <div class="prods-wrap">
   <div class="prods-label">Live Products — Built solo. Not demos.</div>
@@ -628,7 +632,6 @@ footer{padding:2rem;border-top:1px solid var(--border);}
     <div class="pc"><span class="pst psd">In Development</span><div class="pn">FinesseWins</div><div class="pd">AI government contracting for WOSB, MBE, DBE firms.</div><a href="contact.html" class="plnk"><i class="ti ti-arrow-right"></i> Early Access</a></div>
   </div>
 </div>
-
 <!-- WORK WITH ME -->
 <div class="work-wrap">
   <div class="work-inner">
@@ -647,7 +650,6 @@ footer{padding:2rem;border-top:1px solid var(--border);}
     </div>
   </div>
 </div>
-
 <!-- EMAIL -->
 <div class="email-wrap">
   <div class="em-inner">
@@ -666,13 +668,13 @@ footer{padding:2rem;border-top:1px solid var(--border);}
     </div>
   </div>
 </div>
-
 <footer>
   <div class="ft">
     <div class="fl">L.<em>Finesse</em> Humxn</div>
     <div class="flinks">
       <a href="workshop.html">Free Workshop</a>
       <a href="learn.html">Learn</a>
+      <a href="itinerary.html">Cities I Work In</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
       <a href="https://millennialscreatives.com" target="_blank">Millennials Creatives</a>
@@ -680,7 +682,6 @@ footer{padding:2rem;border-top:1px solid var(--border);}
   </div>
   <p class="fcopy">&#169; 2026 L.Finesse Humxn &#183; Millennials Creatives LLC &#183; California &#183; HQ: Phoenix, AZ &#183; contact@millennialscreatives.com</p>
 </footer>
-
 <!-- CHARACTER -->
 <div class="char" id="charWrap">
   <div style="position:relative;">
@@ -689,7 +690,6 @@ footer{padding:2rem;border-top:1px solid var(--border);}
   </div>
   <video class="char-vid" autoplay muted loop playsinline src="finesse.mp4" onclick="window.location.href='about.html'" onerror="this.style.display='none'"></video>
 </div>
-
 <script>
 function toggleNav(){document.getElementById('mobMenu').classList.toggle('open');}
 document.querySelectorAll('.mm-a,.mm-book').forEach(function(e){e.addEventListener('click',function(){document.getElementById('mobMenu').classList.remove('open');});});
