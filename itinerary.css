@@ -179,6 +179,22 @@ nav.days{top:calc(52px + 49px);}
 .daynote{margin-top:1.25rem;padding:1rem 1.25rem;background:var(--card);border-left:1px solid var(--nude-border);font-size:13.5px;color:var(--body);line-height:1.8;max-width:70ch;}
 .daynote strong{color:var(--cream);font-weight:500;}
 
+/* day at a glance */
+.glance{margin-top:1.5rem;background:var(--card);border-left:2px solid var(--nude);padding:1.1rem 1.35rem;}
+.glabel{font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--nude);margin-bottom:.75rem;}
+.glance ol{list-style:none;margin:0;padding:0;display:grid;gap:.45rem;}
+.glance li{display:grid;grid-template-columns:88px 1fr;gap:.85rem;align-items:baseline;
+  font-size:14px;line-height:1.5;}
+.glance li b{font-family:'Inter',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted);font-variant-numeric:tabular-nums;}
+.glance li span{color:var(--cream);font-weight:400;}
+@media(max-width:520px){
+  .glance li{grid-template-columns:66px 1fr;gap:.6rem;font-size:13.5px;}
+}
+@media print{.glance{background:#f6f3ee !important;page-break-inside:avoid;}
+  .glance li span{color:#111 !important;} .glance li b{color:#666 !important;}}
+
 /* ---------- STOP ---------- */
 .stops{margin-top:2rem;display:grid;gap:3px;}
 .stop{background:var(--card);display:grid;grid-template-columns:1fr;border-top:1px solid transparent;transition:border-color .2s;}
