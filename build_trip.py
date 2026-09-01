@@ -75,25 +75,44 @@ document.querySelectorAll('.mm-a,.mm-book').forEach(function(e){e.addEventListen
   var RATE=3.37, bar=document.getElementById('planbar');
   if(!bar) return;
   var stops=[].slice.call(document.querySelectorAll('.stop')),
-      filters={hard:false,splurge:false,book:false}, cur='pen';
+      filters={hard:false,splurge:false,book:false}, types=[], cur='both';
+  var FEEDBACK_TO='contact@millennialscreatives.com';
 
   function save(){try{localStorage.setItem('smi_lima',JSON.stringify({
-    f:filters,c:cur,off:stops.map(function(s,i){return s.querySelector('.pk')&&!s.querySelector('.pk').checked?i:-1;}).filter(function(i){return i>=0;})
+    f:filters,t:types,c:cur,st:stops.map(function(s){return s.dataset.status||'';}),off:stops.map(function(s,i){return s.querySelector('.pk')&&!s.querySelector('.pk').checked?i:-1;}).filter(function(i){return i>=0;})
   }));}catch(e){}}
   function load(){try{var d=JSON.parse(localStorage.getItem('smi_lima')||'null');if(!d)return;
-    if(d.f)filters=d.f; if(d.c)cur=d.c;
+    if(d.f)filters=d.f; if(d.t)types=d.t; if(d.c)cur=d.c;
+    (d.st||[]).forEach(function(v,i){
+      if(!v||!stops[i])return;
+      stops[i].dataset.status=v;
+      var b=stops[i].querySelector('.st[data-s="'+v+'"]'); if(b)b.classList.add('on');
+    });
     (d.off||[]).forEach(function(i){var b=stops[i]&&stops[i].querySelector('.pk');if(b)b.checked=false;});
   }catch(e){}}
 
-  function money(pen){ return cur==='usd' ? '$'+Math.round(pen/RATE) : 'S/'+pen; }
+  function money(pen){
+    var usd='$'+Math.round(pen/RATE);
+    if(cur==='usd') return usd;
+    if(cur==='pen') return 'S/'+pen;
+    return 'S/'+pen+' ('+usd+')';
+  }
 
   function applyCurrency(){
     document.querySelectorAll('.strip dd').forEach(function(d){
       if(!d.dataset.orig) d.dataset.orig=d.innerHTML;
-      if(cur==='usd'){
-        d.innerHTML=d.dataset.orig.replace(/S\/(\d+(?:\.\d+)?)/g,function(m,n){
+      var t=d.dataset.orig;
+      if(cur==='pen'){
+        // drop the parenthetical dollars, keep the local price
+        d.innerHTML=t.replace(/\s*\(\$[^)]*\)/g,'');
+      } else if(cur==='usd'){
+        // prefer the dollar figure already written beside the soles
+        t=t.replace(/S\/[\d.,]+(?:\s*(?:to|a)\s*[\d.,]+)?\+?\s*\((\$[^)]*)\)/g,'$1');
+        // convert anything still left in soles
+        t=t.replace(/S\/(\d+(?:\.\d+)?)/g,function(m,n){
           return '$'+(Math.round(parseFloat(n)/RATE*100)/100).toFixed(2).replace(/\.00$/,'');});
-      } else { d.innerHTML=d.dataset.orig; }
+        d.innerHTML=t;
+      } else { d.innerHTML=t; }
     });
   }
 
@@ -107,12 +126,20 @@ document.querySelectorAll('.mm-a,.mm-book').forEach(function(e){e.addEventListen
       if(filters.hard && tags.indexOf('hard')>=0) hidden=true;
       if(filters.splurge && tags.indexOf('splurge')>=0) hidden=true;
       if(filters.book && !fixed && tags.indexOf('book')<0) hidden=true;
+      if(types.length && !fixed && types.indexOf(s.dataset.type||'')<0) hidden=true;
       s.classList.toggle('dim',hidden);
       var inPlan = !hidden && (fixed || (box && box.checked));
       if(inPlan && !fixed){ n++; c+=parseInt(s.dataset.cost||0,10); }
     });
+    var done=0,total=0;
+    stops.forEach(function(s){
+      if(s.dataset.fixed==='1') return;
+      total++;
+      if(s.dataset.status==='did') done++;
+    });
     document.getElementById('pcount').textContent=n;
     document.getElementById('pcost').textContent=money(c);
+    document.getElementById('pdone').textContent=done+' of '+total;
     save();
   }
 
@@ -120,6 +147,13 @@ document.querySelectorAll('.mm-a,.mm-book').forEach(function(e){e.addEventListen
     b.addEventListener('click',function(){
       filters[b.dataset.f]=!filters[b.dataset.f];
       b.classList.toggle('on',filters[b.dataset.f]); render();
+    });
+  });
+  document.querySelectorAll('.cb[data-t]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var t=b.dataset.t, i=types.indexOf(t);
+      if(i>=0) types.splice(i,1); else types.push(t);
+      b.classList.toggle('on',types.indexOf(t)>=0); render();
     });
   });
   document.querySelectorAll('.cb[data-cur]').forEach(function(b){
@@ -131,10 +165,19 @@ document.querySelectorAll('.mm-a,.mm-book').forEach(function(e){e.addEventListen
   });
   document.addEventListener('change',function(e){ if(e.target.classList.contains('pk')) render(); });
 
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('.st'); if(!b) return;
+    var stop=b.closest('.stop'), v=b.dataset.s;
+    var now = stop.dataset.status===v ? '' : v;
+    stop.dataset.status=now;
+    stop.querySelectorAll('.st').forEach(function(x){x.classList.toggle('on',x.dataset.s===now);});
+    render();
+  });
+
   document.getElementById('rst').addEventListener('click',function(){
-    filters={hard:false,splurge:false,book:false}; cur='pen';
-    document.querySelectorAll('.cb[data-f]').forEach(function(b){b.classList.remove('on');});
-    document.querySelectorAll('.cb[data-cur]').forEach(function(b){b.classList.toggle('on',b.dataset.cur==='pen');});
+    filters={hard:false,splurge:false,book:false}; types=[]; cur='both';
+    document.querySelectorAll('.cb[data-f],.cb[data-t]').forEach(function(b){b.classList.remove('on');});
+    document.querySelectorAll('.cb[data-cur]').forEach(function(b){b.classList.toggle('on',b.dataset.cur==='both');});
     document.querySelectorAll('.pk').forEach(function(b){b.checked=true;});
     applyCurrency(); render();
   });
@@ -161,8 +204,49 @@ document.querySelectorAll('.mm-a,.mm-book').forEach(function(e){e.addEventListen
          try{document.execCommand('copy');}catch(e){} document.body.removeChild(t); done();}
   });
 
+  function stopName(s){ return s.querySelector('h3').childNodes[0].textContent.trim(); }
+
+  document.getElementById('psend').addEventListener('click',function(){
+    var did=[],chg=[],skp=[],btn=this;
+    stops.forEach(function(s){
+      var v=s.dataset.status; if(!v) return;
+      var line='- '+stopName(s);
+      if(v==='did') did.push(line);
+      else if(v==='changed') chg.push(line);
+      else if(v==='skipped') skp.push(line);
+    });
+    if(!did.length && !chg.length && !skp.length){
+      btn.textContent='Mark a few stops first';
+      setTimeout(function(){btn.textContent='Send me your notes';},2200); return;
+    }
+    var b='I used the Lima itinerary. Here is how it went.\n\n';
+    if(did.length) b+='WORKED\n'+did.join('\n')+'\n\n';
+    if(chg.length) b+='CHANGED, and what I did instead\n'+chg.join('\n')+'\n\n';
+    if(skp.length) b+='SKIPPED\n'+skp.join('\n')+'\n\n';
+    b+='Anything that was wrong, closed, or better than described:\n\n\n';
+    b+='---\nSent from finessehumxn.com';
+    var sub='Lima itinerary notes';
+    var href='mailto:'+FEEDBACK_TO+'?subject='+encodeURIComponent(sub)+'&body='+encodeURIComponent(b);
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(b);}
+    window.location.href=href;
+    btn.textContent='Opening your email';
+    setTimeout(function(){btn.textContent='Send me your notes';},2600);
+  });
+
+  document.getElementById('ppdf').addEventListener('click',function(){
+    stops.forEach(function(s){
+      var box=s.querySelector('.pk');
+      s.classList.toggle('off', !!(box && !box.checked));
+    });
+    window.print();
+  });
+  window.addEventListener('afterprint',function(){
+    stops.forEach(function(s){ s.classList.remove('off'); });
+  });
+
   load();
   document.querySelectorAll('.cb[data-f]').forEach(function(b){b.classList.toggle('on',!!filters[b.dataset.f]);});
+  document.querySelectorAll('.cb[data-t]').forEach(function(b){b.classList.toggle('on',types.indexOf(b.dataset.t)>=0);});
   document.querySelectorAll('.cb[data-cur]').forEach(function(b){b.classList.toggle('on',b.dataset.cur===cur);});
   applyCurrency(); render();
 })();
@@ -174,10 +258,61 @@ def ticker(items):
     row = "".join('<span class="tick">%s</span>' % i for i in items)
     return '<div class="ticker"><div class="ticker-t">%s%s</div></div>' % (row, row)
 
+
+# Official first-party links only. No aggregators, no resellers, no affiliate rails.
+# "social" marks a venue that genuinely has no website of its own.
+LINKS = {
+ "Delta One, ATL to LIM":("https://www.delta.com/us/en/onboard/onboard-experience/delta-one",""),
+ "Getting out of the airport":("https://www.lima-airport.com/en",""),
+ "Aloft Lima Miraflores":("https://www.marriott.com/en-us/hotels/limra-aloft-lima-miraflores/overview/",""),
+ "KFC, and the delivery app problem":("https://www.rappi.com.pe/",""),
+ "Helarte":("https://www.helarte.com.pe/",""),
+ "Huaca Pucllana":("https://museos.cultura.pe/museos/museo-de-sitio-pucllana",""),
+ "Al Toke Pez":("https://www.facebook.com/ALTOKEPEZ/","social"),
+ "Circuito M&#225;gico del Agua":("https://www.circuitomagicodelagua.com.pe/",""),
+ "Clon":("https://www.clonrest.com/",""),
+ "Machu Picchu, the Lima version":("https://leyendas.gob.pe/",""),
+ "Dansa":("https://www.instagram.com/dansa.peru/","social"),
+ "ChocoMuseo workshop":("https://chocomuseo.com/",""),
+ "Horneando Ando":("https://www.instagram.com/horneandoando110a/","social"),
+ "Larcomar and the malec&#243;n":("https://www.larcomar.com/",""),
+ "Astrid y Gast&#243;n":("https://www.astridygaston.com/",""),
+ "WeWork Jos&#233; Larco":("https://www.wework.com/buildings/jose-larco-1232--lima",""),
+}
+
+
+# Every trip is three trips. This tags which one each stop belongs to.
+TYPES = {
+ "WeWork Jos&#233; Larco":"work",
+ "Street interviews, Miraflores":"work",
+ "Finesse Our Minds, on the road":"work",
+ "Millennials Creatives connections":"work",
+ "Huaca Pucllana":"leisure",
+ "Al Toke Pez":"adventure",
+ "Barranco on foot":"adventure",
+ "Circuito M&#225;gico del Agua":"leisure",
+ "Clon":"leisure",
+ "Machu Picchu, the Lima version":"adventure",
+ "La Mar Cebicher&#237;a":"leisure",
+ "Dansa":"leisure",
+ "ChocoMuseo workshop":"adventure",
+ "Inka Market":"leisure",
+ "Horneando Ando":"adventure",
+ "Larcomar and the malec&#243;n":"leisure",
+ "Astrid y Gast&#243;n":"leisure",
+ "Helarte":"leisure",
+ "Plaza Norte":"leisure",
+}
+TYPE_LABEL = {"work":"Work","leisure":"Leisure","adventure":"Adventure"}
+
 # name -> (cost per person in soles, tags)
 # tags: hard = physically demanding, splurge = over S/100, book = needs a reservation
 META = {
- "Getting out of the airport":(75,["book"]),
+ "WeWork Jos&#233; Larco":(0,[]),
+ "Street interviews, Miraflores":(0,[]),
+ "Finesse Our Minds, on the road":(0,[]),
+ "Millennials Creatives connections":(60,[]),
+ "Getting out of the airport":(57,[]),
  "KFC, and the delivery app problem":(40,[]),
  "Helarte":(25,[]),
  "Plaza Norte":(0,[]),
@@ -199,20 +334,32 @@ META = {
 def stop(s):
     cost, tags = META.get(s["name"], (0, []))
     skip = s["kind"] in ("Do not skip", "Mandatory", "Base camp", "The flight", "Learn from this")
-    o = ['<article class="stop" data-cost="%d" data-tags="%s"%s>'
-         % (cost, " ".join(tags), ' data-fixed="1"' if skip else '')]
+    typ = TYPES.get(s["name"], "")
+    o = ['<article class="stop" data-cost="%d" data-tags="%s" data-type="%s"%s>'
+         % (cost, " ".join(tags), typ, ' data-fixed="1"' if skip else '')]
     word = not s["t"][0].isdigit()
     o.append('<div class="time%s"><b>%s</b>%s</div>'
              % (" word" if word else "", s["t"], ('<span>%s</span>' % s["ap"]) if s["ap"] else ""))
     o.append('<div class="in">')
     if not skip:
-        o.append('<label class="pick"><input type="checkbox" class="pk" checked>'
-                 '<span>In my plan</span></label>')
-    o.append('<h3>%s<span class="kind">%s</span></h3>' % (s["name"], s["kind"]))
-    if tags:
-        lab = {"hard":"Physically demanding","splurge":"Splurge","book":"Needs booking"}
-        o.append('<div class="tags">%s</div>' % "".join(
-            '<span class="tg %s">%s</span>' % (t, lab[t]) for t in tags))
+        o.append('<div class="track">'
+                 '<label class="pick"><input type="checkbox" class="pk" checked><span>In my plan</span></label>'
+                 '<div class="status">'
+                 '<button class="st" data-s="did" type="button">Did it</button>'
+                 '<button class="st" data-s="changed" type="button">Changed it</button>'
+                 '<button class="st" data-s="skipped" type="button">Skipped</button>'
+                 '</div></div>')
+    url, kindof = LINKS.get(s["name"], ("", ""))
+    nm = ('<a class="dlink" href="%s" target="_blank" rel="noopener">%s<span class="ext">&#8599;</span></a>'
+          % (url, s["name"])) if url else s["name"]
+    o.append('<h3>%s<span class="kind">%s</span></h3>' % (nm, s["kind"]))
+    if url and kindof == "social":
+        o.append('<p class="lnote">No website of their own. That link goes to their own page, not a booking site.</p>')
+    lab = {"hard":"Physically demanding","splurge":"Splurge","book":"Needs booking"}
+    chips = ['<span class="tg ty-%s">%s</span>' % (typ, TYPE_LABEL[typ])] if typ else []
+    chips += ['<span class="tg %s">%s</span>' % (t, lab[t]) for t in tags]
+    if chips:
+        o.append('<div class="tags">%s</div>' % "".join(chips))
     o.append('<p class="where">%s</p>' % s["where"])
     o.append('<p class="pitch">%s</p>' % s["pitch"])
     if s.get("strip"):
@@ -248,14 +395,14 @@ LIMA = {
  "title":"Lima by the Mile | Steal My Itinerary",
  "desc":"Six days in Lima, Peru with my parents, August 30 to September 4, ranked by distance from the hotel. Real prices in soles, what to order at every restaurant, fun facts and the things nobody tells you.",
  "canon":"https://finessehumxn.com/lima.html",
- "eyebrow":"Steal my itinerary &#183; Lima, Peru",
+ "eyebrow":"Lima, Peru &#183; Work &#183; Leisure &#183; Adventure",
  "h1":'<em>Lima</em><br><strong>by the Mile.</strong>',
  "ledes":[
    'August 30 to September 4. California to Atlanta to Lima on Delta One, one hotel we walked out of, and then five days built on a single question. <strong>How far is it from the bed, and is it worth the drive.</strong>',
-   'Distance from the Aloft on Av. 28 de Julio, drive time, what it costs, what to order by name, and the one thing nobody tells you before you go. Twenty stops. One ruined pyramid you can eat dinner next to. One food delivery app that does not work here and will catch you out on night one.',
+   'Distance from the Aloft on Av. 28 de Julio, drive time, what it costs, what to order by name, and the one thing nobody tells you before you go. Twenty six stops. One ruined pyramid you can eat dinner next to. One food delivery app that does not work here and will catch you out on night one.',
  ],
- "ticker":["Lima, Peru","Aug 30 to Sep 4","6 Days","20 Stops","Delta One via ATL","Base: Aloft Miraflores","Furthest 9 mi","Closest 0.4 mi","S/3.37 to $1","Sea Level","Sunset 6:04 PM","Traveling with parents","No UberEats in Peru","Use Rappi","Garua season","Order this","Fun fact","Must know"],
- "proof":[("6","Days<br>On the Ground"),("20","Stops<br>Logged"),("9.0","Furthest<br>Miles Out"),("0.4","Closest<br>Miles Out"),("60","Longest<br>Drive, Min"),("S/4","Cheapest<br>Ticket")],
+ "ticker":["Lima, Peru","Aug 30 to Sep 4","6 Days","26 Stops","Delta One via ATL","Base: Aloft Miraflores","Furthest 9 mi","Closest 0.4 mi","S/3.37 to $1","Sea Level","Sunset 6:04 PM","Traveling with parents","No UberEats in Peru","Use Rappi","Garua season","Order this","Fun fact","Must know"],
+ "proof":[("6","Days<br>On the Ground"),("26","Stops<br>Logged"),("9.0","Furthest<br>Miles Out"),("0.4","Closest<br>Miles Out"),("60","Longest<br>Drive, Min"),("S/4","Cheapest<br>Ticket")],
  "days":[
   {"id":"d1","num":"01","title":"Landing","when":"Sunday, August 30 &#183; <strong>California to Atlanta to Lima</strong> &#183; the day you lose to travel, and the hotel mistake",
    "note":"Every trip has a day that is not really a day. This was ours. It is on here anyway, because the two things that went wrong on it are the two things I would tell anyone flying into Lima.",
@@ -266,29 +413,52 @@ LIMA = {
      "notes":[("f","Fun fact","Lima runs on UTC-5 year round with no daylight saving, so from the west coast it is only a two hour shift. There is no real jet lag on this trip. What wrecks you is the flight length, not the clock."),
               ("k","Must know","Jorge Ch&#225;vez opened an entirely new terminal in June 2025 and it is still shaking out the kinks. Build a real buffer on connections, and check your flight status the night before and the morning of.")]},
     {"t":"On arrival","ap":"","name":"Getting out of the airport","kind":"Transport","where":"Jorge Ch&#225;vez International to Miraflores","mi":None,
-     "pitch":"Roughly 45 to 90 minutes to Miraflores depending on traffic. Three ways to do it and only two of them are worth considering.",
-     "strip":[("To Miraflores","45 to 90 min"),("Official taxi","S/60 to 95"),("Uber pickup","Parking E1"),("Private transfer","$22 to 27")],
-     "notes":[("o","Do this","Use the staffed taxi counters inside Arrivals and confirm the price is <strong>todo incluido</strong> before you get in, or take an Uber from the designated zone at Parking E1. Uber does not pick up curbside at this airport."),
-              ("k","Must know","Ignore anyone who approaches you outside Arrivals offering a ride. That is the one scam at this airport and it runs constantly. Carry small soles notes, because the no change routine is the second one.")]},
-    {"t":"Night","ap":"","name":"The Wyndham by the airport","kind":"Learn from this","where":"Beside the Jorge Ch&#225;vez terminal","mi":None,
-     "pitch":"We booked the airport hotel for the arrival night on the theory that landing tired and walking straight to a bed was the smart play. It is genuinely attached to the terminal, and that is the entire case for it. It was not close to the standard we like to live at, and we left immediately.",
-     "strip":[("Distance to terminal","Attached"),("To Miraflores","45 to 90 min"),("Verdict","Left immediately"),("Better move","Go straight to Miraflores")],
-     "notes":[("k","Must know","<strong>Do not book the airport hotel unless your layover is genuinely a few hours.</strong> A late arrival is not a reason. Eat the ride, get to Miraflores or Barranco the same night, and wake up somewhere you actually want to be. We lost most of a day undoing this."),
-              ("f","Fun fact","The airport sits in Callao, which is its own port city, not Lima proper. Nothing around it is where you want to spend a night. The good districts are all 45 minutes south.")]},
+     "pitch":"Roughly 45 to 90 minutes to Miraflores depending on traffic. Here is the part worth writing down: the hotel desk quoted us about <strong>$35 for a taxi</strong>. The Uber was about <strong>$17</strong> for the same ride. Same road, same traffic, half the money.",
+     "strip":[("To Miraflores","45 to 90 min"),("Taxi, quoted","S/118 ($35)"),("Uber, actual","S/57 ($17)"),("Uber pickup","Parking E1")],
+     "notes":[("o","Do this","Take the Uber. It picks up from the designated zone at Parking E1, not curbside, so walk out and follow the signs rather than standing at arrivals wondering why nobody is coming. Cabify works the same way."),
+              ("f","Fun fact","Nearly every quote you get at a desk or counter is priced for someone who has not opened the app yet. It is not a scam, it is just the tourist rate, and it roughly doubles the fare on this exact route."),
+              ("k","Must know","If you do want a taxi, use the staffed counters inside Arrivals and confirm the fare is <strong>todo incluido</strong> before getting in. Never take a ride from someone who approaches you outside Arrivals. That is the one real scam at this airport and it runs constantly.")]},
+    {"t":"Night","ap":"","name":"The Wyndham by the airport","kind":"Honest review","where":"Beside Jorge Ch&#225;vez, Callao","mi":None,
+     "pitch":"We booked it for the arrival night on the theory that landing tired and walking straight to a bed was the smart play. <strong>The service was genuinely good and the room was not.</strong> Both of those things are true and it would be unfair to only say one of them.",
+     "strip":[("Shuttle","Free, every 30 min"),("Welcome drink","Included"),("Restaurant","24 hours"),("Breakfast","Free buffet")],
+     "notes":[("o","What was actually good","A free airport shuttle every thirty minutes, a welcome drink on arrival, a restaurant open around the clock, and a free buffet breakfast we absolutely took advantage of before we left. For an airport hotel that is a real package, and the staff were fine."),
+              ("k","Why we left anyway","The room was old in the way you feel rather than see in photos. Rust, a smell, and that sticky, been-here-too-long surface feel. After two flights and a full travel day, that is the wrong first night. We ate the free breakfast and got out on the next thing smoking."),
+              ("f","The honest verdict","Worth it for a genuine few-hour layover, where the shuttle and the 24 hour kitchen are the whole point. Not worth it as the first night of a real trip. A late arrival is not a reason to stay near the airport. Take the 45 minute ride and wake up in Miraflores.")]},
     {"t":"Dinner","ap":"","name":"KFC, and the delivery app problem","kind":"The lesson","where":"Ordered in","mi":None,
      "pitch":"First night in one of the great food cities on earth and we ate KFC in a hotel room. That is what a travel day does to you, and there is no shame in it. What there is, is a logistics lesson nobody warns you about.",
      "strip":[("UberEats","Does not exist in Peru"),("Uber rides","Works fine"),("Use instead","Rappi"),("Or","PedidosYa")],
      "notes":[("k","Must know","<strong>UberEats does not operate in Peru.</strong> Uber for rides works perfectly, which is exactly why this catches people out. For food delivery you need <strong>Rappi</strong> or <strong>PedidosYa</strong>. Download both at the airport while you still have wifi, before you are hungry and stuck."),
               ("o","Do this","Rappi is the one that covers the most restaurants in Lima and it also delivers groceries and pharmacy items. Set it up first. PedidosYa is the backup when a place is not on Rappi.")]},
    ]},
-  {"id":"d2","num":"02","title":"The Reset","when":"Monday, August 31 &#183; <strong>moving to Miraflores</strong> &#183; the day the trip actually starts",
-   "note":"<strong>This day is still a gap in my notes.</strong> What I know is that we got out of Callao and into the Aloft on Av. 28 de Julio, which is where every distance on the rest of this page is measured from. Send me what we did and I will fill it in.",
+  {"id":"d2","num":"02","title":"Setting Up Shop","when":"Monday, August 31 &#183; <strong>the work half</strong> &#183; a desk, a microphone, and the reason the timing matters",
+   "note":"This is the day the other trip starts. I do not fly anywhere and only be on vacation. There is always a desk, always something being filmed, and always somebody I should be having coffee with. <strong>September is Suicide Prevention Month,</strong> which is not a coincidence for when this trip landed.",
    "stops":[
     {"t":"Midday","ap":"","name":"Aloft Lima Miraflores","kind":"Base camp","where":"Av. 28 de Julio 894, Miraflores","mi":0.0,
      "pitch":"This is the anchor for the whole trip. Miraflores is flat, walkable, well lit, and close to almost everything worth eating. Every mile figure on this page is measured from this front door.",
      "strip":[("From airport","45 to 90 min"),("District","Miraflores"),("To the cliffs","0.9 mi"),("To Barranco","2.2 mi")],
      "notes":[("o","Do this","If you are choosing a base in Lima, choose Miraflores. Barranco is more beautiful and better at night. San Isidro is quieter and emptier. Miraflores is the one that makes every other day shorter."),
               ("k","Must know","Ask for a room away from Av. 28 de Julio if you are a light sleeper. It is a real road.")]},
+    {"t":"Morning","ap":"","name":"WeWork Jos&#233; Larco","kind":"The desk","where":"Av. Jos&#233; Larco 1232, Miraflores","mi":0.6,
+     "pitch":"One membership, and a desk in almost every city I land in. Lima has locations in Miraflores and two in San Isidro, and walking into a WeWork in a country you have never worked in is quietly one of the best parts of this job. Same login, completely different room.",
+     "strip":[("From Aloft","0.6 mi"),("Walk","12 min"),("Also in Lima","2 in San Isidro"),("Cost","Membership")],
+     "notes":[("o","Do this","The Miraflores location on Av. Jos&#233; Larco is the one to use if you are staying around here, because you can walk it. Andr&#233;s Reyes 338 and Jorge Basadre 349 in San Isidro are the other two if your meetings are in the business district."),
+              ("f","Fun fact","Collecting WeWork locations the way other people collect airport lounges is a real and underrated travel game. The coffee is different, the layout is different, and the people at the next desk tell you more about a city in an hour than a guidebook does in a week."),
+              ("k","Must know","Book the desk in the app before you show up. Global access depends on your plan tier, so check yours covers Peru before you land rather than standing in a lobby finding out.")]},
+    {"t":"Midday","ap":"","name":"Street interviews, Miraflores","kind":"Filming","where":"Parque Kennedy and the malec&#243;n","mi":0.8,
+     "pitch":"Asking strangers real questions on camera in a city that is not yours is the fastest way to stop being a tourist in it. Parque Kennedy and the clifftop path are the two places in Miraflores where people are relaxed enough to actually stop and talk.",
+     "strip":[("From Aloft","0.8 mi"),("Walk","15 min"),("Best time","Late morning"),("Cost","Free")],
+     "notes":[("o","Do this","Lead in Spanish even if you switch to English after. <strong>Con permiso, le puedo hacer una pregunta</strong> gets a yes far more often than opening in English does. Parque Kennedy has benches, shade and the cats, so people are already stopped."),
+              ("k","Must know","Ask before you record, every time. Peru takes image rights seriously and it is the right thing to do regardless. Keep the gear small. A phone gets honest answers where a rig gets performances, and it also keeps you from advertising your equipment on a public street.")]},
+    {"t":"Afternoon","ap":"","name":"Finesse Our Minds, on the road","kind":"The mission","where":"Wherever the work is","mi":None,
+     "pitch":"September is Suicide Prevention Month, and Finesse Our Minds is survivor led and global, so the work does not pause because I am in a different hemisphere. Filming and conversations for the month happened here, in Lima, in Spanish and English.",
+     "strip":[("Month","September"),("Reach","Global, free"),("Peru helpline","L&#237;nea 113, option 5"),("Cost","Free to access")],
+     "notes":[("o","Carry this","If you are working in mental health anywhere, learn the local number before you land. In Peru it is <strong>L&#237;nea 113, option 5</strong>, run by the Ministry of Health, free and open 24 hours. Knowing the local resource is the difference between talking about support and being able to point at it."),
+              ("k","Must know","Peer support work travels differently than a keynote does. Language, stigma and what is culturally sayable all change at the border. Listen a great deal more than you talk for the first few days in a new country.")]},
+    {"t":"Evening","ap":"","name":"Millennials Creatives connections","kind":"Business","where":"Coffee, wherever they are","mi":None,
+     "pitch":"Every trip has at least one conversation that was not on the calendar when I booked the flight. Maximizing the opportunity is the whole point of being physically somewhere instead of on a call.",
+     "strip":[("Format","Coffee or dinner"),("Prep","One clear ask"),("Follow up","Within 48 hours"),("Cost","You buy")],
+     "notes":[("o","Do this","Go in with one specific ask instead of a general introduction. People help with a clear request and go quiet on a vague one. Send the follow up before you fly home, while you are still a face and not an email."),
+              ("f","Fun fact","This is the part that makes the whole trip make sense on paper. The flight was going to happen anyway. The desk, the filming, the coffee and the ceviche all sit inside the same set of days.")]},
    ]},
   {"id":"d3","num":"03","title":"Ice Cream and a Long Drive","when":"Tuesday, September 1 &#183; <strong>0.4 miles, then 9</strong> &#183; one of these was worth it",
    "note":"A short day with a useful lesson buried in it. The best stop was four tenths of a mile away. The longest drive was to a shopping mall.",
@@ -309,12 +479,12 @@ LIMA = {
    "stops":[
     {"t":"9:30","ap":"AM","name":"Huaca Pucllana","kind":"Ruins","where":"Calle General Borgo&#241;o cuadra 8, Miraflores","mi":1.8,
      "pitch":"A 1,500 year old adobe pyramid sitting in the middle of a modern neighborhood, surrounded by apartment buildings on all four sides. You walk the site with a guide on a raised path. It takes about an hour.",
-     "strip":[("From Aloft","1.8 mi"),("Drive","11 min"),("Open","Wed to Mon, 9 to 5"),("Entry","S/15 &#183; S/7.50 reduced")],
+     "strip":[("From Aloft","1.8 mi"),("Drive","11 min"),("Open","Wed to Mon, 9 to 5"),("Entry","S/15 ($4.50)")],
      "notes":[("f","Fun fact","It is built from millions of hand made bricks stood on end like books on a shelf, not stacked flat. That bookshelf pattern is why it has survived centuries of earthquakes. The gaps let it shake without collapsing."),
               ("k","Must know","Entry is guided only, and the tour goes at the guide's pace on gravel and slopes. There are ramps and an elevator, but the bathroom is narrow. Ask for the English guide at the ticket window or you will get Spanish by default.")]},
     {"t":"11:15","ap":"AM","name":"Al Toke Pez","kind":"Ceviche counter","where":"Calle Manuel Bonilla 113, Surquillo","mi":0.9,
      "pitch":"Eight or nine stools at a counter, one chef, no menu you need to think hard about. Toshiro Matsufuji has a doctorate in structural chemistry and gave it up to run this. It is one of the cheapest famous meals in Latin America.",
-     "strip":[("From Aloft","0.9 mi"),("Drive","5 min"),("Open","Daily, 11 to 5"),("Plates","S/25 to 35")],
+     "strip":[("From Aloft","0.9 mi"),("Drive","5 min"),("Open","Daily, 11 to 5"),("Plates","S/25 to 35 ($7 to 10)")],
      "notes":[("o","Order this","The <strong>combinado</strong>. It is ceviche, chicharr&#243;n de pescado, arroz con mariscos and tallar&#237;n saltado all on one plate, so nobody has to choose. Add a chicha morada."),
               ("f","Fun fact","Netflix put this counter on television and the line got longer, but the price never moved. Locals still eat here on a lunch break."),
               ("k","Must know","This is the least comfortable stop of the whole trip. There is no waiting room, no reservations, and the queue is on the sidewalk. Getting there at 11:00 sharp is the whole strategy. If the line is already deep, one person holds the spot and the parents wait in the car. Cash is smoothest.")]},
@@ -327,14 +497,14 @@ LIMA = {
      "notes":[("f","Fun fact","The Bridge of Sighs is named for a local superstition. Hold your breath and make a wish the first time you cross it, and the wish is supposed to land. Everybody does it. Nobody admits it."),
               ("k","Must know","The Bajada de Ba&#241;os is a real descent and a real climb back. Walk down toward the water, then take a taxi from the bottom rather than making anyone hike back up. Phones stay in pockets on the quieter side streets.")]},
     {"t":"6:45","ap":"PM","name":"Circuito M&#225;gico del Agua","kind":"Fountains","where":"Parque de la Reserva, Cercado de Lima","mi":5.5,
-     "pitch":"Thirteen illuminated fountains in one park, including a tunnel of water you walk through and a laser show fired onto a wall of mist. It holds the Guinness record for the largest fountain complex in a public park. Entry costs about one US dollar, which stays funny the entire time.",
-     "strip":[("From Aloft","5.5 mi"),("Drive","27 min"),("Shows","7:15, 8:15, 9:15"),("Entry","S/4 &#183; about $1.20")],
+     "pitch":"Thirteen illuminated fountains in one park, including a tunnel of water you walk through and a laser show fired onto a wall of mist. It holds the Guinness record for the largest fountain complex in a public park. Entry costs S/4, about one US dollar, which stays funny the entire time.",
+     "strip":[("From Aloft","5.5 mi"),("Drive","27 min"),("Shows","7:15, 8:15, 9:15"),("Entry","S/4 ($1.20)")],
      "notes":[("o","Do this","Arrive for the 7:15 show, then walk the T&#250;nel de las Sorpresas and the Fuente M&#225;gica after. The fountains photograph better once the crowd from the first show clears out."),
               ("f","Fun fact","The park sat closed and neglected for decades before the city rebuilt it in 2007. It is now one of the most visited attractions in Peru, and the crowd is overwhelmingly Lime&#241;o families, not tourists."),
               ("k","Must know","The tunnel fountain will get you wet. That is the point, but bring a layer, because Lima nights in September sit around 60 degrees and damp. Book the ride back through the app rather than hailing outside the gate.")]},
     {"t":"8:45","ap":"PM","name":"Clon","kind":"Dinner","where":"Av. Almirante Miguel Grau 203A, Barranco","mi":2.2,
      "pitch":"The loose, loud younger sibling of M&#233;rito, which sits at number 26 in the World's 50 Best. Same kitchen brain, shareable plates, a third of the ceremony. Good last stop on a night that started at a pyramid.",
-     "strip":[("From Aloft","2.2 mi"),("Drive","11 min"),("Booking","952 992 337"),("Per head","Around S/150")],
+     "strip":[("From Aloft","2.2 mi"),("Drive","11 min"),("Booking","952 992 337"),("Per head","S/150 ($45)")],
      "notes":[("o","Order this","Order in rounds, not all at once, and let the kitchen pace it. Ask what came in that morning before you touch the printed menu."),
               ("k","Must know","Call ahead today and confirm they will still seat a table of three at 8:45 PM. Their closing time is the one thing I could not verify anywhere online. If the answer is no, the backup is Restaurante Huaca Pucllana, which serves until 10 PM with the lit pyramid outside the window.")]},
    ]},
@@ -343,22 +513,22 @@ LIMA = {
    "stops":[
     {"t":"9:00","ap":"AM","name":"Machu Picchu, the Lima version","kind":"Replica","where":"Parque de las Leyendas, San Miguel","mi":7.3,
      "pitch":"There is a ten meter Machu Picchu replica hidden inside a cave in the middle of Lima, and the only way to reach it is by boat across the park's lagoon while Andean music plays. It is gloriously strange. The park around it is also a full zoo with more than 3,500 animals and real archaeological mounds on the grounds.",
-     "strip":[("From Aloft","7.3 mi"),("Drive","35 min"),("Open","Daily, 9 to 5"),("Entry","S/20 adult &#183; S/4 senior")],
+     "strip":[("From Aloft","7.3 mi"),("Drive","35 min"),("Open","Daily, 9 to 5"),("Entry","S/20 ($6) &#183; S/4 senior")],
      "notes":[("o","Do this","The boat to the cave costs S/6 for the motorized one, S/12 for the pedal boat. Take the motorized one. Nobody wants to pedal their parents across a lagoon."),
-              ("f","Fun fact","Seniors 65 and over pay S/4 to get in, which is about one dollar and twenty cents. The parents get the cheapest ticket in the family for once."),
+              ("f","Fun fact","Seniors 65 and over pay S/4 to get in, which is S/4, about one dollar and twenty cents. The parents get the cheapest ticket in the family for once."),
               ("k","Must know","This is a large park with real walking distances between zones. Head straight for the Zona Costa lagoon first, do the replica, then decide how much zoo anyone actually wants. Budget two and a half hours, not a full day.")]},
-    {"t":"1:00","ap":"PM","name":"La Picanter&#237;a","kind":"The big lunch","where":"Francisco Moreno 388, Surquillo","mi":0.5,
-     "pitch":"H&#233;ctor Sol&#237;s brought northern Peruvian cooking to Lima and built it around one idea. You walk in, you look at the whole fish on ice, you pick one, and the kitchen turns that single fish into three or four different dishes for the table. Communal tables, tile floors, zero pretension, serious food.",
-     "strip":[("From Aloft","0.5 mi"),("Drive","4 min"),("Open","Lunch only, closes ~5:30"),("Price","By weight of fish")],
-     "notes":[("o","Order this","Pick one whole fish for the table and let them split it. Ceviche first, then sudado or a fried preparation. Add the <strong>tortilla de raya</strong>, a stingray omelette that sounds alarming and tastes like the best crab cake of your life. Chicha de jora to drink."),
-              ("f","Fun fact","A picanter&#237;a is a northern Peruvian institution, historically a house where a woman cooked and sold food and chicha out of her own kitchen. Sol&#237;s built a famous restaurant by refusing to make it fancier than that."),
-              ("k","Must know","Your saved hours say 2 PM to 9 PM. Every source I checked says this place is <strong>lunch only and closes around 5:30 PM.</strong> Plan for lunch, not dinner. Portions are enormous and priced by fish weight, so ask the price of the fish before you nod at it. The upstairs balcony is up a staircase, so ask for a ground floor table.")]},
+    {"t":"12:45","ap":"PM","name":"La Mar Cebicher&#237;a","kind":"The big lunch","where":"Av. La Mar 770, Miraflores","mi":1.5,
+     "pitch":"Gast&#243;n Acurio's cevicher&#237;a, and the one that exported the whole idea of a Peruvian cebicher&#237;a to the rest of the world. Open air, loud, packed with Lime&#241;os, and lunch only because the fish does not sit overnight. This is the replacement for La Picanter&#237;a, which closed.",
+     "strip":[("From Aloft","1.5 mi"),("Drive","8 min"),("Open","Lunch only, no dinner"),("Per head","S/90 to 150 ($27 to 45)")],
+     "notes":[("o","Order this","The <strong>cebiche cl&#225;sico</strong> to start, then a <strong>tiradito</strong> for anyone unsure about raw fish, and <strong>arroz con mariscos</strong> for the table. Chicha morada to drink. Leave room for the leche de tigre in the bottom of the bowl, which you drink."),
+              ("f","Fun fact","Acurio opened La Mar to prove ceviche belonged in a real restaurant instead of only a market stall. It worked so well he opened them in San Francisco, New York and half a dozen other cities, and the Lima original is still the one people fly for."),
+              ("k","Must know","<strong>No reservations, ever.</strong> Arrive before noon or after 2 PM or you will wait 45 to 90 minutes. It is seated and comfortable once you are in, which is exactly why it replaced the closed spot rather than Al Toke Pez.")]},
     {"t":"3:30","ap":"PM","name":"Hotel reset","kind":"Mandatory","where":"Aloft, Av. 28 de Julio 894","mi":0.0,
      "pitch":"Tonight runs until 10:30. Three hours down now is what makes that possible.",
      "strip":[("From Aloft","0.0 mi"),("Drive","None"),("Length","3 hours"),("Cost","Free")]},
     {"t":"6:50","ap":"PM","name":"Dansa","kind":"Dinner theater","where":"Av. Rivera Navarrete 2692, Lince, near the San Isidro line","mi":3.6,
      "pitch":"Not a restaurant. A staged production called Wankar where nine courses, six dishes and three cocktails, land in front of you while live dancers and musicians work the room and projections run across the walls. Peru's regions are the structure. Each course belongs to a place, and the dance that arrives with it comes from the same place.",
-     "strip":[("From Aloft","3.6 mi"),("Drive","11 min"),("Runs","Thu to Sat, 7:30 PM"),("Tickets","$79 mezzanine &#183; $110+ floor")],
+     "strip":[("From Aloft","3.6 mi"),("Drive","11 min"),("Runs","Thu to Sat, 7:30 PM"),("Mezzanine","S/266 ($79)"),("Floor","S/371+ ($110+)")],
      "notes":[("o","Book this","Tickets go through Joinnus, or call +51 1 219 9000. Book today. It only runs Thursday through Saturday, which is exactly why it sits on this night and not another one."),
               ("f","Fun fact","It was built by Lucho Quequezana, a musician who plays dozens of traditional Peruvian instruments, and Vania Mas&#237;as, a former ballerina who left the classical world to train street dancers from Lima's outer districts. The cast comes out of that program."),
               ("k","Must know","Check in is around 6:50 PM for a 7:30 start and the whole thing runs about two and a half hours. Ask for <strong>platea</strong>, the ground floor. The mezzanine is up stairs, and there is no reason to make anyone climb for a worse view of the dancers.")]},
@@ -368,7 +538,7 @@ LIMA = {
    "stops":[
     {"t":"9:30","ap":"AM","name":"ChocoMuseo workshop","kind":"Hands on","where":"Inka Plaza, Av. Petit Thouars 5330, Miraflores","mi":1.2,
      "pitch":"Two hours from cacao bean to a bar you made yourself. You roast, peel, grind, taste the drink the way it was drunk before sugar existed, then mold your own chocolate and pick what goes in it. You leave with about 130 grams of it.",
-     "strip":[("From Aloft","1.2 mi"),("Drive","9 min"),("Length","2 hours"),("Price","About $34 per person")],
+     "strip":[("From Aloft","1.2 mi"),("Drive","9 min"),("Length","2 hours"),("Price","S/115 ($34)")],
      "notes":[("f","Fun fact","Peru grows more distinct varieties of cacao than any country on earth, and the original Amazonian cacao trees are native here. The bitter unsweetened drink they hand you partway through is much closer to the original than anything in a candy aisle."),
               ("k","Must know","Your chocolate needs about 45 minutes to set after the workshop ends, so you cannot walk straight out with it. That gap is exactly why the next stop is on the same street.")]},
     {"t":"11:45","ap":"AM","name":"Inka Market","kind":"Souvenirs","where":"Av. Petit Thouars, blocks 5200 to 5400, Miraflores","mi":1.2,
@@ -378,19 +548,19 @@ LIMA = {
               ("k","Must know","Prices are soft. Offer around 60 to 70 percent of the first number and settle in the middle, politely and with a smile. Buying two or three things from one stall gets you a better price than spreading it around. Bring small soles notes, because nobody will have change for a S/100 bill early in the day.")]},
     {"t":"12:45","ap":"PM","name":"Horneando Ando","kind":"Closed door lunch","where":"Av. Prolongaci&#243;n San Mart&#237;n 110A, Barranco","mi":1.4,
      "pitch":"A puerta cerrada, a closed door restaurant. There is no sign to walk toward. You arrive at a house, you ring the intercom marked 110-A, and someone lets you in to eat home style Peruvian food in what is essentially a family dining room. It is the most Lima thing on this entire list.",
-     "strip":[("From Aloft","1.4 mi"),("Drive","7 min"),("Open","Tue to Sun, 12:30 to 5"),("Price","Moderate")],
+     "strip":[("From Aloft","1.4 mi"),("Drive","7 min"),("Open","Tue to Sun, 12:30 to 5"),("Per head","S/90 ($27)")],
      "notes":[("o","Order this","Whatever the house is baking that day. Ask instead of ordering. The name means roughly here I am, baking, and the baked things are the point."),
               ("k","Must know","Message ahead to reserve. It is small, it has gotten popular, and walking up unannounced can mean no table. Ring the intercom for 110-A when you arrive. The driver will not find a storefront, so give them the number and not the name.")]},
     {"t":"3:30","ap":"PM","name":"Larcomar and the malec&#243;n","kind":"The view","where":"Malec&#243;n de la Reserva 610, Miraflores","mi":0.9,
      "pitch":"An open air mall carved into the side of a cliff, so the shops face out over the Pacific and there is nothing above you but paragliders. Walk out from Larcomar along the clifftop path to Parque del Amor, where a giant mosaic sculpture of a couple kissing sits over the water.",
      "strip":[("From Aloft","0.9 mi"),("Drive","5 min"),("Sunset","6:04 PM"),("Cost","Free to walk")],
-     "notes":[("o","Do this","Be on the clifftop path by 5:30. Shoot facing north with the coastline curving away, not straight into the sun. Paragliders launch right off the cliff edge here and cost around $60 to $90 if anyone wants to go up."),
+     "notes":[("o","Do this","Be on the clifftop path by 5:30. Shoot facing north with the coastline curving away, not straight into the sun. Paragliders launch right off the cliff edge here and cost around S/200 to S/300, about $60 to $90, if anyone wants to go up."),
               ("f","Fun fact","Lima spends most of the winter under a low grey ceiling the locals call the gar&#250;a. September is when it starts breaking. That flat silver light is unflattering for landscapes and unbelievably good for portraits and food, so shoot people, not skies."),
               ("k","Must know","The malec&#243;n is flat, paved and easy the whole way, which makes it the single most parent friendly walk in Lima. Bring a jacket. It is cooler and damper on the cliff than three blocks inland.")]},
     {"t":"7:30","ap":"PM","name":"Astrid y Gast&#243;n","kind":"The last supper","where":"Casa Moreyra, Av. Paz Sold&#225;n 290, San Isidro","mi":2.9,
      "pitch":"Gast&#243;n Acurio's flagship, and more or less the restaurant that convinced the world Peruvian food was worth flying for. It sits inside a restored 300 year old colonial hacienda with courtyards, gardens and its own research kitchen. This is the meal the whole trip closes on.",
-     "strip":[("From Aloft","2.9 mi"),("Drive","13 min"),("Dinner","Tue to Sat, 7 to 10:30"),("Price","Mains ~S/90 &#183; tasting $240+")],
-     "notes":[("o","Order this","Go &#224; la carte, not the tasting menu. Starters run S/56 to S/86 and mains around S/90, so three people eat extremely well for a fraction of the $240 per head tasting, and nobody has to sit through three hours of courses on their last night. Start with a pisco sour and their cebiche."),
+     "strip":[("From Aloft","2.9 mi"),("Drive","13 min"),("Dinner","Tue to Sat, 7 to 10:30"),("Mains","S/90 ($27)"),("Tasting","S/809+ ($240+)")],
+     "notes":[("o","Order this","Go &#224; la carte, not the tasting menu. Starters run S/56 to S/86, about $17 to $26, and mains around S/90, about $27, so three people eat extremely well for a fraction of the S/809, about $240, per head tasting, and nobody has to sit through three hours of courses on their last night. Start with a pisco sour and their cebiche."),
               ("f","Fun fact","Acurio trained as a lawyer in Madrid and quietly switched to culinary school without telling his father, who was a senator. Astrid is his wife, a German pastry chef he met in Paris. The restaurant carries both names because both of them built it."),
               ("k","Must know","<strong>You do not have a reservation yet, so this is today's one urgent task.</strong> Call +51 1 442 2777, or email restaurante@astridygaston.com, or book at astridygaston.mesa247.pe. Closed Mondays, and Sunday is lunch only. There is an elevator and both indoor and garden seating, so it is a comfortable room for parents.")]},
    ]},
@@ -424,6 +594,9 @@ LIMA = {
   ("Laguna Esmeralda, Huacho",
    "This one hurts, because the photos are unreal. But it is at <strong>kilometer 137 of the Panamericana Norte, roughly three hours each way from Lima.</strong> That is six hours in a car out of a three day trip. Worse, it is not a public natural site. Access runs through a private condominium development, departures are limited and decided by them, and multiple visitors report that the tour includes a pitch to sell you a plot of land. With parents and three days left, this is a no.",
    "<strong>If the sandboarding is the part you want,</strong> the Chilca dunes are about an hour south of Miraflores, tours run at 8 AM and 2 PM daily, and operators will dial the dune buggy down to a gentle version on request. That is a half day instead of a full one."),
+  ("La Picanter&#237;a, Surquillo",
+   "H&#233;ctor Sol&#237;s's whole-fish picanter&#237;a was the plan for Thursday lunch, and it is <strong>closed.</strong> The Surquillo location shut in May 2026. Sol&#237;s has said it returns in 2027 in a different district. Every listing still online shows it open, which is how a trip loses an afternoon.",
+   "<strong>Replaced with La Mar</strong> on Av. La Mar, eight minutes from the hotel. Same job on the day, a proper sit-down seafood lunch, and the one place in Lima that arguably did more than any other to put Peruvian food on the map."),
   ("Helarte",
    "Calle Bol&#237;var 205, open daily 8 AM to 10 PM, and you already went. Worth knowing it is <strong>0.4 miles from the lobby and open until 10 PM,</strong> which makes it the default late dessert on any night that ends early. L&#250;cuma is the flavor to get if you did not.",
    ""),
@@ -431,17 +604,30 @@ LIMA = {
  "know":[
   ("Book these two right now","<strong>Astrid y Gast&#243;n</strong> for Friday dinner: +51 1 442 2777. <strong>Dansa</strong> for Thursday: through Joinnus or +51 1 219 9000.","Both are the kind of thing that sells out while you are deciding."),
   ("Two calls to confirm","<strong>Clon</strong> at 952 992 337, to check they seat at 8:45 PM. <strong>Horneando Ando</strong> to reserve, because it is a closed door house with limited seats.",""),
-  ("Money","About <strong>S/3.37 to the dollar.</strong> Cards work at every restaurant on this list. Carry small soles for taxis, markets, the fountains and the tiny places.","Tipping is about 10 percent, and check the bill for <strong>servicio</strong> first, because if it is there you do not add more."),
+  ("Money, and the ATM trap","About <strong>S/3.37 to the dollar.</strong> Every price on this page is in soles first, because that is the money you will actually be handing over.","<strong>Do not pull cash at the airport.</strong> The airport ATMs charged us close to <strong>$8 per withdrawal.</strong> Wait until Miraflores and use a bank machine, BCP, Interbank, Scotiabank or BBVA, inside the branch rather than a standalone kiosk."),
+  ("One button that saves you money","When any ATM or card reader offers to charge you <strong>in dollars instead of soles, always choose soles.</strong> That offer is called dynamic currency conversion and the exchange rate baked into it is terrible.","Take out one larger amount rather than three small ones, since the fee is per withdrawal, not per sol. Tipping is about 10 percent, and check the bill for <strong>servicio</strong> first, because if it is there you do not add more."),
   ("Water","<strong>Do not drink the tap water,</strong> including in the hotel. Sealed bottles only. Ice at real restaurants is fine. At street stalls and juice carts, ask for it without ice.",""),
   ("Getting around","Uber and Cabify both work well here and are cheap. Book through the app rather than hailing on the street, especially at night and especially outside a busy attraction.","Every drive on this itinerary is under 35 minutes except the one to Plaza Norte, which is why it is not on it twice."),
   ("Food delivery, the trap","<strong>UberEats does not operate in Peru.</strong> Uber for rides works perfectly, which is exactly what makes people assume the food app does too.","Download <strong>Rappi</strong> first and <strong>PedidosYa</strong> as the backup. Do it at the airport on wifi, not at 10 PM when you are hungry."),
   ("Where to stay","Miraflores. Not the airport. The airport hotel is attached to the terminal and that is its only argument.","We booked it for the arrival night and left immediately. Eat the 45 minute ride and wake up somewhere worth waking up in."),
   ("Staying smart","Miraflores, Barranco and San Isidro are the comfortable districts and this itinerary lives almost entirely inside them.","Phone away on quiet side streets, bag in front on crowded ones, and take a car back from the center rather than walking after dark."),
   ("Weather","Around 60 to 68 degrees, grey, and damp on the coast. September is the tail of the gar&#250;a season. Bring one layer everywhere. It will not rain in any meaningful way.",""),
+  ("If you need support in Peru","<strong>L&#237;nea 113, option 5.</strong> Free, 24 hours, run by Peru's Ministry of Health, for mental health support in Spanish.","Worth having in your phone before you land, whether or not you think you will need it."),
   ("Two useful phrases","<strong>La cuenta, por favor</strong> to get the bill, which never comes until you ask. <strong>Sin aj&#237;</strong> if someone wants it without the chili.",""),
  ],
 }
 
+
+
+PARTNER = '''<div class="sect" id="partner"><div class="lbl">Partnerships</div>
+<h2>Every link on this page<br><em>goes straight to the business.</em></h2>
+<p class="intro">No affiliate rails, no booking resellers, no Viator, no GetYourGuide. If a restaurant is on here it is because I ate there and it was worth your afternoon. When a venue has no site of its own, the link goes to their page, not to somebody selling tickets on their behalf. That is the whole editorial policy and it is not negotiable, including for paid work.</p>
+<div class="cards">
+  <div class="c"><h4>What a partner gets</h4><p>A named, linked placement inside a real itinerary that people use on the ground, plus the photo and video I shoot while I am there. The pages stay up and keep working. This is not a story that disappears in 24 hours.</p></div>
+  <div class="c"><h4>Who this reaches</h4><p>I speak and train in eight countries. The people reading these pages are the ones who were in the room: professionals, organizers, university and government audiences, and the friends they send afterward. Smaller than a travel blog. Considerably more qualified.</p></div>
+  <div class="c"><h4>What I will not do</h4><p>Write a stop I did not go to, take a link out because a competitor paid, or hide that something is sponsored. Anything paid is labeled. The cut list stays honest, and a partner can end up on it.</p></div>
+  <div class="c"><h4>Work with me</h4><p>Tourism boards, hotels, airlines, restaurant groups and travel brands: I build the city guide, shoot the content, and speak at the event while I am there. Tell me the market and the dates.</p><p><a href="contact.html" class="m">Start a conversation &#8594;</a></p></div>
+</div></div>'''
 
 def build_trip(T):
     o = [head(T["title"], T["desc"], T["canon"]), NAV]
@@ -458,13 +644,18 @@ def build_trip(T):
              '<a href="#cut">Cut List</a><a href="#know">Before You Go</a></div></nav>')
 
     o.append('''<div class="controls"><div class="cwrap">
+ <div class="cgrp"><span class="clbl">Show me the</span>
+   <button class="cb" data-t="work">Work</button>
+   <button class="cb" data-t="leisure">Leisure</button>
+   <button class="cb" data-t="adventure">Adventure</button>
+ </div>
  <div class="cgrp"><span class="clbl">Make it yours</span>
    <button class="cb" data-f="hard">Skip the hard walking</button>
    <button class="cb" data-f="splurge">Skip the splurges</button>
    <button class="cb" data-f="book">Only what needs booking</button>
  </div>
  <div class="cgrp"><span class="clbl">Currency</span>
-   <button class="cb cur on" data-cur="pen">S/</button><button class="cb cur" data-cur="usd">USD</button>
+   <button class="cb cur" data-cur="pen">Soles only</button><button class="cb cur on" data-cur="both">Both</button><button class="cb cur" data-cur="usd">USD only</button>
  </div>
  <div class="cgrp"><button class="cb reset" id="rst">Reset</button></div>
  <div class="legend"><span class="lg o">Order this</span><span class="lg f">Fun fact</span><span class="lg k">Must know</span></div>
@@ -472,7 +663,12 @@ def build_trip(T):
 <div class="planbar" id="planbar"><div class="pwrap">
   <div class="pstat"><b id="pcount">0</b><span>stops in your plan</span></div>
   <div class="pstat"><b id="pcost">S/0</b><span>per person, roughly</span></div>
-  <button class="cb copy" id="pcopy">Copy my plan</button>
+  <div class="pstat"><b id="pdone">0</b><span>done so far</span></div>
+  <div class="pbtns">
+    <button class="cb" id="pcopy">Copy my plan</button>
+    <button class="cb pdf" id="ppdf">Save as PDF</button>
+    <button class="cb copy" id="psend">Send me your notes</button>
+  </div>
 </div></div>''')
 
     for d in T["days"]:
@@ -504,6 +700,7 @@ def build_trip(T):
         '<div class="c"><h4>%s</h4><p>%s</p>%s</div>' % (n, a, ('<p>%s</p>' % b) if b else '')
         for n, a, b in T["know"]))
 
+    o.append(PARTNER)
     o.append('<div class="band"><div class="band-in">'
              '<h2>Take the whole thing. <em>Change the city.</em></h2>'
              '<p>Distance from where you are sleeping, what it costs, what to order, and the one thing nobody tells you. It works for Lima. It works for everywhere else on the list.</p>'
@@ -514,16 +711,16 @@ def build_trip(T):
 
 
 def build_index(trips):
-    o = [head("Cities I Work In | Steal My Itinerary",
-              "I speak and train in these cities, then I stay. Real itineraries built by distance from the hotel. Prices, what to order, fun facts, and the things nobody tells you before you go.",
+    o = [head("Every Trip Is Three Trips | Steal My Itinerary",
+              "Work, leisure and adventure in every city I land in. Real itineraries built by distance from the hotel. Prices, what to order, fun facts, and the things nobody tells you before you go.",
               "https://finessehumxn.com/itinerary.html"), NAV]
-    o.append('<header class="t-hero"><div class="eye">After the stage</div>'
-             '<h1><em>Cities</em><br><strong>I Work In.</strong></h1>'
-             '<p class="t-lede">Eight countries so far. The keynote is one room for one hour. <strong>The city is everything around it,</strong> and that is the part people actually ask me about afterward.</p>'
-             '<p class="t-lede">So I write it down. Every stop ranked by how far it is from the hotel I actually slept in, real prices, what to order by name, and the thing nobody tells you before you go. Steal any of it.</p>'
+    o.append('<header class="t-hero"><div class="eye">Work &#183; Leisure &#183; Adventure</div>'
+             '<h1>Every trip is<br><em>three trips.</em></h1>'
+             '<p class="t-lede">There is the reason I flew, whether that is a keynote, a training room or a build. There are the slow days around it. And there is the one thing I go do that has nothing to do with either, which is usually the part I remember.</p>'
+             '<p class="t-lede"><strong>I have never taken a trip that was only one of the three.</strong> So every stop here is tagged, and you can filter the whole city down to the version of the trip you are actually taking. Real prices, what to order by name, and the thing nobody tells you before you go.</p>'
              '<div class="legend"><span class="lg o">Order this</span><span class="lg f">Fun fact</span><span class="lg k">Must know</span></div>'
              '</header>')
-    o.append(ticker(["After the stage","8+ Countries","South Africa","Japan","Vietnam","Peru","Built on the ground","Real prices","What to order","Fun facts","Must knows","Cut lists","Steal my itinerary"]))
+    o.append(ticker(["Work","Leisure","Adventure","8+ Countries","South Africa","Japan","Vietnam","Peru","Built on the ground","Real prices","What to order","Fun facts","Must knows","Cut lists","Steal my itinerary"]))
 
     cards = []
     for t in trips:
@@ -547,10 +744,11 @@ def build_index(trips):
              '<div class="c"><h4>Real numbers</h4><p>Entry fees in local currency with the dollar conversion, opening hours by day, and the phone number to call. Verified the week the trip happened, with anything I could not confirm marked as unconfirmed.</p></div>'
              '<div class="c"><h4>Order this, fun fact, must know</h4><p>Three lines under every stop. What to actually order by name, one thing worth knowing about the place, and the practical detail that would have wrecked the day if I had not known it.</p></div>'
              '<div class="c"><h4>A cut list</h4><p>Every itinerary ends with what got cut and exactly why. Being honest about what does not fit is the difference between a plan and a wish list.</p></div>'
-             '<div class="c"><h4>Bend it to you</h4><p>Uncheck what you do not want. Skip the hard walking, skip the splurges, or show only what needs booking. Prices switch between local currency and dollars, the cost total moves as you edit, and you can copy your version out.</p></div>'
-             '<div class="c"><h4>Why I have these</h4><p>I do not travel for content. I travel to speak, train and build, and the days around the work are how I actually learn a city. These pages are what I would tell a friend flying in behind me.</p></div>'
+             '<div class="c"><h4>Bend it to you</h4><p>Filter the city down to work, leisure or adventure. Uncheck what you do not want. Skip the hard walking, skip the splurges, or show only what needs booking. Prices switch between local currency and dollars, the total moves as you edit, and you can copy your version out.</p></div>'
+             '<div class="c"><h4>Why I have these</h4><p>I fly for work more than anything else, but no trip has ever stayed in one lane. There is always a stage, always a slow afternoon, and always one thing I had no business doing. These pages are what I would tell a friend flying in behind me.</p></div>'
              '</div></section>')
 
+    o.append(PARTNER)
     o.append('<div class="band"><div class="band-in"><h2>Where should I <em>go next?</em></h2>'
              '<p>Tell me the city and I will build it the same way. New itineraries land here first.</p>'
              '<div class="btns"><a href="contact.html" class="bb bb-dark">Send Me a City</a>'
@@ -560,11 +758,11 @@ def build_index(trips):
 
 
 TRIPS = [
- {"href":"lima.html","flag":"Peru &#183; Aug 30 to Sep 4","name":"Lima by the Mile","days":"6","stops":"20","drive":"60 min",
+ {"href":"lima.html","flag":"Peru &#183; Work, leisure and adventure","name":"Lima by the Mile","days":"6","stops":"26","drive":"60 min",
   "blurb":"Three days with my parents out of Miraflores. A pyramid in the middle of the city, a Machu Picchu replica you reach by boat, a restaurant with no sign on the door, and the fountain park that costs one dollar."},
- {"soon":True,"flag":"South Africa","name":"Johannesburg","blurb":"The Hard Rock Cafe keynote trip. Being written now."},
- {"soon":True,"flag":"Vietnam","name":"Ho Chi Minh City","blurb":"Training at Saigon International University. Being written now."},
- {"soon":True,"flag":"Japan","name":"Tokyo","blurb":"The international speaking trip. Being written now."},
+ {"soon":True,"flag":"South Africa &#183; Work first","name":"Johannesburg","blurb":"The Hard Rock Cafe keynote, and everything I did once the mic was off. Being written now."},
+ {"soon":True,"flag":"Vietnam &#183; Work first","name":"Ho Chi Minh City","blurb":"Training at Saigon International University, then the city on my own time. Being written now."},
+ {"soon":True,"flag":"Japan &#183; Work first","name":"Tokyo","blurb":"The international speaking trip, and the adventure half nobody saw. Being written now."},
 ]
 
 os.makedirs(OUT, exist_ok=True)
