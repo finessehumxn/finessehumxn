@@ -33,7 +33,7 @@ NAV = '''
     <div class="nav-links">
       <a href="workshop.html">Workshop</a>
       <a href="learn.html">Learn</a>
-      <a href="itinerary.html" class="on">Itinerary</a>
+      <a href="itinerary.html" class="on">Cities</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </div>
@@ -44,7 +44,7 @@ NAV = '''
 <div class="mob-menu" id="mobMenu">
   <a href="workshop.html" class="mm-a">Free Workshop</a>
   <a href="learn.html" class="mm-a">Learn</a>
-  <a href="itinerary.html" class="mm-a">Steal My Itinerary</a>
+  <a href="itinerary.html" class="mm-a">Cities I Work In</a>
   <a href="about.html" class="mm-a">About</a>
   <a href="contact.html" class="mm-a">Contact</a>
   <a href="contact.html" class="mm-book">Book or Hire Me</a>
@@ -57,7 +57,7 @@ FOOT = r'''
     <div class="flinks">
       <a href="workshop.html">Free Workshop</a>
       <a href="learn.html">Learn</a>
-      <a href="itinerary.html">Steal My Itinerary</a>
+      <a href="itinerary.html">Cities I Work In</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
       <a href="https://millennialscreatives.com" target="_blank">Millennials Creatives</a>
@@ -507,23 +507,23 @@ def build_trip(T):
     o.append('<div class="band"><div class="band-in">'
              '<h2>Take the whole thing. <em>Change the city.</em></h2>'
              '<p>Distance from where you are sleeping, what it costs, what to order, and the one thing nobody tells you. It works for Lima. It works for everywhere else on the list.</p>'
-             '<div class="btns"><a href="itinerary.html" class="bb bb-dark">See Every Itinerary</a>'
+             '<div class="btns"><a href="itinerary.html" class="bb bb-dark">Every City</a>'
              '<a href="contact.html" class="bb bb-ghost">Send Me a City</a></div></div></div>')
     o.append(FOOT)
     return "\n".join(o)
 
 
 def build_index(trips):
-    o = [head("Steal My Itinerary | L.Finesse Humxn",
-              "Real itineraries from real trips, built by distance from the hotel. Prices, what to order, fun facts, and the things nobody tells you before you go.",
+    o = [head("Cities I Work In | Steal My Itinerary",
+              "I speak and train in these cities, then I stay. Real itineraries built by distance from the hotel. Prices, what to order, fun facts, and the things nobody tells you before you go.",
               "https://finessehumxn.com/itinerary.html"), NAV]
-    o.append('<header class="t-hero"><div class="eye">Steal my itinerary</div>'
-             '<h1><em>Take</em> the plan.<br><strong>Skip the research.</strong></h1>'
-             '<p class="t-lede">These are not roundups. Every trip here got built on the ground, in the city, from a hotel lobby, and every stop is ranked the way you actually plan a day. <strong>How far is it from where I am sleeping, and is it worth the drive.</strong></p>'
-             '<p class="t-lede">Real prices. What to order by name. The one thing nobody tells you before you go. Copy any of it.</p>'
+    o.append('<header class="t-hero"><div class="eye">After the stage</div>'
+             '<h1><em>Cities</em><br><strong>I Work In.</strong></h1>'
+             '<p class="t-lede">Eight countries so far. The keynote is one room for one hour. <strong>The city is everything around it,</strong> and that is the part people actually ask me about afterward.</p>'
+             '<p class="t-lede">So I write it down. Every stop ranked by how far it is from the hotel I actually slept in, real prices, what to order by name, and the thing nobody tells you before you go. Steal any of it.</p>'
              '<div class="legend"><span class="lg o">Order this</span><span class="lg f">Fun fact</span><span class="lg k">Must know</span></div>'
              '</header>')
-    o.append(ticker(["Steal my itinerary","Built on the ground","Real prices","What to order","Fun facts","Must knows","Cut lists","Distance from the hotel","New cities coming"]))
+    o.append(ticker(["After the stage","8+ Countries","South Africa","Japan","Vietnam","Peru","Built on the ground","Real prices","What to order","Fun facts","Must knows","Cut lists","Steal my itinerary"]))
 
     cards = []
     for t in trips:
@@ -537,7 +537,7 @@ def build_index(trips):
                          '<dl><div><dt>Days</dt><dd>%s</dd></div><div><dt>Stops</dt><dd>%s</dd></div>'
                          '<div><dt>Max drive</dt><dd>%s</dd></div></dl></a>'
                          % (t["href"], t["flag"], t["name"], t["blurb"], t["days"], t["stops"], t["drive"]))
-    o.append('<section class="sect"><div class="lbl">The trips</div><div class="trips">%s</div></section>' % "".join(cards))
+    o.append('<section class="sect"><div class="lbl">The cities</div><div class="trips">%s</div></section>' % "".join(cards))
 
     o.append('<section class="sect"><div class="lbl">How these are built</div>'
              '<h2>Same format<br><em>every time.</em></h2>'
@@ -547,6 +547,8 @@ def build_index(trips):
              '<div class="c"><h4>Real numbers</h4><p>Entry fees in local currency with the dollar conversion, opening hours by day, and the phone number to call. Verified the week the trip happened, with anything I could not confirm marked as unconfirmed.</p></div>'
              '<div class="c"><h4>Order this, fun fact, must know</h4><p>Three lines under every stop. What to actually order by name, one thing worth knowing about the place, and the practical detail that would have wrecked the day if I had not known it.</p></div>'
              '<div class="c"><h4>A cut list</h4><p>Every itinerary ends with what got cut and exactly why. Being honest about what does not fit is the difference between a plan and a wish list.</p></div>'
+             '<div class="c"><h4>Bend it to you</h4><p>Uncheck what you do not want. Skip the hard walking, skip the splurges, or show only what needs booking. Prices switch between local currency and dollars, the cost total moves as you edit, and you can copy your version out.</p></div>'
+             '<div class="c"><h4>Why I have these</h4><p>I do not travel for content. I travel to speak, train and build, and the days around the work are how I actually learn a city. These pages are what I would tell a friend flying in behind me.</p></div>'
              '</div></section>')
 
     o.append('<div class="band"><div class="band-in"><h2>Where should I <em>go next?</em></h2>'
@@ -560,7 +562,9 @@ def build_index(trips):
 TRIPS = [
  {"href":"lima.html","flag":"Peru &#183; Aug 30 to Sep 4","name":"Lima by the Mile","days":"6","stops":"20","drive":"60 min",
   "blurb":"Three days with my parents out of Miraflores. A pyramid in the middle of the city, a Machu Picchu replica you reach by boat, a restaurant with no sign on the door, and the fountain park that costs one dollar."},
- {"soon":True,"flag":"Coming next","name":"Asia","blurb":"Same format, new base hotel. In progress."},
+ {"soon":True,"flag":"South Africa","name":"Johannesburg","blurb":"The Hard Rock Cafe keynote trip. Being written now."},
+ {"soon":True,"flag":"Vietnam","name":"Ho Chi Minh City","blurb":"Training at Saigon International University. Being written now."},
+ {"soon":True,"flag":"Japan","name":"Tokyo","blurb":"The international speaking trip. Being written now."},
 ]
 
 os.makedirs(OUT, exist_ok=True)
