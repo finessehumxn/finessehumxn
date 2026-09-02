@@ -146,11 +146,30 @@ document.querySelectorAll('.mm-a,.mm-book').forEach(function(e){e.addEventListen
     document.getElementById('pcount').textContent=n;
     document.getElementById('pcost').textContent=money(c);
     document.getElementById('pdone').textContent=done+' of '+total;
-    document.querySelectorAll('.day').forEach(function(d){
-      var live=d.querySelectorAll('.stop:not(.dim)').length;
-      var g=d.querySelector('.glance'); if(g) g.hidden = live===0;
-      d.hidden = live===0;
+    // any filter on? then answer directly instead of making them scroll
+    var active = types.length || sel.cat.length || sel.area.length ||
+                 sel.band.length || sel.auth.length ||
+                 filters.hard || filters.splurge || filters.book;
+    var panel=document.getElementById('results');
+    var rows=document.querySelectorAll('#rlist .r');
+    var shown=0;
+    rows.forEach(function(r,i){
+      var out = stops[i] ? stops[i].classList.contains('dim') : false;
+      r.hidden = out; if(!out) shown++;
     });
+    document.getElementById('rcount').textContent =
+      shown + (shown===1 ? ' place matches' : ' places match');
+    document.getElementById('rnone').hidden = shown>0;
+    panel.hidden = !active;
+    document.querySelectorAll('.day').forEach(function(d){ d.hidden = !!active; });
+    document.querySelectorAll('.sect').forEach(function(d){ d.hidden = !!active; });
+    if(active && !window.__scrolled){
+      window.__scrolled = true;
+      setTimeout(function(){
+        panel.scrollIntoView({behavior:'smooth',block:'start'});
+        window.__scrolled = false;
+      }, 60);
+    }
     save();
   }
 
@@ -192,6 +211,12 @@ document.querySelectorAll('.mm-a,.mm-book').forEach(function(e){e.addEventListen
     stop.dataset.status=now;
     stop.querySelectorAll('.st').forEach(function(x){x.classList.toggle('on',x.dataset.s===now);});
     render();
+  });
+
+  var rclear=document.getElementById('rclear');
+  if(rclear) rclear.addEventListener('click',function(){
+    document.getElementById('rst').click();
+    document.querySelector('.controls').scrollIntoView({behavior:'smooth',block:'start'});
   });
 
   document.getElementById('rst').addEventListener('click',function(){
@@ -274,15 +299,6 @@ document.querySelectorAll('.mm-a,.mm-book').forEach(function(e){e.addEventListen
 
   load();
   document.querySelectorAll('.cb[data-f]').forEach(function(b){b.classList.toggle('on',!!filters[b.dataset.f]);});
-  ['cat','area','band','auth'].forEach(function(k){
-    document.querySelectorAll('.cb[data-'+k+']').forEach(function(b){
-      b.addEventListener('click',function(){
-        var v=b.dataset[k], i=sel[k].indexOf(v);
-        if(i>=0) sel[k].splice(i,1); else sel[k].push(v);
-        b.classList.toggle('on',sel[k].indexOf(v)>=0); render();
-      });
-    });
-  });
   document.querySelectorAll('.cb[data-t]').forEach(function(b){b.classList.toggle('on',types.indexOf(b.dataset.t)>=0);});
   ['cat','area','band','auth'].forEach(function(k){
     document.querySelectorAll('.cb[data-'+k+']').forEach(function(b){
