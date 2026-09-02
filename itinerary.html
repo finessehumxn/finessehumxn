@@ -153,8 +153,11 @@ document.querySelectorAll('.mm-a,.mm-book').forEach(function(e){e.addEventListen
     var panel=document.getElementById('results');
     var rows=document.querySelectorAll('#rlist .r');
     var shown=0;
-    rows.forEach(function(r,i){
-      var out = stops[i] ? stops[i].classList.contains('dim') : false;
+    rows.forEach(function(r){
+      // Match a result row to its day card by key. Position is not safe: the results
+      // panel skips information cards and collapses venues that repeat across days.
+      var src = document.querySelector('.stop[data-key="'+r.dataset.key+'"]');
+      var out = src ? src.classList.contains('dim') : true;
       r.hidden = out; if(!out) shown++;
     });
     document.getElementById('rcount').textContent =
