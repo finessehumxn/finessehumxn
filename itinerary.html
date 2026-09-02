@@ -77,7 +77,7 @@ document.querySelectorAll('.mm-a,.mm-book').forEach(function(e){e.addEventListen
   var RATE=3.37, bar=document.getElementById('planbar');
   if(!bar) return;
   var stops=[].slice.call(document.querySelectorAll('.stop')),
-      filters={hard:false,splurge:false,book:false}, types=[], cur='both', sel={cat:[],area:[],band:[],auth:[]};
+      filters={hard:false,splurge:false,book:false}, types=[], cur='both', sel={cat:[],area:[],band:[],auth:[],meal:[]};
   var FEEDBACK_TO='contact@millennialscreatives.com';
 
   function save(){try{localStorage.setItem('smi_lima',JSON.stringify({
@@ -85,7 +85,7 @@ document.querySelectorAll('.mm-a,.mm-book').forEach(function(e){e.addEventListen
   }));}catch(e){}}
   function load(){try{var d=JSON.parse(localStorage.getItem('smi_lima')||'null');if(!d)return;
     if(d.f)filters=d.f; if(d.t)types=d.t; if(d.c)cur=d.c;
-    if(d.s){['cat','area','band','auth'].forEach(function(k){ if(d.s[k]) sel[k]=d.s[k]; });}
+    if(d.s){['cat','area','band','auth','meal'].forEach(function(k){ if(d.s[k]) sel[k]=d.s[k]; });}
     (d.st||[]).forEach(function(v,i){
       if(!v||!stops[i])return;
       stops[i].dataset.status=v;
@@ -130,7 +130,7 @@ document.querySelectorAll('.mm-a,.mm-book').forEach(function(e){e.addEventListen
       if(filters.splurge && tags.indexOf('splurge')>=0) hidden=true;
       if(filters.book && !fixed && tags.indexOf('book')<0) hidden=true;
       if(types.length && !fixed && types.indexOf(s.dataset.type||'')<0) hidden=true;
-      ['cat','area','band','auth'].forEach(function(k){
+      ['cat','area','band','auth','meal'].forEach(function(k){
         if(sel[k].length && sel[k].indexOf(s.dataset[k]||'')<0) hidden=true;
       });
       s.classList.toggle('dim',hidden);
@@ -148,7 +148,7 @@ document.querySelectorAll('.mm-a,.mm-book').forEach(function(e){e.addEventListen
     document.getElementById('pdone').textContent=done+' of '+total;
     // any filter on? then answer directly instead of making them scroll
     var active = types.length || sel.cat.length || sel.area.length ||
-                 sel.band.length || sel.auth.length ||
+                 sel.band.length || sel.auth.length || sel.meal.length ||
                  filters.hard || filters.splurge || filters.book;
     var panel=document.getElementById('results');
     var rows=document.querySelectorAll('#rlist .r');
@@ -182,7 +182,7 @@ document.querySelectorAll('.mm-a,.mm-book').forEach(function(e){e.addEventListen
       b.classList.toggle('on',filters[b.dataset.f]); render();
     });
   });
-  ['cat','area','band','auth'].forEach(function(k){
+  ['cat','area','band','auth','meal'].forEach(function(k){
     document.querySelectorAll('.cb[data-'+k+']').forEach(function(b){
       b.addEventListener('click',function(){
         var v=b.dataset[k], i=sel[k].indexOf(v);
@@ -224,7 +224,7 @@ document.querySelectorAll('.mm-a,.mm-book').forEach(function(e){e.addEventListen
 
   document.getElementById('rst').addEventListener('click',function(){
     filters={hard:false,splurge:false,book:false}; types=[]; cur='both';
-    sel={cat:[],area:[],band:[],auth:[]};
+    sel={cat:[],area:[],band:[],auth:[],meal:[]};
     document.querySelectorAll('.cb[data-f],.cb[data-t],.cb[data-cat],.cb[data-area],.cb[data-band],.cb[data-auth]')
       .forEach(function(b){b.classList.remove('on');});
     document.querySelectorAll('.cb[data-cur]').forEach(function(b){b.classList.toggle('on',b.dataset.cur==='both');});
@@ -303,7 +303,7 @@ document.querySelectorAll('.mm-a,.mm-book').forEach(function(e){e.addEventListen
   load();
   document.querySelectorAll('.cb[data-f]').forEach(function(b){b.classList.toggle('on',!!filters[b.dataset.f]);});
   document.querySelectorAll('.cb[data-t]').forEach(function(b){b.classList.toggle('on',types.indexOf(b.dataset.t)>=0);});
-  ['cat','area','band','auth'].forEach(function(k){
+  ['cat','area','band','auth','meal'].forEach(function(k){
     document.querySelectorAll('.cb[data-'+k+']').forEach(function(b){
       b.classList.toggle('on', sel[k].indexOf(b.dataset[k])>=0);
     });
