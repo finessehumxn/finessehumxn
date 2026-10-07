@@ -30,4 +30,4 @@ Founder and AI and software engineer at Millennials Creatives.
 **Also**
 Executive Director of Finesse Our Minds, a youth mental health nonprofit offering free peer support from people who get it. Years of that work taught me the thing I design around: detection is the easy part. What happens in the moments after the signal fires is where systems fail.
 
-[finessehumxn.com/work](https://finessehumxn.com/work) · [LinkedIn](https://linkedin.com/in/lfinesseskills) · finessehumxn@gmail.com
+[finessehumxn.com/work](https://finessehumxn.com/work) · [LinkedIn](https://linkedin.com/in/finessehumxn) · finessehumxn@gmail.com
