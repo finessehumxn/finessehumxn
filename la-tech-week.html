@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LA Tech Week, Every Day | L.Finesse Humxn</title>
+<meta name="description" content="My plan for LA Tech Week, October 12 to 17: one part of town per day, the drive between every room, and the time to leave. Steal my itinerary.">
+<meta property="og:title" content="LA Tech Week, Every Day">
+<meta property="og:description" content="26 rooms across Los Angeles Tech Week, planned one neighbourhood per day.">
+<link rel="canonical" href="https://finessehumxn.com/la-tech-week">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+:root{--black:#0A0A08;--dark:#111110;--card:#1A1A18;--nude:#C4A882;--nude-light:#E8D5BC;--nude-dim:rgba(196,168,130,0.1);--nude-border:rgba(196,168,130,0.25);--cream:#F5EFE6;--white:#FDFAF6;--border:rgba(255,255,255,0.07);--muted:rgba(245,239,230,0.45);--body:rgba(245,239,230,0.72);}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:var(--black);color:var(--cream);-webkit-font-smoothing:antialiased;}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.15;}
+a{color:inherit;text-decoration:none;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:1.1rem 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,8,0.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--cream);}
+.nav-logo em{color:var(--nude);font-style:italic;}
+.nav-links{display:flex;gap:2rem;font-size:13px;color:var(--muted);}
+.nav-links a:hover{color:var(--cream);}
+.nb{font-size:12px;font-weight:600;padding:8px 18px;font-family:'Inter',sans-serif;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border:none;background:var(--nude);color:var(--black);}
+
+
+
+.hero{padding:9rem 2.5rem 3rem;max-width:860px;margin:0 auto;}
+.ey{font-size:10px;color:var(--nude);text-transform:uppercase;letter-spacing:.12em;font-weight:600;margin-bottom:1rem;}
+h1{font-size:3.5rem;font-weight:600;color:var(--white);line-height:1.05;margin-bottom:1.25rem;text-wrap:balance;}
+h1 em{color:var(--nude);font-style:italic;font-weight:400;}
+.lede{font-size:16px;color:var(--body);line-height:1.85;font-weight:300;max-width:620px;}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-top:2rem;max-width:560px;}
+.facts div{background:var(--card);padding:1rem;}
+.facts dt{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+.facts dd{font-family:'Cormorant Garamond',serif;font-size:1.9rem;color:var(--nude);font-variant-numeric:tabular-nums;}
+.section{padding:3rem 2.5rem;max-width:860px;margin:0 auto;border-top:1px solid var(--border);}
+.section h2{font-size:2.1rem;font-weight:600;color:var(--white);margin-bottom:.75rem;}
+.section h2 em{color:var(--nude);font-style:italic;font-weight:400;}
+.prog{position:sticky;top:64px;z-index:5;background:var(--black);border-bottom:1px solid var(--nude-border);padding:.75rem 0;margin-bottom:1rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--nude);font-weight:600;}
+.prog button{font:inherit;background:none;border:1px solid var(--border);color:var(--muted);padding:5px 12px;cursor:pointer;}
+.stop{display:grid;grid-template-columns:90px 1fr;gap:1.25rem;padding:1.5rem 0;border-bottom:1px solid var(--border);}
+.stop .tm{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:600;color:var(--nude);font-variant-numeric:tabular-nums;}
+.stop .bd{min-width:0;}
+.stop h3{font-size:1.45rem;font-weight:600;color:var(--white);margin-bottom:.25rem;}
+.meta{font-size:12px;color:var(--nude);letter-spacing:.03em;margin-bottom:.6rem;}
+.hop{font-size:13px;color:var(--cream);font-weight:500;margin-bottom:.4rem;}
+.why{font-size:14px;color:var(--body);line-height:1.75;font-weight:300;}
+.leave{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--nude);font-weight:600;margin-top:.6rem;}
+.chk{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);cursor:pointer;margin-bottom:.5rem;}
+.chk input{width:20px;height:20px;accent-color:var(--nude);cursor:pointer;}
+.stop.done{opacity:.45;}
+.stop.done h3{text-decoration:line-through;}
+.tips{display:grid;gap:.6rem;}
+.tips div{background:var(--card);border:1px solid var(--border);padding:1rem 1.1rem;font-size:14px;color:var(--body);line-height:1.75;}
+.tips strong{color:var(--cream);font-weight:500;}
+footer{padding:2rem 2.5rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--muted);}
+.footer-links{display:flex;gap:1.5rem;font-size:12px;color:var(--muted);}
+.footer-links a:hover{color:var(--cream);}
+
+
+@media(max-width:900px){.nav-links{display:none;}nav{padding:.9rem 1rem;}.hero{padding:7rem 1rem 2rem;}h1{font-size:2.4rem;}.section{padding:2.5rem 1rem;}.stop{grid-template-columns:1fr;gap:.25rem;}.facts{max-width:none;}footer{padding:2rem 1rem;}.prog{top:52px;}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+.dayh{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:600;color:var(--white);margin:2.5rem 0 .25rem}
+.dsub{font-size:13px;color:var(--muted);margin-bottom:.5rem}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">L.<em>Finesse</em> Humxn</a>
+  <div class="nav-links">
+    <a href="work.html">Work</a>
+    <a href="itinerary.html" style="color:var(--nude)">Cities</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <a href="itinerary.html" class="nb">All Cities</a>
+</nav>
+
+<header class="hero">
+  <div class="ey">Los Angeles &#183; Tech Week &#183; October 12 to 17, 2026</div>
+  <h1>LA Tech Week. <em>Every day, all day.</em></h1>
+  <p class="lede">San Francisco got one day. Los Angeles is home, so it gets the whole week. One part of town per day, because in LA the drive is the real schedule. Every stop shows the drive from the one before and the time to leave. Tick them off as you go.</p>
+  <p class="lede" style="margin-top:1rem">Fresh off <a href="nyc-hollywood-and-mind.html" style="color:var(--nude)">Hollywood &amp; Mind in New York</a> and <a href="sf-tech-week.html" style="color:var(--nude)">SF Tech Week</a>.</p>
+  <dl class="facts"><div><dt>Rooms</dt><dd>26</dd></div><div><dt>Days</dt><dd>4+</dd></div><div><dt>Metro fare</dt><dd>$1.75</dd></div></dl>
+</header>
+
+<section class="section" aria-label="The week">
+  <div class="prog"><span id="progtxt">0 of 26 done</span><button type="button" id="reset">Clear</button></div>
+  <h2 class="dayh">Monday 12 October</h2>
+  <p class="dsub">Downtown in the morning, then the Westside. Opening day, so be seen early.</p>
+  <article class="stop" id="s0">
+    <div class="tm">09:30</div>
+    <div class="bd">
+      <label class="chk"><input type="checkbox" id="c0" data-k="la-0"> <span>Done</span></label>
+      <h3>Women Backing Women</h3>
+      <p class="meta">Sisters Female Founders &#183; Downtown</p>
+      <p class="hop">Start of the day.</p>
+      <p class="why">The same founders who ran the SF edition. Capital matchmaking for women founders.</p>
+      <p class="leave">Leave at 11:30</p>
+    </div>
+  </article>
+  <article class="stop" id="s1">
+    <div class="tm">12:00</div>
+    <div class="bd">
+      <label class="chk"><input type="checkbox" id="c1" data-k="la-1"> <span>Done</span></label>
+      <h3>Wavemaker 360 Climb and Connect: Health-Tech at New Heights</h3>
+      <p class="meta">Wavemaker Three-Sixty Health &#183; Playa Vista</p>
+      <p class="hop">From Downtown: 30 to 45 min drive west.</p>
+      <p class="why">Health-tech founders and investors, climbing and talking.</p>
+      <p class="leave">Leave at 14:30</p>
+    </div>
+  </article>
+  <article class="stop" id="s2">
+    <div class="tm">15:00</div>
+    <div class="bd">
+      <label class="chk"><input type="checkbox" id="c2" data-k="la-2"> <span>Done</span></label>
+      <h3>Vibe Code Mama: AI Creator Salon with Michelle Phan</h3>
+      <p class="meta">Vibe Code Mama &#183; Culver City · featured</p>
+      <p class="hop">From Playa Vista: 10 to 15 min.</p>
+      <p class="why">Michelle Phan and creators deciding what AI means for their work.</p>
+      <p class="leave">Leave at 16:15</p>
+    </div>
+  </article>
+  <article class="stop" id="s3">
+    <div class="tm">16:30</div>
+    <div class="bd">
+      <label class="chk"><input type="checkbox" id="c3" data-k="la-3"> <span>Done</span></label>
+      <h3>The Penmar Social: Tinder x Wonder Ventures</h3>
+      <p class="meta">Wonder Ventures, Tinder &#183; Venice · featured</p>
+      <p class="hop">From Culver City: 15 to 20 min.</p>
+      <p class="why">Founders and operators, hosted by Wonder Ventures and Tinder.</p>
+      <p class="leave">Leave at 17:45</p>
+    </div>
+  </article>
+  <article class="stop" id="s4">
+    <div class="tm">18:00</div>
+    <div class="bd">
+      <label class="chk"><input type="checkbox" id="c4" data-k="la-4"> <span>Done</span></label>
+      <h3>The Official a16z Tech Week Kickoff</h3>
+      <p class="meta">HSBC, a16z speedrun, Fenwick &#183; Santa Monica · featured</p>
+      <p class="hop">From Venice: about 10 min.</p>
+      <p class="why">The official kickoff, presented by a16z with HSBC and Fenwick.</p>
+      <p class="leave">Leave at 18:50</p>
+    </div>
+  </article>
+  <article class="stop" id="s5">
+    <div class="tm">19:00</div>
+    <div class="bd">
+      <label class="chk"><input type="checkbox" id="c5" data-k="la-5"> <span>Done</span></label>
+      <h3>Scaling Innovation in Critical Industries: ACA x KPMG Founder Dinner</h3>
+      <p class="meta">Arizona Commerce Authority, KPMG &#183; Santa Monica</p>
+      <p class="hop">Same city, about 10 min. Tell the host you are coming from the kickoff.</p>
+      <p class="why">An Arizona Commerce Authority and KPMG founder dinner.</p>
+      <p class="leave">Last room of the day</p>
+    </div>
+  </article>
+  <h2 class="dayh">Tuesday 13 October</h2>
+  <p class="dsub">South LA in the morning, Culver City and the Marina in the afternoon. Your city, your people.</p>
+  <article class="stop" id="s6">
+    <div class="tm">08:00</div>
+    <div class="bd">
+      <label class="chk"><input type="checkbox" id="c6" data-k="la-6"> <span>Done</span></label>
+      <h3>Coffee On Slauson</h3>
+      <p class="meta">Slauson &amp; Co. &#183; Windsor Hills</p>
+      <p class="hop">Start of the day.</p>
+      <p class="why">An LA fund backing founders the rest of the week rarely sees.</p>
+      <p class="leave">Leave at 10:45</p>
+    </div>
+  </article>
+  <article class="stop" id="s7">
+    <div class="tm">11:00</div>
+    <div class="bd">
+      <label class="chk"><input type="checkbox" id="c7" data-k="la-7"> <span>Done</span></label>
+      <h3>South LA Founder House</h3>
+      <p class="meta">ChargerHelp! &#183; South LA</p>
+      <p class="hop">From Windsor Hills: about 10 min.</p>
+      <p class="why">A founder house in South LA, hosted by ChargerHelp!</p>
+      <p class="leave">Leave at 11:50</p>
+    </div>
+  </article>
+  <article class="stop" id="s8">
+    <div class="tm">12:00</div>
+    <div class="bd">
+      <label class="chk"><input type="checkbox" id="c8" data-k="la-8"> <span>Done</span></label>
+      <h3>Building in LA</h3>
+      <p class="meta">Slauson &amp; Co., J.P. Morgan &#183; Windsor Hills</p>
+      <p class="hop">Back to Windsor Hills, about 10 min. Eat here.</p>
+      <p class="why">Slauson &amp; Co. and J.P. Morgan on building companies in LA.</p>
+      <p class="leave">Leave at 14:40</p>
+    </div>
+  </article>
+  <article class="stop" id="s9">
+    <div class="tm">15:00</div>
+    <div class="bd">
+      <label class="chk"><input type="checkbox" id="c9" data-k="la-9"> <span>Done</span></label>
+      <h3>Fractionals Taco Tuesday</h3>
+      <p class="meta">Kat Rucker Consulting Group &#183; Culver City</p>
+      <p class="hop">From Windsor Hills: 10 to 15 min.</p>
+      <p class="why">A room of fractional operators.</p>
+      <p class="leave">Leave at 15:50</p>
+    </div>
+  </article>
+  <article class="stop" id="s10">
+    <div class="tm">16:00</div>
+    <div class="bd">
+      <label class="chk"><input type="checkbox" id="c10" data-k="la-10"> <span>Done</span></label>
+      <h3>Full Sphere: Going Global with a16z's Brian Roberts</h3>
+      <p class="meta">a16z, Sphere &#183; Marina del Rey · featured</p>
+      <p class="hop">From Culver City: about 15 min.</p>
+      <p class="why">a16z's Brian Roberts on taking companies global.</p>
+      <p class="leave">Leave at 16:55</p>
+    </div>
+  </article>
+  <article class="stop" id="s11">
+    <div class="tm">17:00</div>
+    <div class="bd">
+      <label class="chk"><input type="checkbox" id="c11" data-k="la-11"> <span>Done</span></label>
+      <h3>LA Agentic AI Meetup hosted by Pinecone</h3>
+      <p class="meta">Pinecone &#183; Playa Vista</p>
+      <p class="hop">From the Marina: about 10 min.</p>
+      <p class="why">Engineers building agentic AI, hosted by Pinecone.</p>
+      <p class="leave">Leave at 18:15</p>
+    </div>
+  </article>
+  <article class="stop" id="s12">
+    <div class="tm">18:30</div>
+    <div class="bd">
+      <label class="chk"><input type="checkbox" id="c12" data-k="la-12"> <span>Done</span></label>
+      <h3>Vitals: Consumer Health in the AI Era</h3>
+      <p class="meta">Kin Health, OpenEvidence, Upfront Ventures &#183; Westwood</p>
+      <p class="hop">From Playa Vista: 25 to 45 min at rush hour. Leave on time.</p>
+      <p class="why">Consumer health and AI, with Kin Health, OpenEvidence and Upfront Ventures.</p>
+      <p class="leave">Last room of the day</p>
+    </div>
+  </article>
+  <h2 class="dayh">Wednesday 14 October</h2>
+  <p class="dsub">Venice, Culver City, then Santa Monica. The biggest money day.</p>
+  <article class="stop" id="s13">
+    <div class="tm">09:30</div>
+    <div class="bd">
+      <label class="chk"><input type="checkbox" id="c13" data-k="la-13"> <span>Done</span></label>
+      <h3>The Visionary Edge: 10x Thinking and Agentic Architecture</h3>
+      <p class="meta">Google for Startups &#183; Venice · featured</p>
+      <p class="hop">Start of the day.</p>
+      <p class="why">Google for Startups on agentic architecture.</p>
+      <p class="leave">Leave at 10:15</p>
+    </div>
+  </article>
+  <article class="stop" id="s14">
+    <div class="tm">10:20</div>
+    <div class="bd">
+      <label class="chk"><input type="checkbox" id="c14" data-k="la-14"> <span>Done</span></label>
+      <h3>2nd Annual Health &amp; Wellness Innovation Summit</h3>
+      <p class="meta">ionava &#183; Venice</p>
+      <p class="hop">Same neighbourhood, a few minutes.</p>
+      <p class="why">Health and wellness founders and organisers.</p>
+      <p class="leave">Leave at 10:45</p>
+    </div>
+  </article>
+  <article class="stop" id="s15">
+    <div class="tm">11:00</div>
+    <div class="bd">
+      <label class="chk"><input type="checkbox" id="c15" data-k="la-15"> <span>Done</span></label>
+      <h3>AI-Native Services Summit with Fika and Emergence</h3>
+      <p class="meta">Fika Ventures &#183; Culver City</p>
+      <p class="hop">From Venice: 15 to 20 min.</p>
+      <p class="why">Fika Ventures on AI-native services companies.</p>
+      <p class="leave">Leave at 13:45</p>
+    </div>
+  </article>
+  <article class="stop" id="s16">
+    <div class="tm">14:00</div>
+    <div class="bd">
+      <label class="chk"><input type="checkbox" id="c16" data-k="la-16"> <span>Done</span></label>
+      <h3>AI Media Career Fair</h3>
+      <p class="meta">AI on the Lot &#183; Culver City</p>
+      <p class="hop">Same neighbourhood.</p>
+      <p class="why">Who is hiring in AI media.</p>
+      <p class="leave">Leave at 14:40</p>
+    </div>
+  </article>
+  <article class="stop" id="s17">
+    <div class="tm">15:00</div>
+    <div class="bd">
+      <label class="chk"><input type="checkbox" id="c17" data-k="la-17"> <span>Done</span></label>
+      <h3>Surprise, it's a speedrun pop-up</h3>
+      <p class="meta">a16z speedrun &#183; Santa Monica · featured</p>
+      <p class="hop">From Culver City: 20 to 30 min.</p>
+      <p class="why">A pop-up from a16z speedrun.</p>
+      <p class="leave">Leave at 15:50</p>
+    </div>
+  </article>
+  <article class="stop" id="s18">
+    <div class="tm">16:00</div>
+    <div class="bd">
+      <label class="chk"><input type="checkbox" id="c18" data-k="la-18"> <span>Done</span></label>
+      <h3>The Non-Diluted Stack: Funding Growth with SBA Debt, CDFIs, and Grants</h3>
+      <p class="meta">California Bank &amp; Trust, PACE-LA &#183; Santa Monica</p>
+      <p class="hop">Same city.</p>
+      <p class="why">Funding growth without giving up equity.</p>
+      <p class="leave">Leave at 17:20</p>
+    </div>
+  </article>
+  <article class="stop" id="s19">
+    <div class="tm">17:30</div>
+    <div class="bd">
+      <label class="chk"><input type="checkbox" id="c19" data-k="la-19"> <span>Done</span></label>
+      <h3>Building for Government: LA Govtech Happy Hour</h3>
+      <p class="meta">Edwin &#183; Santa Monica</p>
+      <p class="hop">Same city.</p>
+      <p class="why">LA's govtech builders.</p>
+      <p class="leave">Leave at 18:20</p>
+    </div>
+  </article>
+  <article class="stop" id="s20">
+    <div class="tm">18:30</div>
+    <div class="bd">
+      <label class="chk"><input type="checkbox" id="c20" data-k="la-20"> <span>Done</span></label>
+      <h3>AI Agents Speakeasy with LiveKit &amp; Modal</h3>
+      <p class="meta">LiveKit, Modal &#183; Santa Monica</p>
+      <p class="hop">Same city.</p>
+      <p class="why">Agent builders, hosted by LiveKit and Modal.</p>
+      <p class="leave">Last room of the day</p>
+    </div>
+  </article>
+  <h2 class="dayh">Thursday 15 October</h2>
+  <p class="dsub">Venice and Santa Monica, all day. The best day of the week.</p>
+  <article class="stop" id="s21">
+    <div class="tm">08:00</div>
+    <div class="bd">
+      <label class="chk"><input type="checkbox" id="c21" data-k="la-21"> <span>Done</span></label>
+      <h3>COFFEE + CONNECT</h3>
+      <p class="meta">Somarae &#183; Venice</p>
+      <p class="hop">Start of the day.</p>
+      <p class="why">An intentional founder and investor mixer.</p>
+      <p class="leave">Leave at 09:15</p>
+    </div>
+  </article>
+  <article class="stop" id="s22">
+    <div class="tm">09:30</div>
+    <div class="bd">
+      <label class="chk"><input type="checkbox" id="c22" data-k="la-22"> <span>Done</span></label>
+      <h3>a16z speedrun Startup Culture Brunch: Advisors + Angels</h3>
+      <p class="meta">a16z speedrun &#183; Santa Monica · featured</p>
+      <p class="hop">From Venice: about 10 min.</p>
+      <p class="why">Startup culture with speedrun's advisors and angels.</p>
+      <p class="leave">Leave at 10:30</p>
+    </div>
+  </article>
+  <article class="stop" id="s23">
+    <div class="tm">10:45</div>
+    <div class="bd">
+      <label class="chk"><input type="checkbox" id="c23" data-k="la-23"> <span>Done</span></label>
+      <h3>CLAUDE CREATOR SUMMIT by TechSpace</h3>
+      <p class="meta">Anthropic &#183; Venice · featured</p>
+      <p class="hop">From Santa Monica: about 10 min.</p>
+      <p class="why">Anthropic's creator summit.</p>
+      <p class="leave">Leave at 14:30</p>
+    </div>
+  </article>
+  <article class="stop" id="s24">
+    <div class="tm">15:00</div>
+    <div class="bd">
+      <label class="chk"><input type="checkbox" id="c24" data-k="la-24"> <span>Done</span></label>
+      <h3>Responsible AI as a Value Driver</h3>
+      <p class="meta">Fox Rothschild LLP &#183; Santa Monica</p>
+      <p class="hop">From Venice: about 10 min.</p>
+      <p class="why">How trustworthy AI becomes attractive to investors.</p>
+      <p class="leave">Leave at 16:45</p>
+    </div>
+  </article>
+  <article class="stop" id="s25">
+    <div class="tm">17:00</div>
+    <div class="bd">
+      <label class="chk"><input type="checkbox" id="c25" data-k="la-25"> <span>Done</span></label>
+      <h3>Build a Better LA with Lovable, Pledge &amp; LA2050 AI For Good</h3>
+      <p class="meta">Goldhirsh Foundation / LA2050, Pledge &#183; Santa Monica</p>
+      <p class="hop">Same city.</p>
+      <p class="why">LA2050 and Lovable on AI for good in Los Angeles.</p>
+      <p class="leave">Last room of the day</p>
+    </div>
+  </article>
+</section>
+
+<section class="section">
+  <h2>Getting <em>around</em></h2>
+  <div class="tips">
+    <div><strong>One neighbourhood per half day.</strong> Santa Monica, Venice, Marina del Rey, Playa Vista and Culver City are one lane. Downtown is another. Crossing town between 4pm and 7pm costs an hour you don&#8217;t get back.</div>
+    <div><strong>Metro E Line.</strong> $1.75 a ride with TAP, linking Santa Monica, Culver City and Downtown.</div>
+    <div><strong>Uber or Lyft.</strong> Short Westside hops run roughly $12 to $25. These are estimates, so check the app.</div>
+    <div><strong>Parking.</strong> Santa Monica and Venice fill fast in the evening. Park once per neighbourhood and walk between rooms.</div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Thank <em>you</em></h2>
+  <div class="tips">
+    <div><strong>Tech Week, presented by a16z</strong>, and the team at <a href="https://www.tech-week.com" style="color:var(--nude)">tech-week.com</a> who turn a whole city into a calendar anyone can apply to.</div>
+    <div><strong>The sponsors who make it free to walk in:</strong> a16z, Fenwick, HSBC Innovation Banking and IBM, with a16z speedrun, Adobe, Atlassian, AWS, Cloudflare, Deel, Fireworks AI, Google for Startups, Hyperagent, Intercom, PwC and Vercel.</div>
+    <div><strong>The hosts of the rooms on this page:</strong> Sisters Female Founders, Wavemaker Three-Sixty Health, Vibe Code Mama, Wonder Ventures, Tinder, HSBC, a16z speedrun, Fenwick, Arizona Commerce Authority, KPMG, Slauson and Co., ChargerHelp!, J.P. Morgan, Kat Rucker Consulting Group, a16z, Sphere, Pinecone, Kin Health, OpenEvidence, Upfront Ventures, Google for Startups, ionava, Fika Ventures, AI on the Lot, California Bank and Trust, PACE-LA, Edwin, LiveKit, Modal, Somarae, Anthropic, Fox Rothschild LLP, Goldhirsh Foundation / LA2050, Pledge.</div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Next year, <em>a different kind of room</em></h2>
+  <div class="tips">
+    <div>I run <strong>Finesse Our Minds</strong>, a youth mental health and suicide prevention nonprofit here in Los Angeles. Seven years of this work.</div>
+    <div>Next year I want to host mental health, suicide prevention and tech events at Tech Weeks around the world, starting at home.</div>
+    <div><strong>If you host at Tech Week, sponsor it, or want your name on that room,</strong> I want to hear from you. <a href="contact.html" style="color:var(--nude)">Get in touch</a> or email <strong>finessehumxn@gmail.com</strong>.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">L.Finesse Humxn &#169; 2026</div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="itinerary.html">Cities</a>
+    <a href="work.html">Work</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var P='fh-la-tw-';function g(k){try{return localStorage.getItem(P+k)}catch(e){return null}}function s(k,v){try{localStorage.setItem(P+k,v)}catch(e){}}
+  var boxes=document.querySelectorAll('.stop input[type=checkbox]');
+  function paint(){var n=0;boxes.forEach(function(b){b.closest('.stop').classList.toggle('done',b.checked);if(b.checked)n++;});document.getElementById('progtxt').textContent=n+' of '+boxes.length+' done';}
+  boxes.forEach(function(b){b.checked=g(b.dataset.k)==='1';b.addEventListener('change',function(){s(b.dataset.k,b.checked?'1':'0');paint();});});
+  document.getElementById('reset').addEventListener('click',function(){boxes.forEach(function(b){b.checked=false;s(b.dataset.k,'0');});paint();});
+  paint();
+})();
+</script>
+</body>
+</html>
