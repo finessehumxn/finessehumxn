@@ -16,10 +16,13 @@ Most of what I get called for is the same problem. A team bought or built an AI 
 - **HumxnMed**: patient health briefings behind a LangGraph guardrail that routes crisis input out before generation. [Live](https://humxnmed.millennialscreatives.com)
 - **MCProof**: Section 508 and security scanning that drafts the VPAT/ACR. [Live](https://mcproof.millennialscreatives.com)
 
-Most of that source is private because it is commercial. The design reasoning is public:
+**Open source.** Small, complete, tested tools built on patterns I run in production:
 
-- [ai-engineering-portfolio](https://github.com/finessehumxn/ai-engineering-portfolio): case studies covering the problem, what I built, what I rejected, and how I know it works
-- [emosafe-ai](https://github.com/finessehumxn/emosafe-ai) and [ai-failure-analysis](https://github.com/finessehumxn/ai-failure-analysis): how models behave on emotionally sensitive and crisis-adjacent input
+- **[failclosed-guardrail](https://github.com/finessehumxn/failclosed-guardrail)**: a LangGraph safety guardrail that fails closed. Crisis input exits before generation, the human-in-the-loop step is a real interrupt, and CI fails if any crisis case leaves the safety routes. 130 tests.
+- **[llm-failover](https://github.com/finessehumxn/llm-failover)**: multi-provider LLM routing with retries, per-provider circuit breakers and a deadline. Falling back never hides a revoked key. Zero required dependencies, 100 tests.
+- **[award-odds](https://github.com/finessehumxn/award-odds)**: a CLI that shows who actually won a federal grant program, using public USASpending data. Transparent rules, no LLM in the scoring path.
+
+The product source is private because it is commercial. The design reasoning is public in **[ai-engineering-portfolio](https://github.com/finessehumxn/ai-engineering-portfolio)**. Earlier experiments: [emosafe-ai](https://github.com/finessehumxn/emosafe-ai), [ai-failure-analysis](https://github.com/finessehumxn/ai-failure-analysis).
 
 **Where**
 Founder and AI and software engineer at Millennials Creatives.
