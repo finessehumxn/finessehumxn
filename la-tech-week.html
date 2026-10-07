@@ -82,30 +82,41 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--border);display:flex;align
 <header class="hero">
   <div class="ey">Los Angeles &#183; Tech Week &#183; October 12 to 17, 2026</div>
   <h1>LA Tech Week. <em>Every day, all day.</em></h1>
-  <p class="lede">San Francisco got one day. Los Angeles is home, so it gets the whole week. One part of town per day, because in LA the drive is the real schedule. Every stop shows the drive from the one before and the time to leave. Tick them off as you go.</p>
+  <p class="lede">San Francisco got one day. Los Angeles is home, so it gets the whole week, starting at 6am. One part of town per day, because in LA the drive is the real schedule. Every stop shows the drive from the one before and the time to leave. Tick them off as you go.</p>
   <p class="lede" style="margin-top:1rem">Fresh off <a href="nyc-hollywood-and-mind.html" style="color:var(--nude)">Hollywood &amp; Mind in New York</a> and <a href="sf-tech-week.html" style="color:var(--nude)">SF Tech Week</a>.</p>
-  <dl class="facts"><div><dt>Rooms</dt><dd>26</dd></div><div><dt>Days</dt><dd>4+</dd></div><div><dt>Metro fare</dt><dd>$1.75</dd></div></dl>
+  <dl class="facts"><div><dt>Rooms</dt><dd>31</dd></div><div><dt>Days</dt><dd>4+</dd></div><div><dt>First room</dt><dd>6am</dd></div></dl>
 </header>
 
 <section class="section" aria-label="The week">
-  <div class="prog"><span id="progtxt">0 of 26 done</span><button type="button" id="reset">Clear</button></div>
+  <div class="prog"><span id="progtxt">0 of 31 done</span><button type="button" id="reset">Clear</button></div>
   <h2 class="dayh">Monday 12 October</h2>
-  <p class="dsub">Downtown in the morning, then the Westside. Opening day, so be seen early.</p>
+  <p class="dsub">Santa Monica at dawn, Downtown mid-morning, then back west. Opening day, so be seen early.</p>
   <article class="stop" id="s0">
+    <div class="tm">06:30</div>
+    <div class="bd">
+      <label class="chk"><input type="checkbox" id="c0" data-k="la2-0"> <span>Done</span></label>
+      <h3>Sunrise Storytelling</h3>
+      <p class="meta">Need To Film Ltd &#183; Santa Monica · on the beach</p>
+      <p class="hop">Start of the day. Bring a jacket, it's cold on the sand at 6:30.</p>
+      <p class="why">Pitch practice on the beach at dawn, with a cinematic edit of your one-minute pitch to take home.</p>
+      <p class="leave">Leave at 08:15</p>
+    </div>
+  </article>
+  <article class="stop" id="s1">
     <div class="tm">09:30</div>
     <div class="bd">
-      <label class="chk"><input type="checkbox" id="c0" data-k="la-0"> <span>Done</span></label>
+      <label class="chk"><input type="checkbox" id="c1" data-k="la2-1"> <span>Done</span></label>
       <h3>Women Backing Women</h3>
       <p class="meta">Sisters Female Founders &#183; Downtown</p>
-      <p class="hop">Start of the day.</p>
+      <p class="hop">From Santa Monica: 30 to 45 min drive to Downtown.</p>
       <p class="why">The same founders who ran the SF edition. Capital matchmaking for women founders.</p>
       <p class="leave">Leave at 11:30</p>
     </div>
   </article>
-  <article class="stop" id="s1">
+  <article class="stop" id="s2">
     <div class="tm">12:00</div>
     <div class="bd">
-      <label class="chk"><input type="checkbox" id="c1" data-k="la-1"> <span>Done</span></label>
+      <label class="chk"><input type="checkbox" id="c2" data-k="la2-2"> <span>Done</span></label>
       <h3>Wavemaker 360 Climb and Connect: Health-Tech at New Heights</h3>
       <p class="meta">Wavemaker Three-Sixty Health &#183; Playa Vista</p>
       <p class="hop">From Downtown: 30 to 45 min drive west.</p>
@@ -113,10 +124,10 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--border);display:flex;align
       <p class="leave">Leave at 14:30</p>
     </div>
   </article>
-  <article class="stop" id="s2">
+  <article class="stop" id="s3">
     <div class="tm">15:00</div>
     <div class="bd">
-      <label class="chk"><input type="checkbox" id="c2" data-k="la-2"> <span>Done</span></label>
+      <label class="chk"><input type="checkbox" id="c3" data-k="la2-3"> <span>Done</span></label>
       <h3>Vibe Code Mama: AI Creator Salon with Michelle Phan</h3>
       <p class="meta">Vibe Code Mama &#183; Culver City · featured</p>
       <p class="hop">From Playa Vista: 10 to 15 min.</p>
@@ -124,10 +135,10 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--border);display:flex;align
       <p class="leave">Leave at 16:15</p>
     </div>
   </article>
-  <article class="stop" id="s3">
+  <article class="stop" id="s4">
     <div class="tm">16:30</div>
     <div class="bd">
-      <label class="chk"><input type="checkbox" id="c3" data-k="la-3"> <span>Done</span></label>
+      <label class="chk"><input type="checkbox" id="c4" data-k="la2-4"> <span>Done</span></label>
       <h3>The Penmar Social: Tinder x Wonder Ventures</h3>
       <p class="meta">Wonder Ventures, Tinder &#183; Venice · featured</p>
       <p class="hop">From Culver City: 15 to 20 min.</p>
@@ -135,10 +146,10 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--border);display:flex;align
       <p class="leave">Leave at 17:45</p>
     </div>
   </article>
-  <article class="stop" id="s4">
+  <article class="stop" id="s5">
     <div class="tm">18:00</div>
     <div class="bd">
-      <label class="chk"><input type="checkbox" id="c4" data-k="la-4"> <span>Done</span></label>
+      <label class="chk"><input type="checkbox" id="c5" data-k="la2-5"> <span>Done</span></label>
       <h3>The Official a16z Tech Week Kickoff</h3>
       <p class="meta">HSBC, a16z speedrun, Fenwick &#183; Santa Monica · featured</p>
       <p class="hop">From Venice: about 10 min.</p>
@@ -146,10 +157,10 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--border);display:flex;align
       <p class="leave">Leave at 18:50</p>
     </div>
   </article>
-  <article class="stop" id="s5">
+  <article class="stop" id="s6">
     <div class="tm">19:00</div>
     <div class="bd">
-      <label class="chk"><input type="checkbox" id="c5" data-k="la-5"> <span>Done</span></label>
+      <label class="chk"><input type="checkbox" id="c6" data-k="la2-6"> <span>Done</span></label>
       <h3>Scaling Innovation in Critical Industries: ACA x KPMG Founder Dinner</h3>
       <p class="meta">Arizona Commerce Authority, KPMG &#183; Santa Monica</p>
       <p class="hop">Same city, about 10 min. Tell the host you are coming from the kickoff.</p>
@@ -158,22 +169,33 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--border);display:flex;align
     </div>
   </article>
   <h2 class="dayh">Tuesday 13 October</h2>
-  <p class="dsub">South LA in the morning, Culver City and the Marina in the afternoon. Your city, your people.</p>
-  <article class="stop" id="s6">
+  <p class="dsub">Downtown at dawn, South LA in the morning, Culver City and the Marina in the afternoon. Your city, your people.</p>
+  <article class="stop" id="s7">
+    <div class="tm">06:15</div>
+    <div class="bd">
+      <label class="chk"><input type="checkbox" id="c7" data-k="la2-7"> <span>Done</span></label>
+      <h3>Science x AI Breakfast</h3>
+      <p class="meta">Endpoint Arena &#183; Downtown</p>
+      <p class="hop">Start of the day.</p>
+      <p class="why">Science and AI over an early breakfast.</p>
+      <p class="leave">Leave at 07:35</p>
+    </div>
+  </article>
+  <article class="stop" id="s8">
     <div class="tm">08:00</div>
     <div class="bd">
-      <label class="chk"><input type="checkbox" id="c6" data-k="la-6"> <span>Done</span></label>
+      <label class="chk"><input type="checkbox" id="c8" data-k="la2-8"> <span>Done</span></label>
       <h3>Coffee On Slauson</h3>
       <p class="meta">Slauson &amp; Co. &#183; Windsor Hills</p>
-      <p class="hop">Start of the day.</p>
+      <p class="hop">From Downtown: 20 to 25 min south to Windsor Hills.</p>
       <p class="why">An LA fund backing founders the rest of the week rarely sees.</p>
       <p class="leave">Leave at 10:45</p>
     </div>
   </article>
-  <article class="stop" id="s7">
+  <article class="stop" id="s9">
     <div class="tm">11:00</div>
     <div class="bd">
-      <label class="chk"><input type="checkbox" id="c7" data-k="la-7"> <span>Done</span></label>
+      <label class="chk"><input type="checkbox" id="c9" data-k="la2-9"> <span>Done</span></label>
       <h3>South LA Founder House</h3>
       <p class="meta">ChargerHelp! &#183; South LA</p>
       <p class="hop">From Windsor Hills: about 10 min.</p>
@@ -181,10 +203,10 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--border);display:flex;align
       <p class="leave">Leave at 11:50</p>
     </div>
   </article>
-  <article class="stop" id="s8">
+  <article class="stop" id="s10">
     <div class="tm">12:00</div>
     <div class="bd">
-      <label class="chk"><input type="checkbox" id="c8" data-k="la-8"> <span>Done</span></label>
+      <label class="chk"><input type="checkbox" id="c10" data-k="la2-10"> <span>Done</span></label>
       <h3>Building in LA</h3>
       <p class="meta">Slauson &amp; Co., J.P. Morgan &#183; Windsor Hills</p>
       <p class="hop">Back to Windsor Hills, about 10 min. Eat here.</p>
@@ -192,10 +214,10 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--border);display:flex;align
       <p class="leave">Leave at 14:40</p>
     </div>
   </article>
-  <article class="stop" id="s9">
+  <article class="stop" id="s11">
     <div class="tm">15:00</div>
     <div class="bd">
-      <label class="chk"><input type="checkbox" id="c9" data-k="la-9"> <span>Done</span></label>
+      <label class="chk"><input type="checkbox" id="c11" data-k="la2-11"> <span>Done</span></label>
       <h3>Fractionals Taco Tuesday</h3>
       <p class="meta">Kat Rucker Consulting Group &#183; Culver City</p>
       <p class="hop">From Windsor Hills: 10 to 15 min.</p>
@@ -203,10 +225,10 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--border);display:flex;align
       <p class="leave">Leave at 15:50</p>
     </div>
   </article>
-  <article class="stop" id="s10">
+  <article class="stop" id="s12">
     <div class="tm">16:00</div>
     <div class="bd">
-      <label class="chk"><input type="checkbox" id="c10" data-k="la-10"> <span>Done</span></label>
+      <label class="chk"><input type="checkbox" id="c12" data-k="la2-12"> <span>Done</span></label>
       <h3>Full Sphere: Going Global with a16z's Brian Roberts</h3>
       <p class="meta">a16z, Sphere &#183; Marina del Rey · featured</p>
       <p class="hop">From Culver City: about 15 min.</p>
@@ -214,10 +236,10 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--border);display:flex;align
       <p class="leave">Leave at 16:55</p>
     </div>
   </article>
-  <article class="stop" id="s11">
+  <article class="stop" id="s13">
     <div class="tm">17:00</div>
     <div class="bd">
-      <label class="chk"><input type="checkbox" id="c11" data-k="la-11"> <span>Done</span></label>
+      <label class="chk"><input type="checkbox" id="c13" data-k="la2-13"> <span>Done</span></label>
       <h3>LA Agentic AI Meetup hosted by Pinecone</h3>
       <p class="meta">Pinecone &#183; Playa Vista</p>
       <p class="hop">From the Marina: about 10 min.</p>
@@ -225,10 +247,10 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--border);display:flex;align
       <p class="leave">Leave at 18:15</p>
     </div>
   </article>
-  <article class="stop" id="s12">
+  <article class="stop" id="s14">
     <div class="tm">18:30</div>
     <div class="bd">
-      <label class="chk"><input type="checkbox" id="c12" data-k="la-12"> <span>Done</span></label>
+      <label class="chk"><input type="checkbox" id="c14" data-k="la2-14"> <span>Done</span></label>
       <h3>Vitals: Consumer Health in the AI Era</h3>
       <p class="meta">Kin Health, OpenEvidence, Upfront Ventures &#183; Westwood</p>
       <p class="hop">From Playa Vista: 25 to 45 min at rush hour. Leave on time.</p>
@@ -237,22 +259,44 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--border);display:flex;align
     </div>
   </article>
   <h2 class="dayh">Wednesday 14 October</h2>
-  <p class="dsub">Venice, Culver City, then Santa Monica. The biggest money day.</p>
-  <article class="stop" id="s13">
+  <p class="dsub">Santa Monica at dawn, then Venice, Culver City and back to Santa Monica. The biggest money day.</p>
+  <article class="stop" id="s15">
+    <div class="tm">06:00</div>
+    <div class="bd">
+      <label class="chk"><input type="checkbox" id="c15" data-k="la2-15"> <span>Done</span></label>
+      <h3>Don't Be a Frango Lifting Club: Midweek Pump</h3>
+      <p class="meta">Oxus Finance &#183; Santa Monica</p>
+      <p class="hop">Start of the day.</p>
+      <p class="why">A 6am lifting club for founders.</p>
+      <p class="leave">Leave at 07:40</p>
+    </div>
+  </article>
+  <article class="stop" id="s16">
+    <div class="tm">08:00</div>
+    <div class="bd">
+      <label class="chk"><input type="checkbox" id="c16" data-k="la2-16"> <span>Done</span></label>
+      <h3>Run &amp; Raise 5k</h3>
+      <p class="meta">DealMaker, Deel &#183; Santa Monica</p>
+      <p class="hop">Same city, a few minutes. Swap for the Growin Lab founders breakfast (8:00, Santa Monica) if you'd rather sit.</p>
+      <p class="why">A 5k for founders and investors.</p>
+      <p class="leave">Leave at 09:10</p>
+    </div>
+  </article>
+  <article class="stop" id="s17">
     <div class="tm">09:30</div>
     <div class="bd">
-      <label class="chk"><input type="checkbox" id="c13" data-k="la-13"> <span>Done</span></label>
+      <label class="chk"><input type="checkbox" id="c17" data-k="la2-17"> <span>Done</span></label>
       <h3>The Visionary Edge: 10x Thinking and Agentic Architecture</h3>
       <p class="meta">Google for Startups &#183; Venice · featured</p>
-      <p class="hop">Start of the day.</p>
+      <p class="hop">From Santa Monica: about 10 min to Venice.</p>
       <p class="why">Google for Startups on agentic architecture.</p>
       <p class="leave">Leave at 10:15</p>
     </div>
   </article>
-  <article class="stop" id="s14">
+  <article class="stop" id="s18">
     <div class="tm">10:20</div>
     <div class="bd">
-      <label class="chk"><input type="checkbox" id="c14" data-k="la-14"> <span>Done</span></label>
+      <label class="chk"><input type="checkbox" id="c18" data-k="la2-18"> <span>Done</span></label>
       <h3>2nd Annual Health &amp; Wellness Innovation Summit</h3>
       <p class="meta">ionava &#183; Venice</p>
       <p class="hop">Same neighbourhood, a few minutes.</p>
@@ -260,10 +304,10 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--border);display:flex;align
       <p class="leave">Leave at 10:45</p>
     </div>
   </article>
-  <article class="stop" id="s15">
+  <article class="stop" id="s19">
     <div class="tm">11:00</div>
     <div class="bd">
-      <label class="chk"><input type="checkbox" id="c15" data-k="la-15"> <span>Done</span></label>
+      <label class="chk"><input type="checkbox" id="c19" data-k="la2-19"> <span>Done</span></label>
       <h3>AI-Native Services Summit with Fika and Emergence</h3>
       <p class="meta">Fika Ventures &#183; Culver City</p>
       <p class="hop">From Venice: 15 to 20 min.</p>
@@ -271,10 +315,10 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--border);display:flex;align
       <p class="leave">Leave at 13:45</p>
     </div>
   </article>
-  <article class="stop" id="s16">
+  <article class="stop" id="s20">
     <div class="tm">14:00</div>
     <div class="bd">
-      <label class="chk"><input type="checkbox" id="c16" data-k="la-16"> <span>Done</span></label>
+      <label class="chk"><input type="checkbox" id="c20" data-k="la2-20"> <span>Done</span></label>
       <h3>AI Media Career Fair</h3>
       <p class="meta">AI on the Lot &#183; Culver City</p>
       <p class="hop">Same neighbourhood.</p>
@@ -282,10 +326,10 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--border);display:flex;align
       <p class="leave">Leave at 14:40</p>
     </div>
   </article>
-  <article class="stop" id="s17">
+  <article class="stop" id="s21">
     <div class="tm">15:00</div>
     <div class="bd">
-      <label class="chk"><input type="checkbox" id="c17" data-k="la-17"> <span>Done</span></label>
+      <label class="chk"><input type="checkbox" id="c21" data-k="la2-21"> <span>Done</span></label>
       <h3>Surprise, it's a speedrun pop-up</h3>
       <p class="meta">a16z speedrun &#183; Santa Monica · featured</p>
       <p class="hop">From Culver City: 20 to 30 min.</p>
@@ -293,10 +337,10 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--border);display:flex;align
       <p class="leave">Leave at 15:50</p>
     </div>
   </article>
-  <article class="stop" id="s18">
+  <article class="stop" id="s22">
     <div class="tm">16:00</div>
     <div class="bd">
-      <label class="chk"><input type="checkbox" id="c18" data-k="la-18"> <span>Done</span></label>
+      <label class="chk"><input type="checkbox" id="c22" data-k="la2-22"> <span>Done</span></label>
       <h3>The Non-Diluted Stack: Funding Growth with SBA Debt, CDFIs, and Grants</h3>
       <p class="meta">California Bank &amp; Trust, PACE-LA &#183; Santa Monica</p>
       <p class="hop">Same city.</p>
@@ -304,10 +348,10 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--border);display:flex;align
       <p class="leave">Leave at 17:20</p>
     </div>
   </article>
-  <article class="stop" id="s19">
+  <article class="stop" id="s23">
     <div class="tm">17:30</div>
     <div class="bd">
-      <label class="chk"><input type="checkbox" id="c19" data-k="la-19"> <span>Done</span></label>
+      <label class="chk"><input type="checkbox" id="c23" data-k="la2-23"> <span>Done</span></label>
       <h3>Building for Government: LA Govtech Happy Hour</h3>
       <p class="meta">Edwin &#183; Santa Monica</p>
       <p class="hop">Same city.</p>
@@ -315,10 +359,10 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--border);display:flex;align
       <p class="leave">Leave at 18:20</p>
     </div>
   </article>
-  <article class="stop" id="s20">
+  <article class="stop" id="s24">
     <div class="tm">18:30</div>
     <div class="bd">
-      <label class="chk"><input type="checkbox" id="c20" data-k="la-20"> <span>Done</span></label>
+      <label class="chk"><input type="checkbox" id="c24" data-k="la2-24"> <span>Done</span></label>
       <h3>AI Agents Speakeasy with LiveKit &amp; Modal</h3>
       <p class="meta">LiveKit, Modal &#183; Santa Monica</p>
       <p class="hop">Same city.</p>
@@ -327,22 +371,33 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--border);display:flex;align
     </div>
   </article>
   <h2 class="dayh">Thursday 15 October</h2>
-  <p class="dsub">Venice and Santa Monica, all day. The best day of the week.</p>
-  <article class="stop" id="s21">
-    <div class="tm">08:00</div>
+  <p class="dsub">Santa Monica at dawn, then Venice and Santa Monica all day. The best day of the week.</p>
+  <article class="stop" id="s25">
+    <div class="tm">06:00</div>
     <div class="bd">
-      <label class="chk"><input type="checkbox" id="c21" data-k="la-21"> <span>Done</span></label>
-      <h3>COFFEE + CONNECT</h3>
-      <p class="meta">Somarae &#183; Venice</p>
-      <p class="hop">Start of the day.</p>
-      <p class="why">An intentional founder and investor mixer.</p>
-      <p class="leave">Leave at 09:15</p>
+      <label class="chk"><input type="checkbox" id="c25" data-k="la2-25"> <span>Done</span></label>
+      <h3>Don't Be a Frango Lifting Club</h3>
+      <p class="meta">Oxus Finance &#183; Santa Monica</p>
+      <p class="hop">Start of the day. Runs daily 6 to 9.</p>
+      <p class="why">A 6am lifting club for founders.</p>
+      <p class="leave">Leave at 07:40</p>
     </div>
   </article>
-  <article class="stop" id="s22">
+  <article class="stop" id="s26">
+    <div class="tm">08:00</div>
+    <div class="bd">
+      <label class="chk"><input type="checkbox" id="c26" data-k="la2-26"> <span>Done</span></label>
+      <h3>Empowering Patients: How AI Can Expand Access to Care</h3>
+      <p class="meta">mQOL &#183; Santa Monica</p>
+      <p class="hop">Start of the day (after the 6am lifting club if you want it, Santa Monica, daily 6 to 9).</p>
+      <p class="why">How AI can widen access to care.</p>
+      <p class="leave">Leave at 09:20</p>
+    </div>
+  </article>
+  <article class="stop" id="s27">
     <div class="tm">09:30</div>
     <div class="bd">
-      <label class="chk"><input type="checkbox" id="c22" data-k="la-22"> <span>Done</span></label>
+      <label class="chk"><input type="checkbox" id="c27" data-k="la2-27"> <span>Done</span></label>
       <h3>a16z speedrun Startup Culture Brunch: Advisors + Angels</h3>
       <p class="meta">a16z speedrun &#183; Santa Monica · featured</p>
       <p class="hop">From Venice: about 10 min.</p>
@@ -350,10 +405,10 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--border);display:flex;align
       <p class="leave">Leave at 10:30</p>
     </div>
   </article>
-  <article class="stop" id="s23">
+  <article class="stop" id="s28">
     <div class="tm">10:45</div>
     <div class="bd">
-      <label class="chk"><input type="checkbox" id="c23" data-k="la-23"> <span>Done</span></label>
+      <label class="chk"><input type="checkbox" id="c28" data-k="la2-28"> <span>Done</span></label>
       <h3>CLAUDE CREATOR SUMMIT by TechSpace</h3>
       <p class="meta">Anthropic &#183; Venice · featured</p>
       <p class="hop">From Santa Monica: about 10 min.</p>
@@ -361,10 +416,10 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--border);display:flex;align
       <p class="leave">Leave at 14:30</p>
     </div>
   </article>
-  <article class="stop" id="s24">
+  <article class="stop" id="s29">
     <div class="tm">15:00</div>
     <div class="bd">
-      <label class="chk"><input type="checkbox" id="c24" data-k="la-24"> <span>Done</span></label>
+      <label class="chk"><input type="checkbox" id="c29" data-k="la2-29"> <span>Done</span></label>
       <h3>Responsible AI as a Value Driver</h3>
       <p class="meta">Fox Rothschild LLP &#183; Santa Monica</p>
       <p class="hop">From Venice: about 10 min.</p>
@@ -372,10 +427,10 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--border);display:flex;align
       <p class="leave">Leave at 16:45</p>
     </div>
   </article>
-  <article class="stop" id="s25">
+  <article class="stop" id="s30">
     <div class="tm">17:00</div>
     <div class="bd">
-      <label class="chk"><input type="checkbox" id="c25" data-k="la-25"> <span>Done</span></label>
+      <label class="chk"><input type="checkbox" id="c30" data-k="la2-30"> <span>Done</span></label>
       <h3>Build a Better LA with Lovable, Pledge &amp; LA2050 AI For Good</h3>
       <p class="meta">Goldhirsh Foundation / LA2050, Pledge &#183; Santa Monica</p>
       <p class="hop">Same city.</p>
@@ -400,7 +455,7 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--border);display:flex;align
   <div class="tips">
     <div><strong>Tech Week, presented by a16z</strong>, and the team at <a href="https://www.tech-week.com" style="color:var(--nude)">tech-week.com</a> who turn a whole city into a calendar anyone can apply to.</div>
     <div><strong>The sponsors who make it free to walk in:</strong> a16z, Fenwick, HSBC Innovation Banking and IBM, with a16z speedrun, Adobe, Atlassian, AWS, Cloudflare, Deel, Fireworks AI, Google for Startups, Hyperagent, Intercom, PwC and Vercel.</div>
-    <div><strong>The hosts of the rooms on this page:</strong> Sisters Female Founders, Wavemaker Three-Sixty Health, Vibe Code Mama, Wonder Ventures, Tinder, HSBC, a16z speedrun, Fenwick, Arizona Commerce Authority, KPMG, Slauson and Co., ChargerHelp!, J.P. Morgan, Kat Rucker Consulting Group, a16z, Sphere, Pinecone, Kin Health, OpenEvidence, Upfront Ventures, Google for Startups, ionava, Fika Ventures, AI on the Lot, California Bank and Trust, PACE-LA, Edwin, LiveKit, Modal, Somarae, Anthropic, Fox Rothschild LLP, Goldhirsh Foundation / LA2050, Pledge.</div>
+    <div><strong>The hosts of the rooms on this page:</strong> Need To Film Ltd, Sisters Female Founders, Wavemaker Three-Sixty Health, Vibe Code Mama, Wonder Ventures, Tinder, HSBC, a16z speedrun, Fenwick, Arizona Commerce Authority, KPMG, Endpoint Arena, Slauson and Co., ChargerHelp!, J.P. Morgan, Kat Rucker Consulting Group, a16z, Sphere, Pinecone, Kin Health, OpenEvidence, Upfront Ventures, Oxus Finance, DealMaker, Deel, Google for Startups, ionava, Fika Ventures, AI on the Lot, California Bank and Trust, PACE-LA, Edwin, LiveKit, Modal, mQOL, Anthropic, Fox Rothschild LLP, Goldhirsh Foundation / LA2050, Pledge.</div>
   </div>
 </section>
 
