@@ -1,6 +1,6 @@
 # L.Finesse Humxn
 
-Software engineer. Python primary, JavaScript secondary. These days I point that at AI systems: LangGraph agent orchestration, retrieval pipelines, and multi-provider LLM routing, plus the full-stack product around them.
+Software engineer working where mental health and technology meet. Python primary, JavaScript secondary. These days I point that at AI systems: LangGraph agent orchestration, retrieval pipelines, and multi-provider LLM routing, plus the full-stack product around them.
 
 Most of what I get called for is the same problem. A team bought or built an AI feature, it demoed beautifully, and it does not survive contact with real users. That is rarely a model problem. It is state, retries, fallback, and deciding what the system is allowed to do when it is unsure.
 
@@ -16,6 +16,9 @@ Most of what I get called for is the same problem. A team bought or built an AI 
 - **HumxnMed**: patient health briefings behind a LangGraph guardrail that routes crisis input out before generation. [Live](https://humxnmed.millennialscreatives.com)
 - **MCProof**: Section 508 and security scanning that drafts the VPAT/ACR. [Live](https://mcproof.millennialscreatives.com)
 
+**Building now**
+- **convoflow**: multi-tenant conversation ingestion on Postgres with an hourly compliance scanner. In a load test on one machine, it took 1M simulated items in about 20 seconds with a worker killed mid-run, and every item was accounted for. A 24-hour sustained run is underway. Private for now.
+
 **Open source.** Small, complete, tested tools built on patterns I run in production:
 
 - **[failclosed-guardrail](https://github.com/finessehumxn/failclosed-guardrail)**: a LangGraph safety guardrail that fails closed. Crisis input exits before generation, the human-in-the-loop step is a real interrupt, and CI fails if any crisis case leaves the safety routes. 130 tests.
@@ -25,7 +28,7 @@ Most of what I get called for is the same problem. A team bought or built an AI 
 The product source is private because it is commercial. The design reasoning is public in **[ai-engineering-portfolio](https://github.com/finessehumxn/ai-engineering-portfolio)**. Earlier experiments: [emosafe-ai](https://github.com/finessehumxn/emosafe-ai), [ai-failure-analysis](https://github.com/finessehumxn/ai-failure-analysis).
 
 **Where**
-Founder and AI and software engineer at Millennials Creatives.
+AI and software engineer at Millennials Creatives.
 
 **Also**
 Executive Director of Finesse Our Minds, a youth mental health nonprofit offering free peer support from people who get it. Years of that work taught me the thing I design around: detection is the easy part. What happens in the moments after the signal fires is where systems fail.
