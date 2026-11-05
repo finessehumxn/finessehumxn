@@ -6,7 +6,7 @@
 <title>Work — L.Finesse Humxn, Software Engineer</title>
 <meta name="description" content="Software engineer who builds AI systems: LangGraph agents, retrieval pipelines, full-stack products in production. Three case studies and rates.">
 <meta property="og:title" content="Work — L.Finesse Humxn, Software Engineer">
-<meta property="og:description" content="Three case studies in production software and AI systems, plus rates for audits, builds and fractional engineering.">
+<meta property="og:description" content="Four case studies in production software and AI systems, plus rates for audits, builds and fractional engineering.">
 <link rel="canonical" href="https://finessehumxn.com/work">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
@@ -91,7 +91,7 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--border);display:flex;align
 </header>
 
 <section class="section" id="case-studies">
-  <h2 class="sec-h">Three <em>case studies</em></h2>
+  <h2 class="sec-h">Four <em>case studies</em></h2>
   <p class="sec-sub">Most of the source is private because these are commercial products. The reasoning is written so it can be checked even where the code cannot. Longer versions are on <a href="https://github.com/finessehumxn/ai-engineering-portfolio" style="color:var(--nude)">GitHub</a>.</p>
 
   <article class="case">
@@ -134,6 +134,18 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--border);display:flex;align
     <p><strong>A conventional SaaS backend.</strong> It would bring scale and sync, and it would create a second copy of the customer&#8217;s liability and a breach target. <strong>Filling gaps with plausible numbers.</strong> Where a figure could not be verified to a primary source, the product says so. In a tool whose value is that its numbers are checkable, one invented figure discredits all the honest ones.</p>
     <h4>What happened</h4>
     <p>It is live and covers 11 regimes, from US state registries to GDPR, UK GDPR, LGPD, PIPEDA and Qu&#233;bec Law 25. <strong>304 tests across 55 suites</strong> pass, with the engine tested independently of the profiles so a new regime cannot silently change an old one. Tests check the rules as encoded. Whether the encoded rules still match current law is a research job, and the citations exist so a person can audit it.</p>
+  <article class="case">
+    <div class="case-num">04</div>
+    <h3>A pipeline that survives losing a worker</h3>
+    <div class="case-meta">convoflow &#183; multi-tenant conversation ingestion &#183; Python, Postgres &#183; private repo</div>
+    <h4>The problem</h4>
+    <p class="quote">When conversations arrive from voice, chat, email and SMS at once, a crash cannot lose one or file it twice.</p>
+    <h4>What I built</h4>
+    <p>Workers claim batches with <strong>FOR UPDATE SKIP LOCKED</strong> and write results in the same transaction, so a crash returns the batch to the queue. Content-hash keys make replays safe, Row Level Security keeps customers apart, and per-customer limits stop one customer slowing the others. An hourly scanner stores the exact evidence behind each finding.</p>
+    <h4>What I rejected</h4>
+    <p><strong>A separate message broker on day one.</strong> Keeping the queue in Postgres lets the claim and the write share one transaction, which removes a whole class of partial failure at this volume.</p>
+    <h4>What happened</h4>
+    <p>In a load test on one machine, it took <strong>1M simulated items in about 20 seconds</strong> with a worker killed mid-run, and every item was accounted for. A 24-hour sustained run is underway. This is a test system, not customer traffic.</p>
   </article>
 </section>
 
