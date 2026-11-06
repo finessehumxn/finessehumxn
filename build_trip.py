@@ -64,7 +64,7 @@ FOOT = r'''
     </div>
   </div>
   <p class="fnote">Hours, prices and phone numbers were verified at the time of writing and change without warning. Call ahead for anything you are counting on.</p>
-  <p class="fcopy">&#169; 2026 L.Finesse Humxn &#183; Millennials Creatives LLC &#183; California &#183; HQ: Phoenix, AZ &#183; contact@millennialscreatives.com</p>
+  <p class="fcopy">&#169; 2026 L.Finesse Humxn &#183; Millennials Creatives Inc &#183; California &#183; HQ: Phoenix, AZ &#183; contact@millennialscreatives.com</p>
 </footer>
 <script>
 function toggleNav(){document.getElementById('mobMenu').classList.toggle('open');}
