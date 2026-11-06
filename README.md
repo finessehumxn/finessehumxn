@@ -17,7 +17,7 @@ Most of what I get called for is the same problem. A team bought or built an AI 
 - **MCProof**: Section 508 and security scanning that drafts the VPAT/ACR. [Live](https://mcproof.millennialscreatives.com)
 
 **Building now**
-- **convoflow**: multi-tenant conversation ingestion on Postgres with an hourly compliance scanner. In a load test on one machine, it took 1M simulated items in about 20 seconds with a worker killed mid-run, and every item was accounted for. A 24-hour sustained run is underway. Private for now.
+- **convoflow**: multi-tenant conversation ingestion on Postgres for voice, chat, email and SMS, with an hourly compliance scanner. In a load test on one machine, it took 1M simulated items in about 20 seconds with a worker killed mid-run, and every item was accounted for. Fair per-customer claiming cut a quiet customer's 95th percentile wait under a 300,000-item flood from 4.65 seconds to 0.05. Rejected rows retry alone and can be repaired and replayed. A 24-hour sustained run is underway. Private for now.
 
 **Open source.** Small, complete, tested tools built on patterns I run in production:
 
