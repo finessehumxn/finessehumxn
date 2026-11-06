@@ -145,7 +145,7 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--border);display:flex;align
     <h4>What I rejected</h4>
     <p><strong>A separate message broker on day one.</strong> Keeping the queue in Postgres lets the claim and the write share one transaction, which removes a whole class of partial failure at this volume.</p>
     <h4>What happened</h4>
-    <p>In a load test on one machine, it took <strong>1M simulated items in about 20 seconds</strong> with a worker killed mid-run, and every item was accounted for. A 24-hour sustained run is underway. When one customer flooded the queue with 300,000 items, a quiet customer waited 4.65 seconds at the 95th percentile. After I added fair claiming per customer, that fell to 0.05 seconds, at the cost of about 15% peak throughput. This is a test system, not customer traffic.</p>
+    <p>In a load test on one machine, it took <strong>1M simulated items in about 20 seconds</strong> with a worker killed mid-run, and every item was accounted for. A 24-hour sustained run is underway. When one customer flooded the queue with 300,000 items, a quiet customer waited 4.65 seconds at the 95th percentile. After I added fair claiming per customer, that fell to 0.05 seconds, at the cost of about 15% peak throughput. If the database rejects a batch, each row retries alone with backoff, so one bad row cannot block the others, and rejected items keep their full payload so they can be fixed and replayed once. This is a test system, not customer traffic.</p>
   </article>
 </section>
 
