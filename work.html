@@ -137,7 +137,7 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--border);display:flex;align
   <article class="case">
     <div class="case-num">04</div>
     <h3>A pipeline that survives losing a worker</h3>
-    <div class="case-meta">convoflow &#183; multi-tenant conversation ingestion &#183; Python, Postgres &#183; private repo</div>
+    <div class="case-meta">convoflow &#183; multi-tenant conversation ingestion &#183; Python, Postgres, Railway, Terraform &#183; <a href="https://api-production-0f7cc354.up.railway.app">live demo</a> &#183; <a href="https://github.com/finessehumxn/convoflow">code</a></div>
     <h4>The problem</h4>
     <p class="quote">When conversations arrive from voice, chat, email and SMS at once, a crash cannot lose one or file it twice.</p>
     <h4>What I built</h4>
@@ -145,7 +145,7 @@ footer{padding:2rem 2.5rem;border-top:1px solid var(--border);display:flex;align
     <h4>What I rejected</h4>
     <p><strong>A separate message broker on day one.</strong> Keeping the queue in Postgres lets the claim and the write share one transaction, which removes a whole class of partial failure at this volume.</p>
     <h4>What happened</h4>
-    <p>In a load test on one machine, it took <strong>1M simulated items in about 20 seconds</strong> with a worker killed mid-run, and every item was accounted for. A 24-hour sustained run is underway. When one customer flooded the queue with 300,000 items, a quiet customer waited 4.65 seconds at the 95th percentile. After I added fair claiming per customer, that fell to 0.05 seconds, at the cost of about 15% peak throughput. If the database rejects a batch, each row retries alone with backoff, so one bad row cannot block the others, and rejected items keep their full payload so they can be fixed and replayed once. This is a test system, not customer traffic.</p>
+    <p>In a load test on one machine, it took <strong>1M simulated items in about 20 seconds</strong> with a worker killed mid-run, and every item was accounted for. A 24-hour run then pushed <strong>1,295,999 items through 20 customers with 3 workers killed</strong>: none lost, every planted violation found, 0.2 seconds at the 99th percentile. That run first reported a customer over its daily limit. The limit had held across the two days the run crossed midnight, but tracing it exposed a real bug: workers took the date from their own clocks, so machines in different time zones could disagree. The date now comes from the database, with a test that fails on the old code. When one customer flooded the queue with 300,000 items, a quiet customer waited 4.65 seconds at the 95th percentile. After I added fair claiming per customer, that fell to 0.05 seconds, at the cost of about 15% peak throughput. If the database rejects a batch, each row retries alone with backoff, so one bad row cannot block the others, and rejected items keep their full payload so they can be fixed and replayed once. It runs live with a page where you can send a message and watch it get flagged. This is a test system, not customer traffic.</p>
   </article>
 </section>
 
